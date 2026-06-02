@@ -36,6 +36,7 @@ Examples illustrate usage but are not canonical source truth.
 | [`00_start_here.md`](00_start_here.md) | Users | Entry point |
 | [`leap.md`](leap.md) | Users, maintainers, agents | Canonical framework reference |
 | [`leap-charter.md`](leap-charter.md) | Users, maintainers, agents | Canonical Charter reference |
+| [`dependency-contract-recon.md`](dependency-contract-recon.md) | Users, maintainers, agents | Supporting Recon reference |
 | [`glossary.md`](glossary.md) | Users, maintainers, agents | Canonical terminology reference |
 | [`risk-taxonomy.md`](risk-taxonomy.md) | Users, agents | Supporting reference |
 | [`agent-profiles.md`](agent-profiles.md) | Users, agents | Supporting reference |
@@ -46,6 +47,7 @@ Examples illustrate usage but are not canonical source truth.
 - Start with [`00_start_here.md`](00_start_here.md) for public LEAP usage.
 - Use [`leap.md`](leap.md) as the canonical current framework reference.
 - Use [`leap-charter.md`](leap-charter.md) as the canonical Charter reference.
+- Use [`dependency-contract-recon.md`](dependency-contract-recon.md) when Recon involves dependency registers, contract sources, provider API drift, or cross-repo contract evidence.
 - Treat user docs as downstream adoption guidance.
 - Treat maintainer docs as LEAP Framework repository guidance only.
 - Do not treat maintainer docs as downstream project instructions unless the current repository is the LEAP Framework repository.

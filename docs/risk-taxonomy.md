@@ -15,6 +15,7 @@ Implementation Gravity is the amount of coordination, risk, dependency ordering,
 | Product risk | Building the wrong workflow | LEAP Charter / no-build review |
 | Source-truth risk | Agent follows stale or archived docs | Charter reconciliation + manifest + doc lifecycle |
 | Architecture risk | Feature forced into bad structure | Recon + architecture right-sizing |
+| Dependency contract risk | Provider contract drift breaks consumer expectations | Dependency & Contract Recon + evidence-based follow-up |
 | Data risk | Destructive migration or data loss | Human approval + rollback plan |
 | Security risk | Auth/session/permission changes | Mandatory checkpoint |
 | Privacy risk | Sensitive user data exposed | Sensitive-area approval |
@@ -98,6 +99,7 @@ Escalate from Small Project Mode to Recon when:
 - repo reality is unknown
 - stale docs may affect the task
 - multiple files or shared contracts are involved
+- dependency contracts, provider APIs, or accepted versions may have drifted
 - API/schema/auth/billing/AI behavior may change
 - the work touches sensitive data
 - validation is unclear
@@ -129,6 +131,7 @@ A LEAP Recon or Prompt should summarize risk like this:
 - Product risk: low / medium / high
 - Source-truth risk: low / medium / high
 - Architecture risk: low / medium / high
+- Dependency contract risk: low / medium / high / not applicable
 - Data/security/privacy risk: low / medium / high
 - AI behavior risk: low / medium / high / not applicable
 - Collaboration risk: low / medium / high

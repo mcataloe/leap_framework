@@ -43,7 +43,7 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 LEAP Charter establishes or reconciles the project direction, source-of-truth docs, roadmap, baseline assumptions, and implementation posture.
 
-LEAP Recon investigates a focused area, gap, risk, feature, or architectural question.
+LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 
 LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 

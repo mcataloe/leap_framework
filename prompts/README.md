@@ -29,6 +29,8 @@ LEAP Prompt is the broad category of Codex-ready or agent-ready instruction arti
 
 Use Quick LEAP Brief or a standard implementation prompt for low-gravity work. Use LHS when implementation gravity is high enough to need staged execution, commit boundaries, tests and docs, multi-area coordination, compatibility checks, rollback awareness, or explicit acceptance criteria.
 
+Dependency & Contract Recon is a subprocess inside LEAP Recon, not a separate lifecycle phase. Use it when the repo declares or appears to depend on provider APIs, external services, packages, artifacts, shared contracts, or cross-repo contract sources. Supporting guidance lives in [`../docs/dependency-contract-recon.md`](../docs/dependency-contract-recon.md).
+
 ## Prompt categories
 
 ```text
@@ -82,7 +84,7 @@ Never let stale docs compete with source-of-truth docs.
 
 ### Recon prompts
 
-Use Recon prompts before implementation. They investigate a focused area, gap, risk, feature, or architectural question. They inspect source-of-truth manifests, document lifecycle status, repository reality, branch/worktree/PR drift, strategic-plan alignment, stale assumptions, existing functionality, cross-layer impact, risk, destructive-change implications, and recommended agent execution configuration before creating implementation prompts.
+Use Recon prompts before implementation. They investigate a focused area, gap, risk, feature, dependency, contract, or architectural question. They inspect source-of-truth manifests, document lifecycle status, repository reality, branch/worktree/PR drift, strategic-plan alignment, stale assumptions, existing functionality, dependency registers and contract sources when relevant, cross-layer impact, risk, destructive-change implications, and recommended agent execution configuration before creating implementation prompts.
 
 ### Implementation prompts
 

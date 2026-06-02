@@ -12,6 +12,14 @@ Release tag: leap-v0.1.9
 Status: current baseline; current branch changes remain unreleased
 ```
 
+Unreleased framework additions:
+
+```text
+- Dependency & Contract Recon subprocess inside LEAP Recon
+- Dependency register guidance for leap.dependencies.yaml
+- Starter dependency register example and permissive JSON Schema
+```
+
 Current Agent Pack:
 
 ```text
@@ -34,6 +42,14 @@ Canonical Charter reference:
 
 ```text
 docs/leap-charter.md
+```
+
+Supporting Dependency & Contract Recon reference:
+
+```text
+docs/dependency-contract-recon.md
+examples/leap.dependencies.yaml
+schemas/leap.dependencies.schema.json
 ```
 
 Release context is preserved through:

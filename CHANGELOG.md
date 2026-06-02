@@ -4,6 +4,22 @@ All notable current changes to the LEAP Framework will be documented here.
 
 Historical details that are not applicable to the current framework version should not remain in active docs. Use Git history, release notes, and release tags for older version detail.
 
+## Unreleased - Dependency & Contract Recon
+
+### Added
+
+- Added Dependency & Contract Recon as a subprocess inside LEAP Recon for dependency registers, provider contract links, and contract-drift findings.
+- Added `docs/dependency-contract-recon.md` as supporting guidance for dependency register detection, candidate dependency scanning, OpenAPI contract comparison, impact classification, evidence, confidence, and notification boundaries.
+- Added `examples/leap.dependencies.yaml` as a starter dependency register.
+- Added `schemas/leap.dependencies.schema.json` as a permissive starter schema for `leap.dependencies.yaml`.
+
+### Changed
+
+- Updated Recon prompts and templates to check dependency registers, inspect declared contract sources when accessible, compare provider evidence against consumer expectations, and classify findings as current-work impact, general system impact, or unknown / needs verification.
+- Added dependency contract risk to the risk taxonomy and Recon risk review.
+- Updated framework routing docs, glossary, README, and docs maps to reference Dependency & Contract Recon.
+- Clarified that notification automation, release blocking, ticket creation, runtime telemetry ingestion, and automatic cross-repo mutation remain out of scope by default.
+
 ## Unreleased - Dedicated LEAP Agent Pack repository
 
 ### Added

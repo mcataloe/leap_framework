@@ -2,7 +2,7 @@
 
 Use this template to request a LEAP Recon pass after LEAP Charter is complete, not needed, or an existing project already has sufficient source-of-truth documentation.
 
-Recon investigates a focused area, gap, risk, feature, or architectural question.
+Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 
 ```text
 Run LEAP Recon using the current LEAP framework.
@@ -26,6 +26,7 @@ Source-of-truth manifest:
 - Prompt backlog path:
 - Execution log path:
 - Cross-layer impact map path:
+- Dependency register path, if any:
 - Brownfield document inventory path:
 - Gap register path:
 - Migration map path:
@@ -50,6 +51,8 @@ Repo / branch context:
 - Open PRs or active branches to inspect, if known:
 - Areas likely affected:
 - Areas not to touch:
+- Dependency or contract sources to inspect, if known:
+- Current work operations or provider APIs involved, if known:
 
 Buildout settings:
 - Buildout mode: Rapid POC / Standard / Production-safe / Refactor
@@ -73,6 +76,14 @@ Required gate:
 - Treat archived docs as historical unless a canonical doc explicitly references them.
 - Inspect repo reality before implementation planning when repo access exists.
 - Search for already-existing functionality before recommending new work.
+- Detect `leap.dependencies.yaml` or an equivalent dependency register when present.
+- If no dependency register exists, scan for dependency candidates and clearly label generated entries as candidates.
+- Inspect declared dependency contract links such as OpenAPI, AsyncAPI, protobuf, GraphQL, provider repo URLs, docs URLs, package references, and artifacts when accessible.
+- For OpenAPI contracts, compare provider contract evidence against consumer expectations such as accepted versions, last verified version, baseline hash, compatibility policy, and declared operations used.
+- Separate dependency and contract findings into current-work impact, general system impact, and unknown / needs verification.
+- Include dependency name, type, contract source, expected and observed versions when known, operation/schema when known, severity, confidence, evidence, and recommended next action for every dependency-contract finding.
+- Keep provider repo and external contract access optional, read-only by default, permission-aware, and evidence-cited.
+- Keep notification automation out of scope unless I explicitly approve it; report manual follow-up recommendations only.
 - Check AGENTS.md Agent Pack metadata, managed/project/local markers, and manifest status when AGENTS.md exists or adoption is in scope.
 - Recommend an explicit Agent Execution Configuration before LEAP Prompt generation.
 - Recommend LHS only when implementation gravity warrants staged execution.
@@ -89,7 +100,7 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 ## Expected Recon sections
 
 ```text
-# LEAP Recon - <Target Area, Layer, Feature, Risk, or Question>
+# LEAP Recon - <Target Area, Layer, Feature, Dependency, Contract, Risk, or Question>
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
@@ -106,6 +117,7 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 ## 13. Generated / Refined Build Unit Inventory
 ## 14. Recommended Build Sequence
 ## 15. Dependency and Destructive-Change Review
+### Dependency & Contract Recon, when relevant
 ## 16. Risk Taxonomy Review
 ## 17. Architecture Right-Sizing Review
 ## 18. Human Checkpoints Required
@@ -114,6 +126,35 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 ## 21. Recommended Agent Execution Configuration
 ## 22. Clarification Questions Before LEAP Prompt Generation
 ## 23. Gate Decision / Next Step
+```
+
+## Dependency & Contract Recon subsection, when relevant
+
+```text
+### Dependency & Contract Recon
+
+- Dependency register found: yes/no/equivalent convention/unknown
+- Dependency register path:
+- Dependencies declared:
+- Contract sources accessible:
+- Contract sources inaccessible:
+- High-confidence breaking risks:
+- Potential breaking risks:
+- Current-work impacts:
+- General system impacts:
+- Needs verification:
+
+Current-work impact:
+| Dependency | Contract | Finding | Severity | Confidence | Evidence |
+|---|---|---|---|---|---|
+
+General system impact:
+| Dependency | Contract | Finding | Severity | Confidence | Evidence |
+|---|---|---|---|---|---|
+
+Needs verification:
+| Dependency | Issue | Reason | Recommended next action |
+|---|---|---|---|
 ```
 
 ## Recommended Agent Execution Configuration section

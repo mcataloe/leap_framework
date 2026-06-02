@@ -69,7 +69,47 @@ This means useful current content is absorbed into canonical docs, legacy origin
 
 The analysis, source-of-truth reconciliation, repo reality reconciliation, pressure-test, Build Unit generation/refinement, sequencing, cross-layer impact review, stale-assumption scan, execution-configuration recommendation, and clarification stage.
 
-LEAP Recon investigates a focused area, gap, risk, feature, or architectural question.
+LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
+
+## LEAP Dependency & Contract Recon
+
+A subprocess inside LEAP Recon that checks whether the current repo declares or appears to depend on external APIs, services, provider repositories, packages, artifacts, or shared contracts.
+
+It looks for `leap.dependencies.yaml` or an equivalent dependency register, follows declared contract links such as OpenAPI, AsyncAPI, protobuf, GraphQL, provider repo URLs, documentation URLs, packages, and artifacts when accessible, and reports whether provider evidence may affect current work or general system functionality.
+
+Dependency & Contract Recon is read-only by default for provider sources and must report incomplete evidence instead of guessing.
+
+## Dependency Register
+
+A machine-readable repo-level file, recommended as `leap.dependencies.yaml`, that records consumer-owned dependency metadata for LEAP Recon.
+
+It may include dependency name, type, direction, role, provider metadata, contract source, accepted versions, last verified version, baseline hash, compatibility policy, usage evidence, operations used, Recon confidence, and manual notification policy.
+
+If no register exists, LEAP Recon may recommend one and provide candidate entries, but generated entries are not confirmed facts until ratified.
+
+## Dependency Contract Finding
+
+A LEAP Recon finding that compares provider contract evidence against consumer expectations.
+
+Every finding should include dependency name, dependency type, contract source when available, expected version or accepted version range when declared, observed provider version when available, relevant operation or schema when known, finding, impact category, severity, confidence, evidence, and recommended next action.
+
+## Current-Work Impact
+
+A dependency or contract finding that appears relevant to the feature, bug fix, refactor, or implementation currently being requested.
+
+Examples include a changed endpoint used by the current work, a removed response field the current work depends on, a required provider version outside the accepted range, or a changed operation declared as used by the current repo.
+
+## General System Impact
+
+A dependency or contract finding that may affect the repo or portfolio but is not directly tied to the current implementation request.
+
+Examples include provider major-version drift, deprecated operations with unclear local usage, contract changes without declared code paths, or changes to endpoints outside the current work.
+
+## Unknown / Needs Verification
+
+A dependency or contract finding category used when LEAP cannot access enough evidence.
+
+Examples include inaccessible contract URLs, inaccessible provider repos, missing expected version metadata, missing baseline contracts, or local usage that cannot be tied to provider operations.
 
 ## LEAP Prompt
 

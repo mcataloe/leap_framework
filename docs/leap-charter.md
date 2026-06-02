@@ -30,7 +30,7 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 Lifecycle terms:
 
 - **LEAP Charter:** Establishes or reconciles the project direction, source-of-truth docs, roadmap, and implementation posture.
-- **LEAP Recon:** Investigates a focused area, gap, risk, feature, or architectural question.
+- **LEAP Recon:** Investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 - **LEAP Prompt:** Produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 - **Implementation:** The execution of the approved LEAP Prompt by Codex or another coding agent.
 - **Validation/Handoff:** The required completion step where Codex verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.

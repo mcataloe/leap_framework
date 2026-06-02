@@ -26,7 +26,7 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 Lifecycle terms:
 
 - **LEAP Charter:** Establishes or reconciles the project direction, source-of-truth documents, roadmap, baseline assumptions, and implementation posture.
-- **LEAP Recon:** Investigates a focused area, gap, risk, feature, or architectural question.
+- **LEAP Recon:** Investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 - **LEAP Prompt:** Produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 - **Implementation:** The execution of the approved LEAP Prompt by Codex or another coding agent.
 - **Validation/Handoff:** The required completion step where Codex verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
@@ -67,7 +67,8 @@ LEAP Framework
   |   `-- Brownfield Mode
   |
   |-- LEAP Recon
-  |   `-- Investigation / discovery / pressure testing
+  |   |-- Investigation / discovery / pressure testing
+  |   `-- Dependency & Contract Recon
   |
   |-- LEAP Prompt
   |   |-- Charter Prompt
@@ -220,7 +221,7 @@ Every LEAP run starts by classifying the request.
 
 | Request Type | Default LEAP Path | Escalate When |
 | --- | --- | --- |
-| Small task | Quick LEAP Brief or Small Project Mode | Scope is unclear, shared contracts change, tests are missing, or repo/docs conflict |
+| Small task | Quick LEAP Brief or Small Project Mode | Scope is unclear, shared contracts change, dependency contracts drift, tests are missing, or repo/docs conflict |
 | New product idea | LEAP Charter - Greenfield Mode | User/problem/workflow/MVP/non-goals are vague |
 | Major new feature | LEAP Charter -> Recon | User-facing workflow, data model, AI behavior, auth, billing, or privacy changes |
 | Existing repo layer | LEAP Charter - Brownfield Mode or Recon | Stale docs, open PRs, branch drift, partial implementation, or unclear layer boundary |
@@ -422,7 +423,21 @@ Red flags:
 
 ---
 
-## 12. Agent execution profile
+## 12. Dependency and contract recon
+
+Dependency & Contract Recon is a subprocess inside LEAP Recon. It checks whether the current repo declares or appears to depend on external APIs, services, provider repositories, packages, artifacts, or shared contracts, then reports whether available provider evidence may affect the current work or the broader system.
+
+Recon should first look for a repo-level dependency register such as `leap.dependencies.yaml` or an equivalent existing convention. If none exists, Recon should report that limitation, scan for dependency candidates from config, source clients, generated contracts, package manifests, IaC, CI/CD, tests, mocks, and docs, and recommend a starter register with candidate entries clearly labeled as unconfirmed.
+
+When contract links are declared, Recon should inspect them when accessible. Contract sources may include OpenAPI, AsyncAPI, protobuf, GraphQL schemas, provider repo URLs, documentation URLs, packages, and artifacts. Provider repo access is optional, read-only by default, permission-aware, and evidence-cited.
+
+For OpenAPI contracts, Recon should compare provider contract metadata and structure against consumer expectations such as accepted version ranges, last verified versions, baseline hashes, compatibility policies, and declared operations used. Findings should be classified as current-work impact, general system impact, or unknown / needs verification, and each finding must include severity, confidence, evidence, and a recommended next action.
+
+Notification automation, release blocking, ticket creation, runtime telemetry ingestion, provider repo mutation, consumer repo mutation, and full service catalog behavior are out of scope unless explicitly approved. Notification policy is metadata and manual follow-up guidance by default.
+
+Supporting reference: [`dependency-contract-recon.md`](dependency-contract-recon.md).
+
+## 13. Agent execution profile
 
 LEAP is tool-agnostic. Codex is one possible implementation agent, not the framework boundary.
 
@@ -448,7 +463,7 @@ Different agents need different constraints. Weak repo awareness requires strong
 
 ---
 
-## 13. Risk taxonomy
+## 14. Risk taxonomy
 
 LEAP risk categories:
 
@@ -457,6 +472,7 @@ LEAP risk categories:
 | Product risk | Building the wrong workflow | Charter / no-build review |
 | Source-truth risk | Agent follows stale docs | Charter reconciliation + manifest + doc lifecycle |
 | Architecture risk | Feature forced into bad structure | Recon + architecture right-sizing |
+| Dependency contract risk | Provider contract drift breaks consumer expectations | Dependency & Contract Recon + evidence-based follow-up |
 | Data risk | Destructive migration or data loss | Human approval + rollback plan |
 | Security risk | Auth/session/permission changes | Mandatory checkpoint |
 | Privacy risk | Sensitive user data exposed | Sensitive-area approval |
@@ -472,7 +488,7 @@ If the change can affect money, identity, privacy, data durability, legal exposu
 
 ---
 
-## 14. Destructive-change protocol
+## 15. Destructive-change protocol
 
 A destructive change is anything that can break, delete, rewrite, or invalidate existing state in a way that is not trivially reversible.
 
@@ -506,7 +522,7 @@ Human approval required before migration: yes/no.
 
 ---
 
-## 15. Agent failure modes
+## 16. Agent failure modes
 
 LEAP should guard against:
 
@@ -525,7 +541,7 @@ LEAP should guard against:
 
 ---
 
-## 16. Operational outputs
+## 17. Operational outputs
 
 ### LEAP Charter output
 
@@ -557,7 +573,7 @@ LEAP should guard against:
 ### Recon output
 
 ```text
-# LEAP Recon - <Target Area, Layer, Feature, Risk, or Question>
+# LEAP Recon - <Target Area, Layer, Feature, Dependency, Contract, Risk, or Question>
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
@@ -574,6 +590,7 @@ LEAP should guard against:
 ## 13. Generated / Refined Build Unit Inventory
 ## 14. Recommended Build Sequence
 ## 15. Dependency and Destructive-Change Review
+### Dependency & Contract Recon, when relevant
 ## 16. Risk Taxonomy Review
 ## 17. Architecture Right-Sizing Review
 ## 18. Human Checkpoints Required
@@ -620,7 +637,7 @@ Recommended next LEAP Recon / LEAP Prompt / LEAP LHS
 
 ---
 
-## 17. Canonical current documentation
+## 18. Canonical current documentation
 
 The active repository uses canonical current files instead of versioned active filenames.
 
@@ -650,7 +667,7 @@ https://github.com/mjcataldi/leap_agent_pack
 
 ---
 
-## 18. Repository maintenance rule
+## 19. Repository maintenance rule
 
 Active framework and prompt files should use canonical current paths:
 

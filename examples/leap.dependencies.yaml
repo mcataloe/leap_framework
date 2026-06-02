@@ -1,0 +1,54 @@
+# Example LEAP dependency register.
+# Copy this to a repository root as leap.dependencies.yaml and replace candidate values
+# with repo-specific evidence.
+
+repo: payments-api
+
+dependencies:
+  - name: customer-api
+    type: internal-rest-api
+    direction: outbound
+    role: consumer
+
+    provider:
+      team: customer-platform
+      repo_url: https://github.com/company/customer-api
+      repo_access: optional-read-only
+
+    contract:
+      type: openapi
+      name: Customer API
+      source: https://docs.company.com/customer-api/openapi.yaml
+      accepted_versions: "1.x"
+      last_verified_version: "1.8.2"
+      last_verified_contract_hash: optional-sha256-or-other-fingerprint
+      compatibility_policy: semver
+      breaking_change_policy: notify-consumers
+
+    usage:
+      environments:
+        - dev
+        - test
+        - prod
+      code_paths:
+        - src/clients/customerClient.ts
+      config_keys:
+        - CUSTOMER_API_BASE_URL
+      operations_used:
+        - GET /customers/{customerId}
+        - POST /customers/search
+
+    recon:
+      confidence: high
+      evidence:
+        - config/application.yml contains CUSTOMER_API_BASE_URL
+        - src/clients/customerClient.ts uses CustomerApiClient
+        - dependency register declares OpenAPI contract source
+
+    notification_policy:
+      notify_on:
+        - major-version
+        - breaking-change
+        - deprecation
+      channels:
+        - manual

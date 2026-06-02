@@ -15,7 +15,7 @@ People often begin with a feeling for what they want built.
 LEAP turns that feeling into a testable delivery path.
 
 LEAP Charter establishes or reconciles project direction, source-of-truth docs, roadmap, baseline assumptions, and implementation posture.
-LEAP Recon investigates a focused area, gap, risk, feature, or architectural question.
+LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 Implementation executes the approved prompt in the repository.
 Validation/Handoff verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
@@ -35,7 +35,8 @@ LEAP Framework
   |   |-- Greenfield Mode
   |   `-- Brownfield Mode
   |-- LEAP Recon
-  |   `-- Investigation / discovery / pressure testing
+  |   |-- Investigation / discovery / pressure testing
+  |   `-- Dependency & Contract Recon
   |-- LEAP Prompt
   |   |-- Charter Prompt
   |   |-- Recon Prompt
@@ -67,9 +68,11 @@ Never let stale docs compete with source-of-truth docs.
 
 ### LEAP Recon
 
-Recon investigates a focused area, gap, risk, feature, or architectural question before implementation planning.
+Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question before implementation planning.
 
-Recon must inspect source-of-truth manifests, documentation lifecycle status, stale assumptions, repo reality, branch/worktree/PR drift, existing functionality, cross-layer impacts, layer boundaries, human checkpoints, and the recommended agent execution configuration.
+Recon must inspect source-of-truth manifests, documentation lifecycle status, stale assumptions, repo reality, branch/worktree/PR drift, existing functionality, declared or detected dependency contracts, cross-layer impacts, layer boundaries, human checkpoints, and the recommended agent execution configuration.
+
+Dependency & Contract Recon is a subprocess inside Recon. It looks for `leap.dependencies.yaml` or an equivalent dependency register, follows declared contract links such as OpenAPI sources when accessible, compares provider evidence against consumer expectations, and separates findings into current-work impact, general system impact, and unknown / needs verification. See [`docs/dependency-contract-recon.md`](docs/dependency-contract-recon.md), [`examples/leap.dependencies.yaml`](examples/leap.dependencies.yaml), and [`schemas/leap.dependencies.schema.json`](schemas/leap.dependencies.schema.json).
 
 ### LEAP Prompt
 
@@ -131,7 +134,7 @@ Older version detail is preserved through Git history, [`CHANGELOG.md`](CHANGELO
 - [`docs/user/quick-leap-brief.md`](docs/user/quick-leap-brief.md) - the smallest useful LEAP workflow
 - [`templates/leap-charter-template.md`](templates/leap-charter-template.md) - start a new product, major direction, or brownfield reconciliation
 
-After Charter is approved, use [`templates/leap-recon-template.md`](templates/leap-recon-template.md) to request a Recon pass for the first focused area, target layer, feature, risk, or architectural question.
+After Charter is approved, use [`templates/leap-recon-template.md`](templates/leap-recon-template.md) to request a Recon pass for the first focused area, target layer, feature, risk, dependency, contract, or architectural question.
 
 After Recon is approved, use [`templates/leap-prompt-template.md`](templates/leap-prompt-template.md) to generate the final implementation, documentation, analysis, or remediation prompt.
 
@@ -145,6 +148,7 @@ Use the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack
 
 - [`docs/leap.md`](docs/leap.md) - canonical current framework document
 - [`docs/leap-charter.md`](docs/leap-charter.md) - Charter modes and brownfield documentation reconciliation
+- [`docs/dependency-contract-recon.md`](docs/dependency-contract-recon.md) - dependency register and contract-drift Recon guidance
 - [`docs/reference/README.md`](docs/reference/README.md) - current reference index
 
 ### Maintain LEAP Framework
@@ -174,6 +178,7 @@ docs/
   00_start_here.md
   README.md
   leap-charter.md
+  dependency-contract-recon.md
   leap.md
   glossary.md
   agent-profiles.md
@@ -189,6 +194,11 @@ docs/
   examples/
     small-build-unit.md
     full-layer-recon.md
+examples/
+  leap.dependencies.yaml
+  code-assistant-prompt-for-humans.md
+schemas/
+  leap.dependencies.schema.json
 templates/
   leap-charter-template.md
   leap-recon-template.md

@@ -37,6 +37,7 @@ What already exists?
 What do the current docs say?
 Which docs are canonical?
 Which docs are stale or archived?
+Which dependencies or external contracts may affect this work?
 What should not be built?
 What could go wrong?
 What should the agent stop and ask about?
@@ -110,8 +111,11 @@ Recon checks:
 - what already exists
 - what branches or PRs may conflict
 - what shared contracts may be affected
+- what declared or detected dependency contracts may have drifted
 - what Build Units should be sequenced
 ```
+
+Dependency & Contract Recon is part of LEAP Recon when dependencies, provider APIs, services, packages, or shared contracts are relevant. It looks for a dependency register such as `leap.dependencies.yaml`, follows declared contract links such as OpenAPI sources when accessible, and reports current-work impact, general system impact, or unknowns needing verification.
 
 ### 3. LEAP Prompt
 
@@ -242,6 +246,7 @@ Use full LEAP for:
 - documentation reconciliation
 - data model changes
 - API changes
+- dependency contract drift
 - auth/session/permission changes
 - billing or credit logic
 - privacy/security-sensitive features

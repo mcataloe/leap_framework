@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mjcataldi/leap_framework/schemas/leap.dependencies.schema.json",
+  "title": "LEAP Dependency Register",
+  "description": "Permissive starter schema for leap.dependencies.yaml.",
+  "type": "object",
+  "required": ["repo", "dependencies"],
+  "additionalProperties": true,
+  "properties": {
+    "repo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dependency"
+      }
+    }
+  },
+  "$defs": {
+    "dependency": {
+      "type": "object",
+      "required": ["name", "type"],
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "description": "Examples: internal-rest-api, external-rest-api, graphql-api, grpc-service, event-topic, queue, database, package-library."
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["inbound", "outbound", "bidirectional", "unknown"]
+        },
+        "role": {
+          "type": "string",
+          "enum": ["consumer", "provider", "both", "unknown"]
+        },
+        "provider": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "team": {
+              "type": "string"
+            },
+            "repo_url": {
+              "type": "string"
+            },
+            "repo_access": {
+              "type": "string",
+              "enum": ["optional-read-only", "required-read-only", "unavailable", "unknown"]
+            }
+          }
+        },
+        "contract": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["openapi", "asyncapi", "protobuf", "graphql", "package", "artifact", "documentation", "other", "unknown"]
+            },
+            "name": {
+              "type": "string"
+            },
+            "source": {
+              "type": "string"
+            },
+            "accepted_versions": {
+              "type": "string"
+            },
+            "last_verified_version": {
+              "type": "string"
+            },
+            "last_verified_contract_hash": {
+              "type": "string"
+            },
+            "compatibility_policy": {
+              "type": "string"
+            },
+            "breaking_change_policy": {
+              "type": "string"
+            }
+          }
+        },
+        "usage": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "environments": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "code_paths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "config_keys": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "operations_used": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "recon": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "confidence": {
+              "type": "string",
+              "enum": ["high", "medium", "low", "unknown"]
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "notification_policy": {
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "notify_on": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "channels": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
