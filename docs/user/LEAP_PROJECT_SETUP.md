@@ -7,7 +7,7 @@ LEAP_DOC_METADATA:
 END_LEAP_DOC_METADATA
 -->
 
-# Add LEAP to Your Project
+# LEAP Project Setup
 
 LEAP helps ChatGPT and Codex understand your project before they suggest or make changes.
 
