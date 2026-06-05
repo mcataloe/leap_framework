@@ -91,14 +91,14 @@ LEAP LHS is the **Layered House Standard** prompt format used for staged impleme
 
 | Prompt Type | Purpose | Use LHS? |
 | --- | --- | --- |
-| Charter Prompt | Establish or reconcile direction, docs, roadmap, baseline | Sometimes |
-| Recon Prompt | Investigate focused risk, repo reality, or implementation uncertainty | Usually no |
-| Standard Implementation Prompt | Small or medium implementation change | Sometimes no |
-| Fix Prompt | Specific bug or remediation | Usually no |
-| Refactor Prompt | Larger structural change | Often yes |
-| Governance Prompt | Repo/process/source-of-truth cleanup | Sometimes |
-| Validation Prompt | Verify tests/docs/acceptance and summarize handoff | Usually no |
-| LHS Prompt | Staged implementation sequence | Yes |
+| [Charter Prompt](../prompts/leap-charter-standard.md) | Establish or reconcile direction, docs, roadmap, baseline | Sometimes |
+| [Recon Prompt](../prompts/leap-recon-standard.md) | Investigate focused risk, repo reality, or implementation uncertainty | Usually no |
+| [Standard Implementation Prompt](../prompts/leap-prompt-standard.md) | Small or medium implementation change | Sometimes no |
+| [Fix Prompt](../prompts/leap-prompt-standard.md) | Specific bug or remediation | Usually no |
+| [Refactor Prompt](../prompts/leap-prompt-standard.md) | Larger structural change | Often yes |
+| [Governance Prompt](../prompts/leap-governance-pass-standard.md) | Repo/process/source-of-truth cleanup | Sometimes |
+| [Validation Prompt](../prompts/leap-prompt-standard.md) | Verify tests/docs/acceptance and summarize handoff | Usually no |
+| [LHS Prompt](leap.md) | Staged implementation sequence | Yes |
 
 ### Implementation Gravity
 
@@ -221,12 +221,12 @@ Every LEAP run starts by classifying the request.
 
 | Request Type | Default LEAP Path | Escalate When |
 | --- | --- | --- |
-| Small task | Quick LEAP Brief or Small Project Mode | Scope is unclear, shared contracts change, dependency contracts drift, tests are missing, or repo/docs conflict |
-| New product idea | LEAP Charter - Greenfield Mode | User/problem/workflow/MVP/non-goals are vague |
-| Major new feature | LEAP Charter -> Recon | User-facing workflow, data model, AI behavior, auth, billing, or privacy changes |
-| Existing repo layer | LEAP Charter - Brownfield Mode or Recon | Stale docs, open PRs, branch drift, partial implementation, or unclear layer boundary |
-| Strategic pivot | Brownfield Charter -> Recon | User, MVP, architecture, monetization, risk, or layer sequence changes |
-| Parallel-agent work | Ownership preflight -> per-agent Recon/Prompt | Shared files, schemas, APIs, generated types, migrations, auth, or state machines are involved |
+| Small task | [Quick LEAP Brief](user/quick-leap-brief.md) or Small Project Mode | Scope is unclear, shared contracts change, dependency contracts drift, tests are missing, or repo/docs conflict |
+| New product idea | [LEAP Charter - Greenfield Mode](leap-charter.md) | User/problem/workflow/MVP/non-goals are vague |
+| Major new feature | [LEAP Charter](leap-charter.md) -> [Recon](../templates/leap-recon-lite-template.md) | User-facing workflow, data model, AI behavior, auth, billing, or privacy changes |
+| Existing repo layer | [LEAP Charter - Brownfield Mode](leap-charter.md) or [Recon](../templates/leap-recon-lite-template.md) | Stale docs, open PRs, branch drift, partial implementation, or unclear layer boundary |
+| Strategic pivot | [Brownfield Charter](leap-charter.md) -> [Recon](../templates/leap-recon-lite-template.md) | User, MVP, architecture, monetization, risk, or layer sequence changes |
+| Parallel-agent work | Ownership preflight -> per-agent [Recon](../templates/leap-recon-lite-template.md)/[Prompt](../templates/leap-prompt-template.md) | Shared files, schemas, APIs, generated types, migrations, auth, or state machines are involved |
 
 Default rule:
 
@@ -469,10 +469,10 @@ LEAP risk categories:
 
 | Risk Area | Example | Control |
 | --- | --- | --- |
-| Product risk | Building the wrong workflow | Charter / no-build review |
-| Source-truth risk | Agent follows stale docs | Charter reconciliation + manifest + doc lifecycle |
-| Architecture risk | Feature forced into bad structure | Recon + architecture right-sizing |
-| Dependency contract risk | Provider contract drift breaks consumer expectations | Dependency & Contract Recon + evidence-based follow-up |
+| Product risk | Building the wrong workflow | [Charter](leap-charter.md) / no-build review |
+| Source-truth risk | Agent follows stale docs | [Charter](leap-charter.md) reconciliation + manifest + doc lifecycle |
+| Architecture risk | Feature forced into bad structure | [Recon](../templates/leap-recon-lite-template.md) + architecture right-sizing |
+| Dependency contract risk | Provider contract drift breaks consumer expectations | [Dependency & Contract Recon](dependency-contract-recon.md) + evidence-based follow-up |
 | Data risk | Destructive migration or data loss | Human approval + rollback plan |
 | Security risk | Auth/session/permission changes | Mandatory checkpoint |
 | Privacy risk | Sensitive user data exposed | Sensitive-area approval |

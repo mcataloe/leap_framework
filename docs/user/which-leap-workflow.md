@@ -18,10 +18,10 @@ Full LEAP is useful when direction, source truth, repo reality, or implementatio
 | If this is true | Start with |
 | --- | --- |
 | The task is small, source truth is clear, and the repo impact is localized. | [Quick LEAP Brief](quick-leap-brief.md) |
-| The project direction is unclear, or docs are stale or conflicting. | LEAP Charter |
-| A focused feature, risk, layer, dependency, contract, or architecture question needs investigation. | LEAP Recon |
-| The work is bounded and the agent needs implementation-ready instructions. | LEAP Prompt |
-| The work is staged, layered, multi-area, or needs explicit sequencing. | LEAP LHS |
+| The project direction is unclear, or docs are stale or conflicting. | [LEAP Charter](../leap-charter.md) |
+| A focused feature, risk, layer, dependency, contract, or architecture question needs investigation. | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
+| The work is bounded and the agent needs implementation-ready instructions. | [LEAP Prompt](../../templates/leap-prompt-template.md) |
+| The work is staged, layered, multi-area, or needs explicit sequencing. | [LEAP LHS](../leap.md) |
 
 Materiality Gate is not a phase. It is LEAP's question filter: inspect discoverable sources first, ask only when the answer changes the work, proceed on safe assumptions for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks.
 

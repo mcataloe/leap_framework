@@ -90,10 +90,10 @@ Materiality Gate is not a phase. It is LEAP's question filter: ask only when the
 | Use this | When |
 | --- | --- |
 | [Quick LEAP Brief](user/quick-leap-brief.md) | The task is small, source truth is clear, repo impact is localized, and one Build Unit or less is involved. |
-| LEAP Charter | Project direction is unclear, docs are stale or conflicting, a greenfield idea needs shaping, or a brownfield repo needs source-truth reconciliation. |
-| LEAP Recon | The baseline is good enough, but a focused feature, risk, layer, dependency, contract, or architecture question needs investigation. |
-| LEAP Prompt | The work is bounded, repo reality is understood, source truth is clear, and the coding agent needs implementation-ready instructions. |
-| LEAP LHS | Implementation gravity is high: staged, layered, multi-area work where tests, docs, rollback, sequence, or commit boundaries matter. |
+| [LEAP Charter](leap-charter.md) | Project direction is unclear, docs are stale or conflicting, a greenfield idea needs shaping, or a brownfield repo needs source-truth reconciliation. |
+| [LEAP Recon](../templates/leap-recon-lite-template.md) | The baseline is good enough, but a focused feature, risk, layer, dependency, contract, or architecture question needs investigation. |
+| [LEAP Prompt](../templates/leap-prompt-template.md) | The work is bounded, repo reality is understood, source truth is clear, and the coding agent needs implementation-ready instructions. |
+| [LEAP LHS](leap.md) | Implementation gravity is high: staged, layered, multi-area work where tests, docs, rollback, sequence, or commit boundaries matter. |
 
 For scenario examples and copy-ready starter phrasing, see [Which LEAP workflow should I use?](user/which-leap-workflow.md). For a short Recon request, use [LEAP Recon Lite](../templates/leap-recon-lite-template.md).
 

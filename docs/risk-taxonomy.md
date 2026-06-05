@@ -12,10 +12,10 @@ Implementation Gravity is the amount of coordination, risk, dependency ordering,
 
 | Risk Area | Example | Required Control |
 |---|---|---|
-| Product risk | Building the wrong workflow | LEAP Charter / no-build review |
-| Source-truth risk | Agent follows stale or archived docs | Charter reconciliation + manifest + doc lifecycle |
-| Architecture risk | Feature forced into bad structure | Recon + architecture right-sizing |
-| Dependency contract risk | Provider contract drift breaks consumer expectations | Dependency & Contract Recon + evidence-based follow-up |
+| Product risk | Building the wrong workflow | [LEAP Charter](leap-charter.md) / no-build review |
+| Source-truth risk | Agent follows stale or archived docs | [Charter](leap-charter.md) reconciliation + manifest + doc lifecycle |
+| Architecture risk | Feature forced into bad structure | [Recon](../templates/leap-recon-lite-template.md) + architecture right-sizing |
+| Dependency contract risk | Provider contract drift breaks consumer expectations | [Dependency & Contract Recon](dependency-contract-recon.md) + evidence-based follow-up |
 | Data risk | Destructive migration or data loss | Human approval + rollback plan |
 | Security risk | Auth/session/permission changes | Mandatory checkpoint |
 | Privacy risk | Sensitive user data exposed | Sensitive-area approval |

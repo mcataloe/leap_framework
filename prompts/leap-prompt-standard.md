@@ -12,14 +12,14 @@ LEAP Prompt is the broad category of Codex-ready or agent-ready instruction arti
 
 | Prompt Type | Purpose | Use LHS? |
 | --- | --- | --- |
-| Charter Prompt | Establish or reconcile direction, docs, roadmap, baseline | Sometimes |
-| Recon Prompt | Investigate focused risk, repo reality, or implementation uncertainty | Usually no |
-| Standard Implementation Prompt | Small or medium implementation change | Sometimes no |
-| Fix Prompt | Specific bug or remediation | Usually no |
-| Refactor Prompt | Larger structural change | Often yes |
-| Governance Prompt | Repo/process/source-of-truth cleanup | Sometimes |
-| Validation Prompt | Verify tests/docs/acceptance and summarize handoff | Usually no |
-| LHS Prompt | Staged implementation sequence | Yes |
+| [Charter Prompt](leap-charter-standard.md) | Establish or reconcile direction, docs, roadmap, baseline | Sometimes |
+| [Recon Prompt](leap-recon-standard.md) | Investigate focused risk, repo reality, or implementation uncertainty | Usually no |
+| [Standard Implementation Prompt](leap-prompt-standard.md) | Small or medium implementation change | Sometimes no |
+| [Fix Prompt](leap-prompt-standard.md) | Specific bug or remediation | Usually no |
+| [Refactor Prompt](leap-prompt-standard.md) | Larger structural change | Often yes |
+| [Governance Prompt](leap-governance-pass-standard.md) | Repo/process/source-of-truth cleanup | Sometimes |
+| [Validation Prompt](leap-prompt-standard.md) | Verify tests/docs/acceptance and summarize handoff | Usually no |
+| [LHS Prompt](../docs/leap.md) | Staged implementation sequence | Yes |
 
 The generated prompt must state its prompt type:
 
