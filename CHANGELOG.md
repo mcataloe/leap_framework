@@ -4,6 +4,12 @@ All notable current changes to the LEAP Framework will be documented here.
 
 Historical details that are not applicable to the current framework version should not remain in active docs. Use Git history, release notes, and release tags for older version detail.
 
+## Unreleased - Project setup instructions
+
+### Added
+
+- Added recommended full ChatGPT Project Instructions to the LEAP Project Setup guide, including command coverage for Charter, Recon, Prompt, LHS, Governance, Validation, and Handoff workflows.
+
 ## Unreleased - Materiality Gate
 
 ### Added

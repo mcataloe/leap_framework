@@ -31,6 +31,44 @@ Paste this:
 >
 > Do not guess. Use project files and repository evidence as the source of truth. If something is unknown, mark it as TBD.
 
+### Recommended Full Project Instructions
+
+Use this fuller version when you want ChatGPT to recognize the full LEAP command family and avoid generic responses.
+
+```text
+This project uses the LEAP Framework.
+
+When I invoke LEAP commands such as Run LEAP Charter, Run LEAP Recon, Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS, Run LEAP LHS, Run LEAP Governance, Run LEAP Validation, or Run LEAP Handoff, use LEAP Framework behavior instead of responding generically.
+
+Use the current LEAP Framework documentation as the governing framework source when repo access is available. Use this project's source-of-truth files, repository evidence, and current conversation context when available. If local project instructions conflict with the current LEAP Framework docs, flag the conflict instead of silently choosing one.
+
+Treat LEAP as:
+
+LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
+
+Preserve my wording unless I ask for rewriting. Use the required LEAP headings for the workflow being invoked. Inspect project files, source-of-truth docs, repo reality, branch/worktree/PR drift, existing functionality, and dependency or contract evidence when available and relevant.
+
+Do not claim repo inspection happened unless it actually happened.
+
+Do not generate implementation prompts prematurely. LEAP Prompt and LEAP LHS require sufficient source truth, repo reality, scope, non-goals, validation, stop conditions, and agent execution configuration.
+
+If context is missing, apply Materiality Gate: inspect discoverable sources first, ask only questions that would materially change the work, proceed on stated assumptions for non-material unknowns, and stop for source-truth, destructive-change, privacy, security, money, identity, legal, user-trust, or unapproved architecture risks.
+
+Always end LEAP outputs with a clear gate decision or recommended next step.
+```
+
+| Command | Expected LEAP behavior |
+|---|---|
+| `Run LEAP Charter` | Establish or reconcile project direction, source truth, roadmap, baseline assumptions, and implementation posture. |
+| `Run LEAP Recon` | Investigate a focused feature, risk, layer, dependency, contract, repo area, or architecture question before implementation planning. |
+| `Generate LEAP Prompt` | Create an agent-ready prompt only after source truth, repo reality, scope, validation, stop conditions, and execution configuration are clear enough. |
+| `Run LEAP Prompt` | Execute or apply an already-approved LEAP Prompt according to its scope, constraints, and stop conditions. |
+| `Generate LEAP LHS` | Create a staged Layered House Standard prompt only when implementation gravity warrants staged execution. |
+| `Run LEAP LHS` | Execute or apply an approved LHS prompt according to its Build Unit sequence, validation, and stop conditions. |
+| `Run LEAP Governance` | Reconcile framework, repo, docs, prompt-library, source-of-truth, terminology, or adoption drift. |
+| `Run LEAP Validation` | Verify completed work against scope, tests/checks, docs, acceptance criteria, and stop conditions. |
+| `Run LEAP Handoff` | Summarize completed work, unresolved risks, validation status, deviations, and recommended follow-up. |
+
 ## Step 2: Add AGENTS.md to Your GitHub Project Root
 
 Copy the LEAP repo-level AGENTS.md file into the root of your GitHub project.
@@ -101,6 +139,8 @@ For tiny, obvious tasks, you may not need Recon or full LEAP. Use a normal promp
 ## Simple Version
 
 If you only remember one thing, remember this:
+
+Use the Recommended Full Project Instructions in Step 1 when you want full LEAP command coverage.
 
 1. Add LEAP to ChatGPT Project Instructions.
 2. Put AGENTS.md in your GitHub project root.
