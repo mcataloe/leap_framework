@@ -22,6 +22,12 @@ Paste this:
 ```text
 This project uses the LEAP Framework.
 
+Use the current LEAP Framework documentation at https://github.com/mcataloe/leap_framework as the governing framework source when repo access is available.
+
+The project repository to inspect for this work is:
+
+{{ INSERT GITHUB REPOSITORY HANDLE OR PUBLICLY ACCESSIBLE REPOSITORY URL HERE }}
+
 When I invoke LEAP commands such as Run LEAP Charter, Run LEAP Recon, Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS, Run LEAP LHS, Run LEAP Governance, Run LEAP Validation, or Run LEAP Handoff, use LEAP Framework behavior instead of responding generically.
 
 Use the current LEAP Framework documentation as the governing framework source when repo access is available. Use this project's source-of-truth files, repository evidence, and current conversation context when available. If local project instructions conflict with the current LEAP Framework docs, flag the conflict instead of silently choosing one.
