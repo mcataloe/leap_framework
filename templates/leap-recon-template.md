@@ -71,6 +71,11 @@ Buildout settings:
 Required gate:
 - Verify whether the LEAP Charter baseline and source-of-truth manifest are sufficient.
 - Confirm whether more Ideation Loop questions are needed before planning implementation.
+- Apply Materiality Gate before asking clarifying questions.
+- Classify missing context as material, non-material, discoverable, or safe assumption.
+- Inspect discoverable repo/docs/contracts/tooling sources before asking the user.
+- Convert non-material unknowns into stated assumptions.
+- Ask only unresolved material questions needed to make the next safe gate decision.
 - Treat Brownfield Charter outputs as valid source-truth inputs when present.
 - Classify docs as Canonical, Supporting, Current but poorly organized, Partially useful, Stale, Conflicting, Duplicate, Completed implementation plan, Misleading, Archived, or Unknown.
 - Treat archived docs as historical unless a canonical doc explicitly references them.
@@ -93,7 +98,7 @@ Required gate:
 - If agent/tool, model, or reasoning level is missing, recommend safe defaults based on scope, ambiguity, and implementation risk.
 
 Return only the LEAP Recon output first. Do not generate the LEAP Prompt yet.
-At the end, ask any material clarification questions that should be answered before generating the LEAP Prompt.
+At the end, ask only material clarification questions that should be answered before generating the LEAP Prompt.
 Then remind me that I can say: "Generate the LEAP Prompt."
 ```
 
@@ -106,26 +111,45 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 ## 2. Source-of-Truth Manifest Check
 ## 3. LEAP Charter / Baseline Gate Check
 ## 4. Ideation Loop Residual Questions
-## 5. Repo Reality Reconciliation
-## 6. Branch / Worktree / PR Drift Review
-## 7. Documentation Lifecycle Review
-## 8. Strategic Plan Reconciliation
-## 9. Existing Functionality Collision Check
-## 10. Stale Assumption Scan
-## 11. Cross-Layer Impact Scan
-## 12. Layer Boundary Review
-## 13. Generated / Refined Build Unit Inventory
-## 14. Recommended Build Sequence
-## 15. Dependency and Destructive-Change Review
+## 5. Materiality Check
+## 6. Repo Reality Reconciliation
+## 7. Branch / Worktree / PR Drift Review
+## 8. Documentation Lifecycle Review
+## 9. Strategic Plan Reconciliation
+## 10. Existing Functionality Collision Check
+## 11. Stale Assumption Scan
+## 12. Cross-Layer Impact Scan
+## 13. Layer Boundary Review
+## 14. Generated / Refined Build Unit Inventory
+## 15. Recommended Build Sequence
+## 16. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 16. Risk Taxonomy Review
-## 17. Architecture Right-Sizing Review
-## 18. Human Checkpoints Required
-## 19. Execution Log / Drift Ledger Expectations
-## 20. Coding-Agent Risk Forecast
-## 21. Recommended Agent Execution Configuration
-## 22. Clarification Questions Before LEAP Prompt Generation
-## 23. Gate Decision / Next Step
+## 17. Risk Taxonomy Review
+## 18. Architecture Right-Sizing Review
+## 19. Human Checkpoints Required
+## 20. Execution Log / Drift Ledger Expectations
+## 21. Coding-Agent Risk Forecast
+## 22. Recommended Agent Execution Configuration
+## 23. Clarification Questions Before LEAP Prompt Generation
+## 24. Gate Decision / Next Step
+```
+
+## Materiality Check section
+
+```text
+## 5. Materiality Check
+
+### Material Unknowns
+Questions or missing facts that would change architecture, scope, risk, acceptance criteria, source-of-truth hierarchy, validation strategy, or implementation path.
+
+### Assumptions Proceeding Under
+Reasonable assumptions being used so Recon can continue without unnecessary blocking.
+
+### Deferred Non-Material Details
+Items that may improve polish, naming, formatting, or preference alignment but do not block the current recommendation.
+
+### Question Decision
+State whether LEAP should proceed with assumptions, inspect repo/docs first, or ask targeted clarifying questions.
 ```
 
 ## Dependency & Contract Recon subsection, when relevant
@@ -160,7 +184,7 @@ Needs verification:
 ## Recommended Agent Execution Configuration section
 
 ```text
-## 21. Recommended Agent Execution Configuration
+## 22. Recommended Agent Execution Configuration
 
 | Field | Recommendation | Rationale |
 |---|---|---|
@@ -174,7 +198,7 @@ Needs verification:
 
 ## Recon confidence guidance
 
-Use confidence as a heuristic, not as a blocker override:
+Use confidence as a heuristic, not as a blocker override or question-loop excuse:
 
 ```text
 New product / baseline: 90-95%
@@ -185,6 +209,8 @@ Tiny local fix: 50-60%, if no shared contracts are touched
 ```
 
 Hard blockers override confidence impressions.
+
+If confidence is below target because of non-material unknowns, proceed with stated assumptions. If confidence is below target because of material unknowns, ask targeted questions.
 
 ## LHS note
 
