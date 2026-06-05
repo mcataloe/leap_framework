@@ -25,6 +25,73 @@ Full LEAP is useful when direction, source truth, repo reality, or implementatio
 
 Materiality Gate is not a phase. It is LEAP's question filter: inspect discoverable sources first, ask only when the answer changes the work, proceed on safe assumptions for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks.
 
+## Recommended Same-Thread Workflow
+
+LEAP works best when ideation, clarification, Recon, and prompt generation stay in the same conversation whenever practical.
+
+When the discussion happens in the same thread, you do not need to restate every detail. The prior conversation is part of the working context.
+
+A normal workflow can be:
+
+1. Discuss the feature, risk, bug, or project idea naturally.
+2. Ask questions, compare options, and pressure test the idea.
+3. When ready, use a short LEAP command.
+
+Examples:
+
+```text
+Run LEAP Recon on what we just discussed.
+```
+
+```text
+Run LEAP Recon on the password reset idea above.
+```
+
+```text
+Run LEAP Charter on the app idea we just talked through.
+```
+
+```text
+Generate a LEAP Prompt from the approved Recon above.
+```
+
+```text
+Turn the Build Unit sequence above into a LEAP LHS prompt.
+```
+
+```text
+Run LEAP Validation/Handoff on the completed changes above.
+```
+
+## When to Add More Detail
+
+Use a longer prompt when:
+
+- starting a new conversation
+- the previous discussion is not visible
+- you want LEAP to focus on a specific risk
+- the repo, branch, file, dependency, or source-truth location needs to be named
+- you need to set hard boundaries up front
+
+In the same thread, prefer short commands. LEAP should inspect available context, classify the request, ask only material questions, and avoid making you repeat the framework checklist.
+
+New-thread example:
+
+```text
+Run LEAP Recon on password reset for this repo.
+
+Context:
+- The app already has login and signup.
+- We want users to reset forgotten passwords by email.
+- We have not decided token expiration, rate limits, or email template behavior.
+```
+
+Optional steering can be short:
+
+```text
+Run LEAP Recon on the onboarding improvement idea above, focusing on source-truth gaps and UX risk.
+```
+
 ## Scenarios
 
 ### I have a new app idea.
@@ -38,7 +105,7 @@ Why: Charter turns early intent into a project baseline before any agent starts 
 Starter phrasing:
 
 ```text
-Run LEAP Charter for this new app idea. Help clarify the user, problem, MVP, non-goals, risks, source-truth docs, and recommended next LEAP Recon or LEAP Prompt.
+Run LEAP Charter on the app idea we just talked through.
 ```
 
 ### My repo has old docs and I do not know what is current.
@@ -52,7 +119,7 @@ Why: Brownfield Charter canonicalizes current docs forward, archives stale docs 
 Starter phrasing:
 
 ```text
-Run Brownfield LEAP Charter for this existing repo. Inspect current docs and repo reality, classify docs by lifecycle status, identify source truth, and recommend the next Recon or Prompt sequence.
+Run Brownfield LEAP Charter for this repo.
 ```
 
 ### The project direction is clear, but I need to investigate authentication.
@@ -66,7 +133,7 @@ Why: Recon checks source truth and repo reality before turning uncertainty into 
 Starter phrasing:
 
 ```text
-Run LEAP Recon on authentication. Inspect source-truth docs, repo reality, existing auth behavior, contracts, tests, risks, material unknowns, and whether a LEAP Prompt is ready.
+Run LEAP Recon on authentication.
 ```
 
 For a shorter starter format, use the [LEAP Recon Lite template](../../templates/leap-recon-lite-template.md).
@@ -82,7 +149,7 @@ Why: LEAP Prompt converts a bounded task into agent-ready instructions.
 Starter phrasing:
 
 ```text
-Generate a LEAP Prompt for this bounded task. Include objective, source-truth instructions, scope, non-goals, constraints, implementation sequence, verification, stop conditions, branch/worktree guidance, and completion report format.
+Generate a LEAP Prompt from the approved Recon above.
 ```
 
 ### This is just a small doc or UI fix.
@@ -96,7 +163,7 @@ Why: Quick LEAP Brief keeps the important guardrails without making the process 
 Starter phrasing:
 
 ```text
-Use a Quick LEAP Brief for this small task. Keep scope localized, state source truth, list files to inspect and not touch, define verification, and stop if the work expands beyond the brief.
+Use a Quick LEAP Brief for this small task.
 ```
 
 ### This work touches several areas and needs staged commits.
@@ -110,5 +177,5 @@ Why: LHS is a structured LEAP Prompt format for staged implementation. It is not
 Starter phrasing:
 
 ```text
-Generate a LEAP LHS prompt for this staged implementation. Break the work into Build Units, define sequence, tests, docs, compatibility checks, rollback concerns, stop conditions, and Validation/Handoff expectations.
+Turn the Build Unit sequence above into a LEAP LHS prompt.
 ```
