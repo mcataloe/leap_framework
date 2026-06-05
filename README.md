@@ -8,6 +8,15 @@ The active repository presents the current canonical LEAP framework document and
 
 LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository. The Agent Pack owns the Codex/AGENTS.md execution adapter so downstream projects can pin stable agent instructions independently from LEAP Framework methodology updates.
 
+## Basic Setup
+
+1. Add LEAP to [ChatGPT Project Instructions](INSERT LINK HERE).
+2. Put (AGENTS.md)[INSERT LINK HERE] in your GitHub project root.
+3. Run the [population prompt](INSERT LINK HERE) in Codex.
+4. Ask ChatGPT:
+
+> Run LEAP Recon on {{what you want to build or understand}}.
+
 ## LEAP in 60 seconds
 
 LEAP helps turn rough software intent into a safe coding-agent handoff.
@@ -27,7 +36,7 @@ Use the lightest LEAP workflow that controls the actual risk. Small, clear work 
 
 | Use this                                            | When                                                                                                                                                  |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Normal prompt                                       | The task is tiny, obvious, and easy to verify.                                                                                                       |
+| Normal prompt                                       | The task is tiny, obvious, and easy to verify.                                                                                                        |
 | [Quick LEAP Brief](docs/user/quick-leap-brief.md)   | The task is small, source truth is clear, repo impact is localized, and one Build Unit or less is involved.                                           |
 | [LEAP Charter](docs/leap-charter.md)                | Project direction is unclear, docs are stale or conflicting, a greenfield idea needs shaping, or a brownfield repo needs source-truth reconciliation. |
 | [LEAP Recon](templates/leap-recon-lite-template.md) | The baseline is good enough, but a focused feature, risk, layer, dependency, contract, or architecture question needs investigation.                  |

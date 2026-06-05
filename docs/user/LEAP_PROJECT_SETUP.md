@@ -11,8 +11,6 @@ END_LEAP_DOC_METADATA
 
 LEAP helps ChatGPT and Codex understand your project before they suggest or make changes.
 
-For tiny, obvious work, you may not need full LEAP. Before defaulting to Recon for every task, use [Which LEAP Workflow Should I Use?](which-leap-workflow.md) or [When Not to Use LEAP](when-not-to-use-leap.md) to choose the lightest workflow that controls the actual risk.
-
 Follow these four steps.
 
 ## Step 1: Add LEAP to ChatGPT Project Instructions
