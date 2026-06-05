@@ -6,15 +6,6 @@ The active repository presents the current canonical LEAP framework document and
 
 LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository. The Agent Pack owns the Codex/AGENTS.md execution adapter so downstream projects can pin stable agent instructions independently from LEAP Framework methodology updates.
 
-## Start Here
-
-- New to LEAP: read [Start Here: LEAP in Plain English](docs/00_start_here.md).
-- Choosing a workflow: use [Which LEAP Workflow Should I Use?](docs/user/which-leap-workflow.md).
-- Deciding whether LEAP is too much: read [When Not to Use LEAP](docs/user/when-not-to-use-leap.md).
-- Small agent-executed task: use the [Quick LEAP Brief](docs/user/quick-leap-brief.md).
-- Setting up LEAP in a ChatGPT/Codex project: follow [LEAP Project Setup](docs/user/leap_project_setup.md).
-- Looking for the docs map: use [LEAP Documentation Map](docs/README.md).
-
 ## Basic Setup
 
 1. Add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/leap_project_setup.md).
@@ -25,6 +16,15 @@ LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](ht
 ```text
 Run LEAP Recon on {{what you want to build or understand}}.
 ```
+
+## Start Here
+
+- New to LEAP: read [Start Here: LEAP in Plain English](docs/00_start_here.md).
+- Choosing a workflow: use [Which LEAP Workflow Should I Use?](docs/user/which-leap-workflow.md).
+- Deciding whether LEAP is too much: read [When Not to Use LEAP](docs/user/when-not-to-use-leap.md).
+- Small agent-executed task: use the [Quick LEAP Brief](docs/user/quick-leap-brief.md).
+- Setting up LEAP in a ChatGPT/Codex project: follow [LEAP Project Setup](docs/user/leap_project_setup.md).
+- Looking for the docs map: use [LEAP Documentation Map](docs/README.md).
 
 ## Canonical References
 
