@@ -34,6 +34,7 @@ Examples illustrate usage but are not canonical source truth.
 | Document | Audience | Authority |
 | --- | --- | --- |
 | [`00_start_here.md`](00_start_here.md) | Users | Entry point |
+| [`user/add-leap-to-your-project.md`](user/add-leap-to-your-project.md) | Users | Supporting adoption guidance |
 | [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Users | Supporting adoption guidance |
 | [`user/leap-for-humans.md`](user/leap-for-humans.md) | Users | Supporting adoption guidance |
 | [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Users | Supporting adoption guidance |
@@ -49,6 +50,7 @@ Examples illustrate usage but are not canonical source truth.
 ## Common Starting Points
 
 - If you are new to LEAP, read [`00_start_here.md`](00_start_here.md).
+- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/add-leap-to-your-project.md`](user/add-leap-to-your-project.md).
 - If you need to choose between Quick Brief, Charter, Recon, Prompt, or LHS, use [`user/which-leap-workflow.md`](user/which-leap-workflow.md).
 - If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).
 - If you need a short Recon request, use [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md).
