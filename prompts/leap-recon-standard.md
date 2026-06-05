@@ -18,25 +18,26 @@ You must:
 
 1. verify LEAP Charter / baseline readiness before planning implementation
 2. identify any residual Ideation Loop questions that must be answered first
-3. require or construct a source-of-truth manifest
-4. treat Brownfield Charter outputs as valid source-truth inputs when present
-5. classify docs as Canonical, Supporting, Current but poorly organized, Partially useful, Stale, Conflicting, Duplicate, Completed implementation plan, Misleading, Archived, or Unknown
-6. inspect repo reality before implementation planning when repo access exists
-7. treat repo reality as operational truth when docs conflict, unless a human decides otherwise
-8. treat archived docs as historical unless a current canonical document explicitly references them
-9. inspect branch, PR, and worktree drift when available
-10. search for already-existing functionality before recommending new work
-11. detect stale assumptions, stale docs, stale prompts, and stale layer claims
-12. check AGENTS.md Agent Pack metadata, managed/project/local markers, and manifest status when AGENTS.md exists or adoption is in scope
-13. run Dependency & Contract Recon when dependencies, contract sources, provider repos, APIs, SDKs, events, packages, or platform services are declared or detected
-14. identify cross-layer impacts and downstream assumptions
-15. evaluate risk, sensitive areas, and destructive-change implications
-16. define or refine Build Units only after the above checks
-17. identify human checkpoints
-18. distinguish LEAP process tier from agent execution configuration
-19. recommend the explicit agent/tool, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
-20. recommend LHS only when implementation gravity warrants staged execution
-21. end with a gate decision
+3. apply Materiality Gate before asking clarifying questions
+4. require or construct a source-of-truth manifest
+5. treat Brownfield Charter outputs as valid source-truth inputs when present
+6. classify docs as Canonical, Supporting, Current but poorly organized, Partially useful, Stale, Conflicting, Duplicate, Completed implementation plan, Misleading, Archived, or Unknown
+7. inspect repo reality before implementation planning when repo access exists
+8. treat repo reality as operational truth when docs conflict, unless a human decides otherwise
+9. treat archived docs as historical unless a current canonical document explicitly references them
+10. inspect branch, PR, and worktree drift when available
+11. search for already-existing functionality before recommending new work
+12. detect stale assumptions, stale docs, stale prompts, and stale layer claims
+13. check AGENTS.md Agent Pack metadata, managed/project/local markers, and manifest status when AGENTS.md exists or adoption is in scope
+14. run Dependency & Contract Recon when dependencies, contract sources, provider repos, APIs, SDKs, events, packages, or platform services are declared or detected
+15. identify cross-layer impacts and downstream assumptions
+16. evaluate risk, sensitive areas, and destructive-change implications
+17. define or refine Build Units only after the above checks
+18. identify human checkpoints
+19. distinguish LEAP process tier from agent execution configuration
+20. recommend the explicit agent/tool, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
+21. recommend LHS only when implementation gravity warrants staged execution
+22. end with a gate decision
 
 ## Brownfield Charter inputs
 
@@ -89,6 +90,33 @@ If these are missing and source truth is unclear, use the gate decision `Reconci
 - Last reviewed:
 ```
 
+## Materiality Gate
+
+Apply Materiality Gate before asking the user clarifying questions.
+
+Classify missing context as:
+
+```text
+Material - answer would change the work, risk, gate decision, source-of-truth hierarchy, architecture, implementation path, validation strategy, or acceptance criteria.
+Non-material - answer would only refine naming, wording, formatting, ordering, tone, minor preference, or polish.
+Discoverable - answer should be inspected from repo/docs/contracts/tooling before asking.
+Safe assumption - answer can be reasonably assumed and stated without changing the decision.
+```
+
+Question decision sequence:
+
+```text
+1. Inspect discoverable sources before asking the user.
+2. Convert non-material unknowns into stated assumptions.
+3. Proceed on safe assumptions when not blocked.
+4. Ask only unresolved material questions.
+5. Ask the smallest useful set of questions, preferably no more than three at a time.
+```
+
+Material questions are appropriate when the answer would change architecture or repository structure, implementation strategy, scope or acceptance criteria, risk assessment, source-of-truth hierarchy, compatibility or dependency behavior, validation strategy, user-facing recommendation, or irreversible / hard-to-reverse changes.
+
+Confidence thresholds are heuristics, not permission to ask unnecessary questions. If confidence is below target because of non-material unknowns, proceed with assumptions. If confidence is below target because of material unknowns, ask targeted questions.
+
 ## Required repo-reality inspection
 
 Inspect, when available:
@@ -110,7 +138,7 @@ Inspect, when available:
 
 ## Dependency & Contract Recon
 
-When dependencies or contract risks are relevant, include a focused Dependency & Contract Recon subsection inside `## 15. Dependency and Destructive-Change Review`.
+When dependencies or contract risks are relevant, include a focused Dependency & Contract Recon subsection inside `## 16. Dependency and Destructive-Change Review`.
 
 Required behavior:
 
@@ -219,26 +247,43 @@ Do Not Build Yet
 ## 2. Source-of-Truth Manifest Check
 ## 3. LEAP Charter / Baseline Gate Check
 ## 4. Ideation Loop Residual Questions
-## 5. Repo Reality Reconciliation
-## 6. Branch / Worktree / PR Drift Review
-## 7. Documentation Lifecycle Review
-## 8. Strategic Plan Reconciliation
-## 9. Existing Functionality Collision Check
-## 10. Stale Assumption Scan
-## 11. Cross-Layer Impact Scan
-## 12. Layer Boundary Review
-## 13. Generated / Refined Build Unit Inventory
-## 14. Recommended Build Sequence
-## 15. Dependency and Destructive-Change Review
+## 5. Materiality Check
+## 6. Repo Reality Reconciliation
+## 7. Branch / Worktree / PR Drift Review
+## 8. Documentation Lifecycle Review
+## 9. Strategic Plan Reconciliation
+## 10. Existing Functionality Collision Check
+## 11. Stale Assumption Scan
+## 12. Cross-Layer Impact Scan
+## 13. Layer Boundary Review
+## 14. Generated / Refined Build Unit Inventory
+## 15. Recommended Build Sequence
+## 16. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 16. Risk Taxonomy Review
-## 17. Architecture Right-Sizing Review
-## 18. Human Checkpoints Required
-## 19. Execution Log / Drift Ledger Expectations
-## 20. Coding-Agent Risk Forecast
-## 21. Recommended Agent Execution Configuration
-## 22. Clarification Questions Before LEAP Prompt Generation
-## 23. Gate Decision / Next Step
+## 17. Risk Taxonomy Review
+## 18. Architecture Right-Sizing Review
+## 19. Human Checkpoints Required
+## 20. Execution Log / Drift Ledger Expectations
+## 21. Coding-Agent Risk Forecast
+## 22. Recommended Agent Execution Configuration
+## 23. Clarification Questions Before LEAP Prompt Generation
+## 24. Gate Decision / Next Step
+```
+
+The Materiality Check section should include:
+
+```text
+### Material Unknowns
+Questions or missing facts that would change architecture, scope, risk, acceptance criteria, source-of-truth hierarchy, validation strategy, or implementation path.
+
+### Assumptions Proceeding Under
+Reasonable assumptions being used so work can continue without unnecessary blocking.
+
+### Deferred Non-Material Details
+Items that may improve polish, naming, formatting, or preference alignment but do not block the current recommendation.
+
+### Question Decision
+State whether LEAP should proceed with assumptions, inspect repo/docs first, or ask targeted clarifying questions.
 ```
 
 Do not generate the implementation prompt unless explicitly requested and the gate decision allows it.
