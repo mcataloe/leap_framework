@@ -168,6 +168,7 @@ Older version detail is preserved through Git history, [`CHANGELOG.md`](CHANGELO
 
 ### Use LEAP
 
+- [`docs/user/add-leap-to-your-project.md`](docs/user/add-leap-to-your-project.md) - add LEAP to a ChatGPT/Codex project
 - [`docs/user/leap-for-humans.md`](docs/user/leap-for-humans.md) - the simple explanation of how LEAP thinks
 - [`docs/user/which-leap-workflow.md`](docs/user/which-leap-workflow.md) - choose Quick Brief, Charter, Recon, Prompt, or LHS
 - [`docs/user/quick-leap-brief.md`](docs/user/quick-leap-brief.md) - the smallest useful LEAP workflow
@@ -180,6 +181,8 @@ After Recon is approved, use [`templates/leap-prompt-template.md`](templates/lea
 For repeatable workflows, use the operational prompt library under [`prompts/`](prompts/).
 
 ### Adopt AGENTS.md
+
+Use [`docs/user/add-leap-to-your-project.md`](docs/user/add-leap-to-your-project.md) for the end-to-end adoption path across ChatGPT Project Instructions, repository-level `AGENTS.md`, Codex population, and first LEAP Recon.
 
 Use the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
 
@@ -225,6 +228,7 @@ docs/
   agent-profiles.md
   risk-taxonomy.md
   user/
+    add-leap-to-your-project.md
     leap-for-humans.md
     quick-leap-brief.md
     which-leap-workflow.md
