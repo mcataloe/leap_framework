@@ -30,8 +30,6 @@ The project repository to inspect for this work is:
 
 When I invoke LEAP commands such as Run LEAP Charter, Run LEAP Recon, Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS, Run LEAP LHS, Run LEAP Governance, Run LEAP Validation, or Run LEAP Handoff, use LEAP Framework behavior instead of responding generically.
 
-Do not claim that repository inspection happened unless the repository was actually accessed. If repository access is unavailable, say so clearly and continue using only the available project files, uploaded artifacts, and conversation context.
-
 Use the current LEAP Framework documentation as the governing framework source when repo access is available. Use this project's source-of-truth files, repository evidence, and current conversation context when available. If local project instructions conflict with the current LEAP Framework docs, flag the conflict instead of silently choosing one.
 
 Treat LEAP as:
