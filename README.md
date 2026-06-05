@@ -16,6 +16,7 @@ LEAP turns that feeling into a testable delivery path.
 
 LEAP Charter establishes or reconciles project direction, source-of-truth docs, roadmap, baseline assumptions, and implementation posture.
 LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
+Materiality Gate decides whether missing context should trigger a question, source inspection, or a stated assumption.
 LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 Implementation executes the approved prompt in the repository.
 Validation/Handoff verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
@@ -37,6 +38,8 @@ LEAP Framework
   |-- LEAP Recon
   |   |-- Investigation / discovery / pressure testing
   |   `-- Dependency & Contract Recon
+  |-- Materiality Gate
+  |   `-- Question / assumption / inspect-first discipline
   |-- LEAP Prompt
   |   |-- Charter Prompt
   |   |-- Recon Prompt
@@ -70,9 +73,15 @@ Never let stale docs compete with source-of-truth docs.
 
 Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question before implementation planning.
 
-Recon must inspect source-of-truth manifests, documentation lifecycle status, stale assumptions, repo reality, branch/worktree/PR drift, existing functionality, declared or detected dependency contracts, cross-layer impacts, layer boundaries, human checkpoints, and the recommended agent execution configuration.
+Recon must inspect source-of-truth manifests, documentation lifecycle status, stale assumptions, repo reality, branch/worktree/PR drift, existing functionality, declared or detected dependency contracts, cross-layer impacts, layer boundaries, human checkpoints, material unknowns, and the recommended agent execution configuration.
 
 Dependency & Contract Recon is a subprocess inside Recon. It looks for `leap.dependencies.yaml` or an equivalent dependency register, follows declared contract links such as OpenAPI sources when accessible, compares provider evidence against consumer expectations, and separates findings into current-work impact, general system impact, and unknown / needs verification. See [`docs/dependency-contract-recon.md`](docs/dependency-contract-recon.md), [`examples/leap.dependencies.yaml`](examples/leap.dependencies.yaml), and [`schemas/leap.dependencies.schema.json`](schemas/leap.dependencies.schema.json).
+
+### Materiality Gate
+
+Materiality Gate is LEAP's clarification discipline. Before asking a question, LEAP determines whether the missing answer would materially change the output, implementation path, risk profile, source-of-truth hierarchy, validation strategy, acceptance criteria, or user-facing recommendation.
+
+If the answer would materially change the work, LEAP asks the smallest useful set of targeted questions. If the information is discoverable from available sources, LEAP inspects those sources first. If the answer would only refine naming, wording, formatting, ordering, tone, minor preference, or polish, LEAP states a reasonable assumption and proceeds. See [`docs/materiality-gate.md`](docs/materiality-gate.md).
 
 ### LEAP Prompt
 
@@ -119,6 +128,8 @@ Canonical framework document: [`docs/leap.md`](docs/leap.md).
 
 Charter reference: [`docs/leap-charter.md`](docs/leap-charter.md).
 
+Materiality Gate reference: [`docs/materiality-gate.md`](docs/materiality-gate.md).
+
 Older version detail is preserved through Git history, [`CHANGELOG.md`](CHANGELOG.md), [`docs/maintainer/release-history.md`](docs/maintainer/release-history.md), and release tags when present. Active docs should stay focused on the current framework baseline.
 
 ## Quick start
@@ -148,6 +159,7 @@ Use the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack
 
 - [`docs/leap.md`](docs/leap.md) - canonical current framework document
 - [`docs/leap-charter.md`](docs/leap-charter.md) - Charter modes and brownfield documentation reconciliation
+- [`docs/materiality-gate.md`](docs/materiality-gate.md) - question, assumption, and inspect-first discipline
 - [`docs/dependency-contract-recon.md`](docs/dependency-contract-recon.md) - dependency register and contract-drift Recon guidance
 - [`docs/reference/README.md`](docs/reference/README.md) - current reference index
 
@@ -179,6 +191,7 @@ docs/
   README.md
   leap-charter.md
   dependency-contract-recon.md
+  materiality-gate.md
   leap.md
   glossary.md
   agent-profiles.md
@@ -224,5 +237,6 @@ No stop conditions, no coding task.
 No execution profile, no agent-ready prompt.
 Canonical docs first.
 Archived docs are historical.
+Ask only material questions; inspect discoverable sources first; proceed on stated assumptions for non-material unknowns.
 Ask until the idea becomes buildable, then stop asking and build only the bounded task.
 ```
