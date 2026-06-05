@@ -15,6 +15,8 @@ Full LEAP is useful when direction, source truth, repo reality, architecture, de
 
 If the work is small, obvious, and easy to verify, a normal prompt may be enough. If the work is still small but an AI coding agent needs guardrails, use a Quick LEAP Brief.
 
+Engage LEAP when guessing would be more expensive than pausing. If LEAP only adds ceremony, use a lighter workflow.
+
 ## Quick chooser
 
 | If this is true | Start with |
@@ -59,7 +61,7 @@ Do not use full LEAP for:
 
 For small but agent-executed work, use a [Quick LEAP Brief](quick-leap-brief.md).
 
-Use LEAP Charter, Recon, Prompt, or LHS only when the work has enough uncertainty, risk, or implementation gravity to justify the added structure.
+Use [LEAP Charter](../leap-charter.md), [LEAP Recon](../../templates/leap-recon-lite-template.md), [LEAP Prompt](../../templates/leap-prompt-template.md), or [LEAP LHS](../leap.md) only when the work has enough uncertainty, risk, or implementation gravity to justify the added structure.
 
 For the longer version, see [When Not to Use LEAP](when-not-to-use-leap.md).
 

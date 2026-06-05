@@ -13,6 +13,8 @@ LEAP is a risk-control framework, not a ceremony requirement.
 
 Use the lightest workflow that controls the actual risk. Do not use full LEAP just because AI is involved.
 
+Engage LEAP when guessing would be more expensive than pausing. If the result is already obvious and easy to verify, use a normal prompt or a Quick LEAP Brief instead.
+
 ## Do Not Use Full LEAP For
 
 - typos
@@ -90,4 +92,4 @@ If LEAP reduces risk, use it.
 
 If LEAP only adds ceremony, do not.
 
-For side-by-side workflow selection, use [Which LEAP Workflow Should I Use?](which-leap-workflow.md).
+For side-by-side workflow selection, use [Which LEAP Workflow Should I Use?](which-leap-workflow.md). For small agent-executed work, use the [Quick LEAP Brief](quick-leap-brief.md).
