@@ -4,6 +4,8 @@ Use this when the work is small enough that full LEAP Charter and Recon would be
 
 The Quick LEAP Brief is the smallest useful LEAP Prompt format for low-gravity implementation work.
 
+If you are deciding between Quick Brief, Charter, Recon, Prompt, or LHS, start with the [workflow chooser](which-leap-workflow.md).
+
 ## When to use it
 
 Use this for:
@@ -33,6 +35,8 @@ Do not use this when the work involves:
 ```
 
 Escalate those to LEAP Charter or Recon.
+
+If you need a focused investigation but the full Recon template is too heavy, use the shorter [`LEAP Recon Lite`](../../templates/leap-recon-lite-template.md) template.
 
 ## Copy-ready brief
 

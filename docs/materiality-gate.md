@@ -11,6 +11,8 @@ END_LEAP_DOC_METADATA
 
 Materiality Gate is the LEAP clarification discipline for deciding when to ask the user a question, when to inspect available sources first, and when to proceed with a stated assumption.
 
+Materiality Gate is not a lifecycle phase. It is LEAP's question filter.
+
 It refines LEAP's confidence and readiness behavior. It does not weaken source-of-truth, readiness-gate, hard-blocker, destructive-change, or sensitive-area rules.
 
 ## Core rule
@@ -32,6 +34,15 @@ A question is material only when the answer would change one or more of the foll
 - irreversible or hard-to-reverse changes
 
 If the missing information would only affect naming, wording, formatting, ordering, tone, minor preference, or polish, do not ask. Make a reasonable assumption, state it clearly, and proceed.
+
+Plain-English rule:
+
+- If the answer changes the work, ask.
+- If the answer is discoverable, inspect first.
+- If the answer only changes polish, assume and proceed.
+- If the missing answer affects safety, source truth, destructive change, privacy, money, identity, legal exposure, or user trust, stop and ask.
+
+If the question is really which LEAP workflow to use, start with the [workflow chooser](user/which-leap-workflow.md).
 
 ## Relationship to confidence
 

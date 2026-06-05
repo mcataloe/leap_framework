@@ -8,6 +8,33 @@ The active repository presents the current canonical LEAP framework document and
 
 LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack) repository. The Agent Pack owns the Codex/AGENTS.md execution adapter so downstream projects can pin stable agent instructions independently from LEAP Framework methodology updates.
 
+## LEAP in 60 seconds
+
+LEAP helps turn rough software intent into a safe coding-agent handoff.
+
+It does this by helping you:
+
+1. Clarify the project.
+2. Inspect what is already true.
+3. Separate facts from assumptions.
+4. Bound the work.
+5. Tell the agent what to do, what not to touch, and when to stop.
+6. Validate the result.
+
+Use the lightest LEAP workflow that controls the actual risk. Small, clear work does not need the full framework.
+
+## Which LEAP workflow should I use?
+
+| Use this | When |
+| --- | --- |
+| [Quick LEAP Brief](docs/user/quick-leap-brief.md) | The task is small, source truth is clear, repo impact is localized, and one Build Unit or less is involved. |
+| LEAP Charter | Project direction is unclear, docs are stale or conflicting, a greenfield idea needs shaping, or a brownfield repo needs source-truth reconciliation. |
+| LEAP Recon | The baseline is good enough, but a focused feature, risk, layer, dependency, contract, or architecture question needs investigation. |
+| LEAP Prompt | The work is bounded, repo reality is understood, source truth is clear, and the coding agent needs implementation-ready instructions. |
+| LEAP LHS | Implementation gravity is high: staged, layered, multi-area work where tests, docs, rollback, sequence, or commit boundaries matter. |
+
+For scenario examples and starter phrasing, see [`docs/user/which-leap-workflow.md`](docs/user/which-leap-workflow.md). For a shorter Recon request, use [`templates/leap-recon-lite-template.md`](templates/leap-recon-lite-template.md).
+
 ## Core idea
 
 ```text
@@ -16,7 +43,7 @@ LEAP turns that feeling into a testable delivery path.
 
 LEAP Charter establishes or reconciles project direction, source-of-truth docs, roadmap, baseline assumptions, and implementation posture.
 LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
-Materiality Gate decides whether missing context should trigger a question, source inspection, or a stated assumption.
+Materiality Gate is not a phase; it is LEAP's question filter for deciding whether missing context should trigger a question, source inspection, or a stated assumption.
 LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
 Implementation executes the approved prompt in the repository.
 Validation/Handoff verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
@@ -38,8 +65,6 @@ LEAP Framework
   |-- LEAP Recon
   |   |-- Investigation / discovery / pressure testing
   |   `-- Dependency & Contract Recon
-  |-- Materiality Gate
-  |   `-- Question / assumption / inspect-first discipline
   |-- LEAP Prompt
   |   |-- Charter Prompt
   |   |-- Recon Prompt
@@ -49,6 +74,8 @@ LEAP Framework
   |   |-- Governance Prompt
   |   |-- Validation Prompt
   |   `-- LHS Prompt
+  |-- Operating disciplines
+  |   `-- Materiality Gate
   `-- Validation / Handoff
 ```
 
@@ -79,7 +106,7 @@ Dependency & Contract Recon is a subprocess inside Recon. It looks for `leap.dep
 
 ### Materiality Gate
 
-Materiality Gate is LEAP's clarification discipline. Before asking a question, LEAP determines whether the missing answer would materially change the output, implementation path, risk profile, source-of-truth hierarchy, validation strategy, acceptance criteria, or user-facing recommendation.
+Materiality Gate is not a lifecycle phase. It is LEAP's clarification discipline and question filter. Before asking a question, LEAP determines whether the missing answer would materially change the output, implementation path, risk profile, source-of-truth hierarchy, validation strategy, acceptance criteria, or user-facing recommendation.
 
 If the answer would materially change the work, LEAP asks the smallest useful set of targeted questions. If the information is discoverable from available sources, LEAP inspects those sources first. If the answer would only refine naming, wording, formatting, ordering, tone, minor preference, or polish, LEAP states a reasonable assumption and proceeds. See [`docs/materiality-gate.md`](docs/materiality-gate.md).
 
@@ -142,10 +169,11 @@ Older version detail is preserved through Git history, [`CHANGELOG.md`](CHANGELO
 ### Use LEAP
 
 - [`docs/user/leap-for-humans.md`](docs/user/leap-for-humans.md) - the simple explanation of how LEAP thinks
+- [`docs/user/which-leap-workflow.md`](docs/user/which-leap-workflow.md) - choose Quick Brief, Charter, Recon, Prompt, or LHS
 - [`docs/user/quick-leap-brief.md`](docs/user/quick-leap-brief.md) - the smallest useful LEAP workflow
 - [`templates/leap-charter-template.md`](templates/leap-charter-template.md) - start a new product, major direction, or brownfield reconciliation
 
-After Charter is approved, use [`templates/leap-recon-template.md`](templates/leap-recon-template.md) to request a Recon pass for the first focused area, target layer, feature, risk, dependency, contract, or architectural question.
+After Charter is approved, use [`templates/leap-recon-template.md`](templates/leap-recon-template.md) to request a Recon pass for the first focused area, target layer, feature, risk, dependency, contract, or architectural question. For a shorter starter version, use [`templates/leap-recon-lite-template.md`](templates/leap-recon-lite-template.md).
 
 After Recon is approved, use [`templates/leap-prompt-template.md`](templates/leap-prompt-template.md) to generate the final implementation, documentation, analysis, or remediation prompt.
 
@@ -199,6 +227,7 @@ docs/
   user/
     leap-for-humans.md
     quick-leap-brief.md
+    which-leap-workflow.md
   reference/
     README.md
   maintainer/
@@ -214,6 +243,7 @@ schemas/
   leap.dependencies.schema.json
 templates/
   leap-charter-template.md
+  leap-recon-lite-template.md
   leap-recon-template.md
   leap-prompt-template.md
 prompts/

@@ -4,6 +4,8 @@ Use this template to request a LEAP Recon pass after LEAP Charter is complete, n
 
 Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 
+If you need a shorter starter request for a focused, lower-risk investigation, use [`LEAP Recon Lite`](leap-recon-lite-template.md).
+
 ```text
 Run LEAP Recon using the current LEAP framework.
 

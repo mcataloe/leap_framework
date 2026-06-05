@@ -182,6 +182,8 @@ For a major feature or focused repo question, use LEAP Recon.
 
 For implementation, use LEAP Prompt. Use LEAP LHS only when the work is layered, staged, or large enough to benefit from House Standard-style execution.
 
+If you are not sure where to start, use the [workflow chooser](which-leap-workflow.md).
+
 ## The human-friendly summary
 
 ```text

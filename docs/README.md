@@ -34,6 +34,9 @@ Examples illustrate usage but are not canonical source truth.
 | Document | Audience | Authority |
 | --- | --- | --- |
 | [`00_start_here.md`](00_start_here.md) | Users | Entry point |
+| [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Users | Supporting adoption guidance |
+| [`user/leap-for-humans.md`](user/leap-for-humans.md) | Users | Supporting adoption guidance |
+| [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Users | Supporting adoption guidance |
 | [`leap.md`](leap.md) | Users, maintainers, agents | Canonical framework reference |
 | [`leap-charter.md`](leap-charter.md) | Users, maintainers, agents | Canonical Charter reference |
 | [`materiality-gate.md`](materiality-gate.md) | Users, maintainers, agents | Supporting framework rule reference |
@@ -42,6 +45,14 @@ Examples illustrate usage but are not canonical source truth.
 | [`risk-taxonomy.md`](risk-taxonomy.md) | Users, agents | Supporting reference |
 | [`agent-profiles.md`](agent-profiles.md) | Users, agents | Supporting reference |
 | [`maintainer/release-history.md`](maintainer/release-history.md) | Maintainers | Release-notes policy |
+
+## Common Starting Points
+
+- If you are new to LEAP, read [`00_start_here.md`](00_start_here.md).
+- If you need to choose between Quick Brief, Charter, Recon, Prompt, or LHS, use [`user/which-leap-workflow.md`](user/which-leap-workflow.md).
+- If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).
+- If you need a short Recon request, use [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md).
+- If the Recon scope is broad or high-risk, use [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md).
 
 ## Agent Reading Rules
 
