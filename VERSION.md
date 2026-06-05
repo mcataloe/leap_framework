@@ -15,6 +15,7 @@ Status: current baseline; current branch changes remain unreleased
 Unreleased framework additions:
 
 ```text
+- Materiality Gate for clarifying-question discipline
 - Dependency & Contract Recon subprocess inside LEAP Recon
 - Dependency register guidance for leap.dependencies.yaml
 - Starter dependency register example and permissive JSON Schema
@@ -44,6 +45,12 @@ Canonical Charter reference:
 docs/leap-charter.md
 ```
 
+Supporting Materiality Gate reference:
+
+```text
+docs/materiality-gate.md
+```
+
 Supporting Dependency & Contract Recon reference:
 
 ```text
@@ -62,4 +69,4 @@ Git commit history
 
 Active framework and prompt files should not use versioned filenames.
 
-Agent Pack template files live in `https://github.com/mjcataldi/leap_agent_pack`. Version identity lives in the Agent Pack metadata block and manifests, not in LEAP Framework filenames.
+Agent Pack template files live in the LEAP Agent Pack repository. Version identity lives in the Agent Pack metadata block and manifests, not in LEAP Framework filenames.
