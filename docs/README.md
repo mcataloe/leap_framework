@@ -21,36 +21,36 @@ Maintainer docs explain how to maintain, version, and release the LEAP Framework
 
 Examples illustrate usage but are not canonical source truth.
 
-| Domain | Audience | Authority | Start Here |
-| --- | --- | --- | --- |
-| Root entry point | Users and agents | Entry point | [`00_start_here.md`](00_start_here.md) |
-| User docs | Downstream LEAP adopters | Supporting adoption guidance | [`user/leap-for-humans.md`](user/leap-for-humans.md) |
-| Reference docs | Users, maintainers, agents | Canonical or supporting reference | [`reference/README.md`](reference/README.md) |
-| Maintainer docs | LEAP Framework maintainers | Repo governance and runbooks | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) |
-| Examples | Users and agents | Example-only | [`examples/`](examples/) |
+| Domain           | Audience                   | Authority                         | Start Here                                                                         |
+| ---------------- | -------------------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
+| Root entry point | Users and agents           | Entry point                       | [`00_start_here.md`](00_start_here.md)                                             |
+| User docs        | Downstream LEAP adopters   | Supporting adoption guidance      | [`user/leap-for-humans.md`](user/leap-for-humans.md)                               |
+| Reference docs   | Users, maintainers, agents | Canonical or supporting reference | [`reference/README.md`](reference/README.md)                                       |
+| Maintainer docs  | LEAP Framework maintainers | Repo governance and runbooks      | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) |
+| Examples         | Users and agents           | Example-only                      | [`examples/`](examples/)                                                           |
 
 ## Important Docs
 
-| Document | Audience | Authority |
-| --- | --- | --- |
-| [`00_start_here.md`](00_start_here.md) | Users | Entry point |
-| [`user/LEAP_PROJECT_SETUP.md`](user/LEAP_PROJECT_SETUP.md) | Users | Supporting adoption guidance |
-| [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Users | Supporting adoption guidance |
-| [`user/leap-for-humans.md`](user/leap-for-humans.md) | Users | Supporting adoption guidance |
-| [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Users | Supporting adoption guidance |
-| [`leap.md`](leap.md) | Users, maintainers, agents | Canonical framework reference |
-| [`leap-charter.md`](leap-charter.md) | Users, maintainers, agents | Canonical Charter reference |
-| [`materiality-gate.md`](materiality-gate.md) | Users, maintainers, agents | Supporting framework rule reference |
-| [`dependency-contract-recon.md`](dependency-contract-recon.md) | Users, maintainers, agents | Supporting Recon reference |
-| [`glossary.md`](glossary.md) | Users, maintainers, agents | Canonical terminology reference |
-| [`risk-taxonomy.md`](risk-taxonomy.md) | Users, agents | Supporting reference |
-| [`agent-profiles.md`](agent-profiles.md) | Users, agents | Supporting reference |
-| [`maintainer/release-history.md`](maintainer/release-history.md) | Maintainers | Release-notes policy |
+| Document                                                         | Audience                   | Authority                           |
+| ---------------------------------------------------------------- | -------------------------- | ----------------------------------- |
+| [`00_start_here.md`](00_start_here.md)                           | Users                      | Entry point                         |
+| [`user/leap_project_setup.md`](user/leap_project_setup.md)       | Users                      | Supporting adoption guidance        |
+| [`user/which-leap-workflow.md`](user/which-leap-workflow.md)     | Users                      | Supporting adoption guidance        |
+| [`user/leap-for-humans.md`](user/leap-for-humans.md)             | Users                      | Supporting adoption guidance        |
+| [`user/quick-leap-brief.md`](user/quick-leap-brief.md)           | Users                      | Supporting adoption guidance        |
+| [`leap.md`](leap.md)                                             | Users, maintainers, agents | Canonical framework reference       |
+| [`leap-charter.md`](leap-charter.md)                             | Users, maintainers, agents | Canonical Charter reference         |
+| [`materiality-gate.md`](materiality-gate.md)                     | Users, maintainers, agents | Supporting framework rule reference |
+| [`dependency-contract-recon.md`](dependency-contract-recon.md)   | Users, maintainers, agents | Supporting Recon reference          |
+| [`glossary.md`](glossary.md)                                     | Users, maintainers, agents | Canonical terminology reference     |
+| [`risk-taxonomy.md`](risk-taxonomy.md)                           | Users, agents              | Supporting reference                |
+| [`agent-profiles.md`](agent-profiles.md)                         | Users, agents              | Supporting reference                |
+| [`maintainer/release-history.md`](maintainer/release-history.md) | Maintainers                | Release-notes policy                |
 
 ## Common Starting Points
 
 - If you are new to LEAP, read [`00_start_here.md`](00_start_here.md).
-- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/LEAP_PROJECT_SETUP.md`](user/LEAP_PROJECT_SETUP.md).
+- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/leap_project_setup.md`](user/leap_project_setup.md).
 - If you need to choose between Quick Brief, Charter, Recon, Prompt, or LHS, use [`user/which-leap-workflow.md`](user/which-leap-workflow.md).
 - If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).
 - If you need a short Recon request, use [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md).
