@@ -16,7 +16,7 @@ or:
 Run LEAP Charter for this repo.
 ```
 
-The user should not have to fill out a full intake form upfront. The agent should infer as much as possible from the repo and docs, then ask only the questions needed to safely complete the Charter baseline.
+The user should not have to fill out a full intake form upfront. The agent should infer as much as possible from the repo and docs, then ask only the material questions needed to safely complete the Charter baseline.
 
 ## Charter operating model
 
@@ -38,6 +38,29 @@ Scan and infer from:
 
 Do not treat missing user-supplied context as a blocker until the repo and docs have been inspected.
 
+## Materiality Gate
+
+Before asking a discovery question, classify missing context as:
+
+```text
+Material - answer would change the Charter recommendation, readiness gate, source-of-truth hierarchy, scope boundary, risk posture, architecture direction, implementation path, validation strategy, or acceptance criteria.
+Non-material - answer would only refine naming, wording, formatting, ordering, tone, minor preference, or polish.
+Discoverable - answer should be inspected from repo/docs/contracts/tooling before asking.
+Safe assumption - answer can be reasonably assumed and stated without changing the decision.
+```
+
+Use this decision sequence:
+
+```text
+1. Inspect discoverable sources before asking the user.
+2. Convert non-material unknowns into stated assumptions.
+3. Proceed on safe assumptions when not blocked.
+4. Ask only unresolved material questions.
+5. Ask the smallest useful set of questions, preferably no more than three at a time.
+```
+
+Materiality Gate does not override hard blockers. If a missing answer affects money, identity, privacy, data durability, legal exposure, user trust, destructive changes, source-truth conflicts, repo reality, or unapproved architecture, require the proper human decision.
+
 ## Charter discovery flow
 
 The agent should internally work through the following discovery flow.
@@ -53,7 +76,7 @@ Determine the most likely mode from evidence:
 - Existing implementation with planning drift
 - Agent should recommend
 
-If the mode cannot be determined with reasonable confidence, ask the user in the Discovery Questions section.
+If the mode cannot be determined with reasonable confidence, ask the user in the Discovery Questions section only when the answer materially changes the gate decision or next LEAP step.
 
 ### 2. Starting signal
 
@@ -68,7 +91,7 @@ Examples:
 - Roadmap needing reconciliation
 - Legacy Phase 0 material needing transition to LEAP Charter
 
-If the starting signal cannot be inferred, ask the user in the Discovery Questions section.
+If the starting signal cannot be inferred, ask the user in the Discovery Questions section only when the answer materially changes the gate decision or next LEAP step.
 
 ### 3. Known context
 
@@ -93,7 +116,7 @@ Attempt to infer:
 - Sensitive data, compliance, AI-behavior, monetization, or risk concerns
 - Current readiness for LEAP Recon, LEAP Prompt, Validation, or Handoff
 
-Do not leave these as blank intake fields for the user. Fill what can be filled from evidence. Mark uncertain items clearly. Move unresolved material questions into Discovery Questions.
+Do not leave these as blank intake fields for the user. Fill what can be filled from evidence. Mark uncertain items clearly. Move unresolved material questions into Discovery Questions. Convert non-material unknowns into stated assumptions.
 
 ### 4. Discovery questions
 
@@ -123,10 +146,12 @@ Run LEAP Charter using the current LEAP framework.
 
 Charter settings:
 - Scan first and ask questions second.
+- Apply Materiality Gate before asking discovery questions.
 - Infer Charter mode, starting signal, and known context from repo/docs evidence when available.
 - Do not ask the user to complete upfront known-context fields unless no repo or files are available.
-- Move unresolved known-context items into Discovery Questions.
-- Ask the fewest questions needed to make the next safe gate decision.
+- Move unresolved material known-context items into Discovery Questions.
+- Convert non-material unknowns into stated assumptions.
+- Ask the fewest material questions needed to make the next safe gate decision.
 - Use the Ideation Loop only to clarify vague intent or unresolved material context before implementation planning.
 - Separate Known, Assumed, Unknown, Contested, Needs Decision, and Deprecated items.
 - Use readiness gates C0-C5 instead of numeric clarity scores.
@@ -143,18 +168,19 @@ Required Charter workflow:
 2. Preserve the raw invocation or starting signal.
 3. Determine Charter mode.
 4. Infer known context from evidence.
-5. Label evidence and assumptions.
-6. Identify missing, stale, duplicated, conflicting, or drifted docs.
-7. Identify repo/code/config/test evidence that disagrees with docs.
-8. Ask discovery questions only for unresolved material context.
-9. Run no-build / alternative-solution review where relevant.
-10. Define MVP boundary or current scope boundary.
-11. Define concrete non-goals.
-12. Recommend documentation baseline and source-of-truth posture.
-13. Create gap and drift register.
-14. Create Brownfield migration map if existing docs are reconciled.
-15. Recommend next LEAP Recon, LEAP Prompt, Validation, Handoff, or LHS.
-16. Make readiness gate decision.
+5. Apply Materiality Gate to missing context.
+6. Label evidence and assumptions.
+7. Identify missing, stale, duplicated, conflicting, or drifted docs.
+8. Identify repo/code/config/test evidence that disagrees with docs.
+9. Ask discovery questions only for unresolved material context.
+10. Run no-build / alternative-solution review where relevant.
+11. Define MVP boundary or current scope boundary.
+12. Define concrete non-goals.
+13. Recommend documentation baseline and source-of-truth posture.
+14. Create gap and drift register.
+15. Create Brownfield migration map if existing docs are reconciled.
+16. Recommend next LEAP Recon, LEAP Prompt, Validation, Handoff, or LHS.
+17. Make readiness gate decision.
 
 Return the LEAP Charter output only.
 If more information is needed, ask the next discovery round instead of producing implementation plans.
@@ -175,6 +201,8 @@ Minimal starting context:
 - Brief project description:
 - Known docs, roadmap notes, or source-of-truth concerns:
 - Known constraints, risks, or sensitive areas:
+
+Apply Materiality Gate before asking follow-up questions. Ask only for missing answers that would materially change the Charter gate decision or recommended next LEAP step.
 ```
 
 ## Expected Charter sections
@@ -185,24 +213,41 @@ Minimal starting context:
 ## 1. Mode and Starting Signal
 ## 2. Repository and Documentation Scan Summary
 ## 3. Current Understanding
-## 4. Evidence Labels
+## 4. Materiality Check
+## 5. Evidence Labels
 ### Known
 ### Assumed
 ### Unknown
 ### Contested
 ### Needs Decision
 ### Deprecated
-## 5. Discovery Questions, if needed
-## 6. Readiness Gate
-## 7. Source-of-Truth Inventory and Recommendation
-## 8. Gap and Drift Register
-## 9. Scope Boundary and Non-Goals
-## 10. Risks and Constraints
-## 11. No-Build / Alternative-Solution Review, if relevant
-## 12. Migration Map, if Brownfield
-## 13. Prompt Backlog Recommendations
-## 14. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS / Validation / Handoff
-## 15. Gate Decision / Next Step
+## 6. Discovery Questions, if needed
+## 7. Readiness Gate
+## 8. Source-of-Truth Inventory and Recommendation
+## 9. Gap and Drift Register
+## 10. Scope Boundary and Non-Goals
+## 11. Risks and Constraints
+## 12. No-Build / Alternative-Solution Review, if relevant
+## 13. Migration Map, if Brownfield
+## 14. Prompt Backlog Recommendations
+## 15. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS / Validation / Handoff
+## 16. Gate Decision / Next Step
+```
+
+Materiality Check should include:
+
+```text
+### Material Unknowns
+Questions or missing facts that would change the Charter recommendation, readiness gate, source-of-truth hierarchy, scope boundary, risk posture, architecture direction, or implementation path.
+
+### Assumptions Proceeding Under
+Reasonable assumptions being used so Charter can continue without unnecessary blocking.
+
+### Deferred Non-Material Details
+Items that may improve polish, naming, formatting, or preference alignment but do not block the current gate decision.
+
+### Question Decision
+State whether LEAP should proceed with assumptions, inspect repo/docs first, or ask targeted clarifying questions.
 ```
 
 ## LEAP LHS note
