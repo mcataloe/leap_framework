@@ -6,7 +6,7 @@ LEAP started as a practical response to AI-assisted software delivery: coding ag
 
 The active repository presents the current canonical LEAP framework document and current operational prompts without versioned filenames. Older version detail is intentionally kept out of active docs unless it applies to the current framework; use Git history, release notes, and release tags for older context.
 
-LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack) repository. The Agent Pack owns the Codex/AGENTS.md execution adapter so downstream projects can pin stable agent instructions independently from LEAP Framework methodology updates.
+LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository. The Agent Pack owns the Codex/AGENTS.md execution adapter so downstream projects can pin stable agent instructions independently from LEAP Framework methodology updates.
 
 ## LEAP in 60 seconds
 
@@ -184,7 +184,7 @@ For repeatable workflows, use the operational prompt library under [`prompts/`](
 
 Use [`docs/user/add-leap-to-your-project.md`](docs/user/add-leap-to-your-project.md) for the end-to-end adoption path across ChatGPT Project Instructions, repository-level `AGENTS.md`, Codex population, and first LEAP Recon.
 
-Use the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
+Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
 
 ### Framework reference
 
