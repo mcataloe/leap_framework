@@ -8,9 +8,9 @@ LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](ht
 
 ## Basic Setup
 
-1. Add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/LEAP_PROJECT_SETUP.md#step-1-add-leap-to-chatgpt-project-instructions).
-2. Add the Agent Pack `AGENTS.md` template from the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) to your project root.
-3. Run the Agent Pack population prompt in Codex.
+1. Add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/leap_project_setup.md#recommended-full-project-instructions).
+2. Add the Agent Pack `AGENTS.md` template from the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack/blob/main/templates/leap-repo-AGENTS-file-complete/AGENTS.md) to your project root.
+3. Run the [Agent Pack Population Prompt](https://github.com/mcataloe/leap_agent_pack/blob/main/templates/leap-repo-AGENTS-file-complete/AGENTS_Population_Prompt.md) in Codex.
 4. Ask ChatGPT:
 
 ```text

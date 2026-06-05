@@ -19,22 +19,6 @@ Open your ChatGPT Project. Go to the Project Instructions area.
 
 Paste this:
 
-> This project uses the LEAP Framework.
->
-> When I say “Run LEAP Recon on {{feature, change, risk, or project area}},” inspect the project context and help me understand the feature, risks, missing information, source-of-truth files, likely implementation areas, and recommended next step.
->
-> Use LEAP Recon for analysis and pressure testing.
->
-> Use LEAP Prompt when I need an implementation-ready prompt for Codex.
->
-> Use LEAP Charter when the project needs deeper setup, source-of-truth cleanup, or direction setting.
->
-> Do not guess. Use project files and repository evidence as the source of truth. If something is unknown, mark it as TBD.
-
-### Recommended Full Project Instructions
-
-Use this fuller version when you want ChatGPT to recognize the full LEAP command family and avoid generic responses.
-
 ```text
 This project uses the LEAP Framework.
 
@@ -57,17 +41,17 @@ If context is missing, apply Materiality Gate: inspect discoverable sources firs
 Always end LEAP outputs with a clear gate decision or recommended next step.
 ```
 
-| Command | Expected LEAP behavior |
-|---|---|
-| `Run LEAP Charter` | Establish or reconcile project direction, source truth, roadmap, baseline assumptions, and implementation posture. |
-| `Run LEAP Recon` | Investigate a focused feature, risk, layer, dependency, contract, repo area, or architecture question before implementation planning. |
+| Command                | Expected LEAP behavior                                                                                                                                |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Run LEAP Charter`     | Establish or reconcile project direction, source truth, roadmap, baseline assumptions, and implementation posture.                                    |
+| `Run LEAP Recon`       | Investigate a focused feature, risk, layer, dependency, contract, repo area, or architecture question before implementation planning.                 |
 | `Generate LEAP Prompt` | Create an agent-ready prompt only after source truth, repo reality, scope, validation, stop conditions, and execution configuration are clear enough. |
-| `Run LEAP Prompt` | Execute or apply an already-approved LEAP Prompt according to its scope, constraints, and stop conditions. |
-| `Generate LEAP LHS` | Create a staged Layered House Standard prompt only when implementation gravity warrants staged execution. |
-| `Run LEAP LHS` | Execute or apply an approved LHS prompt according to its Build Unit sequence, validation, and stop conditions. |
-| `Run LEAP Governance` | Reconcile framework, repo, docs, prompt-library, source-of-truth, terminology, or adoption drift. |
-| `Run LEAP Validation` | Verify completed work against scope, tests/checks, docs, acceptance criteria, and stop conditions. |
-| `Run LEAP Handoff` | Summarize completed work, unresolved risks, validation status, deviations, and recommended follow-up. |
+| `Run LEAP Prompt`      | Execute or apply an already-approved LEAP Prompt according to its scope, constraints, and stop conditions.                                            |
+| `Generate LEAP LHS`    | Create a staged Layered House Standard prompt only when implementation gravity warrants staged execution.                                             |
+| `Run LEAP LHS`         | Execute or apply an approved LHS prompt according to its Build Unit sequence, validation, and stop conditions.                                        |
+| `Run LEAP Governance`  | Reconcile framework, repo, docs, prompt-library, source-of-truth, terminology, or adoption drift.                                                     |
+| `Run LEAP Validation`  | Verify completed work against scope, tests/checks, docs, acceptance criteria, and stop conditions.                                                    |
+| `Run LEAP Handoff`     | Summarize completed work, unresolved risks, validation status, deviations, and recommended follow-up.                                                 |
 
 ## Step 2: Add AGENTS.md to Your GitHub Project Root
 
