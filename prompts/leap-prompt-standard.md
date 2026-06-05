@@ -58,6 +58,21 @@ Do not use LHS when:
 - The work would add ceremony without reducing risk.
 ```
 
+## Materiality Gate
+
+Before generating a LEAP Prompt, confirm that Recon applied Materiality Gate to open questions and assumptions.
+
+Materiality Gate means:
+
+```text
+- Ask only unresolved questions whose answers would materially change architecture, scope, risk, source-of-truth hierarchy, validation, acceptance criteria, compatibility, or implementation path.
+- Inspect discoverable repo/docs/contracts/tooling evidence before asking the user.
+- Convert non-material unknowns into stated assumptions.
+- Proceed on safe assumptions when not blocked.
+```
+
+Do not generate an implementation prompt if unresolved material questions remain. Non-material unknowns may be included as assumptions in the prompt.
+
 ## Required preflight
 
 Confirm before writing the prompt:
@@ -66,7 +81,8 @@ Confirm before writing the prompt:
 - LEAP Charter complete or not applicable
 - Prompt type selected
 - LHS decision gate completed
-- Ideation Loop complete or residual questions resolved
+- Materiality Gate applied to open questions and assumptions
+- Ideation Loop complete or residual material questions resolved
 - Source-of-truth manifest complete
 - Recon approved
 - Repo reality checked when repo access exists
@@ -83,7 +99,7 @@ Confirm before writing the prompt:
 - Reasoning level selected or recommended
 ```
 
-If any item is missing, stop and explain what must happen first.
+If any item is missing, stop and explain what must happen first. If the missing item is non-material, state the assumption and proceed only when doing so does not change the gate decision or implementation path.
 
 ## Required prompt sections
 
@@ -133,14 +149,22 @@ Archived docs are historical unless a canonical document explicitly references t
 
 If any source conflict appears, stop and report.
 
-## 6. Scope
+## 6. Materiality / Assumption Handling
+- Material questions resolved:
+- Assumptions accepted:
+- Non-material unknowns deferred:
+- Discoverable sources already inspected:
+
+Do not ask the coding agent to resolve material product, architecture, source-truth, risk, validation, or acceptance-criteria questions during implementation. Stop and report if new material uncertainty appears.
+
+## 7. Scope
 - In scope:
 - Out of scope:
 - Non-goals:
 - Files/areas to inspect:
 - Files/areas not to touch:
 
-## 7. Constraints
+## 8. Constraints
 - Existing patterns to follow:
 - Dependencies allowed/disallowed:
 - Architecture constraints:
@@ -151,7 +175,7 @@ If any source conflict appears, stop and report.
 - Destructive changes: allowed / not allowed / allowed only in these areas:
 - Rollback/data preservation requirements:
 
-## 8. Implementation Sequence
+## 9. Implementation Sequence
 - Suggested sequence:
 - Build Unit order:
 - One Build Unit per commit where feasible:
@@ -159,17 +183,19 @@ If any source conflict appears, stop and report.
 - Error handling:
 - Backward compatibility:
 
-## 9. Verification
+## 10. Verification
 - Tests to run:
 - Manual checks:
 - Expected result:
 - Verification evidence to report:
 
-## 10. Stop Conditions
+## 11. Stop Conditions
 Stop and report instead of guessing if:
 - required files or sources are missing
 - docs conflict with repo reality
 - existing implementation contradicts this prompt
+- unresolved material questions appear during implementation
+- implementation would require deciding architecture, product behavior, source-truth hierarchy, risk posture, validation strategy, or acceptance criteria
 - implementation would violate non-goals
 - task requires architecture not approved
 - task requires touching forbidden files
@@ -183,18 +209,18 @@ Stop and report instead of guessing if:
 - requested reasoning level is unavailable and no approved fallback is provided
 - archived docs appear to be treated as current source truth
 
-## 11. Branch / Worktree / Commit Instructions
+## 12. Branch / Worktree / Commit Instructions
 - Branch/worktree:
 - Commit guidance:
 - One Build Unit per commit:
 - Merge/order notes:
 
-## 12. Source-of-Truth Update Policy
+## 13. Source-of-Truth Update Policy
 - Docs to update:
 - Execution log / drift ledger update required:
 - Cross-layer impact map update required:
 
-## 13. Completion Report Format
+## 14. Completion Report Format
 Return:
 - Summary of changes
 - Files changed
