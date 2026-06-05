@@ -4,7 +4,9 @@ Use this when the work is small enough that full LEAP Charter and Recon would be
 
 The Quick LEAP Brief is the smallest useful LEAP Prompt format for low-gravity implementation work.
 
-If you are deciding between Quick Brief, Charter, Recon, Prompt, or LHS, start with the [workflow chooser](which-leap-workflow.md).
+Quick LEAP Brief is for small work that still needs guardrails. If the work is so small that there is no meaningful risk to control, use a normal prompt instead. If the brief starts needing source-truth reconciliation, architecture decisions, dependency review, branch-drift review, or product discovery, stop and escalate to LEAP Charter or LEAP Recon.
+
+If you are deciding between a normal prompt, Quick Brief, Charter, Recon, Prompt, or LHS, start with the [workflow chooser](which-leap-workflow.md). For explicit examples of when full LEAP is unnecessary, see [When Not to Use LEAP](when-not-to-use-leap.md).
 
 ## When to use it
 

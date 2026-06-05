@@ -94,6 +94,8 @@ LEAP Recon should return:
 - What questions need answers before building.
 - What the recommended next step is.
 
+For tiny, obvious tasks, you may not need Recon or full LEAP. Use a normal prompt when the change is small and easy to verify. Use a [Quick LEAP Brief](quick-leap-brief.md) when the work is still small but an AI coding agent needs guardrails. See [When Not to Use LEAP](when-not-to-use-leap.md) for the full rule of thumb.
+
 ## Simple Version
 
 If you only remember one thing, remember this:

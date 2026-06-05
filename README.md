@@ -27,6 +27,7 @@ Use the lightest LEAP workflow that controls the actual risk. Small, clear work 
 
 | Use this                                            | When                                                                                                                                                  |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normal prompt                                       | The task is tiny, obvious, and easy to verify.                                                                                                       |
 | [Quick LEAP Brief](docs/user/quick-leap-brief.md)   | The task is small, source truth is clear, repo impact is localized, and one Build Unit or less is involved.                                           |
 | [LEAP Charter](docs/leap-charter.md)                | Project direction is unclear, docs are stale or conflicting, a greenfield idea needs shaping, or a brownfield repo needs source-truth reconciliation. |
 | [LEAP Recon](templates/leap-recon-lite-template.md) | The baseline is good enough, but a focused feature, risk, layer, dependency, contract, or architecture question needs investigation.                  |
@@ -34,6 +35,8 @@ Use the lightest LEAP workflow that controls the actual risk. Small, clear work 
 | [LEAP LHS](docs/leap.md)                            | Implementation gravity is high: staged, layered, multi-area work where tests, docs, rollback, sequence, or commit boundaries matter.                  |
 
 For scenario examples and starter phrasing, see [`docs/user/which-leap-workflow.md`](docs/user/which-leap-workflow.md). For a shorter Recon request, use [`templates/leap-recon-lite-template.md`](templates/leap-recon-lite-template.md).
+
+For tiny, obvious tasks where full LEAP would not reduce risk, see [`docs/user/when-not-to-use-leap.md`](docs/user/when-not-to-use-leap.md).
 
 ## Core idea
 
@@ -168,9 +171,10 @@ Older version detail is preserved through Git history, [`CHANGELOG.md`](CHANGELO
 
 ### Use LEAP
 
-- [`docs/user/leap_project_setup.md`](docs/user/leap_project_setup.md) - set up LEAP in a ChatGPT/Codex project
+- [`docs/user/LEAP_PROJECT_SETUP.md`](docs/user/LEAP_PROJECT_SETUP.md) - set up LEAP in a ChatGPT/Codex project
 - [`docs/user/leap-for-humans.md`](docs/user/leap-for-humans.md) - the simple explanation of how LEAP thinks
 - [`docs/user/which-leap-workflow.md`](docs/user/which-leap-workflow.md) - choose Quick Brief, Charter, Recon, Prompt, or LHS
+- [`docs/user/when-not-to-use-leap.md`](docs/user/when-not-to-use-leap.md) - decide when a normal prompt or Quick Brief is enough
 - [`docs/user/quick-leap-brief.md`](docs/user/quick-leap-brief.md) - the smallest useful LEAP workflow
 - [`templates/leap-charter-template.md`](templates/leap-charter-template.md) - start a new product, major direction, or brownfield reconciliation
 
@@ -182,7 +186,7 @@ For repeatable workflows, use the operational prompt library under [`prompts/`](
 
 ### Adopt AGENTS.md
 
-Use [`docs/user/leap_project_setup.md`](docs/user/leap_project_setup.md) for the end-to-end adoption path across ChatGPT Project Instructions, repository-level `AGENTS.md`, Codex population, and first LEAP Recon.
+Use [`docs/user/LEAP_PROJECT_SETUP.md`](docs/user/LEAP_PROJECT_SETUP.md) for the end-to-end adoption path across ChatGPT Project Instructions, repository-level `AGENTS.md`, Codex population, and first LEAP Recon.
 
 Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
 
@@ -228,8 +232,9 @@ docs/
   agent-profiles.md
   risk-taxonomy.md
   user/
-    leap_project_setup.md
+    LEAP_PROJECT_SETUP.md
     leap-for-humans.md
+    when-not-to-use-leap.md
     quick-leap-brief.md
     which-leap-workflow.md
   reference/

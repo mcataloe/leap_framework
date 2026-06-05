@@ -11,12 +11,15 @@ END_LEAP_DOC_METADATA
 
 Use the lightest LEAP workflow that controls the actual risk.
 
-Full LEAP is useful when direction, source truth, repo reality, or implementation risk needs discipline. Small, clear work can use a Quick LEAP Brief.
+Full LEAP is useful when direction, source truth, repo reality, architecture, dependencies, implementation scope, or validation needs discipline. It is not meant to turn every tiny task into a planning exercise.
+
+If the work is small, obvious, and easy to verify, a normal prompt may be enough. If the work is still small but an AI coding agent needs guardrails, use a Quick LEAP Brief.
 
 ## Quick chooser
 
 | If this is true | Start with |
 | --- | --- |
+| The task is tiny, obvious, and easy to verify. | Normal prompt |
 | The task is small, source truth is clear, and the repo impact is localized. | [Quick LEAP Brief](quick-leap-brief.md) |
 | The project direction is unclear, or docs are stale or conflicting. | [LEAP Charter](../leap-charter.md) |
 | A focused feature, risk, layer, dependency, contract, or architecture question needs investigation. | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
@@ -24,6 +27,29 @@ Full LEAP is useful when direction, source truth, repo reality, or implementatio
 | The work is staged, layered, multi-area, or needs explicit sequencing. | [LEAP LHS](../leap.md) |
 
 Materiality Gate is not a phase. It is LEAP's question filter: inspect discoverable sources first, ask only when the answer changes the work, proceed on safe assumptions for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks.
+
+## When Not to Use Full LEAP
+
+Do not use full LEAP just because AI is involved.
+
+Use the lightest workflow that controls the actual risk. Full LEAP is helpful when direction, source truth, repo reality, architecture, dependencies, implementation scope, or validation needs discipline. It is not meant to turn every typo fix into a planning summit.
+
+Do not use full LEAP for:
+
+- typos
+- small copy edits
+- one-file obvious fixes
+- pure brainstorming
+- pure writing polish
+- small local UI tweaks
+- obvious bugs with clear scope
+- tasks where extra process would not reduce risk
+
+For small but agent-executed work, use a [Quick LEAP Brief](quick-leap-brief.md).
+
+Use LEAP Charter, Recon, Prompt, or LHS only when the work has enough uncertainty, risk, or implementation gravity to justify the added structure.
+
+For the longer version, see [When Not to Use LEAP](when-not-to-use-leap.md).
 
 ## Recommended Same-Thread Workflow
 
@@ -165,6 +191,8 @@ Starter phrasing:
 ```text
 Use a Quick LEAP Brief for this small task.
 ```
+
+If the change is tiny, obvious, and easy to verify, use a normal prompt instead. See [When Not to Use LEAP](when-not-to-use-leap.md).
 
 ### This work touches several areas and needs staged commits.
 
