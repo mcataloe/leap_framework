@@ -35,7 +35,7 @@ You must:
 17. define or refine Build Units only after the above checks
 18. identify human checkpoints
 19. distinguish LEAP process tier from agent execution configuration
-20. recommend the explicit agent/tool, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
+20. recommend the explicit agent/tool, Codex Plan Mode when Codex-targeted, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
 21. recommend LHS only when implementation gravity warrants staged execution
 22. end with a gate decision
 
@@ -210,9 +210,10 @@ If the gate decision is `Generate LEAP Prompt`, include:
 | Field | Recommendation | Rationale |
 |---|---|---|
 | Agent / Tool | <Codex / Claude Code / Cursor / other> | <why> |
+| Codex Plan Mode | <On / Off / User decision required> | <why> |
 | Model | <exact model name or project default> | <why> |
 | Reasoning Level | <low / medium / high / extended> | <why> |
-| Execution Mode | <plan-first / implement-directly / implement-with-brief-plan> | <why> |
+| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> | <why> |
 | Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> | <why> |
 | Repository | <repo> | <why> |
 | Branch / Worktree | <branch/worktree> | <why> |
@@ -221,7 +222,9 @@ If the gate decision is `Generate LEAP Prompt`, include:
 | Commit Guidance | <commit convention> | <why> |
 ```
 
-Do not leave agent/tool, model, or reasoning level blank. If unknown, recommend a safe default and label it as a recommendation.
+Do not leave agent/tool, Codex Plan Mode for Codex-targeted prompts, model, reasoning level, or execution mode blank. If unknown, recommend a safe default and label it as a recommendation.
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is an instruction inside the prompt. Use Codex Plan Mode Off for `implement-directly` and `repo-preflight-then-implement`, Codex Plan Mode On for `plan-first`, and `User decision required` when the user's desired approval gate is the deciding factor.
 
 ## Gate decisions
 

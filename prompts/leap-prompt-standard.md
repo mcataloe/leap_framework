@@ -6,6 +6,10 @@ The LEAP Recon pass must already be complete, and the user must have approved th
 
 A LEAP Prompt is a bounded coding-agent handoff contract. It must not ask the agent to infer product behavior, silently resolve source conflicts, improvise architecture, or guess the execution profile.
 
+Codex Plan Mode is a user-controlled Codex UI setting. It is separate from LEAP Execution Mode, which is an instruction inside the prompt.
+
+Every Codex-targeted LEAP Prompt must make the required Codex Plan Mode setting obvious before the user submits the prompt.
+
 ## Prompt family taxonomy
 
 LEAP Prompt is the broad category of Codex-ready or agent-ready instruction artifacts generated from Charter, Recon, user intent, or approved implementation scope.
@@ -95,11 +99,39 @@ Confirm before writing the prompt:
 - Stop conditions defined
 - Destructive-change permission stated
 - Agent / Tool selected or recommended
+- Codex Plan Mode selected or recommended for Codex-targeted prompts
+- Execution Mode selected or recommended
 - Model selected or recommended
 - Reasoning level selected or recommended
 ```
 
 If any item is missing, stop and explain what must happen first. If the missing item is non-material, state the assumption and proceed only when doing so does not change the gate decision or implementation path.
+
+## Codex Plan Mode and LEAP Execution Mode
+
+Use these execution mode terms going forward:
+
+| Execution Mode | Meaning | Codex Plan Mode |
+| --- | --- | --- |
+| `implement-directly` | Make the change directly and summarize afterward. | Off |
+| `repo-preflight-then-implement` | Verify repo reality and stop conditions, then implement if clear. | Off |
+| `plan-first` | Produce a plan and wait for user approval before editing. | On |
+| `recon-only` | Investigate and report only; do not edit. | User decision required |
+| `validation-only` | Validate existing work and report findings. | Off unless changes are requested |
+
+Prefer `repo-preflight-then-implement` for bounded LEAP Prompts where the prompt already contains the implementation contract. The phrase `implement-with-brief-plan` is deprecated because it can be confused with Codex Plan Mode.
+
+Use Codex Plan Mode Off when the task is bounded, source truth is clear enough, risk is low or localized, stop conditions are enough to control risk, and another planning step would not materially reduce risk. Recommended execution mode: `repo-preflight-then-implement`.
+
+Use Codex Plan Mode On when the user should approve the implementation plan before files are edited, including architecture changes, auth/session/permission changes, billing/payment logic, privacy/security-sensitive behavior, destructive migrations, data model changes, cross-system changes, multi-area refactors, unclear source truth, branch/PR drift risk, rollback risk, or changes affecting money, identity, legal exposure, user trust, or data durability. Recommended execution mode: `plan-first`.
+
+Use Codex Plan Mode `User decision required` when either approval posture could be reasonable, such as recon-only work, validation-only work where fixes may or may not be requested, ambiguous medium-risk documentation or refactor work, or work where the user wants an approval gate even though LEAP does not strictly require it.
+
+Codex must follow the Execution Mode below.
+
+Do not reinterpret this LEAP Prompt as a request to create a second implementation plan unless the execution mode is `plan-first` or a stop condition is triggered.
+
+For `repo-preflight-then-implement`, perform a brief repo-local preflight. If referenced files exist, repo reality matches the prompt, and no stop condition is triggered, proceed directly with implementation.
 
 ## Required prompt sections
 
@@ -111,14 +143,28 @@ If any item is missing, stop and explain what must happen first. If the missing 
 - LHS decision: <Use LHS / Do not use LHS>
 - Rationale:
 
-## 2. Agent Execution Configuration
+## 2. User Action Before Codex Submission
+
+USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
+
+| Field | Required Setting |
+|---|---|
+| Codex Plan Mode | <On / Off / User decision required> |
+| Reason | <why this setting is recommended> |
+
+Important: Set Codex Plan Mode before submitting this prompt.
+
+Codex Plan Mode is a user-controlled Codex UI setting. It is separate from LEAP Execution Mode.
+
+## 3. Agent Execution Configuration
 
 | Field | Value |
 |---|---|
 | Agent / Tool | <Codex / Claude Code / Cursor / other> |
+| Codex Plan Mode | <On / Off / User decision required> |
 | Model | <exact model name or approved project default> |
 | Reasoning Level | <low / medium / high / extended / project-approved enum> |
-| Execution Mode | <recon-only / plan-first / implement-directly / implement-with-brief-plan> |
+| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> |
 | Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> |
 | Repository | <owner/repo or local repo name> |
 | Branch / Worktree | <target branch/worktree> |
@@ -126,19 +172,25 @@ If any item is missing, stop and explain what must happen first. If the missing 
 | Validation | <tests/lint/typecheck/build/manual checks> |
 | Commit Guidance | <commit message convention or none> |
 
-## 3. Objective
+Codex must follow the Execution Mode above.
+
+Do not reinterpret this LEAP Prompt as a request to create a second implementation plan unless the execution mode is `plan-first` or a stop condition is triggered.
+
+For `repo-preflight-then-implement`, perform a brief repo-local preflight. If referenced files exist, repo reality matches the prompt, and no stop condition is triggered, proceed directly with implementation.
+
+## 4. Objective
 - Objective:
 - User-visible outcome:
 - Definition of done:
 
-## 4. Current Repo Reality
+## 5. Current Repo Reality
 - Target branch:
 - Base branch:
 - Existing implementation summary:
 - Known doc-code conflicts:
 - Existing functionality to reuse:
 
-## 5. Source-of-Truth Instructions
+## 6. Source-of-Truth Instructions
 Use these sources:
 - <canonical / active sources>
 
@@ -149,7 +201,7 @@ Archived docs are historical unless a canonical document explicitly references t
 
 If any source conflict appears, stop and report.
 
-## 6. Materiality / Assumption Handling
+## 7. Materiality / Assumption Handling
 - Material questions resolved:
 - Assumptions accepted:
 - Non-material unknowns deferred:
@@ -157,14 +209,14 @@ If any source conflict appears, stop and report.
 
 Do not ask the coding agent to resolve material product, architecture, source-truth, risk, validation, or acceptance-criteria questions during implementation. Stop and report if new material uncertainty appears.
 
-## 7. Scope
+## 8. Scope
 - In scope:
 - Out of scope:
 - Non-goals:
 - Files/areas to inspect:
 - Files/areas not to touch:
 
-## 8. Constraints
+## 9. Constraints
 - Existing patterns to follow:
 - Dependencies allowed/disallowed:
 - Architecture constraints:
@@ -175,7 +227,7 @@ Do not ask the coding agent to resolve material product, architecture, source-tr
 - Destructive changes: allowed / not allowed / allowed only in these areas:
 - Rollback/data preservation requirements:
 
-## 9. Implementation Sequence
+## 10. Implementation Sequence
 - Suggested sequence:
 - Build Unit order:
 - One Build Unit per commit where feasible:
@@ -183,13 +235,13 @@ Do not ask the coding agent to resolve material product, architecture, source-tr
 - Error handling:
 - Backward compatibility:
 
-## 10. Verification
+## 11. Verification
 - Tests to run:
 - Manual checks:
 - Expected result:
 - Verification evidence to report:
 
-## 11. Stop Conditions
+## 12. Stop Conditions
 Stop and report instead of guessing if:
 - required files or sources are missing
 - docs conflict with repo reality
@@ -209,18 +261,18 @@ Stop and report instead of guessing if:
 - requested reasoning level is unavailable and no approved fallback is provided
 - archived docs appear to be treated as current source truth
 
-## 12. Branch / Worktree / Commit Instructions
+## 13. Branch / Worktree / Commit Instructions
 - Branch/worktree:
 - Commit guidance:
 - One Build Unit per commit:
 - Merge/order notes:
 
-## 13. Source-of-Truth Update Policy
+## 14. Source-of-Truth Update Policy
 - Docs to update:
 - Execution log / drift ledger update required:
 - Cross-layer impact map update required:
 
-## 14. Completion Report Format
+## 15. Completion Report Format
 Return:
 - Summary of changes
 - Files changed

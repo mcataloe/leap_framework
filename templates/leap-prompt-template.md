@@ -23,8 +23,10 @@ Preflight status:
 - Branch/worktree/PR drift reviewed:
 - Human approvals granted:
 - Agent/tool selected or recommended:
+- Codex Plan Mode selected or recommended for Codex-targeted prompts:
 - Model selected or recommended:
 - Reasoning level selected or recommended:
+- Execution mode selected or recommended:
 
 Source-of-truth instructions:
 Use these sources:
@@ -39,9 +41,10 @@ Agent execution configuration:
 - Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Validation Prompt / other clearly named type
 - LHS Decision: Use LHS / Do not use LHS
 - Agent / Tool: <Codex / Claude Code / Cursor / other>
+- Codex Plan Mode: <On / Off / User decision required>
 - Model: <exact model name or recommended default>
 - Reasoning Level: <low / medium / high / extended>
-- Execution Mode: <recon-only / plan-first / implement-directly / implement-with-brief-plan>
+- Execution Mode: <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only>
 - Scope Scale: <small task / Build Unit / sublayer / entire layer / repo-wide maintenance>
 - Repository:
 - Branch / Worktree:
@@ -66,7 +69,7 @@ Required gate:
 - Confirm repo reality has been checked when repo access exists.
 - Confirm scope, non-goals, verification, stop conditions, and execution profile are defined.
 - Confirm whether implementation gravity warrants LHS.
-- Confirm the final prompt includes an explicit agent/tool, model, and reasoning level.
+- Confirm the final prompt includes an explicit agent/tool, Codex Plan Mode when Codex-targeted, model, reasoning level, and LEAP Execution Mode.
 - If baseline direction, MVP boundary, source truth, Recon approval, implementation scope, verification plan, stop conditions, agent/tool, model, or reasoning level are missing, stop and explain what must be completed first.
 
 Create the final implementation prompt as a canvas/textdoc artifact if supported by the working environment.
@@ -79,24 +82,25 @@ Do not include extra analysis inside the prompt unless it is operationally neces
 # <Solution Name> — LEAP Prompt — <Target Layer or Task>
 
 ## 1. Prompt Type and LHS Decision
-## 2. Agent Execution Configuration
-## 3. Objective
-## 4. Current Repo Reality
-## 5. Source-of-Truth Instructions
-## 6. Scope
-## 7. Non-Goals
-## 8. Constraints
-## 9. Implementation Sequence
-## 10. Verification
-## 11. Stop Conditions
-## 12. Branch / Worktree / Commit Instructions
-## 13. Source-of-Truth Update Policy
-## 14. Completion Report Format
+## 2. User Action Before Codex Submission
+## 3. Agent Execution Configuration
+## 4. Objective
+## 5. Current Repo Reality
+## 6. Source-of-Truth Instructions
+## 7. Materiality / Assumption Handling
+## 8. Scope
+## 9. Constraints
+## 10. Implementation Sequence
+## 11. Verification
+## 12. Stop Conditions
+## 13. Branch / Worktree / Commit Instructions
+## 14. Source-of-Truth Update Policy
+## 15. Completion Report Format
 ```
 
 ## Required Agent Execution Configuration
 
-Every LEAP Prompt must include this section near the top:
+Every Codex-targeted LEAP Prompt must include this section near the top:
 
 ```text
 ## 1. Prompt Type and LHS Decision
@@ -105,14 +109,28 @@ Every LEAP Prompt must include this section near the top:
 - LHS decision: <Use LHS / Do not use LHS>
 - Rationale:
 
-## 2. Agent Execution Configuration
+## 2. User Action Before Codex Submission
+
+USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
+
+| Field | Required Setting |
+|---|---|
+| Codex Plan Mode | <On / Off / User decision required> |
+| Reason | <why this setting is recommended> |
+
+Important: Set Codex Plan Mode before submitting this prompt.
+
+Codex Plan Mode is a user-controlled Codex UI setting. It is separate from LEAP Execution Mode.
+
+## 3. Agent Execution Configuration
 
 | Field | Value |
 |---|---|
 | Agent / Tool | <Codex / Claude Code / Cursor / other> |
+| Codex Plan Mode | <On / Off / User decision required> |
 | Model | <exact model name or approved project default> |
 | Reasoning Level | <low / medium / high / extended / project-approved enum> |
-| Execution Mode | <recon-only / plan-first / implement-directly / implement-with-brief-plan> |
+| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> |
 | Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> |
 | Repository | <owner/repo or local repo name> |
 | Branch / Worktree | <target branch/worktree> |
@@ -121,7 +139,15 @@ Every LEAP Prompt must include this section near the top:
 | Commit Guidance | <commit message convention or none> |
 ```
 
+Codex must follow the Execution Mode above.
+
+Do not reinterpret this LEAP Prompt as a request to create a second implementation plan unless the execution mode is `plan-first` or a stop condition is triggered.
+
+For `repo-preflight-then-implement`, perform a brief repo-local preflight. If referenced files exist, repo reality matches the prompt, and no stop condition is triggered, proceed directly with implementation.
+
 If the agent/tool, model, or reasoning level is unknown, recommend one explicitly instead of leaving the field blank.
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is an instruction inside the prompt. Use Codex Plan Mode Off for `implement-directly` and `repo-preflight-then-implement`, Codex Plan Mode On for `plan-first`, and `User decision required` when the user's desired approval gate is the deciding factor. The deprecated `implement-with-brief-plan` wording should be replaced with `repo-preflight-then-implement`.
 
 Use LHS only when the work needs staged implementation, commit boundaries, tests, docs, compatibility checks, rollback awareness, or multi-area coordination.
 

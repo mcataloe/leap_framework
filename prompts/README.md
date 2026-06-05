@@ -95,7 +95,9 @@ Use Recon prompts before implementation. They investigate a focused area, gap, r
 
 Use implementation prompts after Recon is complete and the Build Unit sequence has been approved or defaults have been accepted. These prompts are intended for Codex-style or another coding agent.
 
-An implementation prompt is not agent-ready unless it includes an explicit agent/tool, model, reasoning level, execution mode, Materiality / Assumption Handling section, validation plan, and stop conditions.
+An implementation prompt is not agent-ready unless it includes an explicit agent/tool, Codex Plan Mode for Codex-targeted prompts, model, reasoning level, execution mode, Materiality / Assumption Handling section, validation plan, and stop conditions.
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is the instruction inside the prompt. Use `repo-preflight-then-implement` for bounded prompts where Codex should verify repo reality and stop conditions, then proceed directly if clear.
 
 Implementation prompts must not ask the coding agent to resolve material product, architecture, source-truth, risk, validation, or acceptance-criteria questions during implementation. New material uncertainty should become a stop condition.
 

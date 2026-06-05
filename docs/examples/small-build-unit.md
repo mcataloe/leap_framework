@@ -74,6 +74,7 @@ Stop and ask if:
 
 ## 7. Agent Execution Configuration
 - Agent / Tool: project-approved coding agent
+- Codex Plan Mode: Off, if using Codex
 - Model: project-approved implementation model
 - Reasoning Level: Medium
 - Execution Mode: implement-directly

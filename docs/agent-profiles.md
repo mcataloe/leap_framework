@@ -92,6 +92,7 @@ A LEAP Prompt is not ready for an implementation agent unless it includes:
 
 ```text
 - Agent / Tool
+- Codex Plan Mode, for Codex-targeted prompts
 - Model
 - Reasoning Level
 - Execution Mode
@@ -102,6 +103,8 @@ A LEAP Prompt is not ready for an implementation agent unless it includes:
 - Validation
 - Commit Guidance
 ```
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is an instruction inside the prompt.
 
 If a field is unknown, LEAP should recommend a safe default and label it as a recommendation rather than leaving the field blank.
 
@@ -122,6 +125,7 @@ Use LEAP LHS only when implementation gravity warrants staged execution. LHS is 
 
 ## 1. Basic Profile
 - Agent / Tool: Codex
+- Codex Plan Mode: Off for bounded implementation prompts, On when the user should approve the plan before edits, User decision required when approval posture is the deciding factor
 - Model: project-approved Codex model
 - Reasoning level: medium / high / extended based on scope
 - Repo browsing ability: available when connected to repo/worktree

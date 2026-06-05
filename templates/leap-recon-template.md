@@ -60,9 +60,10 @@ Buildout settings:
 - Buildout mode: Rapid POC / Standard / Production-safe / Refactor
 - LEAP process tier: Standard / Thinking Extended / Pro Standard / Pro Extended / you recommend
 - Agent / Tool: Codex / Claude Code / Cursor / other / you recommend
+- Codex Plan Mode: On / Off / User decision required / you recommend
 - Model: <exact model name or you recommend>
 - Reasoning level: Low / Medium / High / Extended / you recommend
-- Execution mode: recon-only / plan-first / implement-directly / implement-with-brief-plan / you recommend
+- Execution mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only / you recommend
 - Production compatibility required: yes/no/unknown
 - Destructive changes allowed: yes/no/you recommend
 - One Build Unit per commit: yes/no
@@ -191,9 +192,10 @@ Needs verification:
 | Field | Recommendation | Rationale |
 |---|---|---|
 | Agent / Tool | <Codex / Claude Code / Cursor / other> | <why> |
+| Codex Plan Mode | <On / Off / User decision required> | <why> |
 | Model | <exact model name or project default> | <why> |
 | Reasoning Level | <low / medium / high / extended> | <why> |
-| Execution Mode | <plan-first / implement-directly / implement-with-brief-plan> | <why> |
+| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> | <why> |
 | Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> | <why> |
 | Validation | <tests/lint/typecheck/build/manual checks> | <why> |
 ```

@@ -65,6 +65,8 @@ Codex should not guess.
 
 If something is unknown, Codex should mark it as TBD.
 
+When a LEAP Prompt includes a "User Action Before Codex Submission" section, set Codex Plan Mode to the requested On, Off, or User decision required value before submitting the prompt. Codex Plan Mode is a user-controlled Codex setting, separate from the LEAP Execution Mode written inside the prompt.
+
 ## Step 4: Run LEAP Recon
 
 Now go back to ChatGPT and say:

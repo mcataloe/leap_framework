@@ -445,8 +445,10 @@ An agent execution profile should include:
 
 ```text
 Agent / Tool:
+Codex Plan Mode, for Codex-targeted prompts:
 Model:
 Reasoning level:
+Execution Mode:
 Context size:
 Repo browsing ability:
 Shell access:
@@ -458,6 +460,8 @@ Required stop conditions:
 Validation commands:
 Commit behavior:
 ```
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is the instruction inside the prompt. Codex-targeted prompts should tell the user whether Codex Plan Mode should be On, Off, or User decision required before submission.
 
 Different agents need different constraints. Weak repo awareness requires stronger file lists and inspect-first steps. Strong autonomous editing requires tighter non-goals and forbidden-file lists.
 
@@ -607,19 +611,20 @@ LEAP should guard against:
 # <Solution> - LEAP Prompt - <Target Layer or Task>
 
 ## 1. Prompt Type and LHS Decision
-## 2. Agent Execution Configuration
-## 3. Objective
-## 4. Current Repo Reality
-## 5. Source-of-Truth Instructions
-## 6. Scope
-## 7. Non-Goals
-## 8. Constraints
-## 9. Implementation Sequence
-## 10. Verification
-## 11. Stop Conditions
-## 12. Branch / Worktree / Commit Instructions
-## 13. Source-of-Truth Update Policy
-## 14. Completion Report Format
+## 2. User Action Before Codex Submission
+## 3. Agent Execution Configuration
+## 4. Objective
+## 5. Current Repo Reality
+## 6. Source-of-Truth Instructions
+## 7. Materiality / Assumption Handling
+## 8. Scope
+## 9. Constraints
+## 10. Implementation Sequence
+## 11. Verification
+## 12. Stop Conditions
+## 13. Branch / Worktree / Commit Instructions
+## 14. Source-of-Truth Update Policy
+## 15. Completion Report Format
 ```
 
 ### Validation/Handoff output

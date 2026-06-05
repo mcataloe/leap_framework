@@ -418,6 +418,7 @@ The explicit runtime handoff block required in every agent-ready LEAP Prompt.
 It must include:
 
 - Agent / Tool
+- Codex Plan Mode, for Codex-targeted prompts
 - Model
 - Reasoning Level
 - Execution Mode
@@ -429,6 +430,16 @@ It must include:
 - Commit Guidance
 
 A prompt is not agent-ready unless it tells the user exactly which execution profile to use.
+
+Codex Plan Mode is the user-controlled Codex UI setting that determines whether Codex should stop for plan approval before editing. LEAP Execution Mode is the prompt instruction that tells the agent how to proceed.
+
+Current LEAP Execution Mode values are:
+
+- `implement-directly`
+- `repo-preflight-then-implement`
+- `plan-first`
+- `recon-only`
+- `validation-only`
 
 ## Stop Condition
 

@@ -93,9 +93,10 @@ Stop and ask if:
 
 ## 7. Agent Execution Configuration
 - Agent / Tool: <Codex / Claude Code / Cursor / other>
+- Codex Plan Mode: <Off unless the user wants approval before editing>
 - Model: <exact model or recommendation>
 - Reasoning Level: <low / medium / high / extended>
-- Execution Mode: <implement-directly / implement-with-brief-plan>
+- Execution Mode: <implement-directly / repo-preflight-then-implement>
 - Scope Scale: <small task / Build Unit>
 - Repository:
 - Branch / Worktree:
@@ -115,9 +116,12 @@ Return:
 
 ## Default settings
 
+Codex Plan Mode is usually Off for a Quick LEAP Brief. The brief already defines the small task, constraints, validation, and stop conditions. Use Plan Mode only when the user wants Codex to stop for approval before editing.
+
 If the task is small and low risk:
 
 ```text
+Codex Plan Mode: Off
 Reasoning Level: Medium
 Execution Mode: implement-directly
 Scope Scale: small task
@@ -126,8 +130,9 @@ Scope Scale: small task
 If the task touches several files or a coherent Build Unit:
 
 ```text
+Codex Plan Mode: Off
 Reasoning Level: High
-Execution Mode: implement-with-brief-plan
+Execution Mode: repo-preflight-then-implement
 Scope Scale: Build Unit
 ```
 

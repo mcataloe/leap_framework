@@ -28,6 +28,18 @@ If the work is small, obvious, and easy to verify, a normal prompt may be enough
 
 Materiality Gate is not a phase. It is LEAP's question filter: inspect discoverable sources first, ask only when the answer changes the work, proceed on safe assumptions for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks.
 
+## Codex Plan Mode vs. LEAP Execution Mode
+
+Codex Plan Mode is a user-controlled Codex setting. LEAP Execution Mode is an instruction inside the prompt.
+
+They are related, but not the same thing.
+
+- Use Codex Plan Mode Off for `implement-directly` and `repo-preflight-then-implement`.
+- Use Codex Plan Mode On for `plan-first`.
+- Use `User decision required` when the user's desired approval gate is the deciding factor.
+
+A LEAP Prompt should make the required Codex Plan Mode setting obvious before the user submits the prompt.
+
 ## When Not to Use Full LEAP
 
 Do not use full LEAP just because AI is involved.

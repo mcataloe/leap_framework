@@ -122,9 +122,10 @@ If the gate decision is `Generate LEAP Prompt`, include:
 | Field | Recommendation | Rationale |
 |---|---|---|
 | Agent / Tool | <Codex / Cursor / Claude Code / other> | <why> |
+| Codex Plan Mode | <On / Off / User decision required> | <why> |
 | Model | <exact model name or project default> | <why> |
 | Reasoning Level | <low / medium / high / extended> | <why> |
-| Execution Mode | <plan-first / implement-directly / implement-with-brief-plan> | <why> |
+| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> | <why> |
 | Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> | <why> |
 | Repository | <repo name> | <why> |
 | Branch / Worktree | <branch/worktree> | <why> |

@@ -94,9 +94,10 @@ Required human decisions:
 
 Recommended Agent Execution Configuration:
 - Agent / Tool: Codex or project-approved coding agent
+- Codex Plan Mode: On for whole-layer planning, Off for approved Build Unit prompts
 - Model: project-approved reasoning-capable implementation model
 - Reasoning Level: Extended for whole layer, High for individual Build Units
-- Execution Mode: plan-first for whole layer, implement-with-brief-plan for Build Units
+- Execution Mode: plan-first for whole layer, repo-preflight-then-implement for Build Units
 - Scope Scale: entire layer or Build Unit
 - Validation: backend tests, frontend tests, lint/typecheck/build, manual artifact workflow checks
 - Commit Guidance: one Build Unit per commit where feasible

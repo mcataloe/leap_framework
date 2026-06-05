@@ -139,6 +139,7 @@ Every agent-ready LEAP Prompt must explicitly state:
 
 ```text
 - Agent / Tool
+- Codex Plan Mode
 - Model
 - Reasoning Level
 - Execution Mode
@@ -150,7 +151,11 @@ Every agent-ready LEAP Prompt must explicitly state:
 - Commit Guidance
 ```
 
-A prompt is not ready for a coding agent unless it tells the user exactly which execution profile to use. If the exact model or reasoning level is unknown, LEAP must recommend one instead of leaving the field blank.
+A prompt is not ready for a coding agent unless it tells the user exactly which execution profile to use. For Codex-targeted prompts, it must also tell the user whether Codex Plan Mode should be On, Off, or User decision required before submission.
+
+Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is the instruction inside the prompt. Use `repo-preflight-then-implement` for bounded work where Codex should check repo reality and stop conditions, then proceed directly if clear.
+
+If the exact model, reasoning level, Codex Plan Mode, or execution mode is unknown, LEAP must recommend one instead of leaving the field blank.
 
 ## Current framework
 
