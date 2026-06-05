@@ -29,6 +29,8 @@ LEAP Prompt is the broad category of Codex-ready or agent-ready instruction arti
 
 Use Quick LEAP Brief or a standard implementation prompt for low-gravity work. Use LHS when implementation gravity is high enough to need staged execution, commit boundaries, tests and docs, multi-area coordination, compatibility checks, rollback awareness, or explicit acceptance criteria.
 
+Materiality Gate is the question, assumption, and inspect-first discipline used by Charter, Recon, and Prompt generation. Use it before asking clarifying questions: inspect discoverable sources first, proceed on stated assumptions for non-material unknowns, and ask only unresolved material questions. Supporting guidance lives in [`../docs/materiality-gate.md`](../docs/materiality-gate.md).
+
 Dependency & Contract Recon is a subprocess inside LEAP Recon, not a separate lifecycle phase. Use it when the repo declares or appears to depend on provider APIs, external services, packages, artifacts, shared contracts, or cross-repo contract sources. Supporting guidance lives in [`../docs/dependency-contract-recon.md`](../docs/dependency-contract-recon.md).
 
 ## Prompt categories
@@ -59,6 +61,7 @@ Use the current adoption docs first when onboarding new users:
 ```text
 docs/00_start_here.md
 docs/leap-charter.md
+docs/materiality-gate.md
 docs/user/leap-for-humans.md
 docs/user/quick-leap-brief.md
 docs/agent-profiles.md
@@ -82,15 +85,19 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
+Charter applies Materiality Gate before asking discovery questions. It should inspect discoverable repo/docs evidence first, convert non-material unknowns into assumptions, and ask only unresolved material questions needed for the next gate decision.
+
 ### Recon prompts
 
-Use Recon prompts before implementation. They investigate a focused area, gap, risk, feature, dependency, contract, or architectural question. They inspect source-of-truth manifests, document lifecycle status, repository reality, branch/worktree/PR drift, strategic-plan alignment, stale assumptions, existing functionality, dependency registers and contract sources when relevant, cross-layer impact, risk, destructive-change implications, and recommended agent execution configuration before creating implementation prompts.
+Use Recon prompts before implementation. They investigate a focused area, gap, risk, feature, dependency, contract, or architectural question. They inspect source-of-truth manifests, document lifecycle status, repository reality, branch/worktree/PR drift, strategic-plan alignment, stale assumptions, existing functionality, dependency registers and contract sources when relevant, cross-layer impact, material unknowns, risk, destructive-change implications, and recommended agent execution configuration before creating implementation prompts.
 
 ### Implementation prompts
 
 Use implementation prompts after Recon is complete and the Build Unit sequence has been approved or defaults have been accepted. These prompts are intended for Codex-style or another coding agent.
 
-An implementation prompt is not agent-ready unless it includes an explicit agent/tool, model, reasoning level, execution mode, validation plan, and stop conditions.
+An implementation prompt is not agent-ready unless it includes an explicit agent/tool, model, reasoning level, execution mode, Materiality / Assumption Handling section, validation plan, and stop conditions.
+
+Implementation prompts must not ask the coding agent to resolve material product, architecture, source-truth, risk, validation, or acceptance-criteria questions during implementation. New material uncertainty should become a stop condition.
 
 ### LEAP LHS prompts
 
@@ -144,6 +151,9 @@ LEAP process tier and agent reasoning level are related, but they are not the sa
 ## Public rule
 
 ```text
+Ask only material questions.
+Inspect discoverable sources first.
+Proceed on stated assumptions for non-material unknowns.
 Ask until the idea becomes buildable.
 Then stop asking and build only the bounded task.
 ```
