@@ -2,7 +2,7 @@
 LEAP_FRAMEWORK_REPO_AGENTS:
   purpose: repo-specific guidance for maintaining the LEAP Framework repository
   source_repo: https://github.com/mjcataldi/leap_framework
-  agent_pack_repo: https://github.com/mjcataldi/leap_agent_pack
+  agent_pack_repo: https://github.com/mcataloe/leap_agent_pack
   distributable_template: false
 END_LEAP_FRAMEWORK_REPO_AGENTS
 -->
@@ -14,17 +14,15 @@ This repository-root `AGENTS.md` is repo-specific guidance for maintaining the L
 Canonical distributable AGENTS.md templates live in the dedicated LEAP Agent Pack repository:
 
 ```text
-https://github.com/mjcataldi/leap_agent_pack
+https://github.com/mcataloe/leap_agent_pack
 ```
 
-This file has two sections:
+This file has two main managed sections:
 
 1. **Locked Global Section** - reusable LEAP operating behavior copied from the global AGENTS.md template.
-2. **Editable Repository Section** - project-specific AGENTS.md content that should be populated from the current repository.
+2. **Editable Repository Section** - project-specific AGENTS.md content populated from this repository.
 
-When this file is placed at the root of a repository as `AGENTS.md`, the code assistant should treat the locked global section as global LEAP behavior and the editable repository section as the repository-level AGENTS.md content.
-
-Populate only the editable repository section during repo onboarding.
+When this file is used in the LEAP Framework repository, the code assistant should treat the locked global section as shared LEAP behavior and the editable repository section as the repository-level maintenance guidance.
 
 ---
 
@@ -140,7 +138,7 @@ Application type and maturity:
 - Type: Markdown framework, prompt library, examples, and framework governance docs.
 - Runtime application: None discovered.
 - Current repository model: Canonical current docs and flattened current prompt files; older version detail should stay out of active docs unless it applies to the current framework. Use Git history, release notes, and release tags for older context.
-- Current active branch at last repo guidance update: `add-versioning`; verify with `git status --short --branch` before work.
+- Current active branch at last repo guidance update: `main`; verify with `git status --short --branch` before work.
 
 Primary users and use cases:
 
@@ -164,7 +162,7 @@ Primary product/architecture docs:
 - `docs/glossary.md` - terminology source for lifecycle, prompt taxonomy, source truth, and risk terms.
 - `prompts/README.md` - prompt library routing and prompt-family guidance.
 - `docs/README.md` - documentation domain map and source-of-truth routing.
-- `https://github.com/mjcataldi/leap_agent_pack` - Agent Pack templates, manifests, install docs, and upgrade guidance.
+- `https://github.com/mcataloe/leap_agent_pack` - Agent Pack templates, manifests, install docs, and upgrade guidance.
 
 Canonical docs:
 
@@ -447,7 +445,7 @@ Project-specific docs to keep aligned:
 - `templates/leap-charter-template.md`
 - `templates/leap-recon-template.md`
 - `templates/leap-prompt-template.md`
-- Agent Pack repository at `https://github.com/mjcataldi/leap_agent_pack` when AGENTS.md templates, manifests, install docs, or upgrade guidance are involved.
+- Agent Pack repository at `https://github.com/mcataloe/leap_agent_pack` when AGENTS.md templates, manifests, install docs, or upgrade guidance are involved.
 
 Doc classification at population time:
 
@@ -498,7 +496,7 @@ Project-specific stop conditions:
 
 ## Branch, Worktree, PR, and Commit Conventions
 
-- Default branch context at population time: `leap_charter` ahead of `origin/leap_charter`; verify before work.
+- Default branch context at last guidance update: `main`; verify before work.
 - Run `git status --short --branch` before edits and before final handoff.
 - Preserve user changes. Do not reset, checkout, or discard unowned work.
 - Do not commit unless the user explicitly asks for a commit.
@@ -510,7 +508,7 @@ Project-specific stop conditions:
 - TBD - Project owner: should this repo add a formal Markdown lint command?
 - TBD - Project owner: should this repo add a Markdown link-check command or script?
 - TBD - Project owner: should this repo have CI for terminology drift and link validation?
-- Resolved: root `AGENTS.md` remains committed as LEAP Framework repo-specific guidance. Distributable AGENTS templates live in `https://github.com/mjcataldi/leap_agent_pack`.
+- Resolved: root `AGENTS.md` remains committed as LEAP Framework repo-specific guidance. Distributable AGENTS templates live in `https://github.com/mcataloe/leap_agent_pack`.
 - TBD - Project owner: should `docs/99_archive/` be created now or only when real framework docs are archived?
 
 ## Completion Requirements

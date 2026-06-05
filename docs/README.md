@@ -34,7 +34,7 @@ Examples illustrate usage but are not canonical source truth.
 | Document                                                         | Audience                   | Authority                           |
 | ---------------------------------------------------------------- | -------------------------- | ----------------------------------- |
 | [`00_start_here.md`](00_start_here.md)                           | Users                      | Entry point                         |
-| [`user/LEAP_PROJECT_SETUP.md`](user/LEAP_PROJECT_SETUP.md)       | Users                      | Supporting adoption guidance        |
+| [`user/leap_project_setup.md`](user/leap_project_setup.md)       | Users                      | Supporting adoption guidance        |
 | [`user/which-leap-workflow.md`](user/which-leap-workflow.md)     | Users                      | Supporting adoption guidance        |
 | [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md)   | Users                      | Supporting adoption guidance        |
 | [`user/leap-for-humans.md`](user/leap-for-humans.md)             | Users                      | Supporting adoption guidance        |
@@ -51,7 +51,7 @@ Examples illustrate usage but are not canonical source truth.
 ## Common Starting Points
 
 - If you are new to LEAP, read [`00_start_here.md`](00_start_here.md).
-- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/LEAP_PROJECT_SETUP.md`](user/LEAP_PROJECT_SETUP.md).
+- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/leap_project_setup.md`](user/leap_project_setup.md).
 - If you need to choose between Quick Brief, Charter, Recon, Prompt, or LHS, use [`user/which-leap-workflow.md`](user/which-leap-workflow.md).
 - If you need to decide whether full LEAP is too much for a tiny task, use [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md).
 - If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).

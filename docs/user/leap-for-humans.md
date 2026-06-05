@@ -41,21 +41,9 @@ LEAP helps uncover those missing details before implementation begins.
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
-LEAP Charter establishes or reconciles the project direction, source-of-truth docs, roadmap, baseline assumptions, and implementation posture.
+Charter asks where the project is going. Recon checks what is true. Prompt turns the next bounded task into instructions. Implementation changes the repo. Validation/Handoff proves what happened and reports what remains.
 
-LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
-
-LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
-
-Implementation is the execution of the approved LEAP Prompt by Codex or another coding agent.
-
-Validation/Handoff is the required completion step where Codex verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
-
-LEAP LHS is a structured LEAP Prompt format for layered implementation work using the House Standard. It is not a mandatory lifecycle stage.
-
-LEAP Prompt is a family. It includes Charter, Recon, standard implementation, fix, refactor, governance, validation, and LHS prompts.
-
-Use LHS when the implementation has enough gravity to need staged execution: multiple files or system areas, dependency order, tests and docs, phased commits, rollback risk, architecture/data/workflow changes, named-layer work, follow-up work, or explicit acceptance criteria. Do not use LHS for pure analysis, early brainstorming, one-file edits, small copy/doc fixes, obvious quick bugs, or ceremony that does not reduce risk.
+LEAP LHS is one structured LEAP Prompt format for staged implementation. It is useful when the work has enough coordination, risk, or sequencing to justify it. For the formal lifecycle and LHS rules, use the [canonical framework reference](../leap.md).
 
 ## Questions are the source of answers
 
@@ -167,6 +155,8 @@ Never let stale docs compete with source-of-truth docs.
 ```
 
 This means useful current content moves into canonical docs, old originals are preserved in an archive, and agents are told where to start.
+
+For the full Brownfield Charter doctrine, use [LEAP Charter](../leap-charter.md).
 
 ## LEAP should feel practical
 

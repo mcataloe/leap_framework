@@ -143,7 +143,7 @@ Use LEAP LHS when work is layered, staged, or large enough to require House Stan
 
 The versioned release unit for distributable LEAP AGENTS.md templates.
 
-The Agent Pack lives in `https://github.com/mjcataldi/leap_agent_pack`. It includes template metadata, managed section conventions, update policy, and manifests. It lets downstream projects detect stale LEAP guidance without overwriting project-specific instructions.
+The Agent Pack lives in `https://github.com/mcataloe/leap_agent_pack`. It includes template metadata, managed section conventions, update policy, and manifests. It lets downstream projects detect stale LEAP guidance without overwriting project-specific instructions.
 
 ## Agent Pack Manifest
 

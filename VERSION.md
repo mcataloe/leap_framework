@@ -26,7 +26,7 @@ Current Agent Pack:
 ```text
 Version: 0.1.0
 Release tag: leap-agent-pack-v0.1.0
-Repository: https://github.com/mjcataldi/leap_agent_pack
+Repository: https://github.com/mcataloe/leap_agent_pack
 Manifest: manifests/latest.json
 Update policy: notify
 ```

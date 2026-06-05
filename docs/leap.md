@@ -40,7 +40,7 @@ LEAP LHS is not a mandatory lifecycle stage. It is a structured LEAP Prompt form
 LEAP AGENTS.md templates are distributed from the dedicated **LEAP Agent Pack** repository:
 
 ```text
-https://github.com/mjcataldi/leap_agent_pack
+https://github.com/mcataloe/leap_agent_pack
 ```
 
 The Agent Pack gives downstream repositories stable template IDs, hidden metadata, managed sections, and manifests that can be inspected during LEAP Recon.
@@ -667,7 +667,7 @@ templates/leap-phase-0-template.md
 Current Agent Pack source:
 
 ```text
-https://github.com/mjcataldi/leap_agent_pack
+https://github.com/mcataloe/leap_agent_pack
 ```
 
 ---

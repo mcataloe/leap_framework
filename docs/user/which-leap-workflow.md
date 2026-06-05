@@ -42,28 +42,9 @@ They are related, but not the same thing.
 
 A LEAP Prompt should make the required Codex Plan Mode setting obvious before the user submits the prompt.
 
-## When Not to Use Full LEAP
+## When LEAP Is Too Much
 
-Do not use full LEAP just because AI is involved.
-
-Use the lightest workflow that controls the actual risk. Full LEAP is helpful when direction, source truth, repo reality, architecture, dependencies, implementation scope, or validation needs discipline. It is not meant to turn every typo fix into a planning summit.
-
-Do not use full LEAP for:
-
-- typos
-- small copy edits
-- one-file obvious fixes
-- pure brainstorming
-- pure writing polish
-- small local UI tweaks
-- obvious bugs with clear scope
-- tasks where extra process would not reduce risk
-
-For small but agent-executed work, use a [Quick LEAP Brief](quick-leap-brief.md).
-
-Use [LEAP Charter](../leap-charter.md), [LEAP Recon](../../templates/leap-recon-lite-template.md), [LEAP Prompt](../../templates/leap-prompt-template.md), or [LEAP LHS](../leap.md) only when the work has enough uncertainty, risk, or implementation gravity to justify the added structure.
-
-For the longer version, see [When Not to Use LEAP](when-not-to-use-leap.md).
+Do not use full LEAP just because AI is involved. For the full rule, examples, and escalation path, use [When Not to Use LEAP](when-not-to-use-leap.md).
 
 ## Recommended Same-Thread Workflow
 

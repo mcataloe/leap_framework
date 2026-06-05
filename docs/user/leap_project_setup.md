@@ -35,9 +35,9 @@ Paste this:
 
 Copy the LEAP repo-level AGENTS.md file into the root of your GitHub project.
 
-Use this file:
+Use the repo-level template from the LEAP Agent Pack:
 
-`leap_agent_pack/repo/AGENTS.md`
+<https://github.com/mcataloe/leap_agent_pack/blob/main/repo/AGENTS.md>
 
 Your project should look something like this:
 
