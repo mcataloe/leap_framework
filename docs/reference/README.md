@@ -6,6 +6,7 @@ Current root-level reference docs:
 
 - [`../leap.md`](../leap.md) - canonical current framework document
 - [`../leap-charter.md`](../leap-charter.md) - canonical Charter reference
+- [`../materiality-gate.md`](../materiality-gate.md) - supporting Materiality Gate reference for question, assumption, and inspect-first discipline
 - [`../dependency-contract-recon.md`](../dependency-contract-recon.md) - supporting Dependency & Contract Recon reference
 - [`../glossary.md`](../glossary.md) - canonical terminology reference
 - [`../risk-taxonomy.md`](../risk-taxonomy.md) - risk and destructive-change reference
