@@ -4,6 +4,18 @@ All notable current changes to the LEAP Framework will be documented here.
 
 Historical details that are not applicable to the current framework version should not remain in active docs. Use Git history, release notes, and release tags for older version detail.
 
+## Unreleased - Materiality Gate
+
+### Added
+
+- Added `docs/materiality-gate.md` as supporting guidance for deciding when LEAP agents should ask a clarifying question, inspect available sources first, or proceed with a stated assumption.
+- Added Materiality Gate references to the README, docs map, and reference index.
+
+### Changed
+
+- Refined LEAP clarification behavior so confidence thresholds do not create avoidable question loops.
+- Clarified that non-material unknowns should become stated assumptions, discoverable unknowns should be inspected from available sources, and unresolved material unknowns should trigger the smallest useful set of targeted questions.
+
 ## Unreleased - Dependency & Contract Recon
 
 ### Added
@@ -28,7 +40,7 @@ Historical details that are not applicable to the current framework version shou
 
 ### Changed
 
-- Moved distributable AGENTS.md template ownership out of the LEAP Framework repo and into `https://github.com/mjcataldi/leap_agent_pack`.
+- Moved distributable AGENTS.md template ownership out of the LEAP Framework repo and into the LEAP Agent Pack repository.
 - Clarified that AGENTS.md updates are notify/manual-merge only and must not overwrite downstream project or local sections automatically.
 - Clarified that Agent Pack release tags use `leap-agent-pack-vX.Y.Z` separately from framework tags.
 - Reorganized LEAP documentation into clearer user, reference, maintainer, and example domains.
