@@ -67,5 +67,5 @@ Examples illustrate usage but are not canonical source truth.
 - Treat maintainer docs as LEAP Framework repository guidance only.
 - Do not treat maintainer docs as downstream project instructions unless the current repository is the LEAP Framework repository.
 - Treat examples as illustrative, not source-of-truth doctrine.
-- Use the dedicated [LEAP Agent Pack](https://github.com/mjcataldi/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
+- Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
 - Keep active docs focused on the current framework baseline. Use Git history and release tags for older version detail.
