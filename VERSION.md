@@ -26,8 +26,8 @@ Unreleased framework additions:
 Current Agent Pack:
 
 ```text
-Version: 0.1.0
-Release tag: leap-agent-pack-v0.1.0
+Version: 0.2.0 candidate
+Release tag: none verified in the local Agent Pack repository
 Repository: https://github.com/mcataloe/leap_agent_pack
 Manifest: manifests/latest.json
 Update policy: notify

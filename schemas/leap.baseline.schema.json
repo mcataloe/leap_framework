@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/mjcataldi/leap_framework/schemas/leap.baseline.schema.json",
+  "$id": "https://github.com/mcataloe/leap_framework/schemas/leap.baseline.schema.json",
   "title": "LEAP Baseline Register",
   "description": "Permissive starter schema for optional leap.baseline.yaml.",
   "type": "object",

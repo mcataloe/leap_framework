@@ -1,7 +1,7 @@
 <!--
 LEAP_FRAMEWORK_REPO_AGENTS:
   purpose: repo-specific guidance for maintaining the LEAP Framework repository
-  source_repo: https://github.com/mjcataldi/leap_framework
+  source_repo: https://github.com/mcataloe/leap_framework
   agent_pack_repo: https://github.com/mcataloe/leap_agent_pack
   distributable_template: false
 END_LEAP_FRAMEWORK_REPO_AGENTS
