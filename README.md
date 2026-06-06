@@ -11,11 +11,15 @@ LEAP AGENTS.md templates are distributed from the dedicated [LEAP Agent Pack](ht
 1. Add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/leap_project_setup.md#recommended-full-project-instructions).
 2. Add the Agent Pack `AGENTS.md` template from the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack/blob/main/templates/leap-repo-AGENTS-file-complete/AGENTS.md) to your project root.
 3. Run the [Agent Pack Population Prompt](https://github.com/mcataloe/leap_agent_pack/blob/main/templates/leap-repo-AGENTS-file-complete/AGENTS_Population_Prompt.md) in Codex.
-4. Ask ChatGPT:
 
-```text
-Run LEAP Recon on {{what you want to build or understand}}.
-```
+## Workflow
+
+The LEAP framework works best in four major parts:
+
+1. Ideation - This is when in ChatGPT or other LLM there is the general exploration without leap on the possibility of a potential feature. Ideally, this is done with one feature to one thread in an IDE to preserve memory and context for the AI model in use.
+2. Verification - This is usually with a LEAP Recon or LEAP Quick Fix.
+3. Implementation - This is usually with instructions from the LEAP Recon to prompt Codex in the IDE (like Visual Studio Code) to "Run a LEAP Prompt on this previous thread"
+4. Validation - this is where the user manually confirms the functionality of the code either by UAT, by code inspection or other means.
 
 ## Start Here
 
