@@ -20,8 +20,11 @@ You must:
 8. check whether source-of-truth, repo reality, stop conditions, and execution profile requirements are preserved
 9. check whether risk taxonomy, destructive-change, sensitive-area, and implementation-gravity guidance are present where needed
 10. check whether AGENTS.md templates have Agent Pack metadata, managed/project/local markers, and manifest alignment
-11. classify any drift found
-12. recommend document updates, but do not rewrite files unless explicitly asked
+11. check whether AGENTS.md Baseline State and optional `leap.baseline.yaml` guidance are present, accurate, and not treated as mandatory
+12. classify any drift found
+13. recommend document updates, but do not rewrite files unless explicitly asked
+
+LEAP Governance may update the AGENTS.md Baseline State table or create/update optional `leap.baseline.yaml` when the pass explicitly performs or confirms a full reconciliation, governance pass, or intentional baseline update. Do not treat `leap.baseline.yaml` as mandatory for every project.
 
 ## Drift categories
 
@@ -53,10 +56,11 @@ Agent Pack drift — AGENTS.md template metadata, managed sections, manifest, ta
 ## 8. Risk / Sensitive Area / Destructive-Change Review
 ## 9. Agent Execution Configuration Review
 ## 10. Agent Pack / AGENTS.md Versioning Review
-## 11. Drift Ledger Candidates
-## 12. Recommended Updates
-## 13. Human Decisions Required
-## 14. Gate Decision / Next Step
+## 11. Baseline State Review
+## 12. Drift Ledger Candidates
+## 13. Recommended Updates
+## 14. Human Decisions Required
+## 15. Gate Decision / Next Step
 ```
 
 ## Gate decisions

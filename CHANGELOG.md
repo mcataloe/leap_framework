@@ -4,6 +4,21 @@ All notable current changes to the LEAP Framework will be documented here.
 
 Historical details that are not applicable to the current framework version should not remain in active docs. Use Git history, release notes, and release tags for older version detail.
 
+## Unreleased - Baseline Freshness Check
+
+### Added
+
+- Added Baseline Freshness Check as lightweight LEAP Recon preflight behavior.
+- Added `examples/leap.baseline.yaml` as an optional starter baseline register.
+- Added `schemas/leap.baseline.schema.json` as a permissive starter schema for optional `leap.baseline.yaml`.
+
+### Changed
+
+- Clarified that LEAP Charter is not required before every LEAP Recon.
+- Updated Recon prompts and templates to include a concise Baseline Freshness Check output section.
+- Clarified that AGENTS.md Baseline State is a signal, not a hard gate or running status log.
+- Clarified that normal Recon may recommend `leap.baseline.yaml`, but must not silently create it.
+
 ## Unreleased - Project setup instructions
 
 ### Added

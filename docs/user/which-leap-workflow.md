@@ -149,7 +149,7 @@ Use LEAP Recon.
 
 Use it when the baseline is good enough, but one focused feature, risk, dependency, contract, layer, or architecture question needs investigation.
 
-Why: Recon checks source truth and repo reality before turning uncertainty into implementation scope.
+Why: Recon first performs a lightweight Baseline Freshness Check, then checks source truth and repo reality before turning uncertainty into implementation scope. Charter is not required before every Recon.
 
 Starter phrasing:
 

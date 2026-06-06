@@ -19,6 +19,8 @@ Unreleased framework additions:
 - Dependency & Contract Recon subprocess inside LEAP Recon
 - Dependency register guidance for leap.dependencies.yaml
 - Starter dependency register example and permissive JSON Schema
+- Baseline Freshness Check preflight inside LEAP Recon
+- Optional baseline register guidance for leap.baseline.yaml
 ```
 
 Current Agent Pack:
@@ -57,6 +59,13 @@ Supporting Dependency & Contract Recon reference:
 docs/dependency-contract-recon.md
 examples/leap.dependencies.yaml
 schemas/leap.dependencies.schema.json
+```
+
+Optional Baseline Freshness metadata:
+
+```text
+examples/leap.baseline.yaml
+schemas/leap.baseline.schema.json
 ```
 
 Release context is preserved through:

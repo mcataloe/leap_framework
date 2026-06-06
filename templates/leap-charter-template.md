@@ -159,6 +159,9 @@ Charter settings:
 - If Brownfield, inspect and classify existing docs before treating them as source truth.
 - If Brownfield, apply this policy:
   Canonicalize forward. Archive backward. Preserve traceability. Never let stale docs compete with source-of-truth docs.
+- If a full reconciliation or intentional baseline update is performed, populate or update the AGENTS.md LEAP Baseline State table from evidence.
+- Create optional `leap.baseline.yaml` only when explicitly authorized or when this Charter includes an authorized baseline setup/reconciliation pass and project complexity justifies machine-readable tracking.
+- If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as pointer/summary.
 - Do not generate runtime implementation changes unless explicitly asked.
 - Capture runtime work as follow-up LEAP Recon, LEAP Prompt, or LEAP LHS recommendations.
 - Use LHS only when staged repo/docs work is warranted by implementation gravity. Charter does not use LHS by default.
@@ -177,10 +180,11 @@ Required Charter workflow:
 11. Define MVP boundary or current scope boundary.
 12. Define concrete non-goals.
 13. Recommend documentation baseline and source-of-truth posture.
-14. Create gap and drift register.
-15. Create Brownfield migration map if existing docs are reconciled.
-16. Recommend next LEAP Recon, LEAP Prompt, Validation, Handoff, or LHS.
-17. Make readiness gate decision.
+14. Recommend AGENTS.md Baseline State and optional `leap.baseline.yaml` posture.
+15. Create gap and drift register.
+16. Create Brownfield migration map if existing docs are reconciled.
+17. Recommend next LEAP Recon, LEAP Prompt, Validation, Handoff, or LHS.
+18. Make readiness gate decision.
 
 Return the LEAP Charter output only.
 If more information is needed, ask the next discovery round instead of producing implementation plans.
@@ -225,13 +229,14 @@ Apply Materiality Gate before asking follow-up questions. Ask only for missing a
 ## 7. Readiness Gate
 ## 8. Source-of-Truth Inventory and Recommendation
 ## 9. Gap and Drift Register
-## 10. Scope Boundary and Non-Goals
-## 11. Risks and Constraints
-## 12. No-Build / Alternative-Solution Review, if relevant
-## 13. Migration Map, if Brownfield
-## 14. Prompt Backlog Recommendations
-## 15. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS / Validation / Handoff
-## 16. Gate Decision / Next Step
+## 10. Baseline State Recommendation
+## 11. Scope Boundary and Non-Goals
+## 12. Risks and Constraints
+## 13. No-Build / Alternative-Solution Review, if relevant
+## 14. Migration Map, if Brownfield
+## 15. Prompt Backlog Recommendations
+## 16. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS / Validation / Handoff
+## 17. Gate Decision / Next Step
 ```
 
 Materiality Check should include:

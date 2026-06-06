@@ -57,6 +57,7 @@ Examples illustrate usage but are not canonical source truth.
 - If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).
 - If you need a short Recon request, use [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md).
 - If the Recon scope is broad or high-risk, use [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md).
+- Optional baseline metadata examples live at [`../examples/leap.baseline.yaml`](../examples/leap.baseline.yaml) and [`../schemas/leap.baseline.schema.json`](../schemas/leap.baseline.schema.json).
 
 ## Agent Reading Rules
 

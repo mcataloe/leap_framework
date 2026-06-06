@@ -39,6 +39,8 @@ LEAP LHS is not a mandatory lifecycle stage. It is a structured LEAP Prompt form
 
 Charter does not use LHS by default. Charter may recommend a follow-up LHS prompt, and it may itself use LHS only when Charter has moved from discovery into staged repo-changing documentation work.
 
+Not every task starts at Charter. Charter establishes or reconciles the baseline when that baseline is unclear; focused Recon may proceed without a new Charter when its Baseline Freshness Check finds the existing source truth fresh enough.
+
 ## Charter Modes
 
 ### LEAP Charter - Greenfield Mode
@@ -251,3 +253,22 @@ Coding-agent guidance should say:
 5. Create LEAP Recon or LEAP Prompt recommendations instead of making risky implementation changes during Charter work.
 
 Brownfield Charter should also create or update a prompt backlog that captures unresolved implementation, documentation, architecture, roadmap, and reconciliation work. Runtime implementation changes found during Charter should normally become follow-up LEAP Prompts or LEAP LHS prompts, not ad hoc code edits.
+
+## Optional Baseline Register
+
+Repository AGENTS.md should include a small LEAP Baseline State table for future Recon preflight checks. This table is a signal, not a hard gate, and should not become a running status log.
+
+For larger or drift-prone projects, Brownfield Charter, LEAP Governance, or an explicitly authorized baseline/setup scan may create a machine-readable `leap.baseline.yaml` file. It is optional and should be created only when project complexity or source-truth drift risk justifies machine-readable tracking.
+
+Recommended creation triggers include:
+
+- multiple canonical docs exist
+- stale/archive/conflict risk exists
+- repo has layer plans, roadmap docs, ADRs, prompt backlogs, or gap registers
+- multiple agents or humans may work in the repo
+- project has recurring Recon, Prompt, or LHS work
+- AGENTS.md would become too noisy
+- Brownfield Charter produced a migration map or gap register
+- dependency or contract tracking is present
+
+When `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as a short pointer/summary. A normal LEAP Recon freshness check may recommend `leap.baseline.yaml`, but must not silently create it. For tiny projects, keep baseline state in AGENTS.md only.

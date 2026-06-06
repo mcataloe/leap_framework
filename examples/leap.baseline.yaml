@@ -1,0 +1,56 @@
+# Example LEAP baseline state.
+# Copy this to a repository root as leap.baseline.yaml only when a Brownfield
+# Charter, LEAP Governance pass, or explicitly authorized baseline setup scan
+# justifies machine-readable baseline tracking.
+
+repo: my-project
+
+baseline:
+  last_full_reconcile: "2026-06-05"
+  last_reconcile_mode: Brownfield Charter
+  baseline_confidence: medium
+  updated_by: Codex via LEAP Charter
+  update_policy: Update only after full reconcile, governance pass, or intentional baseline update.
+
+source_truth:
+  entrypoint: docs/00_start_here.md
+  canonical_docs:
+    - docs/02_product/00_product_strategy.md
+    - docs/03_architecture/00_architecture_overview.md
+    - docs/04_layers/00_layer_map.md
+  supporting_docs:
+    - README.md
+    - AGENTS.md
+  archive_path: docs/99_archive
+  stale_or_do_not_use:
+    - docs/99_archive/old-roadmap.md
+
+reconciliation_outputs:
+  document_inventory: docs/01_leap_charter/02_document_inventory.md
+  gap_register: docs/01_leap_charter/03_gap_register.md
+  migration_map: docs/01_leap_charter/04_migration_map.md
+  reconciliation_notes: docs/01_leap_charter/05_reconciliation_notes.md
+
+known_drift:
+  status: minor
+  items:
+    - README setup section may lag current Docker Compose workflow.
+    - Layer 4 roadmap needs update after timeline workflow completion.
+
+reconcile_triggers:
+  - major roadmap change
+  - architecture pivot
+  - source-truth conflict
+  - stale AGENTS.md
+  - large new layer
+  - conflicting docs
+  - missing canonical source-truth entrypoint
+
+related_registers:
+  dependency_register: leap.dependencies.yaml
+
+recon_behavior:
+  if_fresh_enough: Continue Recon normally.
+  if_minor_drift: Continue Recon, disclose confidence limitation, recommend follow-up cleanup.
+  if_material_drift: Ask whether to run Brownfield Charter or LEAP Governance now, continue with limited scope, or defer reconciliation.
+  if_unsafe_conflict: Stop and recommend reconciliation before proceeding.

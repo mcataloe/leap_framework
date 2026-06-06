@@ -79,6 +79,8 @@ package.json
 
 The AGENTS.md file teaches Codex how to work inside this specific repo.
 
+AGENTS.md should include a small LEAP Baseline State table so Recon can quickly judge whether the project baseline appears fresh enough. For larger or drift-prone projects, a Brownfield Charter, LEAP Governance pass, or explicitly authorized baseline setup scan may create optional `leap.baseline.yaml` machine-readable metadata. Tiny projects can keep baseline state inline in AGENTS.md only.
+
 ## Step 3: Run the AGENTS.md Population Prompt in Codex
 
 Open your project in Codex.

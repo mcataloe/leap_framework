@@ -78,6 +78,10 @@ Start with the lightest workflow that controls the actual risk:
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
+Not every task starts at Charter. Charter establishes or reconciles the project baseline when direction, source truth, roadmap, documentation, or implementation posture is unclear.
+
+Every LEAP Recon begins with a lightweight Baseline Freshness Check. This is Recon preflight behavior, not a new lifecycle phase, Charter mode, or separate command. It checks whether the repo/source-truth baseline is fresh enough for the focused investigation. If the baseline is fresh enough, Recon continues normally. If minor drift exists, Recon can continue with the limitation disclosed. If material drift or unsafe source-truth conflict exists, Recon should recommend Brownfield Charter or LEAP Governance before guessing.
+
 LEAP Prompt is the family of agent-ready instruction artifacts. LEAP LHS is one format inside that family, used only when staged implementation is worth the structure.
 
 Materiality Gate is not a phase. It is LEAP's question filter: ask only when the missing answer changes the work, inspect discoverable sources first, assume and proceed for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks. See [Materiality Gate](materiality-gate.md) for the full rule.

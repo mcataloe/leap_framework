@@ -71,6 +71,28 @@ The analysis, source-of-truth reconciliation, repo reality reconciliation, press
 
 LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 
+Every LEAP Recon begins with a lightweight Baseline Freshness Check. LEAP Charter is not required before every Recon when the existing baseline is fresh enough for the focused investigation.
+
+## Baseline Freshness Check
+
+A lightweight LEAP Recon preflight that asks whether the repo/source-truth baseline is fresh enough for the focused Recon.
+
+It may inspect repository AGENTS.md, the LEAP Baseline State table, optional `leap.baseline.yaml`, source-truth docs, canonical product/architecture/roadmap/layer/API/data-contract docs, archive guidance, gap registers, migration maps, reconciliation notes, prompt backlogs, relevant repo reality, doc/code conflicts, missing references, and evidence of stale roadmap, architecture, layer, AGENTS.md, or source-truth docs.
+
+Freshness outcomes are Fresh enough, Minor drift, Material drift, and Unsafe source-truth conflict. Baseline Freshness Check is not a lifecycle phase, Charter mode, or separate user command.
+
+## LEAP Baseline State
+
+A small AGENTS.md table or equivalent metadata that helps LEAP Recon judge whether the project baseline appears fresh enough. It is a signal, not a hard gate or running status log.
+
+If `leap.baseline.yaml` exists, it is the canonical machine-readable baseline record and AGENTS.md should keep only a short pointer/summary.
+
+## Baseline Register
+
+An optional machine-readable repo-level file, recommended as `leap.baseline.yaml`, for baseline metadata produced by Brownfield Charter, LEAP Governance, or an explicitly authorized baseline/setup scan.
+
+Normal Recon may recommend this file, but must not silently create it. Tiny projects can keep baseline state inline in AGENTS.md only.
+
 ## LEAP Dependency & Contract Recon
 
 A subprocess inside LEAP Recon that checks whether the current repo declares or appears to depend on external APIs, services, provider repositories, packages, artifacts, or shared contracts.

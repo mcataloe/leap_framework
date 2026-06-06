@@ -38,6 +38,7 @@ The LEAP framework works best in four major parts:
 - [Dependency & Contract Recon](docs/dependency-contract-recon.md) - dependency register and contract-drift Recon guidance
 - [Glossary](docs/glossary.md) - canonical terminology reference
 - [Prompt Library](prompts/README.md) - operational prompt routing
+- Optional baseline metadata: [example](examples/leap.baseline.yaml) and [schema](schemas/leap.baseline.schema.json)
 
 ## Prompt and Template Entry Points
 

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mjcataldi/leap_framework/schemas/leap.baseline.schema.json",
+  "title": "LEAP Baseline Register",
+  "description": "Permissive starter schema for optional leap.baseline.yaml.",
+  "type": "object",
+  "required": ["repo", "baseline", "source_truth"],
+  "additionalProperties": true,
+  "properties": {
+    "repo": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "last_full_reconcile": {
+          "type": "string",
+          "description": "Date or human-readable value. Old dates are signals, not automatic blockers."
+        },
+        "last_reconcile_mode": {
+          "type": "string",
+          "enum": ["Brownfield Charter", "LEAP Governance", "Manual", "Never", "Unknown"]
+        },
+        "baseline_confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low", "unknown", "High", "Medium", "Low", "Unknown"]
+        },
+        "updated_by": {
+          "type": "string"
+        },
+        "update_policy": {
+          "type": "string"
+        }
+      }
+    },
+    "source_truth": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "entrypoint": {
+          "type": "string"
+        },
+        "canonical_docs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supporting_docs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "archive_path": {
+          "type": "string"
+        },
+        "stale_or_do_not_use": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reconciliation_outputs": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "known_drift": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["none", "minor", "material", "unsafe", "unknown"]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "reconcile_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_registers": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "recon_behavior": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

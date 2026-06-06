@@ -65,7 +65,7 @@ LHS Prompt is not a separate lifecycle phase or standalone prompt file. It is th
 ## Usage Notes
 
 - Charter prompts establish or reconcile project direction and source truth before implementation depends on them.
-- Recon prompts investigate focused uncertainty before generating implementation prompts.
+- Recon prompts investigate focused uncertainty before generating implementation prompts. Charter is not required before every Recon; each Recon starts with a lightweight Baseline Freshness Check.
 - Implementation prompts must include scope, non-goals, constraints, validation, stop conditions, and explicit agent execution configuration.
 - Fix prompts are bounded implementation prompts for known bugs or remediation work.
 - Refactor prompts are bounded implementation prompts for structural changes where sequencing, verification, and rollback awareness matter.

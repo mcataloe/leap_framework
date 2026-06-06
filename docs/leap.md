@@ -33,6 +33,10 @@ Lifecycle terms:
 
 LEAP LHS is not a mandatory lifecycle stage. It is a structured LEAP Prompt format for layered implementation work using the House Standard. Use it when work is layered, staged, or large enough to require House Standard-style execution. Not every LEAP Prompt is an LHS prompt.
 
+Not every task starts at Charter. LEAP Charter establishes or reconciles the project baseline when project direction, source truth, roadmap, documentation, or implementation posture is unclear. LEAP Recon may proceed without a new Charter when the existing baseline is fresh enough for the focused investigation.
+
+Every LEAP Recon begins with a lightweight **Baseline Freshness Check**. This is Recon preflight behavior, not a new lifecycle phase, Charter mode, or required separate user command.
+
 ---
 
 ## AGENTS.md and Agent Pack governance
@@ -68,6 +72,7 @@ LEAP Framework
   |
   |-- LEAP Recon
   |   |-- Investigation / discovery / pressure testing
+  |   |-- Baseline Freshness Check
   |   `-- Dependency & Contract Recon
   |
   |-- LEAP Prompt
@@ -140,7 +145,7 @@ Recon usually should not use LHS. Recon should normally answer what is true, wha
 
 ```text
 No clarity, no build.
-No source-of-truth baseline, no Recon.
+No fresh-enough source-of-truth baseline or scoped minimum viable source-truth list, no Recon.
 No repo-reality inspection, no implementation prompt for existing repos.
 No MVP or scope boundary, no layer plan.
 No concrete non-goals, no coding-agent prompt.
@@ -324,6 +329,43 @@ Legacy document classifications:
 ## 8. Source-of-truth protocol
 
 No Recon, layer plan, or coding prompt may proceed without an active source-of-truth baseline or an explicitly scoped minimum viable source-truth list.
+
+### Baseline Freshness Check
+
+Baseline Freshness Check is a lightweight Recon preflight that answers:
+
+```text
+Is the repo/source-truth baseline fresh enough for this Recon?
+```
+
+It inspects, when available:
+
+- Repository AGENTS.md.
+- LEAP Baseline State table or equivalent metadata.
+- Optional `leap.baseline.yaml`.
+- Source-truth entry point.
+- Canonical product, architecture, roadmap, layer, API, or data-contract docs relevant to the Recon target.
+- Known archive/stale-doc guidance.
+- Gap register, migration map, reconciliation notes, or prompt backlog.
+- Current repo reality relevant to the Recon target.
+- Obvious doc/code conflicts.
+- Missing or broken source-truth references.
+- Evidence that roadmap, architecture, layer, AGENTS.md, or source-truth docs are stale.
+
+Freshness outcomes:
+
+| Outcome | Recon behavior |
+| --- | --- |
+| Fresh enough | Continue Recon normally. |
+| Minor drift | Continue Recon, disclose confidence limitation, and recommend follow-up cleanup if useful. |
+| Material drift | Ask whether to run Brownfield Charter or LEAP Governance now, continue Recon with limited scope/confidence, or defer reconciliation. |
+| Unsafe source-truth conflict | Stop and recommend reconciliation before Recon proceeds. |
+
+Do not make date freshness the only signal. An old date is not an automatic blocker, and a recent date is not proof that source truth is correct.
+
+If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record. AGENTS.md should keep only a short pointer/summary. If baseline metadata is missing, Recon should continue with normal source-truth inspection and recommend adding metadata only when useful.
+
+Normal LEAP Recon may recommend `leap.baseline.yaml`, but must not silently create it. Brownfield Charter, LEAP Governance, or an explicitly authorized baseline/setup scan may create and populate it when project complexity or source-truth drift risk justifies machine-readable tracking. For tiny projects, keep baseline state in AGENTS.md only.
 
 Minimum viable source truth:
 
@@ -581,28 +623,30 @@ LEAP should guard against:
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
-## 3. LEAP Charter / Baseline Gate Check
-## 4. Ideation Loop Residual Questions
-## 5. Repo Reality Reconciliation
-## 6. Branch / Worktree / PR Drift Review
-## 7. Documentation Lifecycle Review
-## 8. Strategic Plan Reconciliation
-## 9. Existing Functionality Collision Check
-## 10. Stale Assumption Scan
-## 11. Cross-Layer Impact Scan
-## 12. Layer Boundary Review
-## 13. Generated / Refined Build Unit Inventory
-## 14. Recommended Build Sequence
-## 15. Dependency and Destructive-Change Review
+## 3. Baseline Freshness Check
+## 4. LEAP Charter / Baseline Gate Check
+## 5. Ideation Loop Residual Questions
+## 6. Materiality Check
+## 7. Repo Reality Reconciliation
+## 8. Branch / Worktree / PR Drift Review
+## 9. Documentation Lifecycle Review
+## 10. Strategic Plan Reconciliation
+## 11. Existing Functionality Collision Check
+## 12. Stale Assumption Scan
+## 13. Cross-Layer Impact Scan
+## 14. Layer Boundary Review
+## 15. Generated / Refined Build Unit Inventory
+## 16. Recommended Build Sequence
+## 17. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 16. Risk Taxonomy Review
-## 17. Architecture Right-Sizing Review
-## 18. Human Checkpoints Required
-## 19. Execution Log / Drift Ledger Expectations
-## 20. Coding-Agent Risk Forecast
-## 21. Recommended Agent Execution Configuration
-## 22. Clarification Questions Before LEAP Prompt Generation
-## 23. Gate Decision / Next Step
+## 18. Risk Taxonomy Review
+## 19. Architecture Right-Sizing Review
+## 20. Human Checkpoints Required
+## 21. Execution Log / Drift Ledger Expectations
+## 22. Coding-Agent Risk Forecast
+## 23. Recommended Agent Execution Configuration
+## 24. Clarification Questions Before LEAP Prompt Generation
+## 25. Gate Decision / Next Step
 ```
 
 ### Prompt output
@@ -687,7 +731,7 @@ The short rule:
 
 ```text
 No clarity, no build.
-No source truth, no Recon.
+No fresh-enough source truth, no Recon.
 No repo reality, no implementation plan.
 No stop conditions, no coding task.
 No execution profile, no agent-ready prompt.

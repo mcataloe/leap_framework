@@ -14,6 +14,8 @@ LEAP LHS is not a mandatory lifecycle stage. It is a structured LEAP Prompt form
 
 Charter should remain lightweight when it is doing product shaping, naming, ideation, MVP definition, strategic discovery, or source-truth classification. Charter may recommend a follow-up LHS prompt when implementation gravity is high. Brownfield Charter may itself use LHS only after the reconciliation plan is clear and the staged repo-changing documentation work needs ordered phases, tests/docs checks, migration maps, AGENTS updates, prompt backlog updates, archive moves, or link/source-truth validation.
 
+Not every task starts at Charter. Focused LEAP Recon may proceed without a new Charter when Recon's Baseline Freshness Check finds the existing baseline fresh enough.
+
 ## Required behavior
 
 You must:
@@ -97,6 +99,10 @@ Brownfield Mode should:
 
 Brownfield Mode may update documentation, organization, naming, and planning artifacts directly. It should generally avoid runtime implementation changes unless explicitly requested.
 
+Brownfield Mode should populate or update the AGENTS.md LEAP Baseline State table when it performs a full reconciliation or intentional baseline update. It may create optional `leap.baseline.yaml` only when project complexity or source-truth drift risk justifies machine-readable tracking, such as multiple canonical docs, archive/conflict risk, layer plans, roadmap docs, ADRs, prompt backlogs, gap registers, multiple agents/humans, recurring Recon/Prompt/LHS work, noisy AGENTS.md baseline state, a migration map, or dependency/contract tracking. For tiny projects, keep baseline state in AGENTS.md only.
+
+If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as a short pointer/summary. Do not create `leap.baseline.yaml` during ordinary Recon; Recon may recommend it as follow-up.
+
 ## Documentation reconciliation policy
 
 ```text
@@ -136,10 +142,11 @@ Do not simply rename legacy docs or delete old docs. Reconcile them by confirmin
 ## 15. Source-of-Truth Recommendation
 ## 16. Gap Register
 ## 17. Migration Map, if Brownfield
-## 18. Prompt Backlog Recommendations
-## 19. Human Checkpoints Required
-## 20. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS
-## 21. Gate Decision / Next Step
+## 18. Baseline State Recommendation
+## 19. Prompt Backlog Recommendations
+## 20. Human Checkpoints Required
+## 21. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS
+## 22. Gate Decision / Next Step
 ```
 
 The Materiality Check section should include:

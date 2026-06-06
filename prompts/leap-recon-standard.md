@@ -12,11 +12,15 @@ Current lifecycle:
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
+LEAP Charter is not required before every LEAP Recon. Charter establishes or reconciles the project baseline when direction, source truth, roadmap, documentation, or implementation posture is unclear. Recon begins with a lightweight Baseline Freshness Check to decide whether the existing repo/source-truth baseline is fresh enough for the focused investigation.
+
+Baseline Freshness Check is Recon preflight behavior. It is not a new lifecycle phase, Charter mode, or required separate user command.
+
 ## Required behavior
 
 You must:
 
-1. verify LEAP Charter / baseline readiness before planning implementation
+1. perform a lightweight Baseline Freshness Check before focused Recon work
 2. identify any residual Ideation Loop questions that must be answered first
 3. apply Materiality Gate before asking clarifying questions
 4. require or construct a source-of-truth manifest
@@ -29,15 +33,19 @@ You must:
 11. search for already-existing functionality before recommending new work
 12. detect stale assumptions, stale docs, stale prompts, and stale layer claims
 13. check AGENTS.md Agent Pack metadata, managed/project/local markers, and manifest status when AGENTS.md exists or adoption is in scope
-14. run Dependency & Contract Recon when dependencies, contract sources, provider repos, APIs, SDKs, events, packages, or platform services are declared or detected
-15. identify cross-layer impacts and downstream assumptions
-16. evaluate risk, sensitive areas, and destructive-change implications
-17. define or refine Build Units only after the above checks
-18. identify human checkpoints
-19. distinguish LEAP process tier from agent execution configuration
-20. recommend the explicit agent/tool, Codex Plan Mode when Codex-targeted, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
-21. recommend LHS only when implementation gravity warrants staged execution
-22. end with a gate decision
+14. if `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and use AGENTS.md only as a quick human/agent summary
+15. do not treat an old baseline date as an automatic blocker or a recent baseline date as proof that source truth is correct
+16. if baseline metadata is missing, continue normal source-truth inspection and recommend adding it only when useful
+17. do not create or update AGENTS.md Baseline State or `leap.baseline.yaml` unless the task explicitly performs or confirms a full reconciliation, governance pass, or intentional baseline update
+18. run Dependency & Contract Recon when dependencies, contract sources, provider repos, APIs, SDKs, events, packages, or platform services are declared or detected
+19. identify cross-layer impacts and downstream assumptions
+20. evaluate risk, sensitive areas, and destructive-change implications
+21. define or refine Build Units only after the above checks
+22. identify human checkpoints
+23. distinguish LEAP process tier from agent execution configuration
+24. recommend the explicit agent/tool, Codex Plan Mode when Codex-targeted, model, reasoning level, execution mode, validation, and commit posture when prompt generation is allowed
+25. recommend LHS only when implementation gravity warrants staged execution
+26. end with a gate decision
 
 ## Brownfield Charter inputs
 
@@ -56,6 +64,41 @@ When present, use these Brownfield Charter outputs as source-truth inputs:
 ```
 
 If these are missing and source truth is unclear, use the gate decision `Reconcile Docs First` or `Continue LEAP Charter`.
+
+## Baseline Freshness Check
+
+Before focused Recon work, answer:
+
+```text
+Is the repo/source-truth baseline fresh enough for this Recon?
+```
+
+Inspect, when available:
+
+```text
+1. Repository AGENTS.md.
+2. LEAP Baseline State table or equivalent metadata.
+3. Optional leap.baseline.yaml.
+4. Source-truth entry point.
+5. Canonical product, architecture, roadmap, layer, API, or data-contract docs relevant to the Recon target.
+6. Known archive/stale-doc guidance.
+7. Gap register, migration map, reconciliation notes, or prompt backlog when present.
+8. Current repo reality relevant to the Recon target.
+9. Obvious doc/code conflicts.
+10. Missing or broken source-truth references.
+11. Evidence that roadmap, architecture, layer, AGENTS.md, or source-truth docs are stale.
+```
+
+Use one freshness outcome:
+
+```text
+Fresh enough - Continue Recon normally.
+Minor drift - Continue Recon, disclose confidence limitation, and recommend follow-up cleanup if useful.
+Material drift - Ask whether to run Brownfield Charter or LEAP Governance now, continue Recon with limited scope/confidence, or defer reconciliation.
+Unsafe source-truth conflict - Stop and recommend reconciliation before Recon proceeds.
+```
+
+Normal Recon may recommend `leap.baseline.yaml`, but must not silently create it. Brownfield Charter, LEAP Governance, or an explicitly authorized baseline/setup scan may create and populate it when project complexity or source-truth drift risk justifies machine-readable tracking.
 
 ## Required source-of-truth manifest check
 
@@ -76,6 +119,8 @@ If these are missing and source truth is unclear, use the gate decision `Reconci
 - Execution log path:
 - Cross-layer impact map path:
 - Dependency register path:
+- Baseline record path:
+- LEAP Baseline State summary:
 - Brownfield document inventory path:
 - Gap register path:
 - Migration map path:
@@ -138,7 +183,7 @@ Inspect, when available:
 
 ## Dependency & Contract Recon
 
-When dependencies or contract risks are relevant, include a focused Dependency & Contract Recon subsection inside `## 16. Dependency and Destructive-Change Review`.
+When dependencies or contract risks are relevant, include a focused Dependency & Contract Recon subsection inside `## 17. Dependency and Destructive-Change Review`.
 
 Required behavior:
 
@@ -248,29 +293,42 @@ Do Not Build Yet
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
-## 3. LEAP Charter / Baseline Gate Check
-## 4. Ideation Loop Residual Questions
-## 5. Materiality Check
-## 6. Repo Reality Reconciliation
-## 7. Branch / Worktree / PR Drift Review
-## 8. Documentation Lifecycle Review
-## 9. Strategic Plan Reconciliation
-## 10. Existing Functionality Collision Check
-## 11. Stale Assumption Scan
-## 12. Cross-Layer Impact Scan
-## 13. Layer Boundary Review
-## 14. Generated / Refined Build Unit Inventory
-## 15. Recommended Build Sequence
-## 16. Dependency and Destructive-Change Review
+## 3. Baseline Freshness Check
+## 4. LEAP Charter / Baseline Gate Check
+## 5. Ideation Loop Residual Questions
+## 6. Materiality Check
+## 7. Repo Reality Reconciliation
+## 8. Branch / Worktree / PR Drift Review
+## 9. Documentation Lifecycle Review
+## 10. Strategic Plan Reconciliation
+## 11. Existing Functionality Collision Check
+## 12. Stale Assumption Scan
+## 13. Cross-Layer Impact Scan
+## 14. Layer Boundary Review
+## 15. Generated / Refined Build Unit Inventory
+## 16. Recommended Build Sequence
+## 17. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 17. Risk Taxonomy Review
-## 18. Architecture Right-Sizing Review
-## 19. Human Checkpoints Required
-## 20. Execution Log / Drift Ledger Expectations
-## 21. Coding-Agent Risk Forecast
-## 22. Recommended Agent Execution Configuration
-## 23. Clarification Questions Before LEAP Prompt Generation
-## 24. Gate Decision / Next Step
+## 18. Risk Taxonomy Review
+## 19. Architecture Right-Sizing Review
+## 20. Human Checkpoints Required
+## 21. Execution Log / Drift Ledger Expectations
+## 22. Coding-Agent Risk Forecast
+## 23. Recommended Agent Execution Configuration
+## 24. Clarification Questions Before LEAP Prompt Generation
+## 25. Gate Decision / Next Step
+```
+
+The Baseline Freshness Check section should be concise:
+
+```text
+- Baseline status: Fresh enough / Minor drift / Material drift / Unsafe source-truth conflict
+- Evidence checked:
+  - ...
+- Source-truth confidence: High / Medium / Low / Unknown
+- Reconciliation needed before proceeding: No / Recommended / Required
+- Notes:
+  - ...
 ```
 
 The Materiality Check section should include:

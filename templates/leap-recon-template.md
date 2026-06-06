@@ -4,6 +4,8 @@ Use this template to request a LEAP Recon pass after LEAP Charter is complete, n
 
 Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
 
+LEAP Charter is not required before every Recon. Every Recon begins with a lightweight Baseline Freshness Check to decide whether the repo/source-truth baseline is fresh enough for the focused investigation.
+
 If you need a shorter starter request for a focused, lower-risk investigation, use [`LEAP Recon Lite`](leap-recon-lite-template.md).
 
 ```text
@@ -19,6 +21,8 @@ LEAP Charter / project baseline status:
 
 Source-of-truth manifest:
 - Manifest path or pasted manifest:
+- LEAP Baseline State source: AGENTS.md / leap.baseline.yaml / other / unknown / none
+- Baseline record path, if any:
 - Charter output path:
 - Product strategy / project charter path:
 - MVP or scope boundary path:
@@ -72,7 +76,17 @@ Buildout settings:
 - Cross-layer impact map update required: yes/no/you recommend
 
 Required gate:
+- Perform a lightweight Baseline Freshness Check using repository AGENTS.md, the LEAP Baseline State table if present, optional `leap.baseline.yaml`, source-truth docs, and relevant repo reality.
 - Verify whether the LEAP Charter baseline and source-of-truth manifest are sufficient.
+- Do not require LEAP Charter before every Recon.
+- If the baseline is fresh enough, continue Recon normally.
+- If minor drift exists, continue Recon, disclose the confidence limitation, and recommend follow-up cleanup if useful.
+- If material drift exists, ask whether to run Brownfield Charter or LEAP Governance now, continue with limited scope/confidence, or defer reconciliation.
+- If source-truth conflict would make Recon unsafe or misleading, stop and recommend reconciliation before proceeding.
+- Treat Baseline Freshness Check as Recon preflight behavior, not a lifecycle phase, Charter mode, or separate user command.
+- If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as pointer/summary.
+- If baseline metadata is missing, continue normal source-truth inspection and recommend adding it only when useful.
+- Do not silently create `leap.baseline.yaml`; normal Recon may recommend it as follow-up.
 - Confirm whether more Ideation Loop questions are needed before planning implementation.
 - Apply Materiality Gate before asking clarifying questions.
 - Classify missing context as material, non-material, discoverable, or safe assumption.
@@ -112,35 +126,36 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
-## 3. LEAP Charter / Baseline Gate Check
-## 4. Ideation Loop Residual Questions
-## 5. Materiality Check
-## 6. Repo Reality Reconciliation
-## 7. Branch / Worktree / PR Drift Review
-## 8. Documentation Lifecycle Review
-## 9. Strategic Plan Reconciliation
-## 10. Existing Functionality Collision Check
-## 11. Stale Assumption Scan
-## 12. Cross-Layer Impact Scan
-## 13. Layer Boundary Review
-## 14. Generated / Refined Build Unit Inventory
-## 15. Recommended Build Sequence
-## 16. Dependency and Destructive-Change Review
+## 3. Baseline Freshness Check
+## 4. LEAP Charter / Baseline Gate Check
+## 5. Ideation Loop Residual Questions
+## 6. Materiality Check
+## 7. Repo Reality Reconciliation
+## 8. Branch / Worktree / PR Drift Review
+## 9. Documentation Lifecycle Review
+## 10. Strategic Plan Reconciliation
+## 11. Existing Functionality Collision Check
+## 12. Stale Assumption Scan
+## 13. Cross-Layer Impact Scan
+## 14. Layer Boundary Review
+## 15. Generated / Refined Build Unit Inventory
+## 16. Recommended Build Sequence
+## 17. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 17. Risk Taxonomy Review
-## 18. Architecture Right-Sizing Review
-## 19. Human Checkpoints Required
-## 20. Execution Log / Drift Ledger Expectations
-## 21. Coding-Agent Risk Forecast
-## 22. Recommended Agent Execution Configuration
-## 23. Clarification Questions Before LEAP Prompt Generation
-## 24. Gate Decision / Next Step
+## 18. Risk Taxonomy Review
+## 19. Architecture Right-Sizing Review
+## 20. Human Checkpoints Required
+## 21. Execution Log / Drift Ledger Expectations
+## 22. Coding-Agent Risk Forecast
+## 23. Recommended Agent Execution Configuration
+## 24. Clarification Questions Before LEAP Prompt Generation
+## 25. Gate Decision / Next Step
 ```
 
 ## Materiality Check section
 
 ```text
-## 5. Materiality Check
+## 6. Materiality Check
 
 ### Material Unknowns
 Questions or missing facts that would change architecture, scope, risk, acceptance criteria, source-of-truth hierarchy, validation strategy, or implementation path.
@@ -187,7 +202,7 @@ Needs verification:
 ## Recommended Agent Execution Configuration section
 
 ```text
-## 22. Recommended Agent Execution Configuration
+## 23. Recommended Agent Execution Configuration
 
 | Field | Recommendation | Rationale |
 |---|---|---|
