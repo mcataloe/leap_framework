@@ -1,52 +1,63 @@
 # LEAP Prompt Request Template
 
-Use this template after LEAP Recon has been completed and the user has answered questions or approved safe defaults.
+Use this template after LEAP Recon is complete and material questions have been resolved or accepted as explicit defaults.
 
-Do not use this template for vague app ideas or unreconciled brownfield docs. New projects must pass LEAP Charter and Recon before LEAP Prompt generation unless the baseline is explicitly not applicable.
+Do not use it for vague ideas, unreconciled source truth, or unclear Initiative ownership.
 
 ```text
-Generate the LEAP Prompt for <Target Layer or Task> using the current LEAP framework.
+Generate the LEAP Prompt for <Initiative / Delivery Unit / Build Unit / Task>
+using the current LEAP Framework.
 
-Use the LEAP Recon findings above.
-Use my answers/defaults below:
-- <answer/default 1>
-- <answer/default 2>
+Use the approved Recon findings and these decisions/defaults:
+- <decision/default 1>
+- <decision/default 2>
+
+Strategic and delivery traceability:
+- Mission / Project Charter:
+- Strategic Outcome:
+- Initiative:
+- Delivery Unit, if used:
+- Delivery Unit collapse rationale, if omitted:
+- Build Unit / bounded task:
+- Roadmap placement, if relevant:
+- Affected Domains:
+- Affected Architecture Areas:
+- Cross-Initiative dependencies:
+- Cross-repository dependencies:
 
 Preflight status:
-- LEAP Charter complete or not applicable:
-- Prompt type selected:
-- LHS decision gate completed:
-- Ideation Loop complete or remaining questions resolved:
-- Source-of-truth manifest complete:
+- Charter complete or not applicable:
 - Recon approved:
+- Prompt type selected:
+- LHS decision completed:
+- Materiality Gate completed:
+- Source-of-truth manifest complete:
 - Repo reality checked:
-- Branch/worktree/PR drift reviewed:
+- Branch / worktree / PR drift reviewed:
 - Human approvals granted:
-- Agent/tool selected or recommended:
-- Codex Plan Mode selected or recommended for Codex-targeted prompts:
+- Agent / tool selected or recommended:
+- Codex Plan Mode selected or recommended:
 - Model selected or recommended:
 - Reasoning level selected or recommended:
 - Execution mode selected or recommended:
 
 Source-of-truth instructions:
 Use these sources:
-- <canonical / active source paths>
+- <canonical / active paths>
 
 Do not use these sources:
-- <draft / stale / archived / superseded source paths>
-
-Archived docs are historical unless a canonical document explicitly references them.
+- <Draft / stale / archived / superseded paths>
 
 Agent execution configuration:
-- Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Validation Prompt / other clearly named type
+- Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Validation Prompt / other clear type
 - LHS Decision: Use LHS / Do not use LHS
-- Agent / Tool: <Codex / Claude Code / Cursor / other>
-- Codex Plan Mode: <On / Off / User decision required>
-- Model: <exact model name or recommended default>
-- Reasoning Level: <low / medium / high / extended>
-- Execution Mode: <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only>
-- Scope Scale: <small task / Build Unit / sublayer / entire layer / repo-wide maintenance>
-- Repository:
+- Agent / Tool: Codex / Claude Code / Cursor / other
+- Codex Plan Mode: On / Off / User decision required
+- Model: exact model or approved default
+- Reasoning Level: Low / Medium / High / Extended
+- Execution Mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only
+- Scope Scale: small task / Build Unit / Delivery Unit / Initiative / multi-repository Initiative / repo-wide maintenance
+- Repository or repositories:
 - Branch / Worktree:
 - Permissions:
 - Validation:
@@ -54,119 +65,94 @@ Agent execution configuration:
 
 Implementation target:
 - Objective:
-- User-visible outcome:
+- User-visible or operational outcome:
 - Definition of done:
 - In scope:
 - Out of scope:
 - Non-goals:
-- Files/areas to inspect:
-- Files/areas not to touch:
-- Destructive changes allowed: yes/no/allowed only in specified areas
-- Rollback/data preservation requirements:
+- Files / areas to inspect:
+- Files / areas not to touch:
+- Destructive changes allowed: yes / no / limited
+- Rollback / data-preservation requirements:
+- Compatibility requirements:
 
 Required gate:
-- Confirm LEAP Charter / source-of-truth review is complete.
-- Confirm repo reality has been checked when repo access exists.
-- Confirm scope, non-goals, verification, stop conditions, and execution profile are defined.
+- Confirm Mission / Project Charter traceability when strategically material.
+- Confirm Strategic Outcome and Initiative ownership.
+- Confirm Delivery Unit or explicit collapse rationale.
+- Confirm Build Unit or bounded task.
+- Treat Roadmap as scheduling and dependency view, not Initiative identity.
+- Treat Domains as persistent responsibility boundaries.
+- Treat Architecture as technical structure.
+- Do not define Build Units as necessarily independently deployable.
+- Confirm repo reality, branch drift, scope, non-goals, validation, stop conditions, and execution profile.
 - Confirm whether implementation gravity warrants LHS.
-- Confirm the final prompt includes an explicit agent/tool, Codex Plan Mode when Codex-targeted, model, reasoning level, and LEAP Execution Mode.
-- If baseline direction, MVP boundary, source truth, Recon approval, implementation scope, verification plan, stop conditions, agent/tool, model, or reasoning level are missing, stop and explain what must be completed first.
+- Stop when a material item is missing.
 
-Create the final implementation prompt as a canvas/textdoc artifact if supported by the working environment.
-Do not include extra analysis inside the prompt unless it is operationally necessary for the coding agent.
+Create only the final agent-ready Prompt.
 ```
 
-## Expected LEAP Prompt sections
+## Expected Prompt sections
 
 ```text
-# <Solution Name> — LEAP Prompt — <Target Layer or Task>
+# <Solution> — LEAP Prompt — <Initiative / Delivery Unit / Build Unit / Task>
 
 ## 1. Prompt Type and LHS Decision
-## 2. User Action Before Codex Submission
+## 2. User Action Before Agent Submission
 ## 3. Agent Execution Configuration
-## 4. Objective
-## 5. Current Repo Reality
-## 6. Source-of-Truth Instructions
-## 7. Materiality / Assumption Handling
-## 8. Scope
-## 9. Constraints
-## 10. Implementation Sequence
-## 11. Verification
-## 12. Stop Conditions
-## 13. Branch / Worktree / Commit Instructions
-## 14. Source-of-Truth Update Policy
-## 15. Completion Report Format
+## 4. Strategic and Delivery Traceability
+## 5. Objective
+## 6. Current Repo Reality
+## 7. Source-of-Truth Instructions
+## 8. Materiality / Assumption Handling
+## 9. Scope
+## 10. Constraints
+## 11. Implementation Sequence
+## 12. Verification
+## 13. Stop Conditions
+## 14. Branch / Worktree / Commit Instructions
+## 15. Source-of-Truth Update Policy
+## 16. Completion Report Format
 ```
 
-## Required Agent Execution Configuration
+## Strategic and delivery rules
 
-Every Codex-targeted LEAP Prompt must include this section near the top:
+Use the preferred hierarchy:
 
 ```text
-## 1. Prompt Type and LHS Decision
-
-- Prompt type: <Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Validation Prompt / other clearly named type>
-- LHS decision: <Use LHS / Do not use LHS>
-- Rationale:
-
-## 2. User Action Before Codex Submission
-
-USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
-
-| Field | Required Setting |
-|---|---|
-| Codex Plan Mode | <On / Off / User decision required> |
-| Reason | <why this setting is recommended> |
-
-Important: Set Codex Plan Mode before submitting this prompt.
-
-Codex Plan Mode is a user-controlled Codex UI setting. It is separate from LEAP Execution Mode.
-
-## 3. Agent Execution Configuration
-
-| Field | Value |
-|---|---|
-| Agent / Tool | <Codex / Claude Code / Cursor / other> |
-| Codex Plan Mode | <On / Off / User decision required> |
-| Model | <exact model name or approved project default> |
-| Reasoning Level | <low / medium / high / extended / project-approved enum> |
-| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> |
-| Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> |
-| Repository | <owner/repo or local repo name> |
-| Branch / Worktree | <target branch/worktree> |
-| Permissions | <allowed modifications> |
-| Validation | <tests/lint/typecheck/build/manual checks> |
-| Commit Guidance | <commit message convention or none> |
+Mission / Project Charter
+  -> Strategic Outcome
+    -> Initiative
+      -> Delivery Unit
+        -> Build Unit
 ```
 
-Codex must follow the Execution Mode above.
+Roadmap schedules. Domains organize persistent responsibility. Architecture organizes technical structure.
 
-Do not reinterpret this LEAP Prompt as a request to create a second implementation plan unless the execution mode is `plan-first` or a stop condition is triggered.
+Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
 
-For `repo-preflight-then-implement`, perform a brief repo-local preflight. If referenced files exist, repo reality matches the prompt, and no stop condition is triggered, proceed directly with implementation.
+## Legacy Layer compatibility
 
-If the agent/tool, model, or reasoning level is unknown, recommend one explicitly instead of leaving the field blank.
+If a legacy Layer is referenced, classify it as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or mixed / unclear.
 
-Codex Plan Mode is a user-controlled Codex UI setting. LEAP Execution Mode is an instruction inside the prompt. Use Codex Plan Mode Off for `implement-directly` and `repo-preflight-then-implement`, Codex Plan Mode On for `plan-first`, and `User decision required` when the user's desired approval gate is the deciding factor. The deprecated `implement-with-brief-plan` wording should be replaced with `repo-preflight-then-implement`.
-
-Use LHS only when the work needs staged implementation, commit boundaries, tests, docs, compatibility checks, rollback awareness, or multi-area coordination.
+Do not globally replace `Layer`. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
 
 ## Required stop conditions
 
-Every LEAP Prompt should instruct the coding agent to stop and report instead of guessing when:
+Stop and report if:
 
-- required files or source documents are missing
+- required files or sources are missing
 - docs conflict with repo reality
-- existing implementation contradicts the prompt
-- implementation would violate explicit non-goals
-- scope requires architecture not approved
-- task requires touching forbidden files
-- implementation requires a new dependency, migration, auth/permission change, billing change, AI behavior change, or sensitive-data handling not approved
-- destructive changes are required but not explicitly authorized
-- branch/worktree/PR drift creates unclear ownership
-- required tests or verification paths are unavailable or unclear
-- acceptance criteria are impossible as written
-- requested agent/tool is unavailable and no approved fallback is provided
-- requested model is unavailable and no approved fallback is provided
-- requested reasoning level is unavailable and no approved fallback is provided
-- archived docs appear to be treated as current source truth
+- Initiative, Delivery Unit, Build Unit, Domain, or Architecture ownership is materially unclear
+- implementation violates non-goals
+- unapproved Architecture is required
+- forbidden files must be touched
+- a new dependency, migration, auth, billing, AI behavior, or sensitive-data change is needed without approval
+- destructive changes are required without authorization
+- branch or worktree drift creates unclear ownership
+- verification is unavailable or undefined
+- acceptance criteria are impossible
+- archived docs are being treated as source truth
+- a legacy Layer cannot be classified safely
+
+Use LHS only when staged execution, commit boundaries, tests, docs, compatibility checks, rollback awareness, or multi-area coordination materially reduce risk.
