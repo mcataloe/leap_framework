@@ -1,46 +1,58 @@
 # LEAP Recon Request Template
 
-Use this template to request a LEAP Recon pass after LEAP Charter is complete, not needed, or an existing project already has sufficient source-of-truth documentation.
+Use this template after Charter is complete, not needed, or the project already has sufficient source truth.
 
-Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
+Recon investigates a Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, dependency, contract, risk, question, or legacy Layer.
 
-LEAP Charter is not required before every Recon. Every Recon begins with a lightweight Baseline Freshness Check to decide whether the repo/source-truth baseline is fresh enough for the focused investigation.
+Every Recon begins with Baseline Freshness Check. Charter is not required before every Recon.
 
-If you need a shorter starter request for a focused, lower-risk investigation, use [`LEAP Recon Lite`](leap-recon-lite-template.md).
+For smaller work, use [`LEAP Recon Lite`](leap-recon-lite-template.md).
 
 ```text
-Run LEAP Recon using the current LEAP framework.
+Run LEAP Recon using the current LEAP Framework.
 
-LEAP Charter / project baseline status:
-- LEAP Charter complete? yes/no/not applicable because source truth is already sufficient
-- Charter mode used: Greenfield / Brownfield / unknown / not applicable
-- Gate decision from Charter:
-- Ideation Loop status: complete / still unclear / not applicable
-- Human approvals already granted:
+Charter / baseline status:
+- Charter complete? yes / no / not applicable because source truth is sufficient
+- Charter mode: Greenfield / Brownfield / unknown / not applicable
+- Charter gate decision:
+- Ideation Loop status:
+- Human approvals granted:
 - Known open questions:
+
+Strategic and planning context:
+- Mission / Project Charter path:
+- Strategic Outcomes path:
+- Current Strategic Outcome:
+- Initiative registry path:
+- Current Initiative:
+- Active Roadmap path:
+- Roadmap placement, if any:
+- Domain map path:
+- Affected Domains:
+- Canonical Architecture docs:
+- Affected Architecture areas:
+- Delivery Unit path / ID, if used:
+- Build Unit / bounded task:
+- Delivery Unit collapse rationale, if omitted:
 
 Source-of-truth manifest:
 - Manifest path or pasted manifest:
-- LEAP Baseline State source: AGENTS.md / leap.baseline.yaml / other / unknown / none
-- Baseline record path, if any:
-- Charter output path:
-- Product strategy / project charter path:
+- LEAP Baseline State source: AGENTS.md / leap.baseline.yaml / other / none
+- Baseline record path:
 - MVP or scope boundary path:
-- Pressure-test summary path:
-- Implementation strategy path:
-- Layer map path:
+- Active decisions / ADRs:
 - Prompt backlog path:
-- Execution log path:
-- Cross-layer impact map path:
-- Dependency register path, if any:
+- Execution log / drift ledger path:
+- Cross-Initiative / Cross-Domain impact map path:
+- Dependency register path:
 - Brownfield document inventory path:
 - Gap register path:
 - Migration map path:
+- Legacy Layer docs requiring classification:
 - Stale / archived / do-not-use docs:
-- AGENTS.md path:
-- AGENTS.md Agent Pack status: current / outdated / outdated with local changes / pinned / unversioned LEAP-style / non-LEAP / missing / forked-custom / malformed / unknown
+- AGENTS.md path and Agent Pack status:
 
-Solution/system overview:
+Solution overview:
 - Solution name:
 - Solution type:
 - High-level goal:
@@ -48,86 +60,82 @@ Solution/system overview:
 - Known constraints:
 
 Target area:
-- <Focused area, gap, risk, feature, architectural question, layer number + layer name, or bounded task name>
+- <Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain,
+  Architecture area, feature, dependency, contract, risk, question,
+  legacy Layer, or bounded task>
 
-Repo / branch context:
-- Repository:
+Repository / branch context:
+- Repository or repositories:
 - Base branch:
-- Target branch/worktree, if known:
-- Open PRs or active branches to inspect, if known:
+- Target branch / worktree:
+- Open PRs or active branches:
 - Areas likely affected:
 - Areas not to touch:
-- Dependency or contract sources to inspect, if known:
-- Current work operations or provider APIs involved, if known:
+- Dependency or contract sources:
 
-Buildout settings:
+Execution settings:
 - Buildout mode: Rapid POC / Standard / Production-safe / Refactor
-- LEAP process tier: Standard / Thinking Extended / Pro Standard / Pro Extended / you recommend
-- Agent / Tool: Codex / Claude Code / Cursor / other / you recommend
-- Codex Plan Mode: On / Off / User decision required / you recommend
-- Model: <exact model name or you recommend>
-- Reasoning level: Low / Medium / High / Extended / you recommend
-- Execution mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only / you recommend
-- Production compatibility required: yes/no/unknown
-- Destructive changes allowed: yes/no/you recommend
-- One Build Unit per commit: yes/no
-- Source-of-truth updates required: yes/no/you recommend
-- Execution log / drift ledger update required: yes/no/you recommend
-- Cross-layer impact map update required: yes/no/you recommend
+- LEAP process tier: Standard / Thinking Extended / Pro Standard / Pro Extended / recommend
+- Agent / Tool: Codex / Claude Code / Cursor / other / recommend
+- Codex Plan Mode: On / Off / User decision required / recommend
+- Model:
+- Reasoning level: Low / Medium / High / Extended / recommend
+- Execution mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only / recommend
+- Production compatibility required: yes / no / unknown
+- Destructive changes allowed: yes / no / recommend
+- One Build Unit per commit: yes / no / recommend
+- Source-of-truth updates required: yes / no / recommend
+- Execution log / drift ledger update required: yes / no / recommend
 
-Required gate:
-- Perform a lightweight Baseline Freshness Check using repository AGENTS.md, the LEAP Baseline State table if present, optional `leap.baseline.yaml`, source-truth docs, and relevant repo reality.
-- Verify whether the LEAP Charter baseline and source-of-truth manifest are sufficient.
-- Do not require LEAP Charter before every Recon.
-- If the baseline is fresh enough, continue Recon normally.
-- If minor drift exists, continue Recon, disclose the confidence limitation, and recommend follow-up cleanup if useful.
-- If material drift exists, ask whether to run Brownfield Charter or LEAP Governance now, continue with limited scope/confidence, or defer reconciliation.
-- If source-truth conflict would make Recon unsafe or misleading, stop and recommend reconciliation before proceeding.
-- Treat Baseline Freshness Check as Recon preflight behavior, not a lifecycle phase, Charter mode, or separate user command.
-- If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as pointer/summary.
-- If baseline metadata is missing, continue normal source-truth inspection and recommend adding it only when useful.
-- Do not silently create `leap.baseline.yaml`; normal Recon may recommend it as follow-up.
-- Confirm whether more Ideation Loop questions are needed before planning implementation.
-- Apply Materiality Gate before asking clarifying questions.
-- Classify missing context as material, non-material, discoverable, or safe assumption.
-- Inspect discoverable repo/docs/contracts/tooling sources before asking the user.
-- Convert non-material unknowns into stated assumptions.
-- Ask only unresolved material questions needed to make the next safe gate decision.
-- Treat Brownfield Charter outputs as valid source-truth inputs when present.
-- Classify docs as Canonical, Supporting, Current but poorly organized, Partially useful, Stale, Conflicting, Duplicate, Completed implementation plan, Misleading, Archived, or Unknown.
-- Treat archived docs as historical unless a canonical doc explicitly references them.
-- Inspect repo reality before implementation planning when repo access exists.
-- Search for already-existing functionality before recommending new work.
-- Detect `leap.dependencies.yaml` or an equivalent dependency register when present.
-- If no dependency register exists, scan for dependency candidates and clearly label generated entries as candidates.
-- Inspect declared dependency contract links such as OpenAPI, AsyncAPI, protobuf, GraphQL, provider repo URLs, docs URLs, package references, and artifacts when accessible.
-- For OpenAPI contracts, compare provider contract evidence against consumer expectations such as accepted versions, last verified version, baseline hash, compatibility policy, and declared operations used.
-- Separate dependency and contract findings into current-work impact, general system impact, and unknown / needs verification.
-- Include dependency name, type, contract source, expected and observed versions when known, operation/schema when known, severity, confidence, evidence, and recommended next action for every dependency-contract finding.
-- Keep provider repo and external contract access optional, read-only by default, permission-aware, and evidence-cited.
-- Keep notification automation out of scope unless I explicitly approve it; report manual follow-up recommendations only.
-- Check AGENTS.md Agent Pack metadata, managed/project/local markers, and manifest status when AGENTS.md exists or adoption is in scope.
-- Recommend an explicit Agent Execution Configuration before LEAP Prompt generation.
+Required behavior:
+- Perform Baseline Freshness Check using AGENTS.md, baseline metadata,
+  Project Charter, Strategic Outcomes, Initiative registry, Roadmap,
+  Domains, Architecture, Delivery / Build plans, and relevant repo reality.
+- Continue normally when fresh enough.
+- Continue with disclosed limitations for minor drift.
+- Recommend Charter / Governance, limited-scope Recon, or deferral for material drift.
+- Stop for unsafe source-truth conflict.
+- Do not silently create leap.baseline.yaml.
+- Apply Materiality Gate before asking questions.
+- Inspect discoverable evidence before asking.
+- Treat Brownfield Charter outputs as source-truth inputs.
+- Classify docs as Canonical, Supporting, Current but poorly organized,
+  Partially useful, Stale, Conflicting, Duplicate, Completed plan,
+  Misleading, Archived, or Unknown.
+- Inspect repo reality and search for existing functionality.
+- Inspect branch / worktree / PR drift.
+- Run Dependency & Contract Recon when relevant.
+- Check cross-Initiative, cross-Domain, cross-repository, contract,
+  release-order, and Architecture impacts.
+- Treat Roadmap as a scheduling and dependency view, not Initiative ownership.
+- Treat Domains as persistent and many-to-many with Initiatives.
+- Determine whether the target is Initiative-sized, Delivery-Unit-sized,
+  Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase,
+  or an ambiguous legacy Layer.
+- Refine Delivery Units only when meaningful release, enablement, adoption,
+  demonstration, or cross-repository boundaries exist.
+- Allow Delivery Unit collapse for small work.
+- Generate Build Units only after Initiative and Delivery boundaries are clear.
+- Do not define Build Units as necessarily independently deployable.
+- Classify legacy Layer meaning before migration.
+- Preserve the LEAP name, Layered House Standard, LEAP LHS,
+  qualified Architecture Layers, public paths, and compatibility references.
+- Recommend explicit Agent Execution Configuration before Prompt generation.
 - Recommend LHS only when implementation gravity warrants staged execution.
-- Keep Recon investigative and non-mutating unless I explicitly authorize changes.
-- If docs and repo reality conflict, report the conflict before generating a coding-agent prompt.
-- If branch/worktree/PR drift affects ownership or merge order, require resolution before prompt generation.
-- If agent/tool, model, or reasoning level is missing, recommend safe defaults based on scope, ambiguity, and implementation risk.
+- Keep Recon non-mutating unless explicitly authorized.
 
-Return only the LEAP Recon output first. Do not generate the LEAP Prompt yet.
-At the end, ask only material clarification questions that should be answered before generating the LEAP Prompt.
-Then remind me that I can say: "Generate the LEAP Prompt."
+Return Recon only. Do not generate the implementation Prompt yet unless I explicitly request it after the gate decision.
 ```
 
 ## Expected Recon sections
 
 ```text
-# LEAP Recon - <Target Area, Layer, Feature, Dependency, Contract, Risk, or Question>
+# LEAP Recon - <Target>
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
 ## 3. Baseline Freshness Check
-## 4. LEAP Charter / Baseline Gate Check
+## 4. Charter / Baseline Gate Check
 ## 5. Ideation Loop Residual Questions
 ## 6. Materiality Check
 ## 7. Repo Reality Reconciliation
@@ -136,46 +144,39 @@ Then remind me that I can say: "Generate the LEAP Prompt."
 ## 10. Strategic Plan Reconciliation
 ## 11. Existing Functionality Collision Check
 ## 12. Stale Assumption Scan
-## 13. Cross-Layer Impact Scan
-## 14. Layer Boundary Review
-## 15. Generated / Refined Build Unit Inventory
-## 16. Recommended Build Sequence
-## 17. Dependency and Destructive-Change Review
+## 13. Cross-Initiative / Cross-Domain Impact Scan
+## 14. Planning Boundary Review
+## 15. Legacy Layer Classification, when relevant
+## 16. Generated / Refined Delivery Unit Inventory, when relevant
+## 17. Generated / Refined Build Unit Inventory
+## 18. Recommended Build Sequence
+## 19. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 18. Risk Taxonomy Review
-## 19. Architecture Right-Sizing Review
-## 20. Human Checkpoints Required
-## 21. Execution Log / Drift Ledger Expectations
-## 22. Coding-Agent Risk Forecast
-## 23. Recommended Agent Execution Configuration
-## 24. Clarification Questions Before LEAP Prompt Generation
-## 25. Gate Decision / Next Step
+## 20. Risk Taxonomy Review
+## 21. Architecture Right-Sizing Review
+## 22. Human Checkpoints Required
+## 23. Execution Log / Drift Ledger Expectations
+## 24. Coding-Agent Risk Forecast
+## 25. Recommended Agent Execution Configuration
+## 26. Clarification Questions Before Prompt Generation
+## 27. Gate Decision / Next Step
 ```
 
-## Materiality Check section
+## Materiality Check format
 
 ```text
-## 6. Materiality Check
-
 ### Material Unknowns
-Questions or missing facts that would change architecture, scope, risk, acceptance criteria, source-of-truth hierarchy, validation strategy, or implementation path.
-
 ### Assumptions Proceeding Under
-Reasonable assumptions being used so Recon can continue without unnecessary blocking.
-
 ### Deferred Non-Material Details
-Items that may improve polish, naming, formatting, or preference alignment but do not block the current recommendation.
-
 ### Question Decision
-State whether LEAP should proceed with assumptions, inspect repo/docs first, or ask targeted clarifying questions.
 ```
 
-## Dependency & Contract Recon subsection, when relevant
+## Dependency & Contract Recon format
 
 ```text
 ### Dependency & Contract Recon
 
-- Dependency register found: yes/no/equivalent convention/unknown
+- Dependency register found:
 - Dependency register path:
 - Dependencies declared:
 - Contract sources accessible:
@@ -199,38 +200,24 @@ Needs verification:
 |---|---|---|---|
 ```
 
-## Recommended Agent Execution Configuration section
+## Recommended Agent Execution Configuration format
 
 ```text
-## 23. Recommended Agent Execution Configuration
-
 | Field | Recommendation | Rationale |
 |---|---|---|
-| Agent / Tool | <Codex / Claude Code / Cursor / other> | <why> |
-| Codex Plan Mode | <On / Off / User decision required> | <why> |
-| Model | <exact model name or project default> | <why> |
-| Reasoning Level | <low / medium / high / extended> | <why> |
-| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> | <why> |
-| Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> | <why> |
-| Validation | <tests/lint/typecheck/build/manual checks> | <why> |
+| Agent / Tool | Codex / Claude Code / Cursor / other | Why |
+| Codex Plan Mode | On / Off / User decision required | Why |
+| Model | Exact model or project default | Why |
+| Reasoning Level | Low / Medium / High / Extended | Why |
+| Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only | Why |
+| Scope Scale | small task / Build Unit / Delivery Unit / Initiative / multi-repo Initiative / repo-wide maintenance | Why |
+| Repository | Repo or repositories | Why |
+| Branch / Worktree | Target context | Why |
+| Permissions | Allowed changes | Why |
+| Validation | Tests and checks | Why |
+| Commit Guidance | Commit posture | Why |
 ```
-
-## Recon confidence guidance
-
-Use confidence as a heuristic, not as a blocker override or question-loop excuse:
-
-```text
-New product / baseline: 90-95%
-Whole layer: 80-90%
-Sublayer: 75-85%
-Single Build Unit / LEAP LHS: 60-75%, default around 67%
-Tiny local fix: 50-60%, if no shared contracts are touched
-```
-
-Hard blockers override confidence impressions.
-
-If confidence is below target because of non-material unknowns, proceed with stated assumptions. If confidence is below target because of material unknowns, ask targeted questions.
 
 ## LHS note
 
-Recon usually should not use LHS. Recon may recommend an LHS prompt, but should not default to LHS and should not mutate runtime code or broad repo structure unless explicitly authorized.
+Recon may recommend LHS but should not default to it. LEAP LHS stages implementation; it does not define the strategic documentation hierarchy.
