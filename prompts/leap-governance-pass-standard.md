@@ -1,44 +1,69 @@
 # LEAP Governance Pass — Standard Operational Prompt
 
-Run a LEAP strategic reconciliation pass using the current LEAP framework.
+Run a LEAP strategic reconciliation pass using the current LEAP Framework.
 
-Use this prompt when the repo, docs, branch state, implementation reality, and public framework language may have drifted.
+Use this when the repository, docs, branch state, implementation reality, public terminology, or Agent Pack guidance may have drifted.
 
-This is a governance pass. It is not an implementation prompt.
+This is a governance pass, not an implementation Prompt.
+
+## Canonical project-documentation model
+
+Governance should verify alignment with:
+
+```text
+Mission / Project Charter
+        ↓
+Strategic Outcome
+        ↓
+Initiative
+        ↓
+Delivery Unit
+        ↓
+Build Unit
+```
+
+Roadmap schedules and prioritizes. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
+
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
 
 ## Required behavior
 
 You must:
 
 1. identify the current LEAP version and governing docs
-2. inspect README, changelog, glossary, templates, and prompt library docs
-3. identify stale terminology, especially outdated framework expansion or tool-specific language where tool-agnostic language is intended
-4. check whether new docs are discoverable from the README
-5. check whether templates and operational prompts are aligned with current framework rules
-6. check whether LEAP Prompt taxonomy is aligned and LHS is treated as a prompt format, not a lifecycle phase
-7. check whether the Ideation Loop and question-loop rules are represented consistently
-8. check whether source-of-truth, repo reality, stop conditions, and execution profile requirements are preserved
-9. check whether risk taxonomy, destructive-change, sensitive-area, and implementation-gravity guidance are present where needed
-10. check whether AGENTS.md templates have Agent Pack metadata, managed/project/local markers, and manifest alignment
-11. check whether AGENTS.md Baseline State and optional `leap.baseline.yaml` guidance are present, accurate, and not treated as mandatory
-12. classify any drift found
-13. recommend document updates, but do not rewrite files unless explicitly asked
+2. inspect README, changelog, glossary, canonical references, templates, prompts, examples, and Agent Pack guidance
+3. verify Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture terminology
+4. verify that Roadmap does not permanently own Initiative identity
+5. verify that Initiatives and Domains are treated as many-to-many
+6. verify that Delivery Unit may collapse for small work
+7. verify that Build Unit is not defined as necessarily independently deployable
+8. classify remaining generic Layer uses as framework name, LHS name, qualified Architecture term, Phase, legacy compatibility, intentional historical example, or unresolved planning term
+9. check whether new canonical docs are discoverable
+10. check whether templates and operational prompts agree with current framework rules
+11. confirm LHS is a Prompt format for staged execution, not the strategic hierarchy or lifecycle phase
+12. check Materiality Gate, source truth, repo reality, stop conditions, and execution configuration
+13. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
+14. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
+15. check Baseline State and optional `leap.baseline.yaml` guidance
+16. classify all drift found
+17. recommend updates, but do not rewrite files unless explicitly asked
 
-LEAP Governance may update the AGENTS.md Baseline State table or create/update optional `leap.baseline.yaml` when the pass explicitly performs or confirms a full reconciliation, governance pass, or intentional baseline update. Do not treat `leap.baseline.yaml` as mandatory for every project.
+Governance may update baseline metadata only when the pass explicitly performs or confirms a full reconciliation or intentional baseline update.
 
 ## Drift categories
 
-Use these categories:
-
 ```text
-Strategy drift — framework direction or audience changed
-Documentation drift — docs disagree with each other
-Implementation drift — code or prompt artifacts do not match methodology
-Branch drift — active branches or PRs conflict
-Prompt drift — prompts assume stale files, old decisions, missing agent/tool, missing model, or missing reasoning level
-Terminology drift — old terms remain after framework language changed
-Adoption drift — public onboarding docs do not match current framework behavior
-Agent Pack drift — AGENTS.md template metadata, managed sections, manifest, tags, or update guidance disagree
+Strategy drift — framework direction, Mission, Outcomes, or audience changed
+Documentation drift — canonical and supporting docs disagree
+Planning-model drift — Initiative, Delivery Unit, Build Unit, Roadmap,
+  Domain, Architecture, or legacy Layer meanings conflict
+Implementation drift — code or Prompt artifacts do not match methodology
+Branch drift — active branches, worktrees, or PRs conflict
+Prompt drift — Prompts assume stale files, decisions, scope, or execution settings
+Terminology drift — deprecated or ambiguous terms remain
+Adoption drift — onboarding docs do not match current behavior
+Agent Pack drift — distributed AGENTS.md templates or manifests disagree
+Compatibility drift — public paths or legacy references break without a plan
 ```
 
 ## Required output
@@ -48,31 +73,32 @@ Agent Pack drift — AGENTS.md template metadata, managed sections, manifest, ta
 
 ## 1. Current Version and Governing Sources
 ## 2. Documentation Discovery Review
-## 3. Terminology Alignment Review
-## 4. Ideation Loop / Question-Loop Review
-## 5. Source-of-Truth and Repo-Reality Review
-## 6. Template and Operational Prompt Review
-## 7. Prompt Taxonomy / LHS Placement Review
-## 8. Risk / Sensitive Area / Destructive-Change Review
-## 9. Agent Execution Configuration Review
-## 10. Agent Pack / AGENTS.md Versioning Review
-## 11. Baseline State Review
-## 12. Drift Ledger Candidates
-## 13. Recommended Updates
-## 14. Human Decisions Required
-## 15. Gate Decision / Next Step
+## 3. Project Documentation Model Review
+## 4. Legacy Layer Classification Review
+## 5. Materiality / Question Discipline Review
+## 6. Source-of-Truth and Repo-Reality Review
+## 7. Template and Operational Prompt Review
+## 8. Prompt Taxonomy / LHS Placement Review
+## 9. Risk / Dependency / Destructive-Change Review
+## 10. Agent Execution Configuration Review
+## 11. Agent Pack / AGENTS.md Review
+## 12. Baseline State Review
+## 13. Drift Ledger Candidates
+## 14. Recommended Updates
+## 15. Human Decisions Required
+## 16. Gate Decision / Next Step
 ```
 
 ## Gate decisions
-
-Use one of these decisions:
 
 ```text
 No Action Needed
 Update Docs
 Update Templates
 Update Prompt Library
-Reconcile Terminology
+Reconcile Project Documentation Model
+Reconcile Legacy Layer Terminology
+Update Agent Pack
 Needs Human Decision
 Run Full Framework Recon
 ```
