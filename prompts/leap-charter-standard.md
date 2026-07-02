@@ -1,107 +1,144 @@
 # LEAP Charter - Standard Operational Prompt
 
-Run LEAP Charter using the current LEAP framework.
+Run LEAP Charter using the current LEAP Framework.
 
-LEAP Charter is the project-alignment front door. It establishes or reconciles the project direction, source-of-truth docs, roadmap, and implementation posture before LEAP Recon, LEAP Prompt, implementation, and Validation/Handoff.
+LEAP Charter is the project-alignment front door. It establishes or reconciles Mission, project direction, Strategic Outcomes, Initiative identity, Roadmap posture, Domains, Architecture direction, source truth, documentation, and implementation readiness before focused Recon or implementation Prompt generation.
 
-The current LEAP lifecycle is:
+Current lifecycle:
 
 ```text
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
-LEAP LHS is not a mandatory lifecycle stage. It is a structured LEAP Prompt format for layered implementation work using the House Standard.
+LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a mandatory lifecycle stage and it does not define the project's strategic documentation hierarchy.
 
-Charter should remain lightweight when it is doing product shaping, naming, ideation, MVP definition, strategic discovery, or source-truth classification. Charter may recommend a follow-up LHS prompt when implementation gravity is high. Brownfield Charter may itself use LHS only after the reconciliation plan is clear and the staged repo-changing documentation work needs ordered phases, tests/docs checks, migration maps, AGENTS updates, prompt backlog updates, archive moves, or link/source-truth validation.
+Not every task starts at Charter. Focused Recon may proceed when Baseline Freshness Check finds the existing baseline fresh enough.
 
-Not every task starts at Charter. Focused LEAP Recon may proceed without a new Charter when Recon's Baseline Freshness Check finds the existing baseline fresh enough.
+## Canonical project-documentation model
+
+Use this preferred traceability hierarchy:
+
+```text
+Mission / Project Charter
+        ↓
+Strategic Outcome
+        ↓
+Initiative
+        ↓
+Delivery Unit
+        ↓
+Build Unit
+```
+
+Treat these as supporting views:
+
+```text
+Roadmap      = timing, priority, dependencies, milestones, release targets, status, parallelism
+Domain Map   = persistent business, responsibility, ownership, or technical boundaries
+Architecture = structural technical organization
+```
+
+Roadmap does not permanently own Initiative identity. Initiatives and Domains have a many-to-many relationship. Delivery Unit is conditionally collapsible for small work. Build Unit is not required to be independently deployable.
+
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and historical compatibility references.
 
 ## Required behavior
 
 You must:
 
 1. preserve the user's original wording
-2. classify the request as Greenfield Mode or Brownfield Mode
-3. use the Ideation Loop to clarify vague intent before implementation planning
-4. apply Materiality Gate before asking discovery or clarification questions
-5. ask only the questions needed to make the next safe gate decision
+2. classify the request as Greenfield or Brownfield Mode
+3. use the Ideation Loop to clarify vague intent
+4. apply Materiality Gate before asking questions
+5. inspect discoverable evidence before asking
 6. separate Known, Assumed, Unknown, Contested, Needs Decision, and Deprecated items
-7. identify target users, problem, current workflow, success event, MVP boundary, non-goals, risks, and constraints when relevant
-8. pressure test whether software or custom implementation is needed
-9. use readiness gates C0-C5 instead of fake-precision clarity scores
-10. block implementation planning when hard blockers remain
-11. identify downstream LEAP Recon, LEAP Prompt, or LEAP LHS recommendations, using LHS only when staged implementation is warranted
-12. end with a gate decision
+7. identify Mission, target users, problem, current workflow, success event, MVP or current scope, non-goals, risks, and constraints when relevant
+8. identify or reconcile Strategic Outcomes
+9. identify or reconcile Initiative boundaries before detailed Build Unit planning
+10. treat Roadmap as a scheduling and dependency view
+11. identify persistent Domains separately from temporary Initiatives
+12. identify Architecture direction separately from strategic hierarchy
+13. identify Delivery Units when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist
+14. avoid forcing Delivery Units or separate files for trivial work
+15. pressure-test whether custom implementation is needed
+16. use readiness gates C0-C5
+17. block implementation planning when hard blockers remain
+18. classify legacy Layer docs semantically before renaming or moving them
+19. identify downstream Recon, Prompt, or LHS recommendations
+20. end with a gate decision
 
 ## Materiality Gate
-
-Apply Materiality Gate before asking the user questions.
 
 Classify missing context as:
 
 ```text
-Material - answer would change the Charter recommendation, readiness gate, source-of-truth hierarchy, scope boundary, risk posture, architecture direction, implementation path, validation strategy, or acceptance criteria.
-Non-material - answer would only refine naming, wording, formatting, ordering, tone, minor preference, or polish.
-Discoverable - answer should be inspected from repo/docs/contracts/tooling before asking.
-Safe assumption - answer can be reasonably assumed and stated without changing the decision.
+Material - changes direction, readiness, source truth, scope, risk,
+Architecture, implementation path, validation, acceptance criteria,
+or compatibility.
+
+Non-material - changes naming, wording, formatting, ordering, tone,
+or minor preference.
+
+Discoverable - should be inspected from repo, docs, contracts, or tooling.
+
+Safe assumption - can be reasonably stated without changing the decision.
 ```
 
-Question decision sequence:
+Question sequence:
 
 ```text
-1. Inspect discoverable sources before asking the user.
+1. Inspect discoverable sources.
 2. Convert non-material unknowns into stated assumptions.
-3. Proceed on safe assumptions when not blocked.
+3. Proceed on safe assumptions.
 4. Ask only unresolved material questions.
-5. Ask the smallest useful set of questions, preferably no more than three at a time.
+5. Ask the smallest useful set, preferably no more than three at a time.
 ```
 
-Confidence and readiness impressions are heuristics, not permission to ask unnecessary questions. If confidence is below target because of non-material unknowns, proceed with assumptions. If confidence is below target because of material unknowns, ask targeted questions.
-
-Materiality Gate does not override hard blockers. If a missing answer affects money, identity, privacy, data durability, legal exposure, user trust, destructive changes, source-truth conflicts, repo reality, or unapproved architecture, require the proper human decision.
+Hard blockers override Materiality Gate.
 
 ## Greenfield Mode
 
-Use Greenfield Mode for brand-new projects, early-stage ideas, or solutions that do not yet have a stable repo, roadmap, architecture, or documentation structure.
+Use for new projects, early ideas, or solutions without a stable repository, Roadmap, Architecture, or documentation baseline.
 
 Greenfield Mode should help create or organize:
 
-- Product mission.
-- Target users.
-- MVP boundary.
-- Strategic goals.
-- Initial architecture direction.
-- Initial data model assumptions.
-- Initial roadmap.
-- Initial layer plan.
-- Initial prompt backlog.
-- AGENTS.md guidance if applicable.
-- First recommended LEAP Recon or prompt sequence. Recommend LHS only when staged repo/docs foundation work is actually needed.
+- Mission / Project Charter
+- target users
+- MVP boundary
+- Strategic Outcomes
+- Initiative registry
+- Roadmap
+- Domain map when useful
+- Architecture direction
+- initial data-model assumptions
+- Delivery Units when implementation planning warrants them
+- prompt backlog
+- `AGENTS.md` guidance when applicable
+- first recommended Recon or Prompt sequence
 
-Greenfield Mode should not overbuild. It should create enough structure to start safely and intentionally.
+Do not overbuild documentation. Small projects may combine several concepts in one or a few files.
+
+Do not generate detailed Build Units while Initiative boundaries, intended outcomes, or release boundaries remain unclear.
 
 ## Brownfield Mode
 
-Use Brownfield Mode for existing or mid-buildout projects where LEAP needs to inspect the repo, reconcile documentation, identify gaps, establish source-of-truth docs, and prepare future LEAP Recon, LEAP Prompt, or LHS work.
+Use for existing or mid-buildout projects where LEAP must inspect repo reality, reconcile documentation, identify gaps, establish source truth, and prepare future work.
 
 Brownfield Mode should:
 
-1. Identify existing documents.
-2. Classify documents as canonical, supporting, stale, conflicting, duplicate, or archived.
-3. Familiarize itself with the current solution.
-4. Compare docs against the actual repository/codebase where applicable.
-5. Identify gaps between strategy, docs, roadmap, architecture, and implementation.
-6. Fix documentation and planning gaps when safe.
-7. Create or update supplemental Markdown docs.
-8. Produce a gap register.
-9. Produce a migration map for legacy documentation.
-10. Prepare future LEAP Recon, LEAP Prompt, and LEAP LHS work.
+1. inventory existing docs and source-truth entry points
+2. classify documents
+3. inspect the current solution and relevant repo reality
+4. compare Mission, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, Delivery plans, and implementation
+5. identify stale, conflicting, duplicate, misleading, and archived material
+6. classify each legacy Layer as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or Needs Reconciliation
+7. fix safe documentation and planning gaps
+8. create or update supplemental Markdown docs
+9. produce a gap register
+10. produce a migration map
+11. prepare focused Recon and Prompt work
 
-Brownfield Mode may update documentation, organization, naming, and planning artifacts directly. It should generally avoid runtime implementation changes unless explicitly requested.
-
-Brownfield Mode should populate or update the AGENTS.md LEAP Baseline State table when it performs a full reconciliation or intentional baseline update. It may create optional `leap.baseline.yaml` only when project complexity or source-truth drift risk justifies machine-readable tracking, such as multiple canonical docs, archive/conflict risk, layer plans, roadmap docs, ADRs, prompt backlogs, gap registers, multiple agents/humans, recurring Recon/Prompt/LHS work, noisy AGENTS.md baseline state, a migration map, or dependency/contract tracking. For tiny projects, keep baseline state in AGENTS.md only.
-
-If `leap.baseline.yaml` exists, treat it as the canonical machine-readable baseline record and keep AGENTS.md as a short pointer/summary. Do not create `leap.baseline.yaml` during ordinary Recon; Recon may recommend it as follow-up.
+Brownfield Mode may update docs and planning artifacts directly. Runtime changes should normally become follow-up Prompts unless explicitly requested.
 
 ## Documentation reconciliation policy
 
@@ -112,7 +149,37 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
-Do not simply rename legacy docs or delete old docs. Reconcile them by confirming canonical docs, absorbing useful content, archiving originals, adding archive/deprecation headers, creating a migration map, and updating README, docs entry points, AGENTS.md, and prompt backlogs.
+Do not mechanically rename or delete legacy docs. Preserve public paths unless a separately approved migration says otherwise.
+
+## Legacy Layer handling
+
+Do not globally replace `Layer`.
+
+Preserve:
+
+- Layered Execution & Alignment Protocol
+- Layered House Standard
+- LEAP LHS
+- qualified Architecture Layers
+- compatibility and historical references
+
+Use `docs/maintainer/project-documentation-migration.md` when available.
+
+## No-build review
+
+For new or strategically material work, ask:
+
+```text
+What happens if we do nothing?
+What manual workflow solves most of this?
+What spreadsheet, checklist, template, or lightweight doc solves most?
+What existing product solves most?
+What integration, script, no-code automation, or service solves most?
+What process or behavior change solves most?
+Why is custom software justified?
+Why is AI specifically justified, if proposed?
+What would make this not worth building?
+```
 
 ## Required output
 
@@ -135,34 +202,57 @@ Do not simply rename legacy docs or delete old docs. Reconcile them by confirmin
 ## 8. Readiness Gate
 ## 9. Greenfield or Brownfield Findings
 ## 10. No-Build / Alternative-Solution Review
-## 11. MVP Boundary or Current Scope Boundary
-## 12. Concrete Non-Goals
-## 13. Risks and Constraints
-## 14. Documentation Baseline Recommendation
-## 15. Source-of-Truth Recommendation
-## 16. Gap Register
-## 17. Migration Map, if Brownfield
-## 18. Baseline State Recommendation
-## 19. Prompt Backlog Recommendations
-## 20. Human Checkpoints Required
-## 21. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS
-## 22. Gate Decision / Next Step
+## 11. Mission / Project Charter Recommendation
+## 12. MVP Boundary or Current Scope Boundary
+## 13. Strategic Outcomes
+## 14. Initiative Registry Recommendation
+## 15. Roadmap Recommendation
+## 16. Domain and Architecture Recommendations
+## 17. Delivery Unit Recommendations, when warranted
+## 18. Concrete Non-Goals
+## 19. Risks and Constraints
+## 20. Documentation Baseline Recommendation
+## 21. Source-of-Truth Recommendation
+## 22. Gap Register
+## 23. Migration Map, if Brownfield
+## 24. Legacy Layer Classification, if present
+## 25. Baseline State Recommendation
+## 26. Prompt Backlog Recommendations
+## 27. Human Checkpoints Required
+## 28. Recommended Next LEAP Recon / LEAP Prompt / LEAP LHS
+## 29. Gate Decision / Next Step
 ```
 
-The Materiality Check section should include:
+## Materiality Check format
 
 ```text
 ### Material Unknowns
-Questions or missing facts that would change the Charter recommendation, readiness gate, source-of-truth hierarchy, scope boundary, risk posture, architecture direction, or implementation path.
+Questions or missing facts that would change direction, readiness,
+source-truth hierarchy, scope, risk, Architecture, implementation path,
+validation, acceptance criteria, or compatibility.
 
 ### Assumptions Proceeding Under
-Reasonable assumptions being used so Charter can continue without unnecessary blocking.
+Reasonable assumptions used so Charter can continue.
 
 ### Deferred Non-Material Details
-Items that may improve polish, naming, formatting, or preference alignment but do not block the current gate decision.
+Naming, wording, formatting, or preference details that do not block the gate.
 
 ### Question Decision
-State whether LEAP should proceed with assumptions, inspect repo/docs first, or ask targeted clarifying questions.
+Proceed with assumptions / inspect sources first / ask targeted questions.
 ```
 
-Do not generate runtime implementation changes unless the user explicitly requests implementation. Risky code, schema, API, UI, auth, workflow, infrastructure, or architecture changes discovered during Charter should become follow-up LEAP Prompts or LEAP LHS prompts.
+## Gate decisions
+
+Use an explicit next step, such as:
+
+- Continue Discovery
+- Draft Concept Brief
+- Pressure Test Further
+- Narrow MVP First
+- Needs Human Decision
+- Reconcile Docs First
+- Proceed to Recon
+- Generate LEAP Prompt
+- Do Not Build Yet
+
+Do not generate runtime implementation changes unless explicitly requested. Risky code, schema, API, UI, auth, workflow, infrastructure, data, or Architecture changes should become follow-up LEAP work.

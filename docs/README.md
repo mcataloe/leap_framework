@@ -11,64 +11,85 @@ END_LEAP_DOC_METADATA
 
 This folder contains LEAP Framework documentation for users, reference readers, maintainers, and agents.
 
-## Documentation Domains
+## Documentation domains
 
-User docs explain how to adopt and use LEAP.
+| Domain | Audience | Authority | Start here |
+|---|---|---|---|
+| Root entry point | Users and agents | Entry point | [`00_start_here.md`](00_start_here.md) |
+| User docs | Downstream adopters | Supporting guidance | [`user/leap-for-humans.md`](user/leap-for-humans.md) |
+| Reference docs | Users, maintainers, agents | Canonical or supporting reference | [`reference/README.md`](reference/README.md) |
+| Maintainer docs | Framework maintainers | Repository governance and migration guidance | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) |
+| Examples | Users and agents | Example-only | [`examples/`](examples/) |
 
-Reference docs define what LEAP is.
+## Canonical framework references
 
-Maintainer docs explain how to maintain, version, and release the LEAP Framework itself.
+| Document | Purpose | Authority |
+|---|---|---|
+| [`leap.md`](leap.md) | Lifecycle, doctrine, source truth, risk, and Prompt behavior | Canonical |
+| [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter behavior | Canonical |
+| [`project-documentation-model.md`](project-documentation-model.md) | Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture model | Canonical |
+| [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
+| [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
+| [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon behavior | Supporting Recon reference |
 
-Examples illustrate usage but are not canonical source truth.
+## Project documentation model
 
-| Domain           | Audience                   | Authority                         | Start Here                                                                         |
-| ---------------- | -------------------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
-| Root entry point | Users and agents           | Entry point                       | [`00_start_here.md`](00_start_here.md)                                             |
-| User docs        | Downstream LEAP adopters   | Supporting adoption guidance      | [`user/leap-for-humans.md`](user/leap-for-humans.md)                               |
-| Reference docs   | Users, maintainers, agents | Canonical or supporting reference | [`reference/README.md`](reference/README.md)                                       |
-| Maintainer docs  | LEAP Framework maintainers | Repo governance and runbooks      | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) |
-| Examples         | Users and agents           | Example-only                      | [`examples/`](examples/)                                                           |
+Preferred traceability:
 
-## Important Docs
+```text
+Mission / Project Charter
+        ↓
+Strategic Outcome
+        ↓
+Initiative
+        ↓
+Delivery Unit
+        ↓
+Build Unit
+```
 
-| Document                                                         | Audience                   | Authority                           |
-| ---------------------------------------------------------------- | -------------------------- | ----------------------------------- |
-| [`00_start_here.md`](00_start_here.md)                           | Users                      | Entry point                         |
-| [`user/leap_project_setup.md`](user/leap_project_setup.md)       | Users                      | Supporting adoption guidance        |
-| [`user/which-leap-workflow.md`](user/which-leap-workflow.md)     | Users                      | Supporting adoption guidance        |
-| [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md)   | Users                      | Supporting adoption guidance        |
-| [`user/leap-for-humans.md`](user/leap-for-humans.md)             | Users                      | Supporting adoption guidance        |
-| [`user/quick-leap-brief.md`](user/quick-leap-brief.md)           | Users                      | Supporting adoption guidance        |
-| [`leap.md`](leap.md)                                             | Users, maintainers, agents | Canonical framework reference       |
-| [`leap-charter.md`](leap-charter.md)                             | Users, maintainers, agents | Canonical Charter reference         |
-| [`materiality-gate.md`](materiality-gate.md)                     | Users, maintainers, agents | Supporting framework rule reference |
-| [`dependency-contract-recon.md`](dependency-contract-recon.md)   | Users, maintainers, agents | Supporting Recon reference          |
-| [`glossary.md`](glossary.md)                                     | Users, maintainers, agents | Canonical terminology reference     |
-| [`risk-taxonomy.md`](risk-taxonomy.md)                           | Users, agents              | Supporting reference                |
-| [`agent-profiles.md`](agent-profiles.md)                         | Users, agents              | Supporting reference                |
-| [`maintainer/release-history.md`](maintainer/release-history.md) | Maintainers                | Release-notes policy                |
+Roadmaps schedule and prioritize work. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
 
-## Common Starting Points
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) to classify legacy Layer documents before migration.
 
-- If you are new to LEAP, read [`00_start_here.md`](00_start_here.md).
-- If you want to add LEAP to an existing ChatGPT/Codex project, use [`user/leap_project_setup.md`](user/leap_project_setup.md).
-- If you need to choose between Quick Brief, Charter, Recon, Prompt, or LHS, use [`user/which-leap-workflow.md`](user/which-leap-workflow.md).
-- If you need to decide whether full LEAP is too much for a tiny task, use [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md).
-- If the task is small and low-risk, use [`user/quick-leap-brief.md`](user/quick-leap-brief.md).
-- If you need a short Recon request, use [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md).
-- If the Recon scope is broad or high-risk, use [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md).
-- Optional baseline metadata examples live at [`../examples/leap.baseline.yaml`](../examples/leap.baseline.yaml) and [`../schemas/leap.baseline.schema.json`](../schemas/leap.baseline.schema.json).
+## Important user docs
 
-## Agent Reading Rules
+| Document | Purpose |
+|---|---|
+| [`00_start_here.md`](00_start_here.md) | Plain-English entry point |
+| [`user/leap_project_setup.md`](user/leap_project_setup.md) | Project and Agent Pack setup |
+| [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Workflow routing |
+| [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md) | Lightweight alternatives |
+| [`user/leap-for-humans.md`](user/leap-for-humans.md) | Human-oriented overview |
+| [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Small bounded handoff |
 
-- Start with [`00_start_here.md`](00_start_here.md) for public LEAP usage.
-- Use [`leap.md`](leap.md) as the canonical current framework reference.
-- Use [`leap-charter.md`](leap-charter.md) as the canonical Charter reference.
-- Use [`materiality-gate.md`](materiality-gate.md) when deciding whether to ask a clarifying question, inspect sources first, or proceed with a stated assumption.
-- Use [`dependency-contract-recon.md`](dependency-contract-recon.md) when Recon involves dependency registers, contract sources, provider API drift, or cross-repo contract evidence.
+## Maintainer references
+
+| Document | Purpose |
+|---|---|
+| [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) | Framework documentation governance |
+| [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) | Legacy Layer semantic migration |
+| [`maintainer/release-history.md`](maintainer/release-history.md) | Release-notes policy |
+
+## Common starting points
+
+- New to LEAP: [`00_start_here.md`](00_start_here.md)
+- Project hierarchy: [`project-documentation-model.md`](project-documentation-model.md)
+- Existing Layer-based project: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md)
+- Project setup: [`user/leap_project_setup.md`](user/leap_project_setup.md)
+- Workflow choice: [`user/which-leap-workflow.md`](user/which-leap-workflow.md)
+- Small task: [`user/quick-leap-brief.md`](user/quick-leap-brief.md)
+- Short Recon request: [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md)
+- Full Recon request: [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md)
+- Optional baseline metadata: [`../examples/leap.baseline.yaml`](../examples/leap.baseline.yaml) and [`../schemas/leap.baseline.schema.json`](../schemas/leap.baseline.schema.json)
+
+## Agent reading rules
+
+- Start with [`00_start_here.md`](00_start_here.md).
+- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), and [`glossary.md`](glossary.md) as canonical doctrine.
+- Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) only for legacy project-documentation reconciliation.
 - Treat user docs as downstream adoption guidance.
-- Treat maintainer docs as LEAP Framework repository guidance only.
-- Do not treat maintainer docs as downstream project instructions unless the current repository is the LEAP Framework repository.
-- Treat examples as illustrative, not source-of-truth doctrine.
-- Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository for AGENTS.md templates, install guidance, versioning, compatibility manifests, and upgrade guidance.
-- Keep active docs focused on the current framework baseline. Use Git history and release tags for older version detail.
+- Treat maintainer docs as LEAP Framework repository guidance unless a downstream project explicitly adopts them.
+- Treat examples as illustrative, not canonical source truth.
+- Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) for distributable `AGENTS.md` templates, install guidance, manifests, and upgrade guidance.
+- Keep active docs focused on the current framework baseline. Use Git history and release tags for older detail.

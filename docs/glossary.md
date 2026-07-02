@@ -4,7 +4,9 @@
 
 **Layered Execution & Alignment Protocol**.
 
-A software delivery framework for turning rough software intent into pressure-tested direction, sequenced plans, governed implementation prompts, and maintainable application documentation.
+A software-delivery framework for turning rough software intent into pressure-tested direction, source-grounded plans, governed implementation prompts, and maintainable project documentation.
+
+The word `Layered` in the framework name remains unchanged. Generic unqualified project-planning `Layer` is a separate legacy-compatible term defined below.
 
 ## Lifecycle
 
@@ -16,31 +18,39 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 ## LEAP Charter
 
-The initial solution-alignment process used to establish or reconcile a project before implementation begins or continues.
+The project-alignment process used to establish or reconcile direction, source truth, documentation, roadmap posture, and implementation readiness before deeper Recon or implementation prompt generation.
 
-LEAP Charter establishes or reconciles the project direction, source-of-truth documents, roadmap, baseline assumptions, and implementation posture before deeper Recon or implementation prompt generation.
-
-LEAP Charter replaces the active use of the older "Phase 0" label. Compatibility stubs may still mention the older term, but active framework docs should use Charter terminology.
+LEAP Charter may produce or reconcile a project-specific Project Charter. The process and the project artifact are not the same thing.
 
 ## LEAP Charter - Greenfield Mode
 
-Used for brand-new projects, early-stage ideas, or solutions that do not yet have a stable repo, roadmap, architecture, or documentation structure.
+Used for new projects, early ideas, or solutions without a stable repository, source-truth baseline, roadmap, architecture, or documentation model.
 
-Greenfield Mode should help create or organize product mission, target users, MVP boundary, strategic goals, architecture direction, data model assumptions, roadmap, layer plan, prompt backlog, AGENTS.md guidance when applicable, and the first recommended LEAP Recon or prompt sequence. It should recommend LHS only when staged repo/docs foundation work is actually needed.
+Greenfield Charter may establish or organize:
 
-Also called Greenfield Charter.
+- product Mission
+- target users and MVP boundary
+- Strategic Outcomes
+- Initiative registry
+- Roadmap
+- Domain map when useful
+- Architecture direction
+- Delivery Units when implementation planning warrants them
+- prompt backlog
+- source-of-truth posture
+- first recommended LEAP Recon or Prompt sequence
+
+Small projects may combine these concepts into one or a few documents.
 
 ## LEAP Charter - Brownfield Mode
 
-Used for existing or mid-buildout projects where LEAP needs to inspect the repo, reconcile documentation, identify gaps, establish source-of-truth docs, and prepare future LEAP Recon, LEAP Prompt, or LHS work.
+Used for existing or mid-buildout projects where LEAP must inspect repo reality, reconcile documentation, identify gaps, establish source truth, and prepare future Recon, Prompt, or LHS work.
 
-Brownfield Mode may update documentation, organization, naming, and planning artifacts directly. Runtime implementation changes should normally become follow-up LEAP Prompts or LEAP LHS prompts unless explicitly requested.
+Brownfield Charter may update documentation, organization, naming, and planning artifacts directly. Runtime changes should normally become follow-up LEAP Prompts unless explicitly requested.
 
-Also called Brownfield Charter.
+Brownfield Charter classifies legacy Layer documents semantically before renaming or moving them.
 
 ## Documentation Reconciliation Policy
-
-The Brownfield Charter policy:
 
 ```text
 Canonicalize forward.
@@ -49,180 +59,194 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
-This means useful current content is absorbed into canonical docs, legacy originals are archived, archive/deprecation headers are added where appropriate, and a migration map preserves traceability.
+Useful current content is absorbed into canonical docs, legacy originals are preserved or archived appropriately, and a migration map retains traceability.
 
 ## Legacy Document Classification
 
-| Classification | Meaning | Recommended Action |
-| --- | --- | --- |
-| Canonical | Current source of truth | Keep or move into canonical docs structure |
-| Supporting | Useful secondary detail | Keep near relevant canonical docs or reference from them |
-| Current but poorly organized | Useful but structurally messy | Absorb into canonical docs, archive original |
-| Partially useful | Mix of current and stale information | Extract useful content, archive original |
-| Stale | No longer reflects current direction | Archive with deprecation note |
-| Conflicting | Contradicts current strategy, code, or roadmap | Record conflict, resolve in canonical docs, archive original |
-| Duplicate | Repeats content covered elsewhere | Consolidate, archive duplicate |
-| Completed implementation plan | Old TODO or phase plan already implemented | Archive or convert remaining items to backlog |
-| Misleading | Likely to confuse future work | Archive with explicit warning header |
+| Classification | Meaning | Recommended action |
+|---|---|---|
+| Canonical | Current source of truth | Keep or move into the canonical structure |
+| Supporting | Useful secondary detail | Keep near or link from canonical docs |
+| Current but poorly organized | Useful but structurally messy | Absorb into canonical docs; preserve original until safe |
+| Partially useful | Mix of current and stale information | Extract useful content; archive or deprecate original |
+| Stale | No longer reflects current direction | Archive with a warning |
+| Conflicting | Contradicts current strategy, code, or planning | Record conflict; resolve in canonical docs |
+| Duplicate | Repeats truth owned elsewhere | Consolidate and archive duplicate |
+| Completed implementation plan | Historical TODO or plan already implemented | Archive or convert remaining work to backlog |
+| Misleading | Likely to confuse future work | Archive or mark explicitly |
+| Archived | Historical only | Do not treat as active source truth |
+| Unknown | Not yet classified | Inspect before relying on it |
 
 ## LEAP Recon
 
-The analysis, source-of-truth reconciliation, repo reality reconciliation, pressure-test, Build Unit generation/refinement, sequencing, cross-layer impact review, stale-assumption scan, execution-configuration recommendation, and clarification stage.
+The investigative pass that reconciles source truth and repo reality, detects drift and collisions, pressure-tests boundaries, reviews dependencies and risks, refines Delivery Units and Build Units, recommends execution configuration, and ends with a gate decision.
 
-LEAP Recon investigates a focused area, gap, risk, feature, dependency, contract, or architectural question.
+Recon may target a Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, dependency, contract, risk, question, or legacy Layer.
 
-Every LEAP Recon begins with a lightweight Baseline Freshness Check. LEAP Charter is not required before every Recon when the existing baseline is fresh enough for the focused investigation.
+Every Recon begins with a lightweight Baseline Freshness Check. A new Charter is not required when the existing baseline is fresh enough.
 
 ## Baseline Freshness Check
 
-A lightweight LEAP Recon preflight that asks whether the repo/source-truth baseline is fresh enough for the focused Recon.
+A lightweight Recon preflight that asks whether the repo and source-truth baseline are fresh enough for the focused investigation.
 
-It may inspect repository AGENTS.md, the LEAP Baseline State table, optional `leap.baseline.yaml`, source-truth docs, canonical product/architecture/roadmap/layer/API/data-contract docs, archive guidance, gap registers, migration maps, reconciliation notes, prompt backlogs, relevant repo reality, doc/code conflicts, missing references, and evidence of stale roadmap, architecture, layer, AGENTS.md, or source-truth docs.
+It may inspect:
 
-Freshness outcomes are Fresh enough, Minor drift, Material drift, and Unsafe source-truth conflict. Baseline Freshness Check is not a lifecycle phase, Charter mode, or separate user command.
+- repository `AGENTS.md`
+- LEAP Baseline State or `leap.baseline.yaml`
+- Project Charter and Strategic Outcomes
+- Initiative registry and Roadmap
+- Delivery Unit and Build Unit plans
+- Domain and Architecture docs
+- API and data-contract docs
+- archive guidance, gap registers, and migration maps
+- relevant repo reality and branch drift
+
+Outcomes are:
+
+- Fresh enough
+- Minor drift
+- Material drift
+- Unsafe source-truth conflict
+
+Baseline Freshness Check is not a lifecycle phase or separate user command.
 
 ## LEAP Baseline State
 
-A small AGENTS.md table or equivalent metadata that helps LEAP Recon judge whether the project baseline appears fresh enough. It is a signal, not a hard gate or running status log.
+A small `AGENTS.md` table or equivalent metadata that helps Recon judge apparent baseline freshness. It is a signal, not a hard gate or running project-status log.
 
-If `leap.baseline.yaml` exists, it is the canonical machine-readable baseline record and AGENTS.md should keep only a short pointer/summary.
+If `leap.baseline.yaml` exists, it is the canonical machine-readable baseline record and `AGENTS.md` should contain only a summary or pointer.
 
 ## Baseline Register
 
-An optional machine-readable repo-level file, recommended as `leap.baseline.yaml`, for baseline metadata produced by Brownfield Charter, LEAP Governance, or an explicitly authorized baseline/setup scan.
+An optional machine-readable repository file, recommended as `leap.baseline.yaml`, for baseline metadata produced by Brownfield Charter, LEAP Governance, or an explicitly authorized baseline scan.
 
-Normal Recon may recommend this file, but must not silently create it. Tiny projects can keep baseline state inline in AGENTS.md only.
+Normal Recon may recommend it but must not silently create it.
 
 ## LEAP Dependency & Contract Recon
 
-A subprocess inside LEAP Recon that checks whether the current repo declares or appears to depend on external APIs, services, provider repositories, packages, artifacts, or shared contracts.
+A subprocess inside Recon that checks whether the current repository depends on external APIs, services, provider repositories, packages, artifacts, events, or shared contracts.
 
-It looks for `leap.dependencies.yaml` or an equivalent dependency register, follows declared contract links such as OpenAPI, AsyncAPI, protobuf, GraphQL, provider repo URLs, documentation URLs, packages, and artifacts when accessible, and reports whether provider evidence may affect current work or general system functionality.
+It looks for `leap.dependencies.yaml` or an equivalent dependency register, follows declared contract links when accessible, and reports whether provider evidence affects current work or the broader system.
 
-Dependency & Contract Recon is read-only by default for provider sources and must report incomplete evidence instead of guessing.
+Provider inspection is read-only by default. Insufficient evidence must be reported rather than guessed.
 
 ## Dependency Register
 
-A machine-readable repo-level file, recommended as `leap.dependencies.yaml`, that records consumer-owned dependency metadata for LEAP Recon.
+A machine-readable repository file, recommended as `leap.dependencies.yaml`, that records consumer-owned dependency metadata.
 
-It may include dependency name, type, direction, role, provider metadata, contract source, accepted versions, last verified version, baseline hash, compatibility policy, usage evidence, operations used, Recon confidence, and manual notification policy.
-
-If no register exists, LEAP Recon may recommend one and provide candidate entries, but generated entries are not confirmed facts until ratified.
+It may include dependency name, type, direction, provider metadata, contract source, accepted versions, last verified version, baseline hash, compatibility policy, operations used, evidence, confidence, and manual notification policy.
 
 ## Dependency Contract Finding
 
-A LEAP Recon finding that compares provider contract evidence against consumer expectations.
+A Recon finding that compares provider evidence with consumer expectations.
 
-Every finding should include dependency name, dependency type, contract source when available, expected version or accepted version range when declared, observed provider version when available, relevant operation or schema when known, finding, impact category, severity, confidence, evidence, and recommended next action.
+Each finding should include:
+
+- dependency name and type
+- contract source
+- expected and observed versions when known
+- relevant operation or schema
+- finding and impact category
+- severity and confidence
+- evidence
+- recommended next action
 
 ## Current-Work Impact
 
-A dependency or contract finding that appears relevant to the feature, bug fix, refactor, or implementation currently being requested.
-
-Examples include a changed endpoint used by the current work, a removed response field the current work depends on, a required provider version outside the accepted range, or a changed operation declared as used by the current repo.
+A dependency or contract finding relevant to the currently requested work.
 
 ## General System Impact
 
-A dependency or contract finding that may affect the repo or portfolio but is not directly tied to the current implementation request.
-
-Examples include provider major-version drift, deprecated operations with unclear local usage, contract changes without declared code paths, or changes to endpoints outside the current work.
+A dependency or contract finding that may affect the repository or portfolio but is not directly tied to the current implementation request.
 
 ## Unknown / Needs Verification
 
-A dependency or contract finding category used when LEAP cannot access enough evidence.
-
-Examples include inaccessible contract URLs, inaccessible provider repos, missing expected version metadata, missing baseline contracts, or local usage that cannot be tied to provider operations.
+A dependency or contract category used when accessible evidence is insufficient.
 
 ## LEAP Prompt
 
-The broad category of Codex-ready or agent-ready instruction artifacts generated from Charter, Recon, user intent, or approved implementation scope.
+The broad family of agent-ready instruction artifacts generated from Charter, Recon, approved user intent, or approved implementation scope.
 
-LEAP Prompt produces Codex-ready instructions for analysis, documentation, implementation, or remediation.
+A LEAP Prompt is a bounded handoff contract with objective, traceability, scope, constraints, verification, stop conditions, source-truth instructions, and explicit Agent Execution Configuration.
 
-A LEAP Prompt must be a bounded task packet with objective, scope, constraints, verification, stop conditions, and explicit Agent Execution Configuration.
-
-LEAP Prompt types include Charter Prompt, Recon Prompt, Standard Implementation Prompt, Fix Prompt, Refactor Prompt, Governance Prompt, Validation Prompt, and LHS Prompt.
+Prompt types include Charter, Recon, Standard Implementation, Fix, Refactor, Governance, Validation, and LHS Prompts.
 
 ## Implementation
 
-The execution of the approved LEAP Prompt by Codex or another coding agent.
+Execution of an approved LEAP Prompt by Codex or another coding agent.
 
-Implementation should stay within scope, follow repo patterns, preserve non-goals, and stop when stop conditions are met.
+Implementation must stay within scope, follow repository patterns, preserve non-goals, and stop when a stop condition is met.
 
 ## Validation/Handoff
 
-The required completion step where Codex verifies changes, checks docs/tests, summarizes work, and recommends follow-up prompts.
-
-Validation/Handoff should report files changed, tests/checks run, tests/checks not run, docs updated or needing update, deviations, risks, and follow-up LEAP Recon, LEAP Prompt, or LEAP LHS recommendations.
+The required completion step where the implementation agent verifies changes, checks docs and tests, summarizes work, records deviations, and recommends follow-up LEAP work.
 
 ## LEAP LHS
 
-The Layered House Standard prompt format used for staged implementation work.
+The **Layered House Standard** Prompt format used for staged implementation work.
 
-Use LEAP LHS when work is layered, staged, or large enough to require House Standard-style execution. Not every LEAP Prompt is an LHS prompt, and LEAP LHS is not a mandatory lifecycle stage.
+LEAP LHS stages execution. It does not define the project's strategic documentation hierarchy.
+
+Not every LEAP Prompt is an LHS Prompt, and LHS is not a mandatory lifecycle stage.
 
 ## LEAP Agent Pack
 
-The versioned release unit for distributable LEAP AGENTS.md templates.
+The separately versioned release unit for distributable LEAP `AGENTS.md` templates.
 
-The Agent Pack lives in `https://github.com/mcataloe/leap_agent_pack`. It includes template metadata, managed section conventions, update policy, and manifests. It lets downstream projects detect stale LEAP guidance without overwriting project-specific instructions.
+The Agent Pack lives in `https://github.com/mcataloe/leap_agent_pack`. It contains template metadata, managed-section conventions, update policy, manifests, install guidance, and migration notes.
 
 ## Agent Pack Manifest
 
-The JSON source of truth for an Agent Pack release.
-
-The manifest records the Agent Pack version, release tag, source repo, upstream repo, template list, template paths, checksums, update policy, and migration notes.
+The JSON source of truth for an Agent Pack release, including version, tag, source repository, template paths, checksums, update policy, and migration notes.
 
 ## AGENTS.md Managed Section
 
-The LEAP-owned portion of an AGENTS.md file.
-
-Managed sections may be updated only after user approval. Project sections should be preserved by default, and local override sections should never be overwritten by LEAP updates.
+The LEAP-owned portion of an `AGENTS.md` file. Managed sections may be updated only under the applicable approval and compatibility rules. Project and local sections must be preserved.
 
 ## AGENTS.md Update Status
 
-The status assigned by LEAP Recon when comparing a downstream AGENTS.md file to the selected Agent Pack manifest.
+The status assigned by Recon when comparing a downstream `AGENTS.md` file with the selected Agent Pack manifest.
 
-Supported statuses include Current, Outdated, Outdated with local changes, Pinned, Unversioned LEAP-style file, Non-LEAP AGENTS.md, Missing AGENTS.md, Forked/custom source, and Unknown or malformed metadata.
+Statuses may include Current, Outdated, Outdated with local changes, Pinned, Unversioned LEAP-style, Non-LEAP, Missing, Forked/custom, and Unknown or malformed.
 
 ## Prompt Family
 
 The set of LEAP Prompt types used for different kinds of agent-ready work.
 
-Prompt family members include:
-
-- Charter Prompt
-- Recon Prompt
-- Standard Implementation Prompt
-- Fix Prompt
-- Refactor Prompt
-- Governance Prompt
-- Validation Prompt
-- LHS Prompt
-
 ## Implementation Gravity
 
-The amount of coordination, risk, dependency ordering, testing, documentation, and rollback concern attached to a task. Higher implementation gravity increases the likelihood that the task should use LHS.
+The amount of coordination, risk, dependency ordering, testing, documentation, compatibility, and rollback concern attached to a task.
+
+Higher implementation gravity increases the likelihood that LHS is appropriate.
 
 ## Solution
 
-The system, product, platform, internal tool, data system, AI application, or infrastructure initiative being built.
+The system, product, platform, service, internal tool, data system, AI application, or infrastructure initiative being built or maintained.
 
 ## Ideation Loop
 
-The repeated LEAP clarification cycle that turns vague human intent into buildable mechanisms.
+The repeated clarification cycle that turns vague intent into buildable mechanisms:
 
 ```text
 Intent -> Questions -> Evidence labels -> Assumption ledger -> Pressure test -> Revised intent -> Gate decision
 ```
 
-The Ideation Loop continues while hard blockers remain.
+## Materiality Gate
+
+The rule for deciding whether LEAP should ask a question, inspect discoverable evidence, proceed with a stated assumption, or stop.
+
+Missing context is classified as:
+
+- Material
+- Non-material
+- Discoverable
+- Safe assumption
+
+Ask only unresolved material questions needed for the next safe gate decision.
 
 ## Question-Loop Rule
 
-The rule that LEAP should ask the fewest questions needed to make the next safe gate decision.
-
-If hard blockers remain, LEAP should ask another small question round instead of generating implementation plans or coding-agent prompts.
+Ask the fewest questions needed to reach the next safe gate decision.
 
 ```text
 Ask until the idea becomes buildable.
@@ -231,7 +255,7 @@ Then stop asking and build only the bounded task.
 
 ## Evidence Label
 
-A label that separates implementation truth from uncertainty.
+A label separating implementation truth from uncertainty.
 
 Supported labels:
 
@@ -246,9 +270,7 @@ A polished assumption is still an assumption.
 
 ## Readiness Gate
 
-A user-facing operational gate that replaced fake-precision clarity scoring.
-
-Supported gates:
+A user-facing operational gate:
 
 - C0: Blocked
 - C1: Discovery Ready
@@ -257,13 +279,13 @@ Supported gates:
 - C4: Planning Ready
 - C5: Coding-Prompt Ready
 
-C5 requires source truth, repo reality, scope, tests, stop conditions, explicit agent/tool, explicit model, and explicit reasoning level.
+C5 requires source truth, repo reality, scope, tests or validation, stop conditions, agent/tool, model, and reasoning level.
 
 ## Gate Decision
 
 The explicit decision at the end of Charter or Recon.
 
-Supported gate decisions include:
+Supported decisions include:
 
 - Continue Discovery
 - Draft Concept Brief
@@ -278,169 +300,192 @@ Supported gate decisions include:
 
 ## No-Build Gate
 
-A LEAP rule that blocks implementation planning and coding-agent prompts until minimum clarity and documentation requirements are met.
+A rule that blocks implementation planning and agent-ready prompts until the minimum strategy, scope, source-truth, and approval requirements are met.
 
-At minimum, LEAP should not proceed to layer planning without:
+At minimum, strategically material work should not proceed without:
 
-- Charter output, project charter, or equivalent baseline strategy
-- MVP boundary or explicit scope boundary
-- pressure-test summary when the idea is new or strategically material
-- source-of-truth manifest or explicit source-of-truth list
-- open questions list
+- Project Charter, Charter output, or equivalent strategy
+- MVP or explicit scope boundary
+- Strategic Outcome or intended outcome
+- source-of-truth manifest or explicit source list
+- open-questions list
 - explicit human approval
 
 ## Approval Gate
 
-The explicit human checkpoint between Charter and layer planning.
+The human checkpoint between product alignment and implementation planning.
 
-The user must approve the baseline product direction, MVP boundary, non-goals, risks, assumptions, documentation scaffold, and permission to begin layer planning.
+The user approves direction, scope, non-goals, risks, assumptions, documentation posture, and permission to begin Initiative, Delivery Unit, or Build Unit planning.
 
 ## Human Checkpoint
 
-A point where LEAP must stop and ask for human approval before continuing.
-
-Human approval is required when the agent would otherwise need to guess about product direction, MVP expansion, source-of-truth changes, architecture, auth, permissions, sensitive data, monetization, destructive migrations, external integrations, AI behavior, overlapping parallel-agent scopes, or execution configuration.
+A point where LEAP must stop for human approval rather than guess about product direction, source truth, Architecture, auth, permissions, sensitive data, monetization, destructive changes, external integrations, AI behavior, overlapping scopes, or execution configuration.
 
 ## Sensitive Area
 
 A part of the system where mistakes can affect money, identity, privacy, data durability, legal exposure, or user trust.
 
-Rule:
-
 ```text
-If the change can affect money, identity, privacy, data durability, legal exposure, or user trust, stop and ask.
+If the change can affect money, identity, privacy, data durability,
+legal exposure, or user trust, stop and ask.
 ```
 
 ## Documentation Baseline
 
 The current documentation scaffold and source-truth entry point for a LEAP-managed repository.
 
-Recommended docs should include a `00_start_here.md` entry point, canonical product/architecture/layer/prompt docs, a gap register when needed, and a clearly labeled archive for historical docs.
+Recommended baselines may include a Project Charter, Strategic Outcomes, Initiative registry, Roadmap, Domain and Architecture docs, Delivery and Build Unit plans, decisions, prompts, gap registers, and a clearly labeled archive.
 
 ## Project Charter
 
-A project-specific strategy document that defines what the product is, who it serves, what problem it solves, and what the first version should prove.
+A project-specific strategy artifact defining what the product is, who it serves, what problem it solves, its boundaries, and what the current version should prove.
 
-Project Charter is an artifact a LEAP Charter may produce or reconcile. It is not the same thing as the LEAP Charter process.
+It is not the same thing as the LEAP Charter process.
 
 ## MVP Boundary
 
-The document or section that defines the smallest useful version of the product.
+The document or section defining the smallest useful version of the product, including primary user, workflow, success signal, must-haves, manual-for-now behavior, non-goals, later candidates, validation, and overbuild risks.
 
-It should include:
+## Mission
 
-- first useful user outcome
-- primary user
-- primary workflow
-- primary success signal
-- must-have features
-- manual-for-now workflows
-- explicit non-goals
-- later roadmap candidates
-- validation criteria
-- overbuild risks
+The durable explanation of why the solution exists and the governing intent that Strategic Outcomes and Initiatives must advance.
+
+## Strategic Outcome
+
+A measurable or observable condition that advances the Mission.
+
+It identifies the desired change, beneficiary, success signal, evidence or measurement, constraints, and optionally a time horizon.
+
+## Initiative
+
+A temporary, outcome-oriented body of coordinated work that advances one or more Strategic Outcomes.
+
+An Initiative may run in parallel with others, span Domains and repositories, contain Delivery Units, and ends when completed, abandoned, merged, or superseded.
+
+## Initiative Registry
+
+The canonical list of current and proposed Initiatives, their identifiers, status, Strategic Outcomes, ownership, dependencies, and source documents.
+
+It owns Initiative identity. A Roadmap references Initiatives but does not permanently own them.
+
+## Roadmap
+
+A planning projection over Initiatives and Delivery Units showing priority, timing, sequence, parallelism, milestones, dependencies, capacity assumptions, release targets, and status.
+
+An Initiative may exist without current Roadmap placement and may appear on different Roadmap views over time.
+
+## Domain
+
+A persistent business, responsibility, ownership, or technical boundary.
+
+Initiatives and Domains have a many-to-many relationship. A Domain is not a temporary Roadmap lane.
+
+## Domain Map
+
+The source describing persistent Domains, their purpose, ownership, contracts, dependencies, data responsibility, and active Initiatives touching them.
+
+## Architecture
+
+The technical structure showing where and how implementation resides, including components, services, contracts, data, deployment topology, and qualified technical Layers.
+
+Architecture is not the default strategic planning hierarchy.
+
+## Delivery Unit
+
+A coherent functional increment that can be released, deployed, enabled, adopted operationally, or demonstrated end to end.
+
+A Delivery Unit belongs to an Initiative and contains one or more Build Units.
+
+The level may be collapsed for small work when one Build Unit directly delivers the entire Initiative outcome.
+
+## Build Unit
+
+A bounded implementation responsibility that can be implemented, tested, reviewed, and usually committed independently.
+
+A Build Unit traces to an Initiative and, when used, a Delivery Unit. It states scope, exclusions, dependencies, validation, stop conditions, and affected Domains or Architecture areas.
+
+A Build Unit is not required to be independently deployable or independently useful to an end user.
+
+## Layer
+
+Generic unqualified project-planning `Layer` is legacy-compatible and deprecated as the preferred LEAP planning level.
+
+A legacy Layer must be classified by meaning before migration:
+
+- Initiative
+- Delivery Unit
+- Build Unit
+- Domain
+- Architecture Layer
+- Phase
+- mixed or unclear collection
+
+Preserve the LEAP name, Layered House Standard, qualified Architecture Layers, and compatibility references.
+
+## Phase
+
+A genuinely chronological stage where later work depends on completion of an earlier stage.
+
+Do not use Phase merely because a capability was numbered in an old plan.
 
 ## Source-of-Truth Manifest
 
-The active manifest that identifies canonical and active docs, stale/archived/do-not-use docs, target branch, base branch, relevant PRs, repo reality, known conflicts, and human owner/approver.
+The active manifest identifying canonical and active docs, stale and archived docs, branch context, repo reality, known conflicts, owners, and relevant planning records.
 
 Minimum viable source truth:
 
 ```text
-1. Strategic plan, LEAP Charter output, project charter, or equivalent baseline strategy
-2. Source-of-truth manifest or explicit source list
-3. Current layer/task description
-4. Repo reality summary when repo exists
-5. Explicit stale/archive/do-not-use docs list
-6. LEAP framework version being used
+1. Project Charter, Charter output, or equivalent strategy
+2. Strategic Outcome and current Initiative or bounded task
+3. Source-of-truth manifest or explicit source list
+4. Current Delivery Unit / Build Unit when implementation is planned
+5. Repo reality summary when a repository exists
+6. Explicit stale / archive / do-not-use list
+7. LEAP framework version
 ```
 
 ## Source-of-Truth Status
 
-The classification for a planning document.
-
-Recommended statuses include:
-
-- Canonical
-- Supporting
-- Current but poorly organized
-- Partially useful
-- Stale
-- Conflicting
-- Duplicate
-- Completed implementation plan
-- Misleading
-- Archived
-- Unknown
-
-No two canonical docs should own the same truth.
-
-Generated docs are Draft until ratified.
-
-## Layer
-
-A major capability phase or architectural slice of the solution.
-
-Examples:
-
-- Layer 0 - Product foundation
-- Layer 1 - Core platform
-- Layer 2 - Intake & Parsing
-- Layer 3 - Evaluation & Artifacts
-- Layer 4 - Application Workflow
-
-Project-specific layer names may vary.
-
-## Build Unit
-
-A scoped subsection of a layer that can be implemented, tested, and committed independently.
-
-A Build Unit should be specific enough for implementation, large enough to represent a coherent domain capability, small enough to be one commit in most cases, sequenced against earlier Build Units, explicit about exclusions and boundaries, aligned to source-of-truth documents, and checked against repo reality when repo access is available.
-
-## Quick LEAP Brief
-
-The smallest useful public LEAP Prompt format.
-
-Use it for small, bounded work where full LEAP Charter and Recon would be heavier than the task.
-
-Escalate from Quick LEAP Brief to Charter or Recon when product discovery, architecture decisions, source-truth reconciliation, brownfield documentation reconciliation, sensitive data, or branch drift are involved.
+The classification for a planning document. No two canonical docs should own the same truth. Generated docs are Draft until ratified.
 
 ## Source-of-Truth Document
 
-An application-specific roadmap, layer status, domain model, architecture, project-charter, MVP-boundary, execution-state, or implementation-status document that governs repo-specific planning.
-
-LEAP uses source-of-truth documents to avoid relying on stale chat history and to prevent rebuilding capabilities that already exist.
+A project-specific canonical or active document governing strategy, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, Delivery Units, Build Units, decisions, execution state, or implementation status.
 
 ## Repo Reality Reconciliation
 
-A LEAP Recon section that compares source-of-truth claims against the actual repository state when repo access is available.
-
-If repo reality conflicts with source-of-truth documents, repo reality should guide implementation planning, and the documentation conflict should be reported.
+A Recon section comparing source-truth claims with actual repository state. Repo reality guides implementation planning when docs conflict, while the documentation conflict is reported.
 
 ## Branch / Worktree Drift Review
 
-A LEAP Recon section that identifies whether the base branch, target branch, active branches, worktrees, or recent changes may conflict with the planned implementation.
+A Recon section identifying whether branches, worktrees, pull requests, or recent changes create conflicts, ownership ambiguity, or merge-order risk.
 
 ## Stale Assumption Scan
 
-A LEAP Recon section that identifies old docs, stale roadmap claims, unverified assumptions, conflicting claims, and assumptions that must be revalidated before implementation.
+A Recon section identifying stale docs, stale Roadmap claims, unverified assumptions, conflicts, and facts that must be revalidated.
 
 ## Strategic Plan Reconciliation
 
-A LEAP Recon section that checks whether strategic or layer-planning documents remain aligned with current implementation reality.
+A Recon section checking whether the Project Charter, Strategic Outcomes, Initiative registry, Roadmap, Delivery plans, and implementation reality remain aligned.
 
-## Cross-Layer Impact Scan
+## Cross-Initiative / Cross-Domain Impact Scan
 
-A LEAP Recon section that identifies whether work in the target layer affects shared entities, workflows, APIs, data models, architecture, future layers, or previous assumptions.
+A Recon section identifying whether target work affects other Initiatives, persistent Domains, shared contracts, data models, Architecture areas, repositories, or assumptions.
+
+Legacy projects may still use the phrase Cross-Layer Impact Scan while migration is pending.
+
+## Planning Boundary Review
+
+A Recon section determining whether the target is Initiative-sized, Delivery-Unit-sized, Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase, or an ambiguous legacy Layer.
 
 ## Agent Execution Configuration
 
-The explicit runtime handoff block required in every agent-ready LEAP Prompt.
+The explicit handoff block required in every agent-ready Prompt.
 
-It must include:
+It includes:
 
 - Agent / Tool
-- Codex Plan Mode, for Codex-targeted prompts
+- Codex Plan Mode when Codex-targeted
 - Model
 - Reasoning Level
 - Execution Mode
@@ -451,11 +496,9 @@ It must include:
 - Validation
 - Commit Guidance
 
-A prompt is not agent-ready unless it tells the user exactly which execution profile to use.
+## Execution Mode
 
-Codex Plan Mode is the user-controlled Codex UI setting that determines whether Codex should stop for plan approval before editing. LEAP Execution Mode is the prompt instruction that tells the agent how to proceed.
-
-Current LEAP Execution Mode values are:
+The instruction describing how the implementation agent should proceed:
 
 - `implement-directly`
 - `repo-preflight-then-implement`
@@ -465,38 +508,21 @@ Current LEAP Execution Mode values are:
 
 ## Stop Condition
 
-A rule inside a LEAP Prompt that tells the coding agent to stop and report instead of guessing.
-
-Stop conditions are required when docs conflict with code, architecture is unclear, sensitive data handling is unclear, implementation requires unapproved dependencies/migrations/auth/billing/AI behavior changes, model or reasoning level is unavailable without an approved fallback, destructive changes are not authorized, or the task would violate non-goals.
+A rule telling the agent to stop and report instead of guessing.
 
 ## Source-of-Truth Update Policy
 
-A LEAP Prompt section that tells the coding agent whether and when to update application-specific roadmap/status documents after implementation changes reality.
-
-Generic LEAP methodology should not be updated from an application implementation prompt unless the prompt explicitly targets the LEAP repository.
+The Prompt section describing whether and when Initiative, Roadmap, Delivery Unit, Build Unit, Domain, Architecture, and execution-state documents must be updated after implementation changes reality.
 
 ## Prompt Drift
 
-A LEAP drift type where a prompt assumes stale files, stale branch state, old decisions, missing agent/tool, missing model, or missing reasoning level.
-
-Prompt drift requires a prompt freshness check and regenerated handoff.
+A drift type where a Prompt assumes stale files, branch state, decisions, scope, execution configuration, or source truth.
 
 ## Risk Taxonomy
 
-A lightweight classification of risks that determines how much clarification, Recon, approval, and verification are needed.
+A lightweight classification used to determine clarification, Recon, approval, and verification depth.
 
-Core risk categories:
-
-- Product risk
-- Source-truth risk
-- Architecture risk
-- Data risk
-- Security risk
-- Privacy risk
-- AI behavior risk
-- UX risk
-- Collaboration risk
-- Verification risk
+Core categories include Product, Source-truth, Architecture, Dependency contract, Data, Security, Privacy, AI behavior, UX, Collaboration, and Verification risk.
 
 Risk does not automatically block work. Unacknowledged risk blocks work.
 
@@ -504,25 +530,22 @@ Risk does not automatically block work. Unacknowledged risk blocks work.
 
 Anything that can break, delete, rewrite, or invalidate existing state in a way that is not trivially reversible.
 
-Default rule:
-
 ```text
 Destructive changes are not allowed unless explicitly authorized.
 ```
 
 ## Agent Failure Mode
 
-A predictable way a coding agent may fail.
+A predictable way a coding agent may fail, such as following stale docs, inventing behavior, broadening scope, silently changing contracts, weakening tests, confusing Initiative and Domain, or treating a Build Unit as independently deployable without evidence.
 
-Common examples:
+## Quick LEAP Brief
 
-- hallucinating files, APIs, or business rules
-- obeying stale docs over current code
-- treating archived docs as current source truth
-- broad refactors disguised as cleanup
-- silent schema or contract changes
-- adding dependencies without approval
-- passing tests by weakening them
-- overfitting to prompt wording instead of repo reality
-- completing the task while violating non-goals
-- making product decisions inside implementation
+The smallest useful public LEAP Prompt format for bounded, low-risk work.
+
+Escalate to Charter or Recon when work involves strategy, source-truth reconciliation, parallel Initiatives, Architecture decisions, sensitive areas, destructive changes, or branch drift.
+
+## Canonical project-documentation reference
+
+See [`project-documentation-model.md`](project-documentation-model.md).
+
+See [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) for legacy Layer reconciliation.

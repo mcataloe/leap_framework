@@ -1,105 +1,132 @@
 # LEAP Code Assistant Recon-Only Request Template
 
-Use this template when working inside a code assistant such as Codex, Cursor, Claude Code, or another agentic development environment where the assistant already has access to the target codebase.
+Use this template inside a code assistant that already has access to the target repository.
 
-This template is for **LEAP Recon only**. It should inspect the current repo, identify risks, map likely Build Units, and determine whether implementation is safe to plan.
+This template is for **Recon only**. It should inspect repo reality, identify source truth and risk, classify the planning boundary, refine Delivery Units and Build Units, and decide whether implementation is safe to plan.
 
-It is not an implementation prompt.
+It is not an implementation Prompt.
 
-## When to use this template
+## When to use
 
-Use this template when:
+Use when:
 
 ```text
-- the code assistant already has access to the target repo
-- you have one solution with a small feature set or one bounded feature area
+- the code assistant can inspect the target repo
+- the project baseline is reasonably established
+- you have one focused Initiative, Delivery Unit, Build Unit, Domain,
+  Architecture area, feature, risk, dependency, contract, or legacy Layer
 - you want repo-aware analysis before implementation
-- you want to identify existing functionality, source truth, risks, stop conditions, and Build Units
-- you do not want the agent to modify files yet
+- you do not want files modified yet
 ```
 
-Do not use this template when:
+Do not use when:
 
 ```text
-- the product idea is still vague
-- the target user, problem, MVP, non-goals, or risks are unclear
-- docs are stale enough that source truth must be reconciled first
+- the Mission, user, problem, MVP, Strategic Outcome, or non-goals are unclear
+- Initiative ownership is materially unclear
+- docs require broad Brownfield reconciliation first
 - the assistant cannot inspect the repo
 - you want implementation to begin immediately
 ```
 
-If the idea or source-truth baseline is still unclear, run LEAP Charter first. Use Brownfield Mode when existing docs need reconciliation.
+Run Charter first when the baseline or project direction is unclear.
 
-## Copy-ready prompt
+## Copy-ready Prompt
 
 ```text
-Run a LEAP Recon on this codebase.
+Run LEAP Recon on this codebase.
 
-Use the LEAP Framework from:
-/
+Target:
+<Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain,
+Architecture area, feature, risk, dependency, contract, question,
+or legacy Layer>
 
-Target feature, gap, risk, or architectural question:
-<DESCRIBE THE TARGET AREA>
+Strategic context, if known:
+- Mission / Project Charter:
+- Strategic Outcome:
+- Initiative:
+- Roadmap placement:
+- Affected Domains:
+- Affected Architecture Areas:
+- Delivery Unit, if used:
+- Build Unit / bounded task:
 
 You already have access to the target codebase.
 
 Do not implement anything.
 Do not modify files.
-Do not generate the implementation prompt yet.
-Do not make product, architecture, schema, auth, security, privacy, billing, or AI-behavior decisions silently.
+Do not generate the implementation Prompt yet.
+Do not silently make product, Architecture, schema, auth, security,
+privacy, billing, data, or AI-behavior decisions.
 
-Inspect the repo and return a LEAP Recon report that identifies:
-
+Inspect the repo and return a Recon report identifying:
+- Baseline Freshness Check result
+- source-of-truth docs and stale, archived, missing, or conflicting docs
+- Mission, Strategic Outcome, Initiative, Roadmap, Domain, and Architecture alignment
 - current repo reality
-- source-of-truth docs and any stale, archived, missing, or conflicting docs
-- whether LEAP Charter / baseline readiness is sufficient
-- existing functionality related to the target area
-- files, routes, models, schemas, components, services, tests, configs, and dependencies likely involved
-- whether the target touches auth, sessions, security, privacy, billing, AI behavior, data models, APIs, or user data
+- existing functionality related to the target
+- affected files, routes, models, schemas, components, services, tests,
+  configs, dependencies, and contracts
+- cross-Initiative, cross-Domain, and cross-repository impacts
+- whether the target is Initiative-sized, Delivery-Unit-sized,
+  Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase,
+  or an ambiguous legacy Layer
+- legacy Layer classification, when relevant
+- recommended Delivery Units when a release, enablement, adoption,
+  demonstration, or cross-repository boundary exists
+- recommended bounded Build Units
+- areas not to touch
 - risks, sensitive areas, and destructive-change concerns
-- recommended Build Units
-- files or areas that should not be touched
 - stop conditions
-- tests/checks likely required
-- questions that must be answered before generating a LEAP Prompt
-- recommended Codex/agent execution configuration for the eventual implementation prompt
+- tests and checks likely required
+- material questions before Prompt generation
+- recommended Agent Execution Configuration
 
-If you cannot access required files, source documents, routes, schemas, tests, or configs, stop and say what is missing.
+Treat Roadmap as scheduling and dependency view, not Initiative identity.
+Treat Domains as persistent and many-to-many with Initiatives.
+Allow Delivery Unit collapse for small work.
+Do not define Build Units as necessarily independently deployable.
+Do not globally replace Layer terminology.
 
-Return only the LEAP Recon report.
+If required sources or implementation evidence are unavailable, stop and report what is missing.
+
+Return only the Recon report.
 ```
 
 ## Expected Recon output
 
 ```text
-# LEAP Recon - <Target Feature, Gap, Risk, or Question>
+# LEAP Recon - <Target>
 
 ## 1. Framework Interpretation
 ## 2. Source-of-Truth Manifest Check
-## 3. LEAP Charter / Baseline Gate Check
-## 4. Ideation Loop Residual Questions
-## 5. Repo Reality Reconciliation
-## 6. Branch / Worktree / PR Drift Review
-## 7. Documentation Lifecycle Review
-## 8. Strategic Plan Reconciliation
-## 9. Existing Functionality Collision Check
-## 10. Stale Assumption Scan
-## 11. Cross-Layer Impact Scan
-## 12. Layer / Feature Boundary Review
-## 13. Generated / Refined Build Unit Inventory
-## 14. Recommended Build Sequence
-## 15. Dependency and Destructive-Change Review
-## 16. Risk Taxonomy Review
-## 17. Human Checkpoints Required
-## 18. Coding-Agent Risk Forecast
-## 19. Recommended Agent Execution Configuration
-## 20. Clarification Questions Before LEAP Prompt Generation
-## 21. Gate Decision / Next Step
+## 3. Baseline Freshness Check
+## 4. Charter / Baseline Gate Check
+## 5. Ideation Loop Residual Questions
+## 6. Materiality Check
+## 7. Repo Reality Reconciliation
+## 8. Branch / Worktree / PR Drift Review
+## 9. Documentation Lifecycle Review
+## 10. Strategic Plan Reconciliation
+## 11. Existing Functionality Collision Check
+## 12. Stale Assumption Scan
+## 13. Cross-Initiative / Cross-Domain Impact Scan
+## 14. Planning Boundary Review
+## 15. Legacy Layer Classification, when relevant
+## 16. Generated / Refined Delivery Unit Inventory, when relevant
+## 17. Generated / Refined Build Unit Inventory
+## 18. Recommended Build Sequence
+## 19. Dependency and Destructive-Change Review
+## 20. Risk Taxonomy Review
+## 21. Architecture Right-Sizing Review
+## 22. Human Checkpoints Required
+## 23. Coding-Agent Risk Forecast
+## 24. Recommended Agent Execution Configuration
+## 25. Clarification Questions Before Prompt Generation
+## 26. Gate Decision / Next Step
 ```
 
-## Gate decision options
-
-Use one of these gate decisions:
+## Gate decisions
 
 ```text
 Generate LEAP Prompt
@@ -112,50 +139,38 @@ Resolve Branch Drift First
 Do Not Build Yet
 ```
 
-## Recommended Agent Execution Configuration section
-
-If the gate decision is `Generate LEAP Prompt`, include:
-
-```text
-## Recommended Agent Execution Configuration
+## Agent Execution Configuration
 
 | Field | Recommendation | Rationale |
 |---|---|---|
-| Agent / Tool | <Codex / Cursor / Claude Code / other> | <why> |
-| Codex Plan Mode | <On / Off / User decision required> | <why> |
-| Model | <exact model name or project default> | <why> |
-| Reasoning Level | <low / medium / high / extended> | <why> |
-| Execution Mode | <implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only> | <why> |
-| Scope Scale | <small task / Build Unit / sublayer / entire layer / repo-wide maintenance> | <why> |
-| Repository | <repo name> | <why> |
-| Branch / Worktree | <branch/worktree> | <why> |
-| Permissions | <allowed changes> | <why> |
-| Validation | <tests/lint/typecheck/build/manual checks> | <why> |
-| Commit Guidance | <commit convention> | <why> |
-```
+| Agent / Tool | Codex / Cursor / Claude Code / other | Why |
+| Codex Plan Mode | On / Off / User decision required | Why |
+| Model | Exact model or approved default | Why |
+| Reasoning Level | Low / Medium / High / Extended | Why |
+| Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only | Why |
+| Scope Scale | small task / Build Unit / Delivery Unit / Initiative / multi-repo Initiative / repo-wide maintenance | Why |
+| Repository | Repo or repositories | Why |
+| Branch / Worktree | Target context | Why |
+| Permissions | Allowed changes | Why |
+| Validation | Tests and checks | Why |
+| Commit Guidance | Commit posture | Why |
 
 ## Stop conditions
 
-The code assistant must stop and report instead of guessing if:
+Stop instead of guessing if:
 
-```text
-- required files or source documents are missing
-- repo reality conflicts with the prompt
+- required files or source docs are missing
 - docs conflict with repo reality
-- archived docs appear to be treated as current source truth
-- existing implementation contradicts the requested feature
-- implementation would violate explicit non-goals
-- the feature requires product decisions not yet approved
-- the feature requires architecture changes not yet approved
-- the feature requires schema, migration, auth, permission, billing, privacy, security, or AI-behavior changes not yet approved
-- destructive changes appear necessary but are not explicitly authorized
-- branch/worktree/PR drift creates unclear ownership
-- tests or validation paths are missing or unclear
-- the acceptance criteria are impossible as written
-```
+- archived docs are treated as current source truth
+- Initiative, Delivery Unit, Build Unit, Domain, or Architecture ownership is materially unclear
+- existing implementation contradicts the target
+- work violates non-goals
+- unapproved product or Architecture decisions are required
+- unapproved schema, migration, auth, permission, billing, privacy,
+  security, data, or AI-behavior changes are required
+- destructive changes appear necessary without authorization
+- branch or worktree drift creates unclear ownership
+- tests or validation are missing or unclear
+- a legacy Layer cannot be classified safely
 
-## Usage note
-
-This template is intentionally lightweight. It is designed to get a user from "I want to try LEAP on this feature" to a useful repo-aware Recon pass quickly.
-
-If the Recon reveals that the user, problem, MVP boundary, non-goals, risks, or source-of-truth baseline are unclear, escalate to LEAP Charter before generating an implementation prompt.
+This template is intentionally lightweight. Escalate to Charter when Mission, Strategic Outcomes, Initiative identity, scope, risk, or source truth is unclear.

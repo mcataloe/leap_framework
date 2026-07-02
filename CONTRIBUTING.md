@@ -2,15 +2,10 @@
 
 Thanks for considering a contribution.
 
-LEAP is still evolving, so the contribution process is intentionally lightweight. The goal is to encourage useful ideas without letting the framework become haphazard.
+LEAP is evolving, so the contribution process remains lightweight and focused.
 
----
+## Welcome contributions
 
-## What kinds of contributions are welcome?
-
-Any kind of thoughtful feedback is welcome, especially:
-
-```text
 - clearer explanations
 - better examples
 - beginner-friendly wording
@@ -19,67 +14,47 @@ Any kind of thoughtful feedback is welcome, especially:
 - agent-specific notes
 - risk-control improvements
 - terminology improvements
-- case studies from real projects
+- case studies
 - small template improvements
-```
-
----
 
 ## Good contribution behavior
 
-Please try to:
-
-```text
-- explain the problem you are solving
-- keep proposed changes focused
+- explain the problem being solved
+- keep changes focused
 - avoid broad rewrites unless the issue is structural
-- preserve LEAP's core safety rules
+- preserve LEAP safety rules
 - include examples when possible
-- distinguish personal preference from framework risk
-- avoid tool-specific assumptions unless clearly labeled
-```
+- distinguish preference from framework risk
+- avoid tool-specific assumptions unless labeled
 
----
+## Current center of gravity
 
-## LEAP's current center of gravity
+LEAP is software-delivery-first and focuses on:
 
-LEAP is currently software-delivery-first.
-
-It is especially focused on:
-
-```text
 - AI-assisted software delivery
 - source-of-truth discipline
 - repo reality reconciliation
 - ideation and readiness gates
-- bounded coding-agent handoffs
-- stop conditions
-- Build Units and layer sequencing
-```
+- Mission, Strategic Outcome, and Initiative traceability
+- Roadmap, Domain, and Architecture separation
+- Delivery Units and bounded Build Units
+- coding-agent handoffs and stop conditions
 
-Broader non-software uses may be explored later, but the current framework should remain grounded in software delivery until that version is stable.
-
----
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
 
 ## Before proposing a change
 
 Ask:
 
-```text
-Does this make LEAP easier to understand?
-Does this make implementation safer?
-Does this reduce ambiguity?
-Does this help agents stop instead of guessing?
-Does this preserve the difference between source truth, assumptions, and repo reality?
-```
-
----
+- Does this make LEAP easier to understand?
+- Does this make implementation safer?
+- Does this reduce ambiguity?
+- Does this help agents stop instead of guessing?
+- Does this preserve source truth, assumptions, and repo reality?
+- Does it keep Initiative, Roadmap, Domain, Architecture, Delivery Unit, and Build Unit meanings distinct?
 
 ## Contribution formats
 
-Useful contribution formats include:
-
-```text
 - GitHub issue
 - pull request
 - discussion comment
@@ -87,8 +62,5 @@ Useful contribution formats include:
 - critique of unclear wording
 - suggested checklist
 - agent failure-mode report
-```
 
-If the framework receives heavy contribution volume later, this file may become more formal.
-
-For now: contribute clearly, respectfully, and with enough context that the idea can be pressure-tested.
+Contribute clearly, respectfully, and with enough context for the idea to be pressure-tested.
