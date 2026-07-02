@@ -1,16 +1,30 @@
 # Quick LEAP Brief
 
-Use this when the work is small enough that full LEAP Charter and Recon would be heavier than the task, but you still want a safe AI coding-agent handoff.
+Use this when full Charter and Recon would be heavier than the task, but a coding agent still needs bounded scope, validation, and stop conditions.
 
-The Quick LEAP Brief is the smallest useful LEAP Prompt format for low-gravity implementation work.
+Quick LEAP Brief is for one small task or Build Unit. If the brief begins requiring product discovery, Strategic Outcome or Initiative decisions, Architecture changes, dependency review, branch-drift review, or source-truth reconciliation, escalate to Charter or Recon.
 
-Quick LEAP Brief is for small work that still needs guardrails. If the work is so small that there is no meaningful risk to control, use a normal prompt instead. If the brief starts needing source-truth reconciliation, architecture decisions, dependency review, branch-drift review, or product discovery, stop and escalate to LEAP Charter or LEAP Recon.
+## Project-documentation posture
 
-If you are deciding between a normal prompt, Quick Brief, Charter, Recon, Prompt, or LHS, start with the [workflow chooser](which-leap-workflow.md). For explicit examples of when full LEAP is unnecessary, see [When Not to Use LEAP](when-not-to-use-leap.md).
+A small task does not need the full documentation hierarchy when broader context is not material.
+
+When useful, include:
+
+```text
+Mission / Project Charter:
+Strategic Outcome:
+Initiative:
+Delivery Unit: collapsed / not applicable / <ID>
+Build Unit / task:
+Affected Domains:
+Affected Architecture Areas:
+```
+
+Delivery Unit may be collapsed when one Build Unit directly delivers the complete outcome.
+
+A Build Unit is not necessarily independently deployable.
 
 ## When to use it
-
-Use this for:
 
 ```text
 - small UI fixes
@@ -22,23 +36,18 @@ Use this for:
 - low-risk behavior changes
 ```
 
-Do not use this when the work involves:
+Do not use it for:
 
 ```text
-- unclear product direction
-- major data model changes
-- auth/session/permission changes
-- billing or credit logic
-- privacy/security-sensitive data
+- unclear Mission, Strategic Outcome, or Initiative ownership
+- major data-model or Architecture changes
+- auth, session, permission, billing, or sensitive-data changes
 - destructive migrations
-- multiple branches or agents
+- several branches, agents, or repositories
 - stale docs or unclear source truth
-- brownfield documentation reconciliation
+- Brownfield documentation reconciliation
+- ambiguous legacy Layer plans
 ```
-
-Escalate those to LEAP Charter or Recon.
-
-If you need a focused investigation but the full Recon template is too heavy, use the shorter [`LEAP Recon Lite`](../../templates/leap-recon-lite-template.md) template.
 
 ## Copy-ready brief
 
@@ -50,52 +59,64 @@ If you need a focused investigation but the full Recon template is too heavy, us
 
 ## 2. Current State
 - <What exists now?>
-- <What files/docs are source truth?>
+- <What files and docs are source truth?>
 - <What docs are stale, archived, or do-not-use?>
 
-## 3. Scope
+## 3. Optional Traceability
+- Mission / Project Charter:
+- Strategic Outcome:
+- Initiative:
+- Delivery Unit: collapsed / not applicable / <ID>
+- Build Unit / task:
+- Affected Domains:
+- Affected Architecture Areas:
+
+## 4. Scope
 In scope:
 - <Allowed changes>
 
 Out of scope:
 - <Disallowed changes>
 
-Files/areas to inspect:
-- <Files/directories/components>
+Files / areas to inspect:
+- <Files, directories, components>
 
-Files/areas not to touch:
-- <Forbidden files/directories/components>
+Files / areas not to touch:
+- <Forbidden files, directories, components>
 
-## 4. Constraints
+## 5. Constraints
 - Follow existing patterns.
-- Do not introduce new dependencies unless explicitly approved.
-- Do not change API/schema/auth/billing/AI behavior unless explicitly approved.
-- Preserve backwards compatibility unless explicitly told otherwise.
-- Treat archived docs as historical unless a canonical doc explicitly references them.
+- Do not introduce dependencies without approval.
+- Do not change API, schema, auth, billing, data, or AI behavior without approval.
+- Preserve compatibility unless explicitly told otherwise.
+- Treat archived docs as historical unless a current canonical doc references them.
+- Do not expand the task into a new Initiative, Delivery Unit, Domain, or Architecture refactor.
 
-## 5. Verification
-Run/check:
-- <tests/lint/typecheck/build/manual checks>
+## 6. Verification
+Run or check:
+- <tests, lint, typecheck, build, manual checks>
 
 Done means:
 - <observable acceptance criteria>
 
-## 6. Stop Conditions
-Stop and ask if:
+## 7. Stop Conditions
+Stop and report if:
 - required files are missing
-- existing code contradicts this brief
+- existing code contradicts the brief
 - docs conflict with repo reality
-- a stale or archived doc appears to be the only source for required behavior
-- the task requires touching forbidden files
-- the task requires new dependencies, migrations, auth changes, billing changes, or sensitive-data handling
+- a stale or archived doc is the only source for required behavior
+- Initiative, Domain, or Architecture ownership becomes materially unclear
+- forbidden files must be touched
+- new dependencies, migrations, auth, billing, or sensitive-data handling are required
 - verification cannot be run or is unclear
-- acceptance criteria are impossible as written
+- acceptance criteria are impossible
+- a legacy Layer must be interpreted without enough evidence
 
-## 7. Agent Execution Configuration
+## 8. Agent Execution Configuration
 - Agent / Tool: <Codex / Claude Code / Cursor / other>
-- Codex Plan Mode: <Off unless the user wants approval before editing>
+- Codex Plan Mode: <usually Off>
 - Model: <exact model or recommendation>
-- Reasoning Level: <low / medium / high / extended>
+- Reasoning Level: <Low / Medium / High / Extended>
 - Execution Mode: <implement-directly / repo-preflight-then-implement>
 - Scope Scale: <small task / Build Unit>
 - Repository:
@@ -104,21 +125,19 @@ Stop and ask if:
 - Validation:
 - Commit Guidance:
 
-## 8. Validation/Handoff
+## 9. Validation/Handoff
 Return:
 - Summary of changes
 - Files changed
-- Tests/checks run
-- Tests/checks not run
+- Tests and checks run
+- Checks not run
 - Docs updated or needing update
-- Follow-up LEAP Recon / LEAP Prompt / LEAP LHS recommendations
+- Follow-up Charter / Recon / Prompt / LHS recommendations
 ```
 
 ## Default settings
 
-Codex Plan Mode is usually Off for a Quick LEAP Brief. The brief already defines the small task, constraints, validation, and stop conditions. Use Plan Mode only when the user wants Codex to stop for approval before editing.
-
-If the task is small and low risk:
+Tiny low-risk work:
 
 ```text
 Codex Plan Mode: Off
@@ -127,7 +146,7 @@ Execution Mode: implement-directly
 Scope Scale: small task
 ```
 
-If the task touches several files or a coherent Build Unit:
+Coherent Build Unit:
 
 ```text
 Codex Plan Mode: Off
@@ -136,12 +155,26 @@ Execution Mode: repo-preflight-then-implement
 Scope Scale: Build Unit
 ```
 
-If the task has higher implementation gravity, use LEAP LHS instead of a Quick LEAP Brief. LHS is appropriate when two or more are true: the task touches more than 3 files, affects more than one system area, has dependency order, needs tests and docs, should be committed in phases, has rollback risk, changes architecture/data contracts/user workflows, is part of a named layer, may generate follow-up work, or needs explicit acceptance criteria.
+Use LHS instead when two or more are true:
 
-Do not use LHS for pure analysis, early brainstorming, one-file edits, small copy/doc fixes, quick bugs with obvious scope, or work where the extra structure would not reduce risk.
+- more than three files
+- several system or documentation areas
+- dependency order
+- tests and docs
+- phased commits
+- rollback or compatibility risk
+- Architecture, data-contract, or workflow changes
+- a named Initiative or Delivery Unit contains several Build Units
+- cross-repository coordination
+- explicit integration checkpoints are needed
+
+LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
 
 ## Escalation rule
 
 ```text
-If the brief starts needing product discovery, architecture decisions, source-truth reconciliation, brownfield documentation reconciliation, or branch-drift review, stop using the Quick LEAP Brief and run LEAP Charter or Recon.
+If the brief starts needing product discovery, Strategic Outcome or
+Initiative decisions, Architecture decisions, source-truth reconciliation,
+Brownfield documentation reconciliation, or branch-drift review, stop and
+run Charter or Recon.
 ```
