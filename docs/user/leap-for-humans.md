@@ -1,39 +1,8 @@
 # LEAP for Humans
 
-LEAP is for people who want to build software without letting confusion become code.
+LEAP helps people build software without letting confusion become code.
 
-It is especially useful when AI coding agents are involved, because agents are very good at turning instructions into changes. They are not automatically good at knowing whether the instructions are complete, current, safe, or wise.
-
-## The human problem LEAP solves
-
-Humans often describe solutions from the outside:
-
-```text
-I want a dashboard.
-I want an app that automates this.
-I want AI to help users do that.
-I want the platform to support this workflow.
-```
-
-Those statements may be directionally useful, but they are not yet implementation instructions.
-
-The missing details matter:
-
-```text
-Who uses it?
-What do they do today?
-What is painful?
-What is the smallest useful version?
-What should stay manual for now?
-What must never happen?
-What data is sensitive?
-What already exists in the codebase?
-Which docs are canonical?
-Which docs are stale or archived?
-What does success look like?
-```
-
-LEAP helps uncover those missing details before implementation begins.
+Coding agents can turn instructions into changes quickly. LEAP helps make sure those instructions are current, bounded, strategically aligned, and verifiable.
 
 ## Lifecycle
 
@@ -41,111 +10,109 @@ LEAP helps uncover those missing details before implementation begins.
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
-Charter asks where the project is going. Recon checks what is true. Prompt turns the next bounded task into instructions. Implementation changes the repo. Validation/Handoff proves what happened and reports what remains.
+Charter establishes or reconciles direction and source truth. Recon checks what is true. Prompt turns bounded work into instructions. Implementation changes the repository. Validation/Handoff proves what happened.
 
-LEAP LHS is one structured LEAP Prompt format for staged implementation. It is useful when the work has enough coordination, risk, or sequencing to justify it. For the formal lifecycle and LHS rules, use the [canonical framework reference](../leap.md).
+LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a lifecycle phase and it does not define the project's strategic hierarchy.
 
-## Questions are the source of answers
+## Project documentation in plain English
 
-LEAP uses questions because good questions expose the difference between:
-
-```text
-what someone imagines
-```
-
-and
+The preferred traceability hierarchy is:
 
 ```text
-what the system must actually do
+Mission / Project Charter
+        ↓
+Strategic Outcome
+        ↓
+Initiative
+        ↓
+Delivery Unit
+        ↓
+Build Unit
 ```
 
-A good LEAP question is not random. It should clarify the next blocker.
+- **Mission / Project Charter:** why the solution exists, who it serves, boundaries, and non-goals.
+- **Strategic Outcome:** the measurable or observable change being sought.
+- **Initiative:** temporary coordinated work advancing one or more Strategic Outcomes.
+- **Delivery Unit:** a releasable, deployable, enabled, adoptable, or demonstrable increment.
+- **Build Unit:** bounded implementation that can be implemented, tested, reviewed, and usually committed independently.
 
-Examples:
+Several Initiatives may run in parallel.
+
+A small Initiative may collapse the Delivery Unit level when one Build Unit delivers the complete outcome.
+
+A Build Unit is not required to be independently deployable or independently useful to an end user.
+
+## Roadmap, Domain, and Architecture
+
+These are separate views:
+
+- **Roadmap:** timing, priority, milestones, dependencies, release targets, status, and parallel work.
+- **Domain:** persistent business, responsibility, ownership, or technical boundary.
+- **Architecture:** technical structure, components, data, contracts, deployment, and qualified technical Layers.
+
+A Roadmap schedules Initiatives but does not permanently own them.
+
+Initiatives and Domains have a many-to-many relationship.
+
+## Legacy Layer terminology
+
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level because it was used for phases, capabilities, Domains, Architecture tiers, release increments, and implementation tasks at the same time.
+
+LEAP still preserves:
+
+- Layered Execution & Alignment Protocol
+- Layered House Standard
+- LEAP LHS
+- qualified Architecture Layers
+- existing legacy Layer docs until reconciled
+
+Classify what a legacy Layer actually represents before renaming it:
+
+- Initiative
+- Delivery Unit
+- Build Unit
+- Domain
+- Architecture Layer
+- Phase
+- mixed or unclear collection
+
+See [Project Documentation Model](../project-documentation-model.md) and [Project Documentation Migration](../maintainer/project-documentation-migration.md).
+
+## Questions LEAP asks
 
 ```text
-Who is the first user?
-What do they do today without this feature?
-What is the first moment where this becomes useful?
-What should the system refuse to do?
-What is manual for now?
-What would make this not worth building?
-What part of the repo already handles this?
-What would break if this changed?
-Which docs are source truth?
-Which docs should be archived?
+Why does the solution exist?
+What measurable change should happen?
+Which Initiative owns the coordinated work?
+Can several Initiatives run in parallel?
+What belongs on the Roadmap now?
+Which Domains and Architecture areas are affected?
+What can be delivered end to end?
+What Build Unit is small enough to verify?
+What already exists?
+Which docs are canonical, stale, or archived?
+What should never happen?
+How do we prove completion?
 ```
 
-## The Ideation Loop
+## Evidence and readiness
 
-LEAP's ideation loop is:
+LEAP separates Known, Assumed, Unknown, Contested, Needs Decision, and Deprecated information.
+
+Readiness gates:
 
 ```text
-Intent -> Questions -> Evidence labels -> Assumptions -> Pressure test -> Revised intent -> Gate decision
+C0 Blocked
+C1 Discovery Ready
+C2 Concept Ready
+C3 Pressure-Test Ready
+C4 Planning Ready
+C5 Coding-Prompt Ready
 ```
 
-This loop continues while the next step is unsafe.
+A confident feeling does not override a hard blocker.
 
-The goal is not endless discussion. The goal is to reach the next safe gate.
-
-## Evidence labels
-
-LEAP separates what is known from what is guessed.
-
-```text
-Known: confirmed by the user, repo, tests, or current docs
-Assumed: plausible but not confirmed
-Unknown: missing
-Contested: sources conflict
-Needs Decision: a human must choose
-Deprecated: used to be true, but no longer governs
-```
-
-This matters because a polished assumption is still an assumption.
-
-## Readiness gates
-
-LEAP uses gates instead of fake precision scores.
-
-```text
-C0 Blocked: only ask questions
-C1 Discovery Ready: enough to explore
-C2 Concept Ready: enough to draft the concept
-C3 Pressure-Test Ready: enough to challenge the idea
-C4 Planning Ready: enough to plan Recon, docs, or prompt backlog
-C5 Coding-Prompt Ready: enough to hand off to a coding agent
-```
-
-The important rule:
-
-```text
-A high confidence feeling does not override a hard blocker.
-```
-
-## What counts as a hard blocker?
-
-Implementation planning should stop when any of these are missing:
-
-```text
-- primary user
-- concrete problem
-- current workflow or workaround
-- MVP or scope boundary
-- concrete non-goals
-- sensitive-data/risk profile when applicable
-- source truth for existing projects
-- repo reality for existing repos
-- canonical-vs-archived doc status
-- verification path
-- human approval for risky decisions
-- execution profile for the coding agent
-```
-
-## Brownfield docs
-
-Existing projects often have useful but messy documentation. LEAP Charter - Brownfield Mode reconciles that documentation before implementation work depends on it.
-
-The rule is:
+## Brownfield documentation
 
 ```text
 Canonicalize forward.
@@ -154,36 +121,30 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
-This means useful current content moves into canonical docs, old originals are preserved in an archive, and agents are told where to start.
+Existing Layer docs are semantically reconciled before renaming or moving them.
 
-For the full Brownfield Charter doctrine, use [LEAP Charter](../leap-charter.md).
+## Use the lightest workflow
 
-## LEAP should feel practical
+- Tiny obvious change: normal prompt
+- Small bounded coding task: Quick LEAP Brief
+- New or unclear direction: Charter
+- Focused uncertainty or repository question: Recon
+- Ready bounded implementation: LEAP Prompt
+- Staged multi-Build-Unit work: LHS Prompt
 
-LEAP is not supposed to make small work heavy.
+Small projects do not need one file per concept. The model exists to clarify meaning and traceability, not to create documentation ceremony.
 
-Use the smallest version of LEAP that controls the risk.
-
-For a tiny fix, a short LEAP brief may be enough.
-
-For project alignment or stale docs, use LEAP Charter.
-
-For a major feature or focused repo question, use LEAP Recon.
-
-For implementation, use LEAP Prompt. Use LEAP LHS only when the work is layered, staged, or large enough to benefit from House Standard-style execution.
-
-If you are not sure where to start, use the [workflow chooser](which-leap-workflow.md).
-
-## The human-friendly summary
+## Human-friendly summary
 
 ```text
-Decide what problem matters.
+Decide why the solution exists.
+Define the change you want.
+Organize coordinated work into Initiatives.
+Use the Roadmap to schedule, not to define identity.
+Keep Domains persistent and Architecture structural.
+Define Delivery Units when release or adoption boundaries matter.
+Make Build Units small enough to verify.
 Check what is already true.
-Separate facts from guesses.
-Canonicalize current docs.
-Archive stale docs.
-Make the work small enough to verify.
-Tell the agent what not to touch.
-Tell the agent when to stop.
-Then build only the bounded task.
+Tell the agent what not to touch and when to stop.
+Then build only the bounded work.
 ```
