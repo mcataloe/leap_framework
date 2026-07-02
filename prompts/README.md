@@ -1,33 +1,55 @@
 # LEAP Prompt Library
 
-This directory contains reusable operational prompts for running LEAP workflows.
+This directory contains reusable operational Prompts for running LEAP workflows.
 
-The `templates/` directory contains compact request templates. The `prompts/` directory contains fuller copy-ready operational prompts for recurring work.
+The `templates/` directory contains compact request templates. The `prompts/` directory contains fuller operational standards.
 
-## Prompt Family Routing
+## Project-documentation model
 
-LEAP Prompt is the broad category of Codex-ready or agent-ready instruction artifacts generated from Charter, Recon, user intent, or approved implementation scope.
+LEAP Prompts use this preferred traceability hierarchy:
 
-Some prompt types have dedicated operational files. Others are prompt variants handled by the standard implementation prompt.
+```text
+Mission / Project Charter
+        ↓
+Strategic Outcome
+        ↓
+Initiative
+        ↓
+Delivery Unit
+        ↓
+Build Unit
+```
 
-| Prompt Type | Use When | File / Source |
-| --- | --- | --- |
-| Charter Prompt | Project direction, source truth, roadmap, baseline, or brownfield docs need alignment. | [leap-charter-standard.md](leap-charter-standard.md) |
-| Recon Prompt | A focused risk, feature, layer, dependency, contract, repo-reality, or architecture question needs investigation. | [leap-recon-standard.md](leap-recon-standard.md) |
-| Standard Implementation Prompt | The task is bounded and ready for coding-agent instructions. | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| Fix Prompt | A specific bug or remediation needs bounded implementation guidance. | [leap-prompt-standard.md](leap-prompt-standard.md), as a Fix Prompt variant |
-| Refactor Prompt | Structural change needs constraints, sequencing, verification, and stop conditions. | [leap-prompt-standard.md](leap-prompt-standard.md), as a Refactor Prompt variant |
-| Governance Prompt | Repo/process/source-truth cleanup needs a focused governance pass. | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) |
-| Validation Prompt | Completed work needs verification and handoff. | [leap-prompt-standard.md](leap-prompt-standard.md), as a Validation Prompt variant |
-| LHS Prompt | Staged implementation needs House Standard-style sequencing. | [../docs/leap.md](../docs/leap.md), as the Layered House Standard prompt format |
+Roadmaps schedule and prioritize. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
 
-Use a [Quick LEAP Brief](../docs/user/quick-leap-brief.md) or a standard implementation prompt for low-gravity work.
+Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
 
-Use LHS when implementation gravity is high enough to need staged execution, commit boundaries, tests and docs, multi-area coordination, compatibility checks, rollback awareness, or explicit acceptance criteria.
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
 
-## Current Public Workflow
+Canonical reference: [`../docs/project-documentation-model.md`](../docs/project-documentation-model.md).
 
-Use the current top-level templates:
+## Prompt family routing
+
+| Prompt Type | Use when | File / source |
+|---|---|---|
+| Charter Prompt | Mission, Strategic Outcomes, Initiative identity, Roadmap, source truth, or Brownfield docs need alignment | [leap-charter-standard.md](leap-charter-standard.md) |
+| Recon Prompt | A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture, dependency, contract, risk, or legacy Layer needs investigation | [leap-recon-standard.md](leap-recon-standard.md) |
+| Standard Implementation Prompt | A bounded Build Unit or small Delivery Unit is ready for agent instructions | [leap-prompt-standard.md](leap-prompt-standard.md) |
+| Fix Prompt | A specific bug or remediation needs bounded implementation guidance | [leap-prompt-standard.md](leap-prompt-standard.md) |
+| Refactor Prompt | Structural change needs sequencing, compatibility, verification, and stop conditions | [leap-prompt-standard.md](leap-prompt-standard.md) |
+| Governance Prompt | Source-truth, process, or documentation cleanup needs a focused pass | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) |
+| Validation Prompt | Completed work needs verification and handoff | [leap-prompt-standard.md](leap-prompt-standard.md) |
+| LHS Prompt | A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [../docs/leap.md](../docs/leap.md) |
+
+Use a [Quick LEAP Brief](../docs/user/quick-leap-brief.md) or Standard Implementation Prompt for low-gravity work.
+
+Use LHS when staged execution, commit boundaries, tests and docs, multi-area coordination, compatibility checks, rollback awareness, or explicit integration checkpoints materially reduce risk.
+
+LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
+
+## Current public workflow
+
+Current request templates:
 
 ```text
 templates/leap-charter-template.md
@@ -36,9 +58,10 @@ templates/leap-recon-template.md
 templates/leap-prompt-template.md
 ```
 
-Use the current user and reference docs first when onboarding or choosing a workflow:
+Start with:
 
 - [Start Here](../docs/00_start_here.md)
+- [Project Documentation Model](../docs/project-documentation-model.md)
 - [Which LEAP Workflow Should I Use?](../docs/user/which-leap-workflow.md)
 - [When Not to Use LEAP](../docs/user/when-not-to-use-leap.md)
 - [Quick LEAP Brief](../docs/user/quick-leap-brief.md)
@@ -46,10 +69,9 @@ Use the current user and reference docs first when onboarding or choosing a work
 - [LEAP Charter](../docs/leap-charter.md)
 - [Materiality Gate](../docs/materiality-gate.md)
 - [Dependency & Contract Recon](../docs/dependency-contract-recon.md)
+- [Legacy Project Documentation Migration](../docs/maintainer/project-documentation-migration.md)
 
-## Operational Prompt Files
-
-The active prompt library uses these canonical root-level files under `prompts/`:
+## Operational Prompt files
 
 ```text
 prompts/leap-charter-standard.md
@@ -58,34 +80,28 @@ prompts/leap-prompt-standard.md
 prompts/leap-governance-pass-standard.md
 ```
 
-Prompt variants such as Fix Prompt, Refactor Prompt, and Validation Prompt are currently handled by `prompts/leap-prompt-standard.md`.
+Fix, Refactor, and Validation Prompts are variants of `leap-prompt-standard.md`.
 
-LHS Prompt is not a separate lifecycle phase or standalone prompt file. It is the Layered House Standard prompt format documented in `docs/leap.md`.
+LHS is a Prompt format documented in `docs/leap.md`, not a separate lifecycle phase.
 
-## Usage Notes
+## Usage notes
 
-- Charter prompts establish or reconcile project direction and source truth before implementation depends on them.
-- Recon prompts investigate focused uncertainty before generating implementation prompts. Charter is not required before every Recon; each Recon starts with a lightweight Baseline Freshness Check.
-- Implementation prompts must include scope, non-goals, constraints, validation, stop conditions, and explicit agent execution configuration.
-- Fix prompts are bounded implementation prompts for known bugs or remediation work.
-- Refactor prompts are bounded implementation prompts for structural changes where sequencing, verification, and rollback awareness matter.
-- Governance prompts are for reconciliation, drift review, source-truth ownership cleanup, and prompt-standard cleanup outside normal implementation work.
-- Validation prompts verify completed work, summarize evidence, and identify handoff or follow-up needs.
-- LHS is a structured LEAP Prompt format, not a mandatory lifecycle phase.
+- Charter establishes or reconciles Mission, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, and source truth.
+- Recon begins with Baseline Freshness Check and investigates focused uncertainty.
+- Recon performs Planning Boundary Review before Delivery Unit or Build Unit generation.
+- Implementation Prompts include strategic and delivery traceability when material.
+- Roadmap placement must not be treated as permanent Initiative identity.
+- Domains and Initiatives are many-to-many.
+- Build Units are bounded implementation responsibilities and are not necessarily independently deployable.
+- Legacy Layer docs must be classified before migration.
+- Governance Prompts handle source-truth ownership and documentation drift.
+- Validation Prompts verify completed work and record handoff evidence.
 
-Supporting doctrine lives in the canonical reference docs instead of this routing file:
-
-- [LEAP lifecycle and LHS usage](../docs/leap.md)
-- [Materiality Gate](../docs/materiality-gate.md)
-- [Dependency & Contract Recon](../docs/dependency-contract-recon.md)
-- [Agent profiles](../docs/agent-profiles.md)
-- [Risk taxonomy](../docs/risk-taxonomy.md)
-
-## Public Rule
+## Public rule
 
 ```text
-Ask only material questions.
 Inspect discoverable sources first.
+Ask only material questions.
 Proceed on stated assumptions for non-material unknowns.
 Ask until the idea becomes buildable.
 Then stop asking and build only the bounded task.
