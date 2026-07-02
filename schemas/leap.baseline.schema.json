@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/mcataloe/leap_framework/schemas/leap.baseline.schema.json",
   "title": "LEAP Baseline Register",
-  "description": "Permissive starter schema for optional leap.baseline.yaml.",
+  "description": "Permissive starter schema for optional leap.baseline.yaml using the current LEAP project-documentation model.",
   "type": "object",
   "required": ["repo", "baseline", "source_truth"],
   "additionalProperties": true,
@@ -44,24 +44,54 @@
         },
         "canonical_docs": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         },
         "supporting_docs": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         },
         "archive_path": {
           "type": "string"
         },
         "stale_or_do_not_use": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "planning": {
+      "type": "object",
+      "description": "Optional pointers to current Strategic Outcomes, Initiatives, Delivery Units, Build Units, Roadmap, Domains, Architecture, and legacy Layer reconciliation candidates.",
+      "additionalProperties": true,
+      "properties": {
+        "current_strategic_outcomes": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "active_initiatives": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "current_delivery_units": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "current_build_units": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "roadmap": {
+          "type": "string"
+        },
+        "domain_map": {
+          "type": "string"
+        },
+        "architecture_overview": {
+          "type": "string"
+        },
+        "legacy_layer_docs_requiring_classification": {
+          "type": "array",
+          "items": {"type": "string"}
         }
       }
     },
@@ -79,17 +109,13 @@
         },
         "items": {
           "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "items": {"type": "string"}
         }
       }
     },
     "reconcile_triggers": {
       "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "items": {"type": "string"}
     },
     "related_registers": {
       "type": "object",
