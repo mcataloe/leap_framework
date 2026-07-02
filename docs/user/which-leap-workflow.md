@@ -1,204 +1,90 @@
-<!--
-LEAP_DOC_METADATA:
-  audience: user
-  doc_type: supporting-adoption-guidance
-  authority: supporting
-  applies_to: leap-framework
-END_LEAP_DOC_METADATA
--->
-
 # Which LEAP Workflow Should I Use?
 
-Use the lightest LEAP workflow that controls the actual risk.
-
-Full LEAP is useful when direction, source truth, repo reality, architecture, dependencies, implementation scope, or validation needs discipline. It is not meant to turn every tiny task into a planning exercise.
-
-If the work is small, obvious, and easy to verify, a normal prompt may be enough. If the work is still small but an AI coding agent needs guardrails, use a Quick LEAP Brief.
-
-Engage LEAP when guessing would be more expensive than pausing. If LEAP only adds ceremony, use a lighter workflow.
+Use the lightest workflow that controls the actual risk.
 
 ## Quick chooser
 
-| If this is true | Start with |
-| --- | --- |
-| The task is tiny, obvious, and easy to verify. | Normal prompt |
-| The task is small, source truth is clear, and the repo impact is localized. | [Quick LEAP Brief](quick-leap-brief.md) |
-| The project direction is unclear, or docs are stale or conflicting. | [LEAP Charter](../leap-charter.md) |
-| A focused feature, risk, layer, dependency, contract, or architecture question needs investigation. | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
-| The work is bounded and the agent needs implementation-ready instructions. | [LEAP Prompt](../../templates/leap-prompt-template.md) |
-| The work is staged, layered, multi-area, or needs explicit sequencing. | [LEAP LHS](../leap.md) |
+| Situation | Start with |
+|---|---|
+| Tiny, obvious, easy-to-verify task | Normal prompt |
+| Small localized coding-agent task | [Quick LEAP Brief](quick-leap-brief.md) |
+| Mission, Strategic Outcomes, Initiative identity, Roadmap, or source truth is unclear | [LEAP Charter](../leap-charter.md) |
+| A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, contract, risk, or legacy Layer needs investigation | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
+| A bounded Build Unit or task is implementation-ready | [LEAP Prompt](../../templates/leap-prompt-template.md) |
+| A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [LEAP LHS](../leap.md) |
 
-Materiality Gate is not a phase. It is LEAP's question filter: inspect discoverable sources first, ask only when the answer changes the work, proceed on safe assumptions for polish-only unknowns, and stop for safety, source-truth, destructive-change, privacy, money, identity, legal exposure, or user-trust risks.
-
-## Codex Plan Mode vs. LEAP Execution Mode
-
-Codex Plan Mode is a user-controlled Codex setting. LEAP Execution Mode is an instruction inside the prompt.
-
-They are related, but not the same thing.
-
-- Use Codex Plan Mode Off for `implement-directly` and `repo-preflight-then-implement`.
-- Use Codex Plan Mode On for `plan-first`.
-- Use `User decision required` when the user's desired approval gate is the deciding factor.
-
-A LEAP Prompt should make the required Codex Plan Mode setting obvious before the user submits the prompt.
-
-## When LEAP Is Too Much
-
-Do not use full LEAP just because AI is involved. For the full rule, examples, and escalation path, use [When Not to Use LEAP](when-not-to-use-leap.md).
-
-## Recommended Same-Thread Workflow
-
-LEAP works best when ideation, clarification, Recon, and prompt generation stay in the same conversation whenever practical.
-
-When the discussion happens in the same thread, you do not need to restate every detail. The prior conversation is part of the working context.
-
-A normal workflow can be:
-
-1. Discuss the feature, risk, bug, or project idea naturally.
-2. Ask questions, compare options, and pressure test the idea.
-3. When ready, use a short LEAP command.
-
-Examples:
+## Project-documentation model
 
 ```text
-Run LEAP Recon on what we just discussed.
+Mission / Project Charter
+  -> Strategic Outcome
+    -> Initiative
+      -> Delivery Unit
+        -> Build Unit
 ```
 
+Roadmap schedules and prioritizes. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
+
+Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
+
+Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. See [Project Documentation Model](../project-documentation-model.md) and [Project Documentation Migration](../maintainer/project-documentation-migration.md).
+
+## Materiality Gate
+
+Before asking questions:
+
+- inspect discoverable evidence
+- ask only when the answer changes direction, scope, Architecture, risk, source truth, validation, acceptance, or compatibility
+- proceed on stated assumptions for non-material unknowns
+- stop for safety, destructive changes, privacy, money, identity, legal exposure, user trust, or unsafe source truth
+
+## Codex Plan Mode and LEAP Execution Mode
+
+- Plan Mode Off: `implement-directly` or `repo-preflight-then-implement`
+- Plan Mode On: `plan-first`
+- User decision required: approval posture is the deciding factor
+
+## Same-thread commands
+
 ```text
-Run LEAP Recon on the password reset idea above.
+Run LEAP Charter on the project above.
+Run LEAP Recon on the Initiative or feature above.
+Generate a LEAP Prompt from the approved Recon.
+Turn the Delivery Unit and Build Unit sequence into an LHS Prompt.
+Run LEAP Validation/Handoff on the completed changes.
 ```
 
-```text
-Run LEAP Charter on the app idea we just talked through.
-```
+## When to use Charter
+
+Use Charter when Mission, users, problem, workflow, MVP, Strategic Outcomes, Initiative identity, Roadmap, Domains, Architecture, non-goals, risks, or source truth are unsettled.
+
+Use Brownfield Charter when current, stale, archived, duplicate, or conflicting docs need reconciliation.
+
+Brownfield Charter classifies a legacy Layer as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or Needs Reconciliation before migration.
+
+## When to use Recon
+
+Use Recon when the baseline is good enough but one focused target needs source-truth, repo-reality, risk, dependency, planning-boundary, or implementation-safety analysis.
+
+Recon begins with Baseline Freshness Check. Charter is not required before every Recon.
+
+## When to use LEAP Prompt
+
+Use Prompt when source truth, Initiative ownership, Delivery Unit or collapse rationale, Build Unit scope, constraints, validation, stop conditions, and execution profile are clear.
+
+## When to use Quick LEAP Brief
+
+Use Quick Brief for a small, localized, low-risk task. Reduced strategic traceability is acceptable when broader context is not material.
+
+## When to use LHS
+
+Use LHS for staged work with several Build Units, dependency order, tests and docs, phased commits, rollback or compatibility risk, cross-area changes, or cross-repository coordination.
+
+LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
+
+## Final rule
 
 ```text
-Generate a LEAP Prompt from the approved Recon above.
-```
-
-```text
-Turn the Build Unit sequence above into a LEAP LHS prompt.
-```
-
-```text
-Run LEAP Validation/Handoff on the completed changes above.
-```
-
-## When to Add More Detail
-
-Use a longer prompt when:
-
-- starting a new conversation
-- the previous discussion is not visible
-- you want LEAP to focus on a specific risk
-- the repo, branch, file, dependency, or source-truth location needs to be named
-- you need to set hard boundaries up front
-
-In the same thread, prefer short commands. LEAP should inspect available context, classify the request, ask only material questions, and avoid making you repeat the framework checklist.
-
-New-thread example:
-
-```text
-Run LEAP Recon on password reset for this repo.
-
-Context:
-- The app already has login and signup.
-- We want users to reset forgotten passwords by email.
-- We have not decided token expiration, rate limits, or email template behavior.
-```
-
-Optional steering can be short:
-
-```text
-Run LEAP Recon on the onboarding improvement idea above, focusing on source-truth gaps and UX risk.
-```
-
-## Scenarios
-
-### I have a new app idea.
-
-Use LEAP Charter.
-
-Use it when the user, problem, workflow, MVP, non-goals, risks, source truth, or roadmap are not settled.
-
-Why: Charter turns early intent into a project baseline before any agent starts planning implementation.
-
-Starter phrasing:
-
-```text
-Run LEAP Charter on the app idea we just talked through.
-```
-
-### My repo has old docs and I do not know what is current.
-
-Use Brownfield LEAP Charter.
-
-Use it when current docs, stale docs, archived docs, repo reality, and source truth need reconciliation.
-
-Why: Brownfield Charter canonicalizes current docs forward, archives stale docs backward, and prevents old plans from competing with current source truth.
-
-Starter phrasing:
-
-```text
-Run Brownfield LEAP Charter for this repo.
-```
-
-### The project direction is clear, but I need to investigate authentication.
-
-Use LEAP Recon.
-
-Use it when the baseline is good enough, but one focused feature, risk, dependency, contract, layer, or architecture question needs investigation.
-
-Why: Recon first performs a lightweight Baseline Freshness Check, then checks source truth and repo reality before turning uncertainty into implementation scope. Charter is not required before every Recon.
-
-Starter phrasing:
-
-```text
-Run LEAP Recon on authentication.
-```
-
-For a shorter starter format, use the [LEAP Recon Lite template](../../templates/leap-recon-lite-template.md).
-
-### I know the exact bounded implementation task.
-
-Use LEAP Prompt.
-
-Use it when scope, source truth, repo reality, constraints, non-goals, validation, stop conditions, and execution profile are clear enough for a coding agent.
-
-Why: LEAP Prompt converts a bounded task into agent-ready instructions.
-
-Starter phrasing:
-
-```text
-Generate a LEAP Prompt from the approved Recon above.
-```
-
-### This is just a small doc or UI fix.
-
-Use Quick LEAP Brief.
-
-Use it when the change is small, localized, low-risk, and easy to verify.
-
-Why: Quick LEAP Brief keeps the important guardrails without making the process heavier than the work.
-
-Starter phrasing:
-
-```text
-Use a Quick LEAP Brief for this small task.
-```
-
-If the change is tiny, obvious, and easy to verify, use a normal prompt instead. See [When Not to Use LEAP](when-not-to-use-leap.md).
-
-### This work touches several areas and needs staged commits.
-
-Use LEAP LHS.
-
-Use it when implementation gravity is high: multi-area changes, dependency order, tests and docs, phased commits, rollback risk, architecture/data/workflow changes, or explicit acceptance criteria.
-
-Why: LHS is a structured LEAP Prompt format for staged implementation. It is not a mandatory lifecycle stage.
-
-Starter phrasing:
-
-```text
-Turn the Build Unit sequence above into a LEAP LHS prompt.
+If guessing is more expensive than pausing, use LEAP.
+If LEAP adds more ceremony than risk control, use a lighter workflow.
 ```
