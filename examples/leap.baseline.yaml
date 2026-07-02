@@ -6,7 +6,7 @@
 repo: my-project
 
 baseline:
-  last_full_reconcile: "2026-06-05"
+  last_full_reconcile: "2026-07-01"
   last_reconcile_mode: Brownfield Charter
   baseline_confidence: medium
   updated_by: Codex via LEAP Charter
@@ -15,9 +15,12 @@ baseline:
 source_truth:
   entrypoint: docs/00_start_here.md
   canonical_docs:
-    - docs/02_product/00_product_strategy.md
-    - docs/03_architecture/00_architecture_overview.md
-    - docs/04_layers/00_layer_map.md
+    - docs/01_charter/00_project_charter.md
+    - docs/02_strategy/01_strategic_outcomes.md
+    - docs/02_strategy/02_initiative_registry.md
+    - docs/02_strategy/03_roadmap.md
+    - docs/03_domains/00_domain_map.md
+    - docs/04_architecture/00_architecture_overview.md
   supporting_docs:
     - README.md
     - AGENTS.md
@@ -25,24 +28,44 @@ source_truth:
   stale_or_do_not_use:
     - docs/99_archive/old-roadmap.md
 
+planning:
+  current_strategic_outcomes:
+    - SO-001
+  active_initiatives:
+    - INIT-001
+    - INIT-002
+  current_delivery_units:
+    - DU-001
+  current_build_units:
+    - BU-001
+  roadmap: docs/02_strategy/03_roadmap.md
+  domain_map: docs/03_domains/00_domain_map.md
+  architecture_overview: docs/04_architecture/00_architecture_overview.md
+  legacy_layer_docs_requiring_classification:
+    - docs/legacy/layer-4-workflow.md
+
 reconciliation_outputs:
-  document_inventory: docs/01_leap_charter/02_document_inventory.md
-  gap_register: docs/01_leap_charter/03_gap_register.md
-  migration_map: docs/01_leap_charter/04_migration_map.md
-  reconciliation_notes: docs/01_leap_charter/05_reconciliation_notes.md
+  document_inventory: docs/01_charter/02_document_inventory.md
+  gap_register: docs/01_charter/03_gap_register.md
+  migration_map: docs/01_charter/04_migration_map.md
+  reconciliation_notes: docs/01_charter/05_reconciliation_notes.md
 
 known_drift:
   status: minor
   items:
-    - README setup section may lag current Docker Compose workflow.
-    - Layer 4 roadmap needs update after timeline workflow completion.
+    - README setup section may lag the current container workflow.
+    - INIT-002 Roadmap placement needs review after the workflow release.
+    - Legacy Layer 4 documentation has not yet been classified.
 
 reconcile_triggers:
-  - major roadmap change
+  - major Strategic Outcome change
+  - new or materially changed Initiative
+  - Roadmap reprioritization affecting dependencies or parallel work
+  - Domain ownership change
   - architecture pivot
   - source-truth conflict
   - stale AGENTS.md
-  - large new layer
+  - large new Delivery Unit
   - conflicting docs
   - missing canonical source-truth entrypoint
 
