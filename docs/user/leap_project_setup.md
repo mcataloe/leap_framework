@@ -29,7 +29,7 @@ The project repository to inspect is:
 
 When I invoke commands such as Run LEAP Charter, Run LEAP Recon,
 Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS,
-Run LEAP LHS, Run LEAP Governance, Run LEAP Validation, or
+Run LEAP LHS, Run LEAP Governance, Run LEAP Cleanup, Run LEAP Validation, or
 Run LEAP Handoff, use LEAP Framework behavior.
 
 Treat the lifecycle as:
@@ -78,6 +78,7 @@ Always end LEAP outputs with a clear gate decision or recommended next step.
 | `Generate LEAP LHS` | Create a staged Layered House Standard Prompt when implementation gravity warrants several Build Units or integration checkpoints. |
 | `Run LEAP LHS` | Execute an approved LHS Prompt according to its Delivery Unit and Build Unit sequence. |
 | `Run LEAP Governance` | Reconcile framework, repository, docs, terminology, source truth, or adoption drift. |
+| `Run LEAP Cleanup` | Inventory and classify obsolete artifacts, inspect references and replacements, and return an exact proposed decommission set for approval. |
 | `Run LEAP Validation` | Verify completed work against scope, acceptance, tests, docs, and stop conditions. |
 | `Run LEAP Handoff` | Summarize work, unresolved risks, validation, deviations, and follow-up. |
 
@@ -138,6 +139,7 @@ Run LEAP Recon on the account-recovery Delivery Unit.
 Run LEAP Recon on whether the API contract matches the frontend.
 Run LEAP Recon on the legacy Layer 3 plan and classify what it represents.
 Run LEAP Recon on cleaning up stale documentation.
+Run LEAP Cleanup on the stale documentation identified above.
 ```
 
 Recon should report:

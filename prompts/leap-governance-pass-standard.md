@@ -45,8 +45,9 @@ You must:
 13. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
 14. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
 15. check Baseline State and optional `leap.baseline.yaml` guidance
-16. classify all drift found
-17. recommend updates, but do not rewrite files unless explicitly asked
+16. check whether stale or obsolete artifacts require a dedicated LEAP Cleanup pass
+17. classify all drift found
+18. recommend updates, but do not rewrite files unless explicitly asked
 
 Governance may update baseline metadata only when the pass explicitly performs or confirms a full reconciliation or intentional baseline update.
 
@@ -99,6 +100,7 @@ Update Prompt Library
 Reconcile Project Documentation Model
 Reconcile Legacy Layer Terminology
 Update Agent Pack
+Run LEAP Cleanup
 Needs Human Decision
 Run Full Framework Recon
 ```

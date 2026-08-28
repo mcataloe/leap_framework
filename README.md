@@ -64,6 +64,7 @@ See:
 - [Glossary](docs/glossary.md)
 - [Materiality Gate](docs/materiality-gate.md)
 - [Dependency & Contract Recon](docs/dependency-contract-recon.md)
+- [Repository Cleanup](docs/repository-cleanup.md)
 - [Prompt Library](prompts/README.md)
 - [Legacy Project Documentation Migration](docs/maintainer/project-documentation-migration.md)
 - Optional baseline metadata: [example](examples/leap.baseline.yaml) and [schema](schemas/leap.baseline.schema.json)
@@ -73,6 +74,7 @@ See:
 - [LEAP Charter template](templates/leap-charter-template.md)
 - [LEAP Recon Lite template](templates/leap-recon-lite-template.md)
 - [LEAP Recon template](templates/leap-recon-template.md)
+- [LEAP Cleanup template](templates/leap-cleanup-template.md)
 - [LEAP Prompt template](templates/leap-prompt-template.md)
 - [Operational prompts](prompts/README.md)
 
@@ -94,6 +96,7 @@ docs/
   project-documentation-model.md
   materiality-gate.md
   dependency-contract-recon.md
+  repository-cleanup.md
   glossary.md
   user/
   reference/
