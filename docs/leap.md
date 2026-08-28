@@ -10,6 +10,8 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 LEAP LHS is the **Layered House Standard** Prompt format for staged implementation. It is part of the LEAP Prompt family, not a mandatory lifecycle stage.
 
+LEAP Skills are reusable execution capabilities that may be selected and composed inside that lifecycle. They are not a new lifecycle phase or a replacement for Build Units. Canonical Skill guidance lives in [`leap-skills.md`](leap-skills.md).
+
 ## 1. Framework principles
 
 LEAP applies these operating rules:
@@ -31,6 +33,8 @@ LEAP should:
 - reconcile docs with repo reality
 - define strategic and implementation boundaries before coding
 - keep agent execution configuration explicit
+- compose reusable Skills only when they materially improve execution
+- keep Skill capability separate from execution authority and Build Unit scope
 - preserve compatibility unless change is approved
 - stop when an agent would otherwise need to guess
 
@@ -66,9 +70,10 @@ Recon performs:
 - stale-assumption and collision scans
 - cross-Initiative and cross-Domain impact review
 - planning-boundary review
+- Delivery Unit and Build Unit refinement
+- Capability / Skill Review when reusable specialized procedure may materially help
 - dependency and destructive-change review
 - risk and Architecture right-sizing review
-- Delivery Unit and Build Unit refinement
 - execution-configuration recommendation
 - gate decision
 
@@ -81,6 +86,7 @@ A LEAP Prompt is a bounded agent-ready contract containing:
 - source-of-truth instructions
 - scope, non-goals, and forbidden areas
 - constraints and compatibility posture
+- Capability / Skill composition when used
 - implementation sequence
 - verification
 - stop conditions
@@ -93,6 +99,8 @@ A LEAP Prompt is a bounded agent-ready contract containing:
 
 The approved Prompt is executed by Codex or another coding agent. Implementation must remain within scope, preserve non-goals, follow repository conventions, and stop when a stop condition is met.
 
+When a Prompt requires a Skill, implementation must use the named source and loading method rather than assuming the harness already has that Skill. Skill tool requirements cannot widen Prompt permissions.
+
 ### Validation/Handoff
 
 Validation/Handoff reports:
@@ -103,6 +111,7 @@ Validation/Handoff reports:
 - checks not run and why
 - deviations
 - assumptions
+- Skills used, when material to completion confidence
 - stop conditions
 - documentation updates
 - risks and follow-up LEAP work
@@ -158,6 +167,8 @@ The level is optional when one small Build Unit directly delivers the full Initi
 A bounded implementation responsibility that can be implemented, tested, reviewed, and usually committed independently.
 
 A Build Unit is not required to be independently deployable or independently useful to an end user.
+
+A LEAP Skill is orthogonal to this hierarchy. A Build Unit defines **what** bounded responsibility is delivered; a Skill defines reusable **how** for specialized execution. Skills must not be inserted into the Mission-to-Build-Unit traceability chain.
 
 ### Roadmap
 
@@ -276,6 +287,7 @@ C5 requires:
 - model
 - reasoning level
 - execution mode
+- resolvable required Skill sources and loading methods, when Skills are used
 
 ## 7. Source-of-truth protocol
 
@@ -292,6 +304,8 @@ Minimum viable source truth:
 6. Explicit stale / archive / do-not-use list
 7. LEAP framework version
 ```
+
+Skill definitions are execution instruction sources, not automatically project source truth. Treat a Skill as authoritative only for the capability contract it explicitly owns.
 
 ### Conflict hierarchy
 
@@ -354,6 +368,8 @@ docs/
 
 This is an example, not a requirement. Small projects may combine concepts, and Brownfield projects may retain existing conventions.
 
+Reusable Skills may live elsewhere according to the target harness or repository. Do not force Skills into the project-documentation hierarchy or create a Skill registry merely because Skills are supported.
+
 ## 9. No-build protocol
 
 Every new product idea and materially new capability should pass a no-build review before implementation planning:
@@ -394,6 +410,23 @@ A Build Unit is too large when it requires an agent to:
 - compress more than roughly five to seven meaningful implementation steps without clear sub-boundaries
 
 Split work before this happens.
+
+### Capability / Skill composition
+
+After Build Unit boundaries are clear enough, Recon may identify reusable Skills that materially reduce ambiguity, repetition, risk, or specialized-domain error.
+
+Rules:
+
+- ordinary agent reasoning and repository guidance remain valid when no explicit Skill is needed
+- Skills do not become a planning level
+- Skills do not own Initiative, Delivery Unit, or Build Unit identity
+- Skills may shape local execution procedure but may not expand Build Unit scope
+- required Skills must identify a resolvable source and loading method
+- Skill tool requirements may not widen Prompt permissions
+- Skill-specific verification should be carried into the Prompt and Validation/Handoff
+- do not create a new Skill when a one-off instruction is clearer and cheaper
+
+Canonical reference: [`leap-skills.md`](leap-skills.md).
 
 ## 11. Cross-Initiative and cross-Domain impact
 
@@ -441,6 +474,7 @@ Scope Scale:
 Repository:
 Branch / Worktree:
 Permissions:
+Skill Sources / Loading Method, when used:
 Validation:
 Commit Guidance:
 ```
@@ -526,6 +560,8 @@ LEAP should guard against:
 - confusing Initiative with Domain
 - treating Roadmap placement as Initiative identity
 - treating Build Units as independently deployable without evidence
+- letting a Skill broaden Build Unit scope or execution authority
+- assuming a required Skill exists without identifying its source and loading method
 - forcing every project to create every documentation level
 - globally replacing legacy Layer terminology
 - completing the task while violating non-goals
@@ -565,6 +601,7 @@ A Recon output should include:
 - cross-Initiative / cross-Domain impacts
 - planning-boundary review
 - Delivery Unit and Build Unit inventory
+- Capability / Skill Review when applicable
 - recommended sequence
 - dependency, destructive-change, and risk review
 - Architecture right-sizing
@@ -587,6 +624,7 @@ A generated Prompt should include:
 - source-of-truth instructions
 - assumptions
 - scope and constraints
+- Capability / Skill composition when used
 - implementation sequence
 - verification
 - stop conditions

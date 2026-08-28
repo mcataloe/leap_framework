@@ -2,6 +2,28 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - First-class LEAP Skills
+
+### Added
+
+- Added `docs/leap-skills.md` as the canonical reference for reusable execution capabilities.
+- Added `templates/leap-skill-template.md` for portable Skill Contract definitions.
+- Added Capability / Skill Review to Recon after Build Unit boundaries are clear enough.
+- Added Skill source, loading method, permission fit, required/optional status, and Skill-specific verification to agent handoffs.
+
+### Changed
+
+- Defined the Build Unit / Skill boundary: Build Units define **what** bounded implementation responsibility is delivered; Skills define reusable **how** for specialized execution.
+- Kept Skills outside the Mission / Strategic Outcome / Initiative / Delivery Unit / Build Unit hierarchy and outside the LEAP lifecycle phase model.
+- Updated Recon and LEAP Prompt standards and request templates to select and compose Skills without assuming harness-native availability.
+- Made Skill authority subordinate to the governing Prompt and repository policy.
+- Added progressive disclosure guidance so deep Skill references load only when relevant.
+- Updated canonical framework doctrine, glossary, navigation, entry points, and release metadata.
+
+### Deferred
+
+- Did not add a mandatory Skill registry, automatic Skill discovery service, self-modifying framework loop, or new persisted continuity store. These remain evidence-gated follow-up areas.
+
 ## Unreleased - Parallel-capable project documentation
 
 ### Added

@@ -79,7 +79,7 @@ Useful current content is absorbed into canonical docs, legacy originals are pre
 
 ## LEAP Recon
 
-The investigative pass that reconciles source truth and repo reality, detects drift and collisions, pressure-tests boundaries, reviews dependencies and risks, refines Delivery Units and Build Units, recommends execution configuration, and ends with a gate decision.
+The investigative pass that reconciles source truth and repo reality, detects drift and collisions, pressure-tests boundaries, reviews dependencies and risks, refines Delivery Units and Build Units, performs Capability / Skill Review when useful, recommends execution configuration, and ends with a gate decision.
 
 Recon may target a Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, dependency, contract, risk, question, or legacy Layer.
 
@@ -167,9 +167,41 @@ A dependency or contract category used when accessible evidence is insufficient.
 
 The broad family of agent-ready instruction artifacts generated from Charter, Recon, approved user intent, or approved implementation scope.
 
-A LEAP Prompt is a bounded handoff contract with objective, traceability, scope, constraints, verification, stop conditions, source-truth instructions, and explicit Agent Execution Configuration.
+A LEAP Prompt is a bounded handoff contract with objective, traceability, scope, constraints, verification, stop conditions, source-truth instructions, explicit Agent Execution Configuration, and Capability / Skill composition when specialized reusable procedure is used.
 
 Prompt types include Charter, Recon, Standard Implementation, Fix, Refactor, Governance, Validation, and LHS Prompts.
+
+## LEAP Skill
+
+A reusable execution capability selected and composed by LEAP when specialized procedure materially improves quality, safety, consistency, or efficiency.
+
+A Skill defines **how** a class of work should be performed. A Build Unit defines **what** bounded implementation responsibility must be delivered and verified.
+
+Skills are not part of the Mission / Strategic Outcome / Initiative / Delivery Unit / Build Unit traceability hierarchy and are not a lifecycle phase.
+
+A Skill may be implemented as a native agent skill, repository-local instructions, a LEAP capability document, a prompt fragment, a script plus instructions, or another harness-specific mechanism that satisfies the LEAP Skill Contract.
+
+## LEAP Skill Contract
+
+The portable contract governing a reusable LEAP Skill.
+
+At minimum it identifies name, purpose, positive and negative triggers, inputs, outputs, preconditions, scope boundary, tool requirements, permission ceiling, Always / Ask First / Never rules, procedure, verification, optional references, and portability notes.
+
+Skill capability does not grant authority. The governing LEAP Prompt and repository policy may narrow tool use or actions further.
+
+Canonical reference: [`leap-skills.md`](leap-skills.md).
+
+## Capability / Skill Review
+
+The Recon activity performed after Build Unit boundaries are clear enough to determine whether ordinary reasoning is sufficient or whether reusable specialized Skills materially improve execution.
+
+It identifies Skill need, source, loading method, required versus optional status, tool and permission fit, and Skill-specific verification.
+
+## Progressive Disclosure
+
+The rule that a Skill should keep its selection and decision core small while moving deep platform guidance, long examples, scripts, and variant-specific material into references loaded only when needed.
+
+Progressive disclosure reduces unnecessary context without hiding required boundaries or verification rules.
 
 ## Implementation
 
@@ -279,7 +311,7 @@ A user-facing operational gate:
 - C4: Planning Ready
 - C5: Coding-Prompt Ready
 
-C5 requires source truth, repo reality, scope, tests or validation, stop conditions, agent/tool, model, and reasoning level.
+C5 requires source truth, repo reality, scope, tests or validation, stop conditions, agent/tool, model, and reasoning level. When a Prompt requires Skills, their sources and loading methods must also be resolvable.
 
 ## Gate Decision
 
@@ -406,6 +438,8 @@ A Build Unit traces to an Initiative and, when used, a Delivery Unit. It states 
 
 A Build Unit is not required to be independently deployable or independently useful to an end user.
 
+Build Unit is the delivery boundary; LEAP Skill is a reusable execution-capability boundary.
+
 ## Layer
 
 Generic unqualified project-planning `Layer` is legacy-compatible and deprecated as the preferred LEAP planning level.
@@ -452,6 +486,8 @@ The classification for a planning document. No two canonical docs should own the
 
 A project-specific canonical or active document governing strategy, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, Delivery Units, Build Units, decisions, execution state, or implementation status.
 
+A Skill definition may be a canonical capability contract without becoming canonical source truth for unrelated project state.
+
 ## Repo Reality Reconciliation
 
 A Recon section comparing source-truth claims with actual repository state. Repo reality guides implementation planning when docs conflict, while the documentation conflict is reported.
@@ -493,6 +529,7 @@ It includes:
 - Repository
 - Branch / Worktree
 - Permissions
+- Skill Sources / Loading Method when used
 - Validation
 - Commit Guidance
 
@@ -516,7 +553,7 @@ The Prompt section describing whether and when Initiative, Roadmap, Delivery Uni
 
 ## Prompt Drift
 
-A drift type where a Prompt assumes stale files, branch state, decisions, scope, execution configuration, or source truth.
+A drift type where a Prompt assumes stale files, branch state, decisions, scope, execution configuration, required Skills, or source truth.
 
 ## Risk Taxonomy
 
@@ -536,16 +573,18 @@ Destructive changes are not allowed unless explicitly authorized.
 
 ## Agent Failure Mode
 
-A predictable way a coding agent may fail, such as following stale docs, inventing behavior, broadening scope, silently changing contracts, weakening tests, confusing Initiative and Domain, or treating a Build Unit as independently deployable without evidence.
+A predictable way a coding agent may fail, such as following stale docs, inventing behavior, broadening scope, silently changing contracts, weakening tests, confusing Initiative and Domain, treating a Build Unit as independently deployable without evidence, or letting a Skill widen scope or permissions.
 
 ## Quick LEAP Brief
 
 The smallest useful public LEAP Prompt format for bounded, low-risk work.
 
-Escalate to Charter or Recon when work involves strategy, source-truth reconciliation, parallel Initiatives, Architecture decisions, sensitive areas, destructive changes, or branch drift.
+Escalate to Charter or Recon when work involves strategy, source-truth reconciliation, parallel Initiatives, Architecture decisions, sensitive areas, destructive changes, branch drift, or material Skill-selection uncertainty.
 
 ## Canonical project-documentation reference
 
 See [`project-documentation-model.md`](project-documentation-model.md).
+
+See [`leap-skills.md`](leap-skills.md) for the Skill / Build Unit boundary and portable Skill Contract.
 
 See [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) for legacy Layer reconciliation.

@@ -35,8 +35,9 @@ LEAP helps you:
 4. Identify Strategic Outcomes and Initiatives.
 5. Separate Roadmap timing from persistent Domains and Architecture.
 6. Break Delivery Units into bounded Build Units.
-7. Tell the agent what to do, what not to touch, and when to stop.
-8. Validate the result.
+7. Identify reusable Skills only when specialized procedure materially improves execution.
+8. Tell the agent what to do, what not to touch, what capabilities to load, and when to stop.
+9. Validate the result.
 
 Use the lightest LEAP workflow that controls the actual risk. Tiny, obvious work may use a normal prompt. Small bounded coding work may use a [Quick LEAP Brief](user/quick-leap-brief.md).
 
@@ -76,6 +77,21 @@ This means:
 
 Read [Project Documentation Model](project-documentation-model.md) for the full doctrine.
 
+## Skills are execution capabilities, not planning levels
+
+A LEAP Skill is reusable procedure for a class of work.
+
+```text
+Build Unit = WHAT bounded implementation responsibility is delivered
+LEAP Skill = HOW specialized work is performed repeatably
+```
+
+Skills are selected only when useful. They do not become a mandatory lifecycle phase and they do not belong in the Mission-to-Build-Unit hierarchy.
+
+A Skill can be native to an agent platform, repository-local, prompt-embedded, or backed by scripts and references. The governing Prompt still controls scope and permissions.
+
+Read [LEAP Skills](leap-skills.md) for the Skill Contract and composition rules.
+
 ## What happened to Layer?
 
 Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level because it was used for phases, capabilities, Domains, Architecture, and implementation scope at the same time.
@@ -102,6 +118,8 @@ What belongs on the Roadmap now?
 Which Domains and Architecture areas are affected?
 What can be released, enabled, adopted, or demonstrated?
 What Build Units can be implemented and verified safely?
+Does any Build Unit need reusable specialized capability, or is ordinary reasoning sufficient?
+If a Skill is required, where does it come from and what authority does it actually have?
 What already exists?
 Which docs are canonical, stale, or archived?
 Which dependencies or contracts affect the work?
@@ -118,6 +136,7 @@ If those answers are unclear, LEAP keeps asking only the material questions need
 - Use the [workflow chooser](user/which-leap-workflow.md) to compare normal prompts, Quick Brief, Charter, Recon, Prompt, and LHS.
 - Use [When Not to Use LEAP](user/when-not-to-use-leap.md) when full LEAP is heavier than the task.
 - Use the [Quick LEAP Brief](user/quick-leap-brief.md) for the smallest useful coding-agent handoff.
+- Use [LEAP Skills](leap-skills.md) when defining or composing reusable execution capability.
 - Use the [canonical framework reference](leap.md) for formal doctrine.
 
 ## Lifecycle
@@ -128,9 +147,9 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 Charter establishes or reconciles the baseline when Mission, source truth, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, or documentation posture is unclear.
 
-Recon begins with Baseline Freshness Check and investigates a focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, risk, question, or legacy Layer.
+Recon begins with Baseline Freshness Check and investigates a focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, risk, question, or legacy Layer. After Build Unit boundaries are clear enough, Recon may perform Capability / Skill Review.
 
-LEAP Prompt is the agent-ready instruction family.
+LEAP Prompt is the agent-ready instruction family. When Skills are used, the Prompt identifies their sources, loading methods, permission fit, and verification without letting them widen scope.
 
 LEAP LHS is one Prompt format for staged implementation. It is not a lifecycle phase and it does not define the strategic hierarchy.
 
@@ -158,11 +177,13 @@ Before handing work to a coding agent, answer:
 6. Which docs are canonical?
 7. Which docs are stale, archived, or do-not-use?
 8. Which Domains and Architecture areas are affected?
-9. What is in scope and out of scope?
-10. What should the agent not touch?
-11. What tests or checks prove success?
-12. When should the agent stop?
-13. What execution profile should be used?
+9. Is ordinary reasoning sufficient, or is a reusable Skill materially useful?
+10. If a Skill is required, what is its source, loading method, permission ceiling, and verification?
+11. What is in scope and out of scope?
+12. What should the agent not touch?
+13. What tests or checks prove success?
+14. When should the agent stop?
+15. What execution profile should be used?
 ```
 
 If you cannot answer these, run Charter or Recon first.

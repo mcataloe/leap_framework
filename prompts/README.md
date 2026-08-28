@@ -24,9 +24,14 @@ Roadmaps schedule and prioritize. Domains describe persistent responsibility bou
 
 Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
 
+LEAP Skills are reusable execution capabilities composed against Build Units. Skills are not planning levels and do not grant authority beyond the governing Prompt.
+
 Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
 
-Canonical reference: [`../docs/project-documentation-model.md`](../docs/project-documentation-model.md).
+Canonical references:
+
+- [`../docs/project-documentation-model.md`](../docs/project-documentation-model.md)
+- [`../docs/leap-skills.md`](../docs/leap-skills.md)
 
 ## Prompt family routing
 
@@ -47,6 +52,20 @@ Use LHS when staged execution, commit boundaries, tests and docs, multi-area coo
 
 LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
 
+## Skill composition
+
+Recon performs Capability / Skill Review only after Build Unit boundaries are clear enough.
+
+When Skills are selected, implementation Prompts identify:
+
+```text
+| Build Unit | Skill | Source | Loading method | Required? | Tools / permissions | Verification |
+```
+
+Use ordinary reasoning and repository guidance when an explicit Skill adds no material value. Use progressive disclosure instead of loading entire skill libraries into every Prompt.
+
+Define reusable Skill contracts with [`../templates/leap-skill-template.md`](../templates/leap-skill-template.md).
+
 ## Current public workflow
 
 Current request templates:
@@ -56,12 +75,14 @@ templates/leap-charter-template.md
 templates/leap-recon-lite-template.md
 templates/leap-recon-template.md
 templates/leap-prompt-template.md
+templates/leap-skill-template.md
 ```
 
 Start with:
 
 - [Start Here](../docs/00_start_here.md)
 - [Project Documentation Model](../docs/project-documentation-model.md)
+- [LEAP Skills](../docs/leap-skills.md)
 - [Which LEAP Workflow Should I Use?](../docs/user/which-leap-workflow.md)
 - [When Not to Use LEAP](../docs/user/when-not-to-use-leap.md)
 - [Quick LEAP Brief](../docs/user/quick-leap-brief.md)
@@ -89,10 +110,13 @@ LHS is a Prompt format documented in `docs/leap.md`, not a separate lifecycle ph
 - Charter establishes or reconciles Mission, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, and source truth.
 - Recon begins with Baseline Freshness Check and investigates focused uncertainty.
 - Recon performs Planning Boundary Review before Delivery Unit or Build Unit generation.
+- Recon performs Capability / Skill Review after Build Unit boundaries are clear enough and only when useful.
 - Implementation Prompts include strategic and delivery traceability when material.
+- Implementation Prompts identify selected Skill sources, loading methods, permission fit, and verification without letting Skills widen scope.
 - Roadmap placement must not be treated as permanent Initiative identity.
 - Domains and Initiatives are many-to-many.
 - Build Units are bounded implementation responsibilities and are not necessarily independently deployable.
+- Skills are reusable execution capabilities and are not planning levels.
 - Legacy Layer docs must be classified before migration.
 - Governance Prompts handle source-truth ownership and documentation drift.
 - Validation Prompts verify completed work and record handoff evidence.

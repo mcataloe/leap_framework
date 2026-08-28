@@ -25,9 +25,10 @@ This folder contains LEAP Framework documentation for users, reference readers, 
 
 | Document | Purpose | Authority |
 |---|---|---|
-| [`leap.md`](leap.md) | Lifecycle, doctrine, source truth, risk, and Prompt behavior | Canonical |
+| [`leap.md`](leap.md) | Lifecycle, doctrine, source truth, risk, Prompt behavior, and Skill composition | Canonical |
 | [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter behavior | Canonical |
 | [`project-documentation-model.md`](project-documentation-model.md) | Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture model | Canonical |
+| [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities, Skill Contract, selection, permissions, progressive disclosure, and verification | Canonical |
 | [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
 | [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
 | [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon behavior | Supporting Recon reference |
@@ -49,6 +50,8 @@ Build Unit
 ```
 
 Roadmaps schedule and prioritize work. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
+
+LEAP Skills are orthogonal execution capabilities: Build Units define what bounded responsibility is delivered; Skills define reusable how. Do not insert Skills into the strategic hierarchy.
 
 Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) to classify legacy Layer documents before migration.
 
@@ -75,6 +78,8 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 
 - New to LEAP: [`00_start_here.md`](00_start_here.md)
 - Project hierarchy: [`project-documentation-model.md`](project-documentation-model.md)
+- Reusable execution capability: [`leap-skills.md`](leap-skills.md)
+- Define a Skill: [`../templates/leap-skill-template.md`](../templates/leap-skill-template.md)
 - Existing Layer-based project: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md)
 - Project setup: [`user/leap_project_setup.md`](user/leap_project_setup.md)
 - Workflow choice: [`user/which-leap-workflow.md`](user/which-leap-workflow.md)
@@ -86,7 +91,8 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 ## Agent reading rules
 
 - Start with [`00_start_here.md`](00_start_here.md).
-- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), and [`glossary.md`](glossary.md) as canonical doctrine.
+- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), [`leap-skills.md`](leap-skills.md), and [`glossary.md`](glossary.md) as canonical doctrine.
+- Use [`leap-skills.md`](leap-skills.md) only when reusable execution capability is relevant; do not force Skill ceremony into tiny work.
 - Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) only for legacy project-documentation reconciliation.
 - Treat user docs as downstream adoption guidance.
 - Treat maintainer docs as LEAP Framework repository guidance unless a downstream project explicitly adopts them.

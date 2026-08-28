@@ -2,7 +2,7 @@
 
 Run LEAP Recon using the current LEAP Framework.
 
-Recon investigates a focused Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, dependency, contract, risk, question, or legacy Layer. It is the source-truth, repo-reality, drift, dependency, risk, planning-boundary, and implementation-safety pass before Prompt generation.
+Recon investigates a focused Strategic Outcome, Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, dependency, contract, risk, question, or legacy Layer. It is the source-truth, repo-reality, drift, dependency, risk, planning-boundary, capability-selection, and implementation-safety pass before Prompt generation.
 
 Recon is normally investigative and non-mutating unless explicitly authorized.
 
@@ -37,7 +37,10 @@ Treat Roadmap, Domain Map, and Architecture as separate supporting views.
 - Architecture describes technical structure.
 - Delivery Unit may be collapsed for small work.
 - Build Unit is not necessarily independently deployable.
+- LEAP Skill is an orthogonal reusable execution-capability primitive, not a planning level.
 - Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level.
+
+Canonical Skill guidance: `docs/leap-skills.md`.
 
 ## Required behavior
 
@@ -63,11 +66,15 @@ You must:
 18. determine whether the target is Initiative-sized, Delivery-Unit-sized, Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase, or an ambiguous legacy Layer
 19. refine Delivery Units when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist
 20. generate or refine Build Units only after Initiative and Delivery Unit boundaries are clear enough
-21. identify human checkpoints
-22. distinguish LEAP process tier from Agent Execution Configuration
-23. recommend agent/tool, Codex Plan Mode, model, reasoning, execution mode, validation, and commit posture when Prompt generation is allowed
-24. recommend LHS only when implementation gravity warrants it
-25. end with a gate decision
+21. perform Capability / Skill Review after Build Unit boundaries are clear enough
+22. prefer ordinary agent reasoning and repository guidance when no explicit Skill materially improves execution
+23. for each selected Skill, identify its source, loading method, required or optional status, tool and permission fit, and Skill-specific verification
+24. keep Skill capability separate from Build Unit scope and execution authority
+25. identify human checkpoints
+26. distinguish LEAP process tier from Agent Execution Configuration
+27. recommend agent/tool, Codex Plan Mode, model, reasoning, execution mode, validation, Skill loading posture when used, and commit posture when Prompt generation is allowed
+28. recommend LHS only when implementation gravity warrants it
+29. end with a gate decision
 
 ## Brownfield Charter inputs
 
@@ -83,6 +90,7 @@ Use these when present:
 - Domain map
 - Architecture docs
 - Delivery and Build Unit plans
+- reusable Skill / capability sources already adopted by the project
 - gap register
 - reconciliation notes
 - migration map
@@ -150,6 +158,7 @@ Normal Recon may recommend baseline metadata but must not silently create it.
 - Execution log / drift ledger path:
 - Cross-Initiative / Cross-Domain impact map path:
 - Dependency register path:
+- Reusable Skill / capability sources, if any:
 - Baseline record path:
 - Brownfield document inventory path:
 - Gap register path:
@@ -163,6 +172,8 @@ Normal Recon may recommend baseline metadata but must not silently create it.
 - Human owner / approver:
 - Last reviewed:
 ```
+
+Skill definitions are capability instruction sources, not automatically project source truth outside the capability contract they explicitly own.
 
 ## Materiality Gate
 
@@ -231,6 +242,40 @@ A Delivery Unit is warranted when several Build Units, several repositories, sev
 
 A Build Unit must be bounded enough to implement, test, review, and usually commit independently without inventing product or Architecture decisions.
 
+A Skill is not another planning boundary. It is a reusable capability that may be composed only after the delivery boundary is clear enough.
+
+## Capability / Skill Review
+
+For each Build Unit, determine:
+
+1. whether ordinary agent reasoning and repository guidance are sufficient
+2. whether reusable specialized procedure materially reduces ambiguity, repetition, risk, or domain error
+3. whether a matching Skill already exists
+4. the Skill source and how the target agent will load it
+5. whether the Skill is required or optional
+6. whether its tool requirements fit the Prompt permission ceiling
+7. what Skill-specific verification is required
+8. whether a missing required Skill is material enough to block Prompt generation
+
+Use this output shape when Skills are relevant:
+
+```text
+### Capability / Skill Composition
+
+| Build Unit | Skill | Source | Loading method | Required? | Tools / permissions | Verification |
+|---|---|---|---|---|---|---|
+```
+
+Rules:
+
+- do not create or select a Skill merely because one exists
+- do not place Skills in the strategic traceability hierarchy
+- do not let a Skill widen Build Unit scope, product behavior, Architecture, or source-truth ownership
+- do not let Skill tool requirements widen Prompt permissions
+- do not assume a harness-native Skill exists without a resolvable source
+- use progressive disclosure; load only Skill references relevant to the current Build Unit
+- a one-off instruction should stay in the Prompt when creating a reusable Skill would add more ceremony than value
+
 ## Cross-Initiative / Cross-Domain Impact Scan
 
 Inspect whether target work affects:
@@ -297,6 +342,7 @@ When the gate is `Generate LEAP Prompt`, include:
 | Repository | Repo or repositories | Why |
 | Branch / Worktree | Target context | Why |
 | Permissions | Allowed changes | Why |
+| Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none | Why |
 | Validation | Tests and checks | Why |
 | Commit Guidance | Commit posture | Why |
 
@@ -314,6 +360,8 @@ Reconcile Docs First
 Resolve Branch Drift First
 Do Not Build Yet
 ```
+
+A missing Skill does not automatically block Prompt generation. Block only when the specialized capability is material to safe execution and there is no acceptable source or bounded fallback.
 
 ## Required output
 
@@ -337,6 +385,7 @@ Do Not Build Yet
 ## 15. Legacy Layer Classification, when relevant
 ## 16. Generated / Refined Delivery Unit Inventory, when relevant
 ## 17. Generated / Refined Build Unit Inventory
+### Capability / Skill Composition, when relevant
 ## 18. Recommended Build Sequence
 ## 19. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
