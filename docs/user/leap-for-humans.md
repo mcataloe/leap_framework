@@ -129,6 +129,7 @@ Existing Layer docs are semantically reconciled before renaming or moving them.
 - Small bounded coding task: Quick LEAP Brief
 - New or unclear direction: Charter
 - Focused uncertainty or repository question: Recon
+- Obsolete artifacts competing with current truth: Cleanup
 - Ready bounded implementation: LEAP Prompt
 - Staged multi-Build-Unit work: LHS Prompt
 

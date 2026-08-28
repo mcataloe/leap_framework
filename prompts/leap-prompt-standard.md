@@ -37,7 +37,8 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 | Standard Implementation Prompt | Bounded Build Unit or small Delivery Unit | Usually no |
 | Fix Prompt | Specific bug or remediation | Usually no |
 | Refactor Prompt | Structural change | Often yes |
-| Governance Prompt | Source-truth, process, or documentation cleanup | Sometimes |
+| Governance Prompt | Source-truth, process, or documentation reconciliation | Sometimes |
+| Cleanup Prompt | Artifact decommission review and approval gate | Usually no |
 | Validation Prompt | Verify acceptance and handoff | Usually no |
 | LHS Prompt | Staged multi-Build-Unit execution | Yes |
 
@@ -148,7 +149,8 @@ Prefer `repo-preflight-then-implement` for bounded approved Build Units. Use `pl
 
 ```text
 - Prompt type: Standard LEAP Prompt / LHS Prompt / Fix Prompt /
-  Refactor Prompt / Validation Prompt / other clear type
+  Refactor Prompt / Governance Prompt / Cleanup Prompt /
+  Validation Prompt / other clear type
 - LHS decision: Use LHS / Do not use LHS
 - Rationale:
 ```
@@ -372,3 +374,5 @@ Extended - Initiative-scale work, Architecture-sensitive changes,
 ```
 
 Do not include broad cleanup instructions unless cleanup is explicitly scoped and testable.
+
+When a Refactor Prompt decommissions obsolete artifacts, use an approved decommission set and the validation contract in [`../docs/repository-cleanup.md`](../docs/repository-cleanup.md).
