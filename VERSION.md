@@ -15,6 +15,14 @@ Status: current released baseline; current branch changes remain unreleased
 ## Unreleased framework additions
 
 ```text
+- First-class LEAP Skill abstraction for reusable execution capabilities
+- Portable LEAP Skill Contract with Use / Do Not Use, inputs, outputs, preconditions, scope, tools, permission ceiling, Always / Ask First / Never, procedure, verification, references, and portability notes
+- Capability / Skill Review inside Recon after Build Unit boundaries are clear enough
+- Build Unit / Skill boundary: Build Unit defines WHAT is delivered; Skill defines reusable HOW
+- Skill source and loading-method identification for agent-ready Prompts
+- Skill permission ceiling subordinate to governing Prompt authority
+- Progressive disclosure for Skill references
+- Skill-specific verification and Validation/Handoff evidence
 - Parallel-capable project documentation model
 - Mission / Project Charter -> Strategic Outcome -> Initiative -> Delivery Unit -> Build Unit traceability
 - Roadmap as scheduling, priority, dependency, milestone, release, status, and parallelism view
@@ -36,6 +44,7 @@ Status: current released baseline; current branch changes remain unreleased
 docs/leap.md
 docs/leap-charter.md
 docs/project-documentation-model.md
+docs/leap-skills.md
 docs/glossary.md
 ```
 
@@ -45,6 +54,7 @@ docs/glossary.md
 docs/materiality-gate.md
 docs/dependency-contract-recon.md
 docs/maintainer/project-documentation-migration.md
+templates/leap-skill-template.md
 examples/leap.baseline.yaml
 schemas/leap.baseline.schema.json
 examples/leap.dependencies.yaml

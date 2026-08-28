@@ -20,6 +20,8 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a mandatory lifecycle stage.
 
+LEAP Skills are reusable execution capabilities selected and composed inside the lifecycle when specialized procedure materially improves the work. Skills are not another lifecycle phase.
+
 ## Project Documentation Model
 
 The preferred traceability hierarchy is:
@@ -47,12 +49,26 @@ See:
 - [Project Documentation Model](docs/project-documentation-model.md)
 - [Legacy Project Documentation Migration](docs/maintainer/project-documentation-migration.md)
 
+## Skills and Build Units
+
+LEAP keeps delivery decomposition separate from reusable capability:
+
+```text
+Build Unit = WHAT bounded implementation responsibility is delivered
+LEAP Skill = HOW specialized work is performed repeatably
+```
+
+A Skill may be implemented through a native agent skill, repository-local instructions, a prompt fragment, a script plus instructions, or another runtime mechanism. Skill capability never grants more authority than the governing Prompt.
+
+See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capability-selection rules, progressive disclosure, and verification requirements.
+
 ## Start Here
 
 - New to LEAP: [Start Here: LEAP in Plain English](docs/00_start_here.md)
 - Choosing a workflow: [Which LEAP Workflow Should I Use?](docs/user/which-leap-workflow.md)
 - Deciding whether LEAP is too much: [When Not to Use LEAP](docs/user/when-not-to-use-leap.md)
 - Small agent-executed task: [Quick LEAP Brief](docs/user/quick-leap-brief.md)
+- Reusable execution capabilities: [LEAP Skills](docs/leap-skills.md)
 - Setting up LEAP: [LEAP Project Setup](docs/user/leap_project_setup.md)
 - Documentation map: [LEAP Documentation Map](docs/README.md)
 
@@ -61,6 +77,7 @@ See:
 - [LEAP Framework](docs/leap.md)
 - [LEAP Charter](docs/leap-charter.md)
 - [Project Documentation Model](docs/project-documentation-model.md)
+- [LEAP Skills](docs/leap-skills.md)
 - [Glossary](docs/glossary.md)
 - [Materiality Gate](docs/materiality-gate.md)
 - [Dependency & Contract Recon](docs/dependency-contract-recon.md)
@@ -74,6 +91,7 @@ See:
 - [LEAP Recon Lite template](templates/leap-recon-lite-template.md)
 - [LEAP Recon template](templates/leap-recon-template.md)
 - [LEAP Prompt template](templates/leap-prompt-template.md)
+- [LEAP Skill definition template](templates/leap-skill-template.md)
 - [Operational prompts](prompts/README.md)
 
 Compatibility stubs remain at `templates/leap-phase-0-template.md` and `prompts/leap-phase-0-standard.md`. Prefer Charter files for active work.
@@ -92,6 +110,7 @@ docs/
   leap.md
   leap-charter.md
   project-documentation-model.md
+  leap-skills.md
   materiality-gate.md
   dependency-contract-recon.md
   glossary.md
@@ -109,6 +128,7 @@ prompts/
 
 - Keep active framework docs on canonical current paths.
 - Keep operational prompts as flattened files under `prompts/`.
+- Preserve the Build Unit / Skill boundary: delivery responsibility is not reusable capability.
 - Preserve public paths unless migration is explicitly approved.
 - Keep release notes focused on current and unreleased changes.
 - Use Git history, release notes, and tags for older context.
