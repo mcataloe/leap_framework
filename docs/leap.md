@@ -236,24 +236,43 @@ Never let stale docs compete with source-of-truth docs.
 
 ## 5. Materiality Gate
 
-Before asking a question, classify missing context as:
+Materiality Gate is a shared LEAP execution primitive, not a lifecycle phase.
 
-- **Material** — changes architecture, scope, risk, source-truth hierarchy, validation, acceptance criteria, compatibility, or implementation path
-- **Non-material** — changes naming, wording, formatting, or minor preference
-- **Discoverable** — should be inspected from repo, docs, contracts, or tooling
-- **Safe assumption** — can be stated without changing the decision
-
-Question sequence:
+For materially consequential work, use:
 
 ```text
-1. Inspect discoverable evidence.
-2. Convert non-material unknowns into stated assumptions.
-3. Proceed on safe assumptions.
-4. Ask only unresolved material questions.
-5. Ask the smallest useful set.
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Hard blockers override this rule.
+Classify unresolved context as:
+
+- **Material** — plausible answers change Architecture, scope, risk, source truth, validation, acceptance criteria, compatibility, implementation, recommendation, or the next gate decision
+- **Non-material** — plausible answers only change naming, wording, formatting, ordering, or minor preference
+- **Discoverable** — inspect repo, docs, contracts, tests, decisions, or approved tooling before asking
+- **Safe assumption** — can be assumed and disclosed without violating a stop condition
+- **Hard blocker** — requires human approval, reconciliation, or another mandatory checkpoint
+
+Default clarification mode is **Materiality-Gated**:
+
+```text
+Discoverable -> INSPECT
+Non-material / safe assumption -> ASSUME or DEFER
+Unresolved material -> ASK
+Hard blocker -> STOP
+```
+
+An explicit **No Gate** modifier changes only safely assumable ASK outcomes:
+
+```text
+No Gate: ASK -> ASSUME + DISCLOSE, when safe.
+No Gate never changes STOP -> PROCEED.
+```
+
+After an answer or new evidence, re-evaluate only newly exposed or remaining material uncertainty. Ask no more than the smallest useful batch, with no required minimum question count. Stop the clarification loop when the remaining uncertainty is discoverable, non-material, safely assumable, or a hard blocker requiring a different checkpoint.
+
+Hard blockers, source-truth integrity, destructive-change safeguards, authorization, sensitive-area rules, and public-contract approval remain in force in every clarification mode.
+
+Canonical details: [Materiality Gate](materiality-gate.md).
 
 ## 6. Readiness gates
 
