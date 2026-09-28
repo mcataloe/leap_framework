@@ -64,8 +64,8 @@ Use these Skill / capability sources separately, if any:
 Agent execution configuration:
 - Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Governance Prompt / Cleanup Prompt / Validation Prompt / other clear type
 - LHS Decision: Use LHS / Do not use LHS
-- Agent / Tool: Codex / Claude Code / Cursor / other
-- Codex Plan Mode: On / Off / User decision required
+- Agent / Tool: Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other
+- Codex Plan Mode: On / Off / User decision required / not applicable
 - Model: exact model or approved default
 - Reasoning Level: Low / Medium / High / Extended
 - Execution Mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only
@@ -73,6 +73,12 @@ Agent execution configuration:
 - Repository or repositories:
 - Branch / Worktree:
 - Permissions:
+- Required Capability Class: E0 / E1 / E2 / E3 / E4 or combination
+- Required Capabilities:
+- Required Confidence / Validation:
+- Preferred Surface:
+- Escalation Surface:
+- Verification State at Handoff: Implemented — execution unverified / Partially verified / Execution verified / not applicable
 - Skill Sources / Loading Method: named source + native / repo-local / prompt-embedded / none
 - Validation:
 - Commit Guidance:
@@ -104,6 +110,10 @@ Required gate:
 - For required Skills, confirm source, loading method, permission fit, and verification.
 - Do not let a Skill widen Build Unit scope or Prompt authority.
 - Confirm repo reality, branch drift, scope, non-goals, validation, stop conditions, and execution profile.
+- Derive required capabilities from required confidence and validation before choosing the execution surface.
+- Prefer the least-cost eligible execution surface; cost optimization must not weaken Definition of Done.
+- Name an escalation surface when the preferred surface cannot satisfy a required capability or verification check.
+- Distinguish implementation from execution verification.
 - Confirm whether implementation gravity warrants LHS.
 - Apply Materiality Gate using INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
 - In Materiality-Gated mode, unresolved material questions must be answered before Prompt generation.
