@@ -101,8 +101,11 @@ LHS is a Prompt format documented in `docs/leap.md`, not a separate lifecycle ph
 
 ```text
 Inspect discoverable sources first.
-Ask only material questions.
-Proceed on stated assumptions for non-material unknowns.
-Ask until the idea becomes buildable.
-Then stop asking and build only the bounded task.
+Classify unresolved context by material consequence.
+Ask only what changes the next safe decision.
+Assume or defer what can safely proceed without clarification.
+Stop when a hard blocker applies.
+Re-evaluate only remaining or newly exposed material uncertainty.
 ```
+
+An explicit `No Gate` modifier converts only safely assumable ASK outcomes into disclosed assumptions. It never converts STOP into proceed.
