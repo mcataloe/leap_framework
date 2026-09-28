@@ -33,6 +33,9 @@ LEAP should:
 - reconcile docs with repo reality
 - define strategic and implementation boundaries before coding
 - keep agent execution configuration explicit
+- route work to the least-cost available execution surface capable of satisfying required confidence and validation
+- keep provider pricing, quotas, credits, and product names in environment configuration rather than framework doctrine
+- distinguish implementation from execution-grounded verification
 - compose reusable Skills only when they materially improve execution
 - keep Skill capability separate from execution authority and Build Unit scope
 - preserve compatibility unless change is approved
@@ -74,7 +77,7 @@ Recon performs:
 - Capability / Skill Review when reusable specialized procedure may materially help
 - dependency and destructive-change review
 - risk and Architecture right-sizing review
-- execution-configuration recommendation
+- execution-configuration and execution-routing recommendation
 - gate decision
 
 ### LEAP Prompt
@@ -97,9 +100,15 @@ A LEAP Prompt is a bounded agent-ready contract containing:
 
 ### Implementation
 
-The approved Prompt is executed by Codex or another coding agent. Implementation must remain within scope, preserve non-goals, follow repository conventions, and stop when a stop condition is met.
+The approved Prompt is executed on the least-cost available surface that can satisfy the work unit's capability, confidence, validation, and permission requirements. Repository mutation alone does not require a shell-capable coding agent.
+
+Implementation may move across execution surfaces when capability or confidence requirements change. Complete the largest coherent tranche practical before crossing surfaces to avoid needless handoff overhead.
+
+When a surface can implement artifacts but cannot run required execution-grounded checks, report the state as **Implemented — execution unverified** and escalate the bounded validation-and-repair work to an adequate surface.
 
 When a Prompt requires a Skill, implementation must use the named source and loading method rather than assuming the harness already has that Skill. Skill tool requirements cannot widen Prompt permissions.
+
+Canonical execution-routing doctrine: [LEAP Execution Routing](execution-routing.md).
 
 ### Validation/Handoff
 
@@ -109,6 +118,8 @@ Validation/Handoff reports:
 - files changed
 - tests and checks run
 - checks not run and why
+- verification state: Implemented — execution unverified / Partially verified / Execution verified
+- execution-surface handoffs, when material
 - deviations
 - assumptions
 - Skills used, when material to completion confidence
@@ -493,7 +504,9 @@ It should:
 
 Notification automation, release blocking, ticket creation, and cross-repo mutation are out of scope unless explicitly approved.
 
-## 13. Agent Execution Configuration
+## 13. Agent Execution Configuration and Routing
+
+Agent / Tool selection should be derived from required capabilities and validation, not assumed before the work unit is understood.
 
 Every agent-ready Prompt should state:
 
@@ -507,10 +520,18 @@ Scope Scale:
 Repository:
 Branch / Worktree:
 Permissions:
+Required Capability Class:
+Required Capabilities:
+Required Confidence / Validation:
+Preferred Surface:
+Escalation Surface:
+Verification State at Handoff:
 Skill Sources / Loading Method, when used:
 Validation:
 Commit Guidance:
 ```
+
+Use [LEAP Execution Routing](execution-routing.md) to select the least-cost eligible surface. Cost optimization may influence surface choice but may not lower acceptance criteria or the Definition of Done.
 
 Execution modes:
 
