@@ -41,7 +41,7 @@ You must:
 9. check whether new canonical docs are discoverable
 10. check whether templates and operational prompts agree with current framework rules
 11. confirm LHS is a Prompt format for staged execution, not the strategic hierarchy or lifecycle phase
-12. check Materiality Gate, source truth, repo reality, stop conditions, and execution configuration
+12. check Materiality Gate decision flow, Materiality-Gated / No Gate semantics, source truth, repo reality, stop conditions, and execution configuration
 13. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
 14. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
 15. check Baseline State and optional `leap.baseline.yaml` guidance

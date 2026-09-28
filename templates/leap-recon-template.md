@@ -75,6 +75,7 @@ Repository / branch context:
 - Dependency or contract sources:
 
 Execution settings:
+- Clarification mode: Materiality-Gated / No Gate
 - Buildout mode: Rapid POC / Standard / Production-safe / Refactor
 - LEAP process tier: Standard / Thinking Extended / Pro Standard / Pro Extended / recommend
 - Agent / Tool: Codex / Claude Code / Cursor / other / recommend
@@ -98,8 +99,13 @@ Required behavior:
 - Recommend Charter / Governance, limited-scope Recon, or deferral for material drift.
 - Stop for unsafe source-truth conflict.
 - Do not silently create leap.baseline.yaml.
-- Apply Materiality Gate before asking questions.
+- Apply Materiality Gate using INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
 - Inspect discoverable evidence before asking.
+- In Materiality-Gated mode, ask only unresolved material questions needed for the next safe decision.
+- In No Gate mode, convert only safely assumable ASK outcomes into explicit assumptions and disclose them.
+- No Gate never converts STOP into proceed and never bypasses hard blockers or required approval.
+- Re-evaluate only remaining or newly exposed material uncertainty after answers or new evidence.
+- There is no minimum question count; ask no more than three targeted questions at a time unless exhaustive discovery is explicitly requested.
 - Treat Brownfield Charter outputs as source-truth inputs.
 - Classify docs as Canonical, Supporting, Current but poorly organized,
   Partially useful, Stale, Conflicting, Duplicate, Completed plan,
@@ -181,10 +187,15 @@ Return Recon only. Do not generate the implementation Prompt yet unless I explic
 ## Materiality Check format
 
 ```text
+### Clarification Mode
+Materiality-Gated / No Gate
+
 ### Material Unknowns
 ### Assumptions Proceeding Under
 ### Deferred Non-Material Details
+### Stop Conditions / Hard Blockers
 ### Question Decision
+Proceed with assumptions / inspect sources first / ask targeted questions / stop
 ```
 
 ## Dependency & Contract Recon format
