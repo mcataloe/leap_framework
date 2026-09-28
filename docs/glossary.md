@@ -233,25 +233,43 @@ Intent -> Questions -> Evidence labels -> Assumption ledger -> Pressure test -> 
 
 ## Materiality Gate
 
-The rule for deciding whether LEAP should ask a question, inspect discoverable evidence, proceed with a stated assumption, or stop.
+The shared LEAP rule for deciding whether missing context should be inspected, asked about, assumed, or treated as a stop condition.
 
-Missing context is classified as:
+Canonical flow:
 
-- Material
-- Non-material
-- Discoverable
-- Safe assumption
+```text
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
+```
 
-Ask only unresolved material questions needed for the next safe gate decision.
+Missing context is classified as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+
+Materiality Gate is not a lifecycle phase.
+
+## No Gate
+
+An explicit per-operation Materiality Gate modifier that suppresses ordinary clarification interruptions when unresolved material context can be safely assumed.
+
+```text
+No Gate: ASK -> ASSUME + DISCLOSE, when safe.
+No Gate never changes STOP -> PROCEED.
+```
+
+No Gate does not bypass hard blockers, authorization, source-truth integrity, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, or required human approval.
 
 ## Question-Loop Rule
 
-Ask the fewest questions needed to reach the next safe gate decision.
+Ask only unresolved material questions needed for the next safe gate decision.
+
+After each answer batch or meaningful new evidence, re-run Materiality Gate for newly exposed or remaining uncertainty. Continue only while another answer could materially change the work or gate decision.
 
 ```text
-Ask until the idea becomes buildable.
-Then stop asking and build only the bounded task.
+Inspect what is discoverable.
+Ask only what changes the next safe decision.
+Assume or defer what does not.
+Stop when a hard blocker applies.
 ```
+
+There is no minimum question count. Default to no more than three targeted questions at a time unless the user explicitly requests exhaustive discovery.
 
 ## Evidence Label
 
