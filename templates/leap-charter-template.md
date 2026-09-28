@@ -66,32 +66,33 @@ Do not treat missing user-supplied context as a blocker until discoverable evide
 
 ## Materiality Gate
 
-Classify missing context as:
+Use the shared flow:
 
 ```text
-Material - changes direction, readiness, source truth, scope, risk,
-Architecture, implementation path, validation, acceptance criteria,
-or compatibility.
-
-Non-material - changes naming, wording, formatting, ordering, tone,
-or minor preference.
-
-Discoverable - should be inspected before asking.
-
-Safe assumption - can be stated without changing the gate decision.
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Use this sequence:
+Classify missing context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+
+Default clarification mode is **Materiality-Gated**:
 
 ```text
-1. Inspect discoverable sources.
-2. Convert non-material unknowns into stated assumptions.
-3. Proceed on safe assumptions.
-4. Ask only unresolved material questions.
-5. Ask the smallest useful set, preferably no more than three.
+Discoverable -> INSPECT
+Non-material / safe assumption -> ASSUME or DEFER
+Unresolved material -> ASK
+Hard blocker -> STOP
 ```
 
-Hard blockers still require a human decision.
+When the user explicitly invokes **No Gate**:
+
+```text
+ASK -> ASSUME + DISCLOSE, when safe.
+STOP remains STOP.
+```
+
+No Gate does not bypass readiness requirements, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
+
+After answers or new evidence, re-evaluate only remaining or newly exposed material uncertainty. Ask the smallest useful set, preferably no more than three questions at a time unless exhaustive discovery is requested. There is no minimum question count.
 
 ## Charter discovery flow
 
@@ -202,8 +203,9 @@ Required workflow:
 4. Apply Materiality Gate.
 5. Label evidence and assumptions.
 6. Identify documentation and repo-reality drift.
-7. Ask only unresolved material questions.
-8. Run no-build review where relevant.
+7. Route unresolved context through ASK / ASSUME / STOP according to the active clarification mode.
+8. Re-evaluate only remaining or newly exposed material uncertainty.
+9. Run no-build review where relevant.
 9. Define Mission, scope boundary, and non-goals.
 10. Define or reconcile Strategic Outcomes.
 11. Define or reconcile Initiative identity and Roadmap posture.
@@ -234,7 +236,7 @@ Minimal starting context:
 - Known Domains or Architecture constraints:
 - Known source-truth concerns, risks, or sensitive areas:
 
-Apply Materiality Gate before asking follow-up questions. Ask only for missing answers that materially change the gate decision or recommended next LEAP step.
+Apply Materiality Gate before follow-up questions. In Materiality-Gated mode, ask only for missing answers that materially change the next safe gate decision. In No Gate mode, use explicit disclosed assumptions when safe. Hard blockers still stop.
 ```
 
 ## Expected Charter sections
