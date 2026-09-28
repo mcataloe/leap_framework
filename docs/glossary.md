@@ -580,9 +580,47 @@ It includes:
 - Repository
 - Branch / Worktree
 - Permissions
+- Required Capability Class
+- Required Capabilities
+- Required Confidence / Validation
+- Preferred Surface
+- Escalation Surface
+- Verification State at Handoff
 - Skill Sources / Loading Method when used
 - Validation
 - Commit Guidance
+
+## Execution Environment Profile
+
+Project-local configuration describing available execution surfaces, capabilities, context reach, relative marginal cost, usage constraints, permission ceilings, preferred uses, and escalation triggers.
+
+Provider products, subscriptions, quotas, and credits belong here rather than in permanent LEAP doctrine.
+
+## Execution Surface
+
+A product, tool, agent, or environment through which LEAP work may be reasoned about, mutated, executed, verified, or handed to a human.
+
+## Capability Class
+
+A lightweight execution classification:
+
+- E0 Reasoning
+- E1 Remote Mutation
+- E2 Execution Environment
+- E3 Agentic Environment
+- E4 Human Gate
+
+Capability classes describe environment authority, not intelligence.
+
+## Verification State
+
+The explicit status of execution-grounded validation:
+
+- **Implemented — execution unverified**
+- **Partially verified**
+- **Execution verified**
+
+Implementation and execution verification are separate claims.
 
 ## Execution Mode
 
