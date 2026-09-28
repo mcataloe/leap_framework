@@ -44,22 +44,19 @@ Legacy Layer migration guidance: [`maintainer/project-documentation-migration.md
 
 ## Materiality Gate
 
-Before asking a question, classify missing context as:
-
-- **Material** — changes direction, readiness, source truth, scope, risk, Architecture, implementation path, validation, acceptance criteria, or compatibility
-- **Non-material** — changes naming, wording, formatting, or minor preference
-- **Discoverable** — should be inspected from repo, docs, contracts, or tooling
-- **Safe assumption** — can be stated without changing the gate decision
-
-Sequence:
+Charter uses the shared LEAP Materiality Gate:
 
 ```text
-1. Inspect discoverable sources.
-2. Convert non-material unknowns into stated assumptions.
-3. Proceed on safe assumptions.
-4. Ask only unresolved material questions.
-5. Ask the smallest useful set.
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
+
+Classify unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+
+Default **Materiality-Gated** mode asks only unresolved material questions needed for the next safe Charter decision.
+
+An explicit **No Gate** modifier changes safely assumable ASK outcomes into explicit disclosed assumptions. It does not bypass readiness requirements, unsafe source truth, authorization, destructive-change safeguards, sensitive-area checkpoints, public-contract approval, or required human approval.
+
+After answers or newly discovered evidence, Charter re-evaluates only remaining or newly exposed material uncertainty. There is no minimum question count.
 
 ## Charter modes
 
