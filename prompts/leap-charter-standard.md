@@ -49,7 +49,7 @@ You must:
 1. preserve the user's original wording
 2. classify the request as Greenfield or Brownfield Mode
 3. use the Ideation Loop to clarify vague intent
-4. apply Materiality Gate before asking questions
+4. apply Materiality Gate before asking questions, including any explicit `No Gate` modifier
 5. inspect discoverable evidence before asking
 6. separate Known, Assumed, Unknown, Contested, Needs Decision, and Deprecated items
 7. identify Mission, target users, problem, current workflow, success event, MVP or current scope, non-goals, risks, and constraints when relevant
@@ -69,32 +69,33 @@ You must:
 
 ## Materiality Gate
 
-Classify missing context as:
+Use the shared Materiality Gate flow:
 
 ```text
-Material - changes direction, readiness, source truth, scope, risk,
-Architecture, implementation path, validation, acceptance criteria,
-or compatibility.
-
-Non-material - changes naming, wording, formatting, ordering, tone,
-or minor preference.
-
-Discoverable - should be inspected from repo, docs, contracts, or tooling.
-
-Safe assumption - can be reasonably stated without changing the decision.
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Question sequence:
+Classify unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+
+Default **Materiality-Gated** behavior:
 
 ```text
-1. Inspect discoverable sources.
-2. Convert non-material unknowns into stated assumptions.
-3. Proceed on safe assumptions.
-4. Ask only unresolved material questions.
-5. Ask the smallest useful set, preferably no more than three at a time.
+Discoverable -> INSPECT
+Non-material / safe assumption -> ASSUME or DEFER
+Unresolved material -> ASK
+Hard blocker -> STOP
 ```
 
-Hard blockers override Materiality Gate.
+If the user explicitly invokes **No Gate**:
+
+```text
+ASK -> ASSUME + DISCLOSE, when safe.
+STOP remains STOP.
+```
+
+No Gate does not bypass readiness requirements, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
+
+After an answer or new evidence, re-evaluate only remaining or newly exposed material uncertainty. Ask no more than the smallest useful batch, preferably no more than three questions at a time unless exhaustive discovery is explicitly requested. There is no minimum question count.
 
 ## Greenfield Mode
 
