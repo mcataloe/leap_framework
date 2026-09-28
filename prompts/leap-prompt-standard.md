@@ -65,14 +65,31 @@ LEAP LHS stages execution. It does not define the project's strategic documentat
 
 ## Materiality Gate
 
-Before generating a Prompt, confirm Recon:
+Before generating a Prompt, confirm Recon used the shared Materiality Gate flow:
 
-- asked only unresolved material questions
-- inspected discoverable repo, docs, contracts, and tooling evidence
-- converted non-material unknowns into assumptions
-- resolved or accepted Architecture, scope, risk, source-truth, validation, acceptance, and compatibility decisions
+```text
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
+```
 
-Do not generate an implementation Prompt while unresolved material questions remain.
+Confirm that Recon:
+
+- inspected discoverable repo, docs, contracts, tests, decisions, and tooling evidence before asking
+- classified unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker
+- used **Materiality-Gated** mode by default unless the user explicitly invoked **No Gate**
+- asked only unresolved material questions needed for the next safe decision in default mode
+- converted non-material and safe unknowns into assumptions or deferred details
+- surfaced materially consequential assumptions
+- preserved hard blockers, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, and required human approvals
+- re-evaluated only newly exposed or remaining material uncertainty after answers or new evidence
+
+With **No Gate**:
+
+```text
+ASK -> ASSUME + DISCLOSE, when safe.
+STOP remains STOP.
+```
+
+Prompt generation may proceed with a materially consequential assumption only when it is safely assumable, explicitly disclosed, and does not violate a hard blocker or approval requirement.
 
 ## Required preflight
 
@@ -107,7 +124,7 @@ Confirm:
 - model and reasoning level selected
 ```
 
-If a material item is missing, stop. Non-material unknowns may be stated as assumptions.
+If a missing item maps to a hard blocker, stop. In Materiality-Gated mode, ask unresolved material questions before Prompt generation. In No Gate mode, only safely assumable material unknowns may become explicit disclosed assumptions; STOP conditions still block generation.
 
 ## Codex Plan Mode and Execution Mode
 
@@ -232,13 +249,16 @@ Stop if source conflict appears.
 ## 8. Materiality / Assumption Handling
 
 ```text
+- Clarification mode: Materiality-Gated / No Gate
 - Material questions resolved:
+- Material assumptions accepted under No Gate, if any:
 - Assumptions accepted:
 - Non-material unknowns deferred:
 - Discoverable sources inspected:
+- Hard blockers cleared:
 ```
 
-Do not ask the implementation agent to resolve material product, Architecture, source-truth, risk, validation, acceptance, Strategic Outcome, or Initiative ownership questions.
+Do not ask the implementation agent to resolve material product, Architecture, source-truth, risk, validation, acceptance, Strategic Outcome, Initiative ownership, authorization, or destructive-change questions. A No Gate assumption must be explicit and must not bypass a stop condition.
 
 ## 9. Scope
 
