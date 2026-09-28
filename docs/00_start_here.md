@@ -136,12 +136,21 @@ LEAP LHS is one Prompt format for staged implementation. It is not a lifecycle p
 
 ## Materiality Gate
 
-Materiality Gate filters questions:
+Materiality Gate filters clarification across LEAP.
+
+```text
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
+```
 
 - inspect discoverable sources first
-- ask only when the answer changes direction, scope, Architecture, risk, source truth, validation, acceptance, or compatibility
-- proceed on stated assumptions for non-material unknowns
-- stop for safety, destructive changes, privacy, money, identity, legal exposure, user trust, or unsafe source truth
+- ask only when an unresolved answer could materially change direction, scope, Architecture, risk, source truth, validation, acceptance, compatibility, implementation, or the next gate decision
+- proceed on stated assumptions for non-material or safely assumable unknowns
+- stop for hard blockers such as unsafe source truth, destructive changes, missing authorization, privacy, security, money, identity, legal exposure, data durability, or user-trust risk
+- after answers or new evidence, re-evaluate only the remaining or newly exposed material uncertainty
+
+The expected result is often zero questions.
+
+If you explicitly add **No Gate** to a LEAP request, LEAP should avoid ordinary clarification interruptions and use the strongest reasonable assumptions when safe. Consequential assumptions must be disclosed. No Gate never bypasses hard blockers or required human approval.
 
 See [Materiality Gate](materiality-gate.md).
 
@@ -180,8 +189,10 @@ Use [LEAP Project Setup](user/leap_project_setup.md) for ChatGPT Project Instruc
 ## Rule of thumb
 
 ```text
-Ask until the idea becomes buildable.
-Then stop asking and build only the bounded task.
+Inspect what is discoverable.
+Ask only what changes the next safe decision.
+Assume or defer the rest.
+Stop when a hard blocker applies.
 ```
 
 LEAP should reduce chaos, not create ceremony.
