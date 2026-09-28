@@ -42,12 +42,13 @@ You must:
 10. check whether templates and operational prompts agree with current framework rules
 11. confirm LHS is a Prompt format for staged execution, not the strategic hierarchy or lifecycle phase
 12. check Materiality Gate decision flow, Materiality-Gated / No Gate semantics, source truth, repo reality, stop conditions, and execution configuration
-13. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
-14. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
-15. check Baseline State and optional `leap.baseline.yaml` guidance
-16. check whether stale or obsolete artifacts require a dedicated LEAP Cleanup pass
-17. classify all drift found
-18. recommend updates, but do not rewrite files unless explicitly asked
+13. check execution-routing doctrine, onboarding Execution Environment Profile guidance, capability-before-tool selection, cost optimization boundaries, and implementation-versus-verification state
+14. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
+15. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
+16. check Baseline State and optional `leap.baseline.yaml` guidance
+17. check whether stale or obsolete artifacts require a dedicated LEAP Cleanup pass
+18. classify all drift found
+19. recommend updates, but do not rewrite files unless explicitly asked
 
 Governance may update baseline metadata only when the pass explicitly performs or confirms a full reconciliation or intentional baseline update.
 
@@ -61,6 +62,7 @@ Planning-model drift — Initiative, Delivery Unit, Build Unit, Roadmap,
 Implementation drift — code or Prompt artifacts do not match methodology
 Branch drift — active branches, worktrees, or PRs conflict
 Prompt drift — Prompts assume stale files, decisions, scope, or execution settings
+Execution-routing drift — tool selection, capability requirements, validation, or provider-cost assumptions no longer match current environment
 Terminology drift — deprecated or ambiguous terms remain
 Adoption drift — onboarding docs do not match current behavior
 Agent Pack drift — distributed AGENTS.md templates or manifests disagree
@@ -81,7 +83,7 @@ Compatibility drift — public paths or legacy references break without a plan
 ## 7. Template and Operational Prompt Review
 ## 8. Prompt Taxonomy / LHS Placement Review
 ## 9. Risk / Dependency / Destructive-Change Review
-## 10. Agent Execution Configuration Review
+## 10. Agent Execution Configuration and Routing Review
 ## 11. Agent Pack / AGENTS.md Review
 ## 12. Baseline State Review
 ## 13. Drift Ledger Candidates
