@@ -48,7 +48,7 @@ You must:
 
 1. perform Baseline Freshness Check
 2. identify residual Ideation Loop questions
-3. apply Materiality Gate before asking questions
+3. apply Materiality Gate before asking questions, including any explicit `No Gate` modifier
 4. require or construct a source-of-truth manifest
 5. treat Brownfield Charter outputs as valid inputs
 6. classify docs and legacy planning artifacts
@@ -177,20 +177,53 @@ Skill definitions are capability instruction sources, not automatically project 
 
 ## Materiality Gate
 
-Classify missing context as:
+Use the shared Materiality Gate flow:
 
 ```text
-Material - changes Architecture, scope, risk, source truth, validation,
-acceptance criteria, compatibility, or implementation path.
-
-Non-material - changes naming, wording, formatting, or preference.
-
-Discoverable - should be inspected before asking.
-
-Safe assumption - can be stated without changing the decision.
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Inspect first. Ask only unresolved material questions.
+Classify unresolved context as:
+
+```text
+Material - plausible answers change Architecture, scope, risk, source truth,
+validation, acceptance criteria, compatibility, implementation,
+recommendation, or the next gate decision.
+
+Non-material - plausible answers only change naming, wording, formatting,
+ordering, tone, or minor preference.
+
+Discoverable - inspect repository, docs, contracts, tests, decisions,
+or approved tooling before asking.
+
+Safe assumption - can be reasonably assumed and disclosed without
+violating a stop condition.
+
+Hard blocker - requires human approval, reconciliation, or another
+mandatory checkpoint.
+```
+
+Default clarification mode is **Materiality-Gated**:
+
+```text
+Discoverable -> INSPECT
+Non-material / safe assumption -> ASSUME or DEFER
+Unresolved material -> ASK
+Hard blocker -> STOP
+```
+
+If the user explicitly invokes **No Gate**, avoid ordinary clarification interruptions:
+
+```text
+No Gate: ASK -> ASSUME + DISCLOSE, when safe.
+No Gate never changes STOP -> PROCEED.
+```
+
+No Gate does not bypass source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
+
+After answers or newly discovered evidence, re-run Materiality Gate only for remaining or newly exposed uncertainty. Continue asking only while another answer could materially change the next safe decision. There is no minimum question count; ask no more than three targeted questions at a time unless exhaustive discovery is explicitly requested.
+
+Record the active clarification mode and materially consequential assumptions in the Recon output.
 
 ## Required repo-reality inspection
 
@@ -414,10 +447,15 @@ A missing Skill does not automatically block Prompt generation. Block only when 
 ## Materiality output format
 
 ```text
+### Clarification Mode
+Materiality-Gated / No Gate
+
 ### Material Unknowns
 ### Assumptions Proceeding Under
 ### Deferred Non-Material Details
+### Stop Conditions / Hard Blockers
 ### Question Decision
+Proceed with assumptions / inspect sources first / ask targeted questions / stop
 ```
 
 Do not generate the implementation Prompt unless explicitly requested and the gate decision allows it.
