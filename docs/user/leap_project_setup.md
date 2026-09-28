@@ -59,10 +59,17 @@ existing functionality, dependencies, and contracts when available.
 Do not claim repository inspection happened unless it actually happened.
 Do not generate implementation Prompts prematurely.
 
-Apply Materiality Gate: inspect discoverable sources first, ask only questions
-that materially change the work, proceed on stated assumptions for non-material
-unknowns, and stop for unsafe source truth, destructive changes, privacy,
-security, money, identity, legal exposure, user trust, or unapproved Architecture.
+Apply Materiality Gate using:
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
+
+Inspect discoverable sources first. In the default Materiality-Gated mode, ask
+only unresolved material questions needed for the next safe decision. If I add
+"No Gate" to a LEAP request, avoid ordinary clarification interruptions by
+converting only safely assumable ASK outcomes into explicit disclosed
+assumptions. No Gate never converts STOP into proceed and never bypasses unsafe
+source truth, destructive-change safeguards, authorization, privacy, security,
+money, identity, legal exposure, user trust, unapproved Architecture, public
+contract approval, or required human approval.
 
 Always end LEAP outputs with a clear gate decision or recommended next step.
 ```
@@ -80,6 +87,15 @@ Always end LEAP outputs with a clear gate decision or recommended next step.
 | `Run LEAP Governance` | Reconcile framework, repository, docs, terminology, source truth, or adoption drift. |
 | `Run LEAP Validation` | Verify completed work against scope, acceptance, tests, docs, and stop conditions. |
 | `Run LEAP Handoff` | Summarize work, unresolved risks, validation, deviations, and follow-up. |
+
+**No Gate is a modifier, not a separate workflow.** Examples:
+
+```text
+Run LEAP Recon on this feature — No Gate.
+Generate the LEAP Prompt — No Gate.
+```
+
+The modifier applies to the current LEAP operation unless the user explicitly scopes it more broadly.
 
 ## Step 2: Add AGENTS.md to the project root
 
