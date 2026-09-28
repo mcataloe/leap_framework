@@ -24,7 +24,7 @@ Status: current released baseline; current branch changes remain unreleased
 - Build Unit clarified as bounded implementation, not necessarily independently deployable
 - Legacy-compatible generic Layer deprecation and semantic migration guidance
 - Planning Boundary Review and cross-Initiative / cross-Domain impact review
-- Materiality Gate for clarifying-question discipline
+- Materiality Gate for consequence-based clarification, including Materiality-Gated / No Gate modes and bounded re-evaluation
 - Dependency & Contract Recon subprocess
 - Baseline Freshness Check preflight
 - Optional baseline and dependency register guidance
