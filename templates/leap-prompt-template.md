@@ -39,6 +39,7 @@ Preflight status:
 - Prompt type selected:
 - LHS decision completed:
 - Materiality Gate completed:
+- Clarification mode: Materiality-Gated / No Gate
 - Source-of-truth manifest complete:
 - Repo reality checked:
 - Branch / worktree / PR drift reviewed:
@@ -104,7 +105,10 @@ Required gate:
 - Do not let a Skill widen Build Unit scope or Prompt authority.
 - Confirm repo reality, branch drift, scope, non-goals, validation, stop conditions, and execution profile.
 - Confirm whether implementation gravity warrants LHS.
-- Stop when a material item is missing.
+- Apply Materiality Gate using INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
+- In Materiality-Gated mode, unresolved material questions must be answered before Prompt generation.
+- In No Gate mode, only safely assumable material unknowns may become explicit disclosed assumptions.
+- No Gate never converts STOP into proceed and never bypasses hard blockers or required approval.
 
 Create only the final agent-ready Prompt.
 ```
