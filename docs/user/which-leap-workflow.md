@@ -31,12 +31,19 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 
 ## Materiality Gate
 
-Before asking questions:
+Materiality Gate is shared across LEAP workflows:
 
-- inspect discoverable evidence
-- ask only when the answer changes direction, scope, Architecture, risk, source truth, validation, acceptance, or compatibility
-- proceed on stated assumptions for non-material unknowns
-- stop for safety, destructive changes, privacy, money, identity, legal exposure, user trust, or unsafe source truth
+```text
+INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
+```
+
+- inspect discoverable evidence first
+- ask only unresolved material questions that could change the next safe decision
+- proceed on stated assumptions for non-material or safely assumable unknowns
+- stop for hard blockers such as unsafe source truth, destructive changes, missing authorization, privacy, security, money, identity, legal exposure, data durability, user trust, or unapproved Architecture
+- re-evaluate only remaining or newly exposed material uncertainty after answers or new evidence
+
+**No Gate** is an optional per-operation modifier, not another workflow. It turns safely assumable ASK outcomes into explicit disclosed assumptions. It never turns STOP into proceed.
 
 ## Codex Plan Mode and LEAP Execution Mode
 
