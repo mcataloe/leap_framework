@@ -122,14 +122,14 @@ Stop and ask before destructive data changes, auth/security changes, public cont
 
 Project name: `LEAP Framework`
 
-LEAP is a Markdown framework, Prompt library, template set, example set, and governance model for documentation-first software delivery.
+LEAP is a Markdown framework, Prompt library, template set, example set, reusable Skill capability model, and governance model for documentation-first software delivery.
 
 Primary users:
 
 - humans adopting LEAP
 - coding agents requiring source-truth discipline and bounded handoffs
 - repository owners using LEAP guidance
-- framework maintainers updating doctrine, prompts, templates, examples, and release notes
+- framework maintainers updating doctrine, prompts, templates, Skills, examples, and release notes
 
 ## Canonical lifecycle
 
@@ -138,6 +138,8 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 ```
 
 LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a lifecycle stage and it does not define the project's strategic documentation hierarchy.
+
+LEAP Skills are reusable execution capabilities selected and composed inside the lifecycle when useful. They are not another lifecycle phase.
 
 ## Canonical project-documentation model
 
@@ -170,6 +172,8 @@ Rules:
 - Initiatives and Domains are many-to-many
 - Delivery Unit may collapse for small work
 - Build Unit is not necessarily independently deployable
+- Build Unit defines bounded delivery responsibility; LEAP Skill defines reusable execution capability
+- Skills are orthogonal to the strategic hierarchy and must not widen Build Unit scope or Prompt authority
 - generic project-planning `Layer` is legacy-compatible and deprecated
 - preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references
 - classify legacy Layer meaning before migration
@@ -177,6 +181,7 @@ Rules:
 Canonical references:
 
 - `docs/project-documentation-model.md`
+- `docs/leap-skills.md`
 - `docs/maintainer/project-documentation-migration.md`
 
 ## Documentation starting point
@@ -188,6 +193,7 @@ Primary canonical docs:
 - `docs/leap.md`
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
+- `docs/leap-skills.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `prompts/leap-charter-standard.md`
@@ -195,7 +201,7 @@ Primary canonical docs:
 - `prompts/leap-prompt-standard.md`
 - `prompts/leap-governance-pass-standard.md`
 - `prompts/leap-cleanup-standard.md`
-- current request templates under `templates/`
+- current request and Skill-definition templates under `templates/`
 
 Supporting maps and guidance:
 
@@ -225,7 +231,7 @@ Do not prefer compatibility stubs for active work.
 - `VERSION.md` — current baseline and release policy
 - `docs/` — doctrine, user guidance, maintainer guidance, and examples
 - `prompts/` — operational Prompt standards
-- `templates/` — request templates
+- `templates/` — request and Skill-definition templates
 - `examples/` — example artifacts
 - `schemas/` — permissive metadata schemas
 
@@ -236,8 +242,10 @@ No runtime application, database, infrastructure, package manager, or test frame
 Recon for this repository should inspect:
 
 - canonical doctrine and documentation maps
-- Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, Architecture, and Layer terminology
+- Strategic Outcome, Initiative, Delivery Unit, Build Unit, LEAP Skill, Roadmap, Domain, Architecture, and Layer terminology
+- Build Unit / Skill boundary and Capability / Skill Review consistency
 - Charter, Recon, Prompt, Governance, Cleanup, and LHS consistency
+- Skill sources, loading-method guidance, permission ceilings, and verification rules when relevant
 - templates and examples
 - Agent Pack dependencies
 - current release notes and baseline metadata
@@ -275,7 +283,11 @@ Use `Run LEAP Cleanup` for a dependency-aware decommission proposal. Treat an un
 
 ## Prompt and implementation rules
 
-Implementation in this repository normally means Markdown, Prompt, template, example, metadata, or repository-guidance changes.
+Implementation in this repository normally means Markdown, Prompt, template, Skill-definition, example, metadata, or repository-guidance changes.
+
+Recon should perform Capability / Skill Review only after Build Unit boundaries are clear enough. Prefer ordinary reasoning when an explicit Skill adds no material value.
+
+Generated Prompts that use Skills must identify source, loading method, required/optional status, tool and permission fit, and Skill-specific verification. Skill capability never widens the governing Prompt's scope or authority.
 
 Use LHS only when implementation gravity warrants staged work, such as coordinated updates across canonical docs, prompts, templates, examples, governance, release notes, and Agent Pack guidance.
 
@@ -284,6 +296,7 @@ Complete Validation/Handoff with:
 - files changed
 - checks run or unavailable
 - semantic consistency review
+- Skill source / loading / permission status when material
 - remaining Layer classifications
 - public-path and compatibility status
 - Agent Pack follow-up
@@ -297,7 +310,7 @@ Complete Validation/Handoff with:
 5. `docs/00_start_here.md`
 6. Canonical doctrine docs
 7. operational prompts
-8. request templates
+8. request and Skill-definition templates
 9. supporting user and maintainer docs
 10. release metadata
 11. archived and compatibility docs only when explicitly relevant
@@ -312,6 +325,7 @@ Treat these as public-facing contracts:
 - headings and output shapes
 - lifecycle terms
 - project-documentation terminology
+- LEAP Skill / Build Unit boundary and Skill Contract terminology
 - `AGENTS.md` marker conventions
 - compatibility stubs
 
@@ -327,13 +341,14 @@ Keep these aligned when framework behavior changes:
 - `docs/leap.md`
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
+- `docs/leap-skills.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `docs/user/`
 - `docs/maintainer/project-documentation-migration.md`
 - `prompts/README.md`
 - active operational prompts
-- active request templates
+- active request and Skill-definition templates
 - examples
 - `CHANGELOG.md`
 - `VERSION.md`
@@ -348,7 +363,7 @@ rg -n "\bLayer\b|layer plan|Layer map|sublayer|entire layer|full-layer|cross-lay
 ```
 
 ```bash
-rg -n "Strategic Outcome|Initiative|Delivery Unit|Build Unit|Roadmap|Domain|Architecture" README.md AGENTS.md docs prompts templates examples CHANGELOG.md VERSION.md
+rg -n "Strategic Outcome|Initiative|Delivery Unit|Build Unit|LEAP Skill|Capability / Skill|Roadmap|Domain|Architecture" README.md AGENTS.md docs prompts templates examples CHANGELOG.md VERSION.md
 ```
 
 ```bash
@@ -382,7 +397,7 @@ Stop if:
 
 ## Known follow-up area
 
-When framework project-documentation terminology changes, inspect the separate Agent Pack repository for distributed guidance drift. Keep framework and Agent Pack commits separate.
+When framework project-documentation terminology or distributable execution guidance changes, inspect the separate Agent Pack repository for distributed guidance drift. Keep framework and Agent Pack commits separate.
 
 ## Completion requirements
 
