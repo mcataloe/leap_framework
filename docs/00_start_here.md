@@ -111,7 +111,7 @@ When must the agent stop?
 How do we prove completion?
 ```
 
-If those answers are unclear, LEAP keeps asking only the material questions needed before implementation Prompt generation.
+If those answers are unclear, LEAP inspects what it can, asks only the material questions needed for the next safe decision in the default mode, and stops questioning once the remaining uncertainty can be safely assumed, deferred, or routed to a hard blocker. With No Gate, safely assumable ASK outcomes become disclosed assumptions instead.
 
 ## How to choose a workflow
 
