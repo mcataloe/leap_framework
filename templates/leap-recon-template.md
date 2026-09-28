@@ -45,6 +45,7 @@ Source-of-truth manifest:
 - Execution log / drift ledger path:
 - Cross-Initiative / Cross-Domain impact map path:
 - Dependency register path:
+- Reusable Skill / capability sources, if any:
 - Brownfield document inventory path:
 - Gap register path:
 - Migration map path:
@@ -81,6 +82,7 @@ Execution settings:
 - Model:
 - Reasoning level: Low / Medium / High / Extended / recommend
 - Execution mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only / recommend
+- Skill loading posture: native / repo-local / prompt-embedded / none / recommend
 - Production compatibility required: yes / no / unknown
 - Destructive changes allowed: yes / no / recommend
 - One Build Unit per commit: yes / no / recommend
@@ -117,6 +119,12 @@ Required behavior:
 - Allow Delivery Unit collapse for small work.
 - Generate Build Units only after Initiative and Delivery boundaries are clear.
 - Do not define Build Units as necessarily independently deployable.
+- After Build Unit boundaries are clear, perform Capability / Skill Review.
+- Prefer ordinary reasoning and repo guidance when an explicit Skill adds no material value.
+- For selected Skills, identify source, loading method, required/optional status,
+  tool and permission fit, and Skill-specific verification.
+- Keep Skills outside the strategic hierarchy and do not let them widen Build Unit scope or Prompt authority.
+- Use progressive disclosure; load only Skill references needed for the current Build Unit.
 - Classify legacy Layer meaning before migration.
 - Preserve the LEAP name, Layered House Standard, LEAP LHS,
   qualified Architecture Layers, public paths, and compatibility references.
@@ -149,6 +157,7 @@ Return Recon only. Do not generate the implementation Prompt yet unless I explic
 ## 15. Legacy Layer Classification, when relevant
 ## 16. Generated / Refined Delivery Unit Inventory, when relevant
 ## 17. Generated / Refined Build Unit Inventory
+### Capability / Skill Composition, when relevant
 ## 18. Recommended Build Sequence
 ## 19. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
@@ -160,6 +169,13 @@ Return Recon only. Do not generate the implementation Prompt yet unless I explic
 ## 25. Recommended Agent Execution Configuration
 ## 26. Clarification Questions Before Prompt Generation
 ## 27. Gate Decision / Next Step
+```
+
+## Capability / Skill Composition format
+
+```text
+| Build Unit | Skill | Source | Loading method | Required? | Tools / permissions | Verification |
+|---|---|---|---|---|---|---|
 ```
 
 ## Materiality Check format
@@ -214,6 +230,7 @@ Needs verification:
 | Repository | Repo or repositories | Why |
 | Branch / Worktree | Target context | Why |
 | Permissions | Allowed changes | Why |
+| Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none | Why |
 | Validation | Tests and checks | Why |
 | Commit Guidance | Commit posture | Why |
 ```
