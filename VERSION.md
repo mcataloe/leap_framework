@@ -39,6 +39,11 @@ Status: current released baseline; current branch changes remain unreleased
 - Repository Cleanup Governance workflow and `Run LEAP Cleanup` command
 - `archive-only`, `controlled-migration`, and `destructive-cutover` cleanup modes
 - Dependency-aware decommission sets, approval gates, and effective-status validation
+- Capability- and cost-aware execution routing
+- Execution Environment Profile for project-local surface capabilities, context, costs, quotas, permissions, and escalation
+- E0-E4 execution capability classes
+- Least-cost eligible surface selection constrained by required confidence and validation
+- Explicit implementation versus execution-verification state
 ```
 
 ## Canonical framework documents
@@ -48,6 +53,7 @@ docs/leap.md
 docs/leap-charter.md
 docs/project-documentation-model.md
 docs/leap-skills.md
+docs/execution-routing.md
 docs/glossary.md
 docs/repository-cleanup.md
 ```
