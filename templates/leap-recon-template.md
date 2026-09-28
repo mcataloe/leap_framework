@@ -78,11 +78,13 @@ Execution settings:
 - Clarification mode: Materiality-Gated / No Gate
 - Buildout mode: Rapid POC / Standard / Production-safe / Refactor
 - LEAP process tier: Standard / Thinking Extended / Pro Standard / Pro Extended / recommend
-- Agent / Tool: Codex / Claude Code / Cursor / other / recommend
-- Codex Plan Mode: On / Off / User decision required / recommend
+- Agent / Tool: Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other / recommend
+- Codex Plan Mode: On / Off / User decision required / not applicable / recommend
 - Model:
 - Reasoning level: Low / Medium / High / Extended / recommend
 - Execution mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only / recommend
+- Execution Environment Profile path or summary:
+- Relative cost constraints:
 - Skill loading posture: native / repo-local / prompt-embedded / none / recommend
 - Production compatibility required: yes / no / unknown
 - Destructive changes allowed: yes / no / recommend
@@ -134,6 +136,9 @@ Required behavior:
 - Classify legacy Layer meaning before migration.
 - Preserve the LEAP name, Layered House Standard, LEAP LHS,
   qualified Architecture Layers, public paths, and compatibility references.
+- Derive required confidence, validation, execution capabilities, and permissions before recommending Agent / Tool.
+- Recommend the least-cost eligible execution surface and a bounded escalation surface when needed.
+- Distinguish implementation from execution-grounded verification and state the expected verification status at handoff.
 - Recommend explicit Agent Execution Configuration before Prompt generation.
 - Recommend LHS only when implementation gravity warrants staged execution.
 - Keep Recon non-mutating unless explicitly authorized.
@@ -172,9 +177,10 @@ Return Recon only. Do not generate the implementation Prompt yet unless I explic
 ## 22. Human Checkpoints Required
 ## 23. Execution Log / Drift Ledger Expectations
 ## 24. Coding-Agent Risk Forecast
-## 25. Recommended Agent Execution Configuration
-## 26. Clarification Questions Before Prompt Generation
-## 27. Gate Decision / Next Step
+## 25. Execution Routing Review
+## 26. Recommended Agent Execution Configuration
+## 27. Clarification Questions Before Prompt Generation
+## 28. Gate Decision / Next Step
 ```
 
 ## Capability / Skill Composition format
@@ -232,8 +238,8 @@ Needs verification:
 ```text
 | Field | Recommendation | Rationale |
 |---|---|---|
-| Agent / Tool | Codex / Claude Code / Cursor / other | Why |
-| Codex Plan Mode | On / Off / User decision required | Why |
+| Agent / Tool | Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other | Why |
+| Codex Plan Mode | On / Off / User decision required / not applicable | Why |
 | Model | Exact model or project default | Why |
 | Reasoning Level | Low / Medium / High / Extended | Why |
 | Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only | Why |
@@ -241,6 +247,12 @@ Needs verification:
 | Repository | Repo or repositories | Why |
 | Branch / Worktree | Target context | Why |
 | Permissions | Allowed changes | Why |
+| Required Capability Class | E0 / E1 / E2 / E3 / E4 or combination | Why |
+| Required Capabilities | Concrete capabilities | Why |
+| Required Confidence / Validation | Required evidence | Why |
+| Preferred Surface | Lowest-cost eligible surface | Why |
+| Escalation Surface | Bounded escalation target | Why |
+| Verification State at Handoff | Implemented — execution unverified / Partially verified / Execution verified / not applicable | Why |
 | Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none | Why |
 | Validation | Tests and checks | Why |
 | Commit Guidance | Commit posture | Why |

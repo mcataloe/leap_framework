@@ -29,6 +29,7 @@ This folder contains LEAP Framework documentation for users, reference readers, 
 | [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter behavior | Canonical |
 | [`project-documentation-model.md`](project-documentation-model.md) | Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture model | Canonical |
 | [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities, Skill Contract, selection, permissions, progressive disclosure, and verification | Canonical |
+| [`execution-routing.md`](execution-routing.md) | Capability- and cost-aware execution-surface routing, onboarding profile, escalation, and verification state | Canonical |
 | [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
 | [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
 | [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon behavior | Supporting Recon reference |
@@ -80,6 +81,7 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 - New to LEAP: [`00_start_here.md`](00_start_here.md)
 - Project hierarchy: [`project-documentation-model.md`](project-documentation-model.md)
 - Reusable execution capability: [`leap-skills.md`](leap-skills.md)
+- Execution surface routing: [`execution-routing.md`](execution-routing.md)
 - Define a Skill: [`../templates/leap-skill-template.md`](../templates/leap-skill-template.md)
 - Existing Layer-based project: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md)
 - Project setup: [`user/leap_project_setup.md`](user/leap_project_setup.md)
@@ -93,7 +95,7 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 ## Agent reading rules
 
 - Start with [`00_start_here.md`](00_start_here.md).
-- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), [`leap-skills.md`](leap-skills.md), and [`glossary.md`](glossary.md) as canonical doctrine.
+- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), [`leap-skills.md`](leap-skills.md), [`execution-routing.md`](execution-routing.md), and [`glossary.md`](glossary.md) as canonical doctrine.
 - Use [`leap-skills.md`](leap-skills.md) only when reusable execution capability is relevant; do not force Skill ceremony into tiny work.
 - Use [`repository-cleanup.md`](repository-cleanup.md) for the specialized Governance cleanup contract.
 - Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) only for legacy project-documentation reconciliation.

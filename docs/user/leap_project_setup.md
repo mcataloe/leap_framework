@@ -44,6 +44,11 @@ status, and parallelism. Do not treat Roadmap placement as permanent Initiative 
 Treat Domains as persistent responsibility boundaries with a many-to-many
 relationship to Initiatives. Treat Architecture as technical structure.
 
+Route work to the least-cost available execution surface capable of satisfying
+the work unit's required confidence and validation criteria. Treat product names,
+credits, quotas, subscription limits, and pricing as environment configuration,
+not permanent LEAP architecture. Do not weaken Definition of Done to save usage.
+
 Allow Delivery Unit to collapse for small work. Do not define Build Units as
 necessarily independently deployable.
 
@@ -57,6 +62,8 @@ Inspect source-truth docs, repo reality, branches, worktrees, pull requests,
 existing functionality, dependencies, and contracts when available.
 
 Do not claim repository inspection happened unless it actually happened.
+Distinguish "Implemented — execution unverified" from "Execution verified" when
+runtime, build, integration, migration, browser, or deployment checks are required.
 Do not generate implementation Prompts prematurely.
 
 Apply Materiality Gate using:
@@ -73,6 +80,29 @@ contract approval, or required human approval.
 
 Always end LEAP outputs with a clear gate decision or recommended next step.
 ```
+
+### Optional Execution Environment Profile
+
+Record this during onboarding when several agent/tool surfaces are available or their
+cost/capability tradeoffs are material:
+
+```text
+Surface:
+Capabilities:
+Context reach:
+Relative marginal cost:
+Usage constraints:
+Permission ceiling:
+Preferred use:
+Escalation trigger:
+```
+
+Examples of surfaces may include conversational AI, repository-connected chat,
+shell-capable coding agents, browser/computer-use agents, IDE agents, or human gates.
+Use current product names only as local configuration. Update the profile when pricing,
+credits, quotas, available tools, or organizational policy changes.
+
+Canonical routing guidance: [LEAP Execution Routing](../execution-routing.md).
 
 ## Command behavior
 

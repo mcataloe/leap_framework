@@ -194,6 +194,7 @@ Primary canonical docs:
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
 - `docs/leap-skills.md`
+- `docs/execution-routing.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `prompts/leap-charter-standard.md`
@@ -244,6 +245,7 @@ Recon for this repository should inspect:
 - canonical doctrine and documentation maps
 - Strategic Outcome, Initiative, Delivery Unit, Build Unit, LEAP Skill, Roadmap, Domain, Architecture, and Layer terminology
 - Build Unit / Skill boundary and Capability / Skill Review consistency
+- execution-routing doctrine, Execution Environment Profile guidance, capability classes, and verification-state consistency
 - Charter, Recon, Prompt, Governance, Cleanup, and LHS consistency
 - Skill sources, loading-method guidance, permission ceilings, and verification rules when relevant
 - templates and examples
@@ -288,6 +290,8 @@ Implementation in this repository normally means Markdown, Prompt, template, Ski
 Recon should perform Capability / Skill Review only after Build Unit boundaries are clear enough. Prefer ordinary reasoning when an explicit Skill adds no material value.
 
 Generated Prompts that use Skills must identify source, loading method, required/optional status, tool and permission fit, and Skill-specific verification. Skill capability never widens the governing Prompt's scope or authority.
+
+Execution surface selection must derive from required confidence, validation, capabilities, and permissions. Prefer the least-cost eligible surface; never weaken Definition of Done to save credits, quota, compute, licenses, or human effort. Distinguish "Implemented — execution unverified" from "Execution verified" when required checks have not run.
 
 Use LHS only when implementation gravity warrants staged work, such as coordinated updates across canonical docs, prompts, templates, examples, governance, release notes, and Agent Pack guidance.
 
@@ -342,6 +346,7 @@ Keep these aligned when framework behavior changes:
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
 - `docs/leap-skills.md`
+- `docs/execution-routing.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `docs/user/`

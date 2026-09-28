@@ -72,9 +72,12 @@ You must:
 24. keep Skill capability separate from Build Unit scope and execution authority
 25. identify human checkpoints
 26. distinguish LEAP process tier from Agent Execution Configuration
-27. recommend agent/tool, Codex Plan Mode, model, reasoning, execution mode, validation, Skill loading posture when used, and commit posture when Prompt generation is allowed
-28. recommend LHS only when implementation gravity warrants it
-29. end with a gate decision
+27. derive required confidence, validation, capabilities, and permission needs before selecting an agent/tool
+28. recommend the least-cost eligible execution surface, plus escalation surface when a capability or verification requirement cannot be satisfied
+29. identify the verification state expected at each material handoff and distinguish implementation from execution verification
+30. recommend agent/tool, Codex Plan Mode, model, reasoning, execution mode, validation, Skill loading posture when used, and commit posture when Prompt generation is allowed
+31. recommend LHS only when implementation gravity warrants it
+32. end with a gate decision
 
 ## Brownfield Charter inputs
 
@@ -427,9 +430,10 @@ A missing Skill does not automatically block Prompt generation. Block only when 
 ## 22. Human Checkpoints Required
 ## 23. Execution Log / Drift Ledger Expectations
 ## 24. Coding-Agent Risk Forecast
-## 25. Recommended Agent Execution Configuration
-## 26. Clarification Questions Before Prompt Generation
-## 27. Gate Decision / Next Step
+## 25. Execution Routing Review
+## 26. Recommended Agent Execution Configuration
+## 27. Clarification Questions Before Prompt Generation
+## 28. Gate Decision / Next Step
 ```
 
 ## Baseline output format

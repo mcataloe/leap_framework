@@ -22,6 +22,8 @@ LEAP LHS is the Layered House Standard Prompt format for staged implementation. 
 
 LEAP Skills are reusable execution capabilities selected and composed inside the lifecycle when specialized procedure materially improves the work. Skills are not another lifecycle phase.
 
+LEAP also routes work across available execution surfaces by required capability and confidence. Product-specific credits, quotas, subscriptions, and pricing are environment configuration rather than framework architecture.
+
 ## Project Documentation Model
 
 The preferred traceability hierarchy is:
@@ -69,6 +71,7 @@ See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capabili
 - Deciding whether LEAP is too much: [When Not to Use LEAP](docs/user/when-not-to-use-leap.md)
 - Small agent-executed task: [Quick LEAP Brief](docs/user/quick-leap-brief.md)
 - Reusable execution capabilities: [LEAP Skills](docs/leap-skills.md)
+- Capability- and cost-aware execution routing: [LEAP Execution Routing](docs/execution-routing.md)
 - Setting up LEAP: [LEAP Project Setup](docs/user/leap_project_setup.md)
 - Documentation map: [LEAP Documentation Map](docs/README.md)
 
@@ -78,6 +81,7 @@ See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capabili
 - [LEAP Charter](docs/leap-charter.md)
 - [Project Documentation Model](docs/project-documentation-model.md)
 - [LEAP Skills](docs/leap-skills.md)
+- [LEAP Execution Routing](docs/execution-routing.md)
 - [Glossary](docs/glossary.md)
 - [Materiality Gate](docs/materiality-gate.md)
 - [Dependency & Contract Recon](docs/dependency-contract-recon.md)
@@ -113,6 +117,7 @@ docs/
   leap-charter.md
   project-documentation-model.md
   leap-skills.md
+  execution-routing.md
   materiality-gate.md
   dependency-contract-recon.md
   repository-cleanup.md

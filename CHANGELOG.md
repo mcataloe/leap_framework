@@ -2,6 +2,22 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Capability- and cost-aware execution routing
+
+### Added
+
+- Added `docs/execution-routing.md` as canonical execution-surface routing doctrine.
+- Added the Execution Environment Profile for onboarding-time capability, context, cost, quota, permission, and escalation configuration.
+- Added E0-E4 capability classes for Reasoning, Remote Mutation, Execution Environment, Agentic Environment, and Human Gate.
+- Added explicit verification states: `Implemented — execution unverified`, `Partially verified`, and `Execution verified`.
+
+### Changed
+
+- Required agent/tool selection to follow required confidence, validation, capability, and permission analysis rather than precede it.
+- Established least-cost eligible execution surface selection while prohibiting cost optimization from weakening Definition of Done.
+- Updated Recon, Prompt generation, templates, onboarding, governance, glossary, and repository guidance to support surface escalation and bounded handoffs.
+- Kept provider-specific product names, credits, quotas, subscriptions, and pricing as environment configuration instead of framework architecture.
+
 ## Unreleased - Repository Cleanup workflow
 
 ### Added

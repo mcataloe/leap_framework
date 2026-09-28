@@ -124,7 +124,11 @@ Confirm:
 - scope and non-goals defined
 - files / areas to inspect and avoid defined
 - acceptance criteria defined
+- required confidence and validation defined
+- required execution capabilities and permission needs derived
+- preferred and escalation execution surfaces selected from eligible options
 - verification path defined, including Skill-specific verification when material
+- expected verification state at handoff defined
 - stop conditions defined
 - destructive-change permission stated
 - agent / tool selected
@@ -145,7 +149,9 @@ If a missing item maps to a hard blocker, stop. In Materiality-Gated mode, ask u
 | `recon-only` | Investigate and report only | User decision required |
 | `validation-only` | Validate existing work | Off unless fixes may be requested |
 
-Prefer `repo-preflight-then-implement` for bounded approved Build Units. Use `plan-first` for Architecture-sensitive, multi-system, destructive, security, privacy, data-model, contract, or repo-wide work.
+Prefer `repo-preflight-then-implement` for bounded approved Build Units when the selected surface has the needed repository and validation capabilities. Use `plan-first` for Architecture-sensitive, multi-system, destructive, security, privacy, data-model, contract, or repo-wide work.
+
+Do not select a shell-capable coding agent merely because code will change. Repository mutation may remain on an E1 surface when required validation does not need E2 capabilities. Conversely, do not keep work on a cheaper surface when the Definition of Done requires build, test, migration, browser, deployment, or other execution-grounded evidence that surface cannot provide.
 
 ## Required Prompt sections
 
@@ -195,10 +201,12 @@ USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
 
 ## 3. Agent Execution Configuration
 
+Select Agent / Tool only after required confidence, validation, capabilities, and permissions are known. Use the least-cost eligible surface and name the escalation surface when additional capability may be required.
+
 | Field | Value |
 |---|---|
-| Agent / Tool | Codex / Claude Code / Cursor / other |
-| Codex Plan Mode | On / Off / User decision required |
+| Agent / Tool | Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other |
+| Codex Plan Mode | On / Off / User decision required / not applicable |
 | Model | Exact model or approved project default |
 | Reasoning Level | Low / Medium / High / Extended |
 | Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only |
@@ -206,6 +214,12 @@ USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
 | Repository | Repository or repositories |
 | Branch / Worktree | Target context |
 | Permissions | Allowed modifications |
+| Required Capability Class | E0 / E1 / E2 / E3 / E4 or combination |
+| Required Capabilities | Concrete environment capabilities needed |
+| Required Confidence / Validation | Evidence required to claim completion |
+| Preferred Surface | Lowest-cost eligible surface |
+| Escalation Surface | Surface used when preferred surface cannot satisfy capability or validation requirements |
+| Verification State at Handoff | Implemented — execution unverified / Partially verified / Execution verified / not applicable |
 | Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none |
 | Validation | Tests and checks |
 | Commit Guidance | Commit posture |
