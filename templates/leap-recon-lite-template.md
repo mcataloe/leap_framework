@@ -62,11 +62,15 @@ Risk areas:
 - Human checkpoints
 
 Materiality Gate:
+- Clarification mode: Materiality-Gated / No Gate.
+- Use INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
 - Inspect discoverable sources first.
-- Ask only unresolved material questions.
-- Proceed on stated assumptions for non-material unknowns.
-- Stop for destructive-change, privacy, money, identity, legal exposure,
-  user-trust, unsafe source-truth, or unapproved Architecture risk.
+- In Materiality-Gated mode, ask only unresolved material questions needed for the next safe decision.
+- In No Gate mode, convert only safely assumable ASK outcomes into explicit disclosed assumptions.
+- No Gate never converts STOP into proceed.
+- Re-evaluate only remaining or newly exposed material uncertainty.
+- Stop for destructive-change, privacy, security, money, identity, legal exposure,
+  user-trust, unsafe source-truth, missing authorization, or unapproved Architecture risk.
 
 Return:
 - Baseline Freshness Check
