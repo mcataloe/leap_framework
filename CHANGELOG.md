@@ -88,6 +88,11 @@ Current and unreleased LEAP Framework changes are recorded here. Use Git history
 ## Unreleased - Materiality Gate
 
 - Added Materiality Gate guidance for inspect-first, question, and assumption discipline.
+- Formalized the shared `INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE` decision model.
+- Added explicit `Materiality-Gated` and `No Gate` clarification modes.
+- Defined `No Gate` as `ASK -> ASSUME + DISCLOSE` only when safe; hard blockers remain `STOP`.
+- Made clarification recursive but bounded, with zero questions as a valid and common outcome and no arbitrary minimum question count.
+- Aligned Charter, Recon, Prompt generation, request templates, workflow guidance, glossary, and ChatGPT Project setup instructions with the shared behavior.
 
 ## Unreleased - Dependency & Contract Recon
 
