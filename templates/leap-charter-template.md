@@ -203,8 +203,9 @@ Required workflow:
 4. Apply Materiality Gate.
 5. Label evidence and assumptions.
 6. Identify documentation and repo-reality drift.
-7. Ask only unresolved material questions.
-8. Run no-build review where relevant.
+7. Route unresolved context through ASK / ASSUME / STOP according to the active clarification mode.
+8. Re-evaluate only remaining or newly exposed material uncertainty.
+9. Run no-build review where relevant.
 9. Define Mission, scope boundary, and non-goals.
 10. Define or reconcile Strategic Outcomes.
 11. Define or reconcile Initiative identity and Roadmap posture.
@@ -235,7 +236,7 @@ Minimal starting context:
 - Known Domains or Architecture constraints:
 - Known source-truth concerns, risks, or sensitive areas:
 
-Apply Materiality Gate before asking follow-up questions. Ask only for missing answers that materially change the gate decision or recommended next LEAP step.
+Apply Materiality Gate before follow-up questions. In Materiality-Gated mode, ask only for missing answers that materially change the next safe gate decision. In No Gate mode, use explicit disclosed assumptions when safe. Hard blockers still stop.
 ```
 
 ## Expected Charter sections
