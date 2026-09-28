@@ -178,6 +178,8 @@ A legacy Layer document remains source truth until one of these occurs:
 
 Generated replacement documents are Draft until ratified.
 
+When a migrated artifact may be archived or deleted, use [LEAP Repository Cleanup](../repository-cleanup.md) to inspect dependencies, prove the replacement, select the cleanup mode, and obtain approval for the exact decommission set.
+
 ## Small-project rule
 
 Do not require a small project to split one clear document into several files.

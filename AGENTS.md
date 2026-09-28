@@ -189,10 +189,12 @@ Primary canonical docs:
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
 - `docs/glossary.md`
+- `docs/repository-cleanup.md`
 - `prompts/leap-charter-standard.md`
 - `prompts/leap-recon-standard.md`
 - `prompts/leap-prompt-standard.md`
 - `prompts/leap-governance-pass-standard.md`
+- `prompts/leap-cleanup-standard.md`
 - current request templates under `templates/`
 
 Supporting maps and guidance:
@@ -201,6 +203,7 @@ Supporting maps and guidance:
 - `docs/README.md`
 - `docs/materiality-gate.md`
 - `docs/dependency-contract-recon.md`
+- `templates/leap-cleanup-template.md`
 - `docs/user/`
 - `docs/maintainer/framework-doc-governance.md`
 - `docs/maintainer/project-documentation-migration.md`
@@ -234,7 +237,7 @@ Recon for this repository should inspect:
 
 - canonical doctrine and documentation maps
 - Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, Architecture, and Layer terminology
-- Charter, Recon, Prompt, Governance, and LHS consistency
+- Charter, Recon, Prompt, Governance, Cleanup, and LHS consistency
 - templates and examples
 - Agent Pack dependencies
 - current release notes and baseline metadata
@@ -267,6 +270,8 @@ Never let stale docs compete with source-of-truth docs.
 ```
 
 Do not rename or archive public docs without an approved migration and link-validation plan.
+
+Use `Run LEAP Cleanup` for a dependency-aware decommission proposal. Treat an unqualified Cleanup run as discovery-only, keep cleanup modes separate from Agent Execution Mode, and require approval of the exact decommission set before mutation.
 
 ## Prompt and implementation rules
 
@@ -323,6 +328,7 @@ Keep these aligned when framework behavior changes:
 - `docs/leap-charter.md`
 - `docs/project-documentation-model.md`
 - `docs/glossary.md`
+- `docs/repository-cleanup.md`
 - `docs/user/`
 - `docs/maintainer/project-documentation-migration.md`
 - `prompts/README.md`

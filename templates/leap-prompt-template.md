@@ -49,7 +49,7 @@ Do not use these sources:
 - <Draft / stale / archived / superseded paths>
 
 Agent execution configuration:
-- Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Validation Prompt / other clear type
+- Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Governance Prompt / Cleanup Prompt / Validation Prompt / other clear type
 - LHS Decision: Use LHS / Do not use LHS
 - Agent / Tool: Codex / Claude Code / Cursor / other
 - Codex Plan Mode: On / Off / User decision required

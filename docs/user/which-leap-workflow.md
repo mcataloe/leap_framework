@@ -10,6 +10,7 @@ Use the lightest workflow that controls the actual risk.
 | Small localized coding-agent task | [Quick LEAP Brief](quick-leap-brief.md) |
 | Mission, Strategic Outcomes, Initiative identity, Roadmap, or source truth is unclear | [LEAP Charter](../leap-charter.md) |
 | A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, contract, risk, or legacy Layer needs investigation | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
+| Obsolete artifacts need an exact, dependency-aware decommission proposal | [LEAP Cleanup](../repository-cleanup.md) |
 | A bounded Build Unit or task is implementation-ready | [LEAP Prompt](../../templates/leap-prompt-template.md) |
 | A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [LEAP LHS](../leap.md) |
 
@@ -49,6 +50,7 @@ Before asking questions:
 ```text
 Run LEAP Charter on the project above.
 Run LEAP Recon on the Initiative or feature above.
+Run LEAP Cleanup on the obsolete artifacts above.
 Generate a LEAP Prompt from the approved Recon.
 Turn the Delivery Unit and Build Unit sequence into an LHS Prompt.
 Run LEAP Validation/Handoff on the completed changes.
@@ -67,6 +69,12 @@ Brownfield Charter classifies a legacy Layer as Initiative, Delivery Unit, Build
 Use Recon when the baseline is good enough but one focused target needs source-truth, repo-reality, risk, dependency, planning-boundary, or implementation-safety analysis.
 
 Recon begins with Baseline Freshness Check. Charter is not required before every Recon.
+
+## When to use Cleanup
+
+Use Cleanup when source truth is sufficiently clear and the remaining problem is deciding exactly which obsolete artifacts can be retained as historical, migrated, refactored, or deleted.
+
+An unqualified Cleanup run is discovery-only. It recommends `archive-only`, `controlled-migration`, or `destructive-cutover`, returns the exact proposed decommission set, and stops for approval before generating a Refactor Prompt.
 
 ## When to use LEAP Prompt
 

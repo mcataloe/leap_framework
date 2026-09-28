@@ -14,6 +14,7 @@ Implementation Gravity is the amount of coordination, risk, dependency ordering,
 |---|---|---|
 | Product risk | Building the wrong workflow | [LEAP Charter](leap-charter.md) / no-build review |
 | Source-truth risk | Agent follows stale or archived docs | [Charter](leap-charter.md) reconciliation + manifest + doc lifecycle |
+| Repository cleanup risk | Obsolete artifacts remain active or are removed before consumers migrate | [Repository Cleanup](repository-cleanup.md) + approved decommission set + replacement evidence |
 | Architecture risk | Feature forced into bad structure | [Recon](../templates/leap-recon-lite-template.md) + architecture right-sizing |
 | Dependency contract risk | Provider contract drift breaks consumer expectations | [Dependency & Contract Recon](dependency-contract-recon.md) + evidence-based follow-up |
 | Data risk | Destructive migration or data loss | Human approval + rollback plan |
@@ -87,6 +88,8 @@ Rollback required: yes/no.
 Data preservation required: yes/no.
 Human approval required before migration: yes/no.
 ```
+
+For obsolete repository artifacts, use the dependency, replacement-evidence, approval, and effective-status rules in [LEAP Repository Cleanup](repository-cleanup.md).
 
 ---
 

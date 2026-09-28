@@ -234,6 +234,20 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
+### Repository Cleanup governance workflow
+
+Use [LEAP Repository Cleanup](repository-cleanup.md) when obsolete artifacts must be inventoried, classified, and decommissioned rather than merely reconciled conceptually.
+
+Repository Cleanup is a specialized Governance workflow, not a lifecycle phase. An unqualified `Run LEAP Cleanup` command is discovery-only: it produces an exact proposed decommission set and stops for approval. Approved cleanup is executed through a LEAP Refactor Prompt and completed through Validation/Handoff.
+
+Cleanup modes are:
+
+- `archive-only`
+- `controlled-migration`
+- `destructive-cutover`
+
+The modes describe retention and compatibility posture. `archive-only` is cleanup-specific; `controlled-migration` and `destructive-cutover` apply their corresponding compatibility and supersession postures to cleanup work. They do not replace Agent Execution Mode. Git history is the default archive for destructive cutovers, and effective decommissioning requires both absence and replacement evidence.
+
 ## 5. Materiality Gate
 
 Before asking a question, classify missing context as:
@@ -512,6 +526,8 @@ Data preservation required: yes / no
 Human approval required before migration: yes / no
 ```
 
+When destructive change removes obsolete repository artifacts, use the approval, dependency, replacement-evidence, and validation contract in [LEAP Repository Cleanup](repository-cleanup.md). Destructive cleanup must not retain an unapproved in-tree backup of the retired design.
+
 ## 17. Agent failure modes
 
 LEAP should guard against:
@@ -574,6 +590,23 @@ A Recon output should include:
 - Agent Execution Configuration
 - clarification questions, if material
 - gate decision
+
+### Cleanup output
+
+A Cleanup output should include:
+
+- scope, governing sources, and repository reality
+- cleanup-mode assessment
+- artifact inventory and classification
+- authority and canonical-replacement evidence
+- inbound references, dependencies, and consumers
+- public-path, retention, and compatibility obligations
+- exact proposed decommission set
+- blocked, unknown, and human-decision candidates
+- reference and source-of-truth repair plan
+- structural, semantic, and behavioral validation plan
+- forbidden-pattern checks
+- explicit approval requirement and gate decision
 
 ### Prompt output
 

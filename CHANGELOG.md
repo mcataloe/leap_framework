@@ -2,6 +2,20 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Repository Cleanup workflow
+
+### Added
+
+- Added `Run LEAP Cleanup` as a specialized Governance workflow for repository artifact decommissioning.
+- Added the cleanup contract, operational Prompt, compact request template, cleanup modes, decommission-set schema, approval gate, and effective-status rules.
+
+### Changed
+
+- Routed approved cleanup execution through LEAP Refactor Prompt and existing Validation/Handoff behavior instead of adding a lifecycle phase.
+- Required authority, dependency, consumer, public-path, and canonical-replacement evidence before decommissioning.
+- Defined cleanup modes as `archive-only`, `controlled-migration`, and `destructive-cutover`, separate from Agent Execution Mode.
+- Established Git history as the default archive for destructive cutovers and required structural, semantic, and behavioral validation where relevant.
+
 ## Unreleased - Parallel-capable project documentation
 
 ### Added

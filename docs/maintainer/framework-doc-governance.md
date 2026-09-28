@@ -42,3 +42,5 @@ This guide defines how LEAP Framework documentation should be organized.
 - Old paths should receive compatibility stubs when moved after public or agent-facing references exist.
 - Docs moves require README and changelog updates.
 - Do not restore older release-note detail or versioned historical docs unless there is a specific compatibility reason.
+- Use [LEAP Repository Cleanup](../repository-cleanup.md) when obsolete framework artifacts need an exact decommission set rather than ordinary documentation reconciliation.
+- For an approved destructive cutover, use Git history as the default archive and validate that retired material no longer competes with current framework truth.

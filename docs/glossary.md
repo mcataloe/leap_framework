@@ -59,7 +59,7 @@ Preserve traceability.
 Never let stale docs compete with source-of-truth docs.
 ```
 
-Useful current content is absorbed into canonical docs, legacy originals are preserved or archived appropriately, and a migration map retains traceability.
+Useful current content is absorbed into canonical docs, legacy originals are preserved or archived appropriately, and a migration map retains traceability. When an approved Cleanup pass proves that repository retention is unnecessary, Git history may provide that traceability instead of an active-tree archive.
 
 ## Legacy Document Classification
 
@@ -76,6 +76,39 @@ Useful current content is absorbed into canonical docs, legacy originals are pre
 | Misleading | Likely to confuse future work | Archive or mark explicitly |
 | Archived | Historical only | Do not treat as active source truth |
 | Unknown | Not yet classified | Inspect before relying on it |
+
+## LEAP Cleanup
+
+The specialized Governance workflow for inventorying, classifying, and proposing the decommissioning of stale, duplicate, conflicting, misleading, superseded, archived, or otherwise obsolete repository artifacts.
+
+`Run LEAP Cleanup` is discovery-only unless an exact decommission set has already been approved. Approved work is executed through a LEAP Refactor Prompt and completed through Validation/Handoff.
+
+LEAP Cleanup is not a lifecycle phase, Agent Execution Mode, authorization substitute, or general permission to delete files.
+
+## Cleanup Mode
+
+The retention and compatibility posture applied to a cleanup candidate. `archive-only` is cleanup-specific; `controlled-migration` and `destructive-cutover` apply their corresponding compatibility and supersession postures to cleanup work:
+
+- `archive-only` retains the artifact only as explicitly historical material or an approved compatibility stub and removes it from active authority.
+- `controlled-migration` permits temporary coexistence while named consumers migrate toward an explicit sunset condition.
+- `destructive-cutover` makes the replacement the only supported current state and removes the obsolete active-tree artifact after approval and dependency validation.
+
+Cleanup Mode is separate from Agent Execution Mode. Git history is the default archive for destructive cutovers.
+
+## Decommission Set
+
+The exact, reviewable list of artifacts proposed for retention, migration, refactoring, archival, or deletion, including classification, evidence, references and consumers, canonical replacement, cleanup mode, risk, required repairs, validation, and approval status.
+
+Classification alone does not authorize an artifact's removal.
+
+## Effective Decommissioning
+
+The state in which both of the following are true:
+
+1. absence evidence shows the retired artifact no longer owns active authority, routing, references, imports, execution, or current presentation
+2. replacement evidence shows the canonical replacement exists, is discoverable, owns the required truth or behavior, and works for relevant consumers
+
+For `archive-only`, absence means absence from active authority and routing rather than filesystem absence. A text search, warning label, or file move alone does not prove effective decommissioning.
 
 ## LEAP Recon
 
@@ -169,7 +202,7 @@ The broad family of agent-ready instruction artifacts generated from Charter, Re
 
 A LEAP Prompt is a bounded handoff contract with objective, traceability, scope, constraints, verification, stop conditions, source-truth instructions, and explicit Agent Execution Configuration.
 
-Prompt types include Charter, Recon, Standard Implementation, Fix, Refactor, Governance, Validation, and LHS Prompts.
+Prompt types include Charter, Recon, Standard Implementation, Fix, Refactor, Governance, Cleanup, Validation, and LHS Prompts.
 
 ## Implementation
 

@@ -8,6 +8,7 @@ Current root-level reference docs:
 - [`../leap-charter.md`](../leap-charter.md) - canonical Charter reference
 - [`../materiality-gate.md`](../materiality-gate.md) - supporting Materiality Gate reference for question, assumption, and inspect-first discipline
 - [`../dependency-contract-recon.md`](../dependency-contract-recon.md) - supporting Dependency & Contract Recon reference
+- [`../repository-cleanup.md`](../repository-cleanup.md) - supporting Repository Cleanup governance reference
 - [`../glossary.md`](../glossary.md) - canonical terminology reference
 - [`../risk-taxonomy.md`](../risk-taxonomy.md) - risk and destructive-change reference
 - [`../agent-profiles.md`](../agent-profiles.md) - agent execution profile reference

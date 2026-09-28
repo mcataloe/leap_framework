@@ -28,6 +28,9 @@ Status: current released baseline; current branch changes remain unreleased
 - Dependency & Contract Recon subprocess
 - Baseline Freshness Check preflight
 - Optional baseline and dependency register guidance
+- Repository Cleanup Governance workflow and `Run LEAP Cleanup` command
+- `archive-only`, `controlled-migration`, and `destructive-cutover` cleanup modes
+- Dependency-aware decommission sets, approval gates, and effective-status validation
 ```
 
 ## Canonical framework documents
@@ -37,6 +40,7 @@ docs/leap.md
 docs/leap-charter.md
 docs/project-documentation-model.md
 docs/glossary.md
+docs/repository-cleanup.md
 ```
 
 ## Supporting references
@@ -44,6 +48,8 @@ docs/glossary.md
 ```text
 docs/materiality-gate.md
 docs/dependency-contract-recon.md
+prompts/leap-cleanup-standard.md
+templates/leap-cleanup-template.md
 docs/maintainer/project-documentation-migration.md
 examples/leap.baseline.yaml
 schemas/leap.baseline.schema.json

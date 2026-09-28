@@ -31,6 +31,7 @@ This folder contains LEAP Framework documentation for users, reference readers, 
 | [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
 | [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
 | [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon behavior | Supporting Recon reference |
+| [`repository-cleanup.md`](repository-cleanup.md) | Governed artifact decommissioning and cleanup modes | Supporting Governance rule |
 
 ## Project documentation model
 
@@ -79,6 +80,7 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 - Project setup: [`user/leap_project_setup.md`](user/leap_project_setup.md)
 - Workflow choice: [`user/which-leap-workflow.md`](user/which-leap-workflow.md)
 - Small task: [`user/quick-leap-brief.md`](user/quick-leap-brief.md)
+- Stale or obsolete artifacts: [`repository-cleanup.md`](repository-cleanup.md)
 - Short Recon request: [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md)
 - Full Recon request: [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md)
 - Optional baseline metadata: [`../examples/leap.baseline.yaml`](../examples/leap.baseline.yaml) and [`../schemas/leap.baseline.schema.json`](../schemas/leap.baseline.schema.json)
@@ -87,6 +89,7 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 
 - Start with [`00_start_here.md`](00_start_here.md).
 - Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), and [`glossary.md`](glossary.md) as canonical doctrine.
+- Use [`repository-cleanup.md`](repository-cleanup.md) for the specialized Governance cleanup contract.
 - Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) only for legacy project-documentation reconciliation.
 - Treat user docs as downstream adoption guidance.
 - Treat maintainer docs as LEAP Framework repository guidance unless a downstream project explicitly adopts them.

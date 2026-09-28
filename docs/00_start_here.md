@@ -118,6 +118,7 @@ If those answers are unclear, LEAP keeps asking only the material questions need
 - Use the [workflow chooser](user/which-leap-workflow.md) to compare normal prompts, Quick Brief, Charter, Recon, Prompt, and LHS.
 - Use [When Not to Use LEAP](user/when-not-to-use-leap.md) when full LEAP is heavier than the task.
 - Use the [Quick LEAP Brief](user/quick-leap-brief.md) for the smallest useful coding-agent handoff.
+- Use [Repository Cleanup](repository-cleanup.md) when obsolete artifacts may compete with current truth or remain wired into the repository.
 - Use the [canonical framework reference](leap.md) for formal doctrine.
 
 ## Lifecycle

@@ -37,7 +37,8 @@ Canonical reference: [`../docs/project-documentation-model.md`](../docs/project-
 | Standard Implementation Prompt | A bounded Build Unit or small Delivery Unit is ready for agent instructions | [leap-prompt-standard.md](leap-prompt-standard.md) |
 | Fix Prompt | A specific bug or remediation needs bounded implementation guidance | [leap-prompt-standard.md](leap-prompt-standard.md) |
 | Refactor Prompt | Structural change needs sequencing, compatibility, verification, and stop conditions | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| Governance Prompt | Source-truth, process, or documentation cleanup needs a focused pass | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) |
+| Governance Prompt | Source-truth, process, or documentation drift needs reconciliation | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) |
+| Cleanup Prompt | Obsolete artifacts need a dependency-aware decommission proposal and approval gate | [leap-cleanup-standard.md](leap-cleanup-standard.md) |
 | Validation Prompt | Completed work needs verification and handoff | [leap-prompt-standard.md](leap-prompt-standard.md) |
 | LHS Prompt | A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [../docs/leap.md](../docs/leap.md) |
 
@@ -55,6 +56,7 @@ Current request templates:
 templates/leap-charter-template.md
 templates/leap-recon-lite-template.md
 templates/leap-recon-template.md
+templates/leap-cleanup-template.md
 templates/leap-prompt-template.md
 ```
 
@@ -69,6 +71,7 @@ Start with:
 - [LEAP Charter](../docs/leap-charter.md)
 - [Materiality Gate](../docs/materiality-gate.md)
 - [Dependency & Contract Recon](../docs/dependency-contract-recon.md)
+- [Repository Cleanup](../docs/repository-cleanup.md)
 - [Legacy Project Documentation Migration](../docs/maintainer/project-documentation-migration.md)
 
 ## Operational Prompt files
@@ -78,6 +81,7 @@ prompts/leap-charter-standard.md
 prompts/leap-recon-standard.md
 prompts/leap-prompt-standard.md
 prompts/leap-governance-pass-standard.md
+prompts/leap-cleanup-standard.md
 ```
 
 Fix, Refactor, and Validation Prompts are variants of `leap-prompt-standard.md`.
@@ -95,6 +99,7 @@ LHS is a Prompt format documented in `docs/leap.md`, not a separate lifecycle ph
 - Build Units are bounded implementation responsibilities and are not necessarily independently deployable.
 - Legacy Layer docs must be classified before migration.
 - Governance Prompts handle source-truth ownership and documentation drift.
+- Cleanup Prompts inventory obsolete artifacts, recommend a cleanup mode, and stop for approval before a Refactor Prompt is generated.
 - Validation Prompts verify completed work and record handoff evidence.
 
 ## Public rule

@@ -131,6 +131,8 @@ Preferred approach:
 7. update entry points, `AGENTS.md`, and prompt backlogs
 8. validate links and source-truth references
 
+Brownfield Charter reconciles documentation posture but does not by itself authorize deletion. Route exact decommission candidates to [LEAP Repository Cleanup](repository-cleanup.md) for dependency analysis, cleanup-mode selection, approval, and Refactor Prompt generation.
+
 ## Legacy document classification
 
 | Classification | Meaning | Recommended action |
