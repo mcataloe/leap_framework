@@ -186,33 +186,34 @@ Use the shared Materiality Gate flow:
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Classify unresolved context as:
+Assess unresolved context along independent, composable dimensions (an item may satisfy more than one):
 
 ```text
-Material - plausible answers change Architecture, scope, risk, source truth,
-validation, acceptance criteria, compatibility, implementation,
-recommendation, or the next gate decision.
+Consequence: Material / Non-material - does the answer change Architecture,
+scope, risk, source truth, validation, acceptance, compatibility,
+implementation, recommendation, or the next gate decision, rather than polish?
 
-Non-material - plausible answers only change naming, wording, formatting,
-ordering, tone, or minor preference.
+Discoverability: Discoverable / Not currently discoverable - can approved
+repository, docs, contracts, tests, decisions, or tooling establish the answer?
 
-Discoverable - inspect repository, docs, contracts, tests, decisions,
-or approved tooling before asking.
+Assumability: Safely assumable / Not safely assumable - can an assumption
+be stated without violating a stop condition?
 
-Safe assumption - can be reasonably assumed and disclosed without
-violating a stop condition.
-
-Hard blocker - requires human approval, reconciliation, or another
-mandatory checkpoint.
+Blocker status: Hard blocker / No hard blocker - is human approval,
+reconciliation, or another mandatory checkpoint required?
 ```
+
+Precedence: STOP for hard blockers; INSPECT discoverable evidence; then decide
+ASK / ASSUME / DEFER using consequence, assumption safety, and clarification mode.
 
 Default clarification mode is **Materiality-Gated**:
 
 ```text
-Discoverable -> INSPECT
-Non-material / safe assumption -> ASSUME or DEFER
-Unresolved material -> ASK
 Hard blocker -> STOP
+Discoverable -> INSPECT, then re-evaluate
+Non-material -> ASSUME or DEFER
+Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
+Material answer required for the next safe decision -> ASK
 ```
 
 If the user explicitly invokes **No Gate**, avoid ordinary clarification interruptions:

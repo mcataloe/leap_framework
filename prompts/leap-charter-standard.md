@@ -75,15 +75,16 @@ Use the shared Materiality Gate flow:
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Classify unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+Assess each unresolved item on independent dimensions: consequence (Material / Non-material), discoverability, safe assumability, and hard-blocker status. Dimensions can overlap; classify blockers before choosing a route, inspect discoverable evidence, and then decide ASK / ASSUME / DEFER according to the clarification mode.
 
 Default **Materiality-Gated** behavior:
 
 ```text
-Discoverable -> INSPECT
-Non-material / safe assumption -> ASSUME or DEFER
-Unresolved material -> ASK
 Hard blocker -> STOP
+Discoverable -> INSPECT, then re-evaluate
+Non-material -> ASSUME or DEFER
+Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
+Material answer required for the next safe decision -> ASK
 ```
 
 If the user explicitly invokes **No Gate**:
@@ -227,6 +228,9 @@ What would make this not worth building?
 ## Materiality Check format
 
 ```text
+### Clarification Mode
+Materiality-Gated / No Gate
+
 ### Material Unknowns
 Questions or missing facts that would change direction, readiness,
 source-truth hierarchy, scope, risk, Architecture, implementation path,
@@ -238,8 +242,12 @@ Reasonable assumptions used so Charter can continue.
 ### Deferred Non-Material Details
 Naming, wording, formatting, or preference details that do not block the gate.
 
+### Stop Conditions / Hard Blockers
+List each hard blocker, its required approval, source reconciliation, or other
+checkpoint to clear it. State "None" when no hard blockers remain.
+
 ### Question Decision
-Proceed with assumptions / inspect sources first / ask targeted questions.
+Proceed with assumptions / inspect sources first / ask targeted questions / stop.
 ```
 
 ## Gate decisions

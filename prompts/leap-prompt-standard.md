@@ -79,7 +79,7 @@ INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 Confirm that Recon:
 
 - inspected discoverable repo, docs, contracts, tests, decisions, and tooling evidence before asking
-- classified unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker
+- evaluated unresolved context on independent dimensions (consequence, discoverability, assumability, blocker status), including overlapping classifications
 - used **Materiality-Gated** mode by default unless the user explicitly invoked **No Gate**
 - asked only unresolved material questions needed for the next safe decision in default mode
 - converted non-material and safe unknowns into assumptions or deferred details
