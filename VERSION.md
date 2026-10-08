@@ -33,6 +33,7 @@ Status: current released baseline; current branch changes remain unreleased
 - Legacy-compatible generic Layer deprecation and semantic migration guidance
 - Planning Boundary Review and cross-Initiative / cross-Domain impact review
 - Materiality Gate for consequence-based clarification, including Materiality-Gated / No Gate modes and bounded re-evaluation
+- Materiality Gate and Charter QA clarification: composable classifications, explicit Charter STOP output, and No Gate assumption/ask precedence
 - Dependency & Contract Recon subprocess
 - Baseline Freshness Check preflight
 - Optional baseline and dependency register guidance
