@@ -72,15 +72,16 @@ Use the shared flow:
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Classify missing context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+Evaluate missing context on independent dimensions: Material / Non-material consequence, discoverability, safe assumability, and hard-blocker status. These can overlap. Check blockers first; inspect discoverable evidence before choosing ASK, ASSUME, or DEFER for the active clarification mode.
 
 Default clarification mode is **Materiality-Gated**:
 
 ```text
-Discoverable -> INSPECT
-Non-material / safe assumption -> ASSUME or DEFER
-Unresolved material -> ASK
 Hard blocker -> STOP
+Discoverable -> INSPECT, then re-evaluate
+Non-material -> ASSUME or DEFER
+Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
+Material answer required for the next safe decision -> ASK
 ```
 
 When the user explicitly invokes **No Gate**:
@@ -206,17 +207,17 @@ Required workflow:
 7. Route unresolved context through ASK / ASSUME / STOP according to the active clarification mode.
 8. Re-evaluate only remaining or newly exposed material uncertainty.
 9. Run no-build review where relevant.
-9. Define Mission, scope boundary, and non-goals.
-10. Define or reconcile Strategic Outcomes.
-11. Define or reconcile Initiative identity and Roadmap posture.
-12. Identify Domain, Architecture, and Delivery planning needs.
-13. Recommend documentation baseline and source-truth ownership.
-14. Create gap register and Brownfield migration map when needed.
-15. Recommend next Recon, Prompt, LHS, Validation, or Handoff work.
-16. Make a readiness-gate decision.
+10. Define Mission, scope boundary, and non-goals.
+11. Define or reconcile Strategic Outcomes.
+12. Define or reconcile Initiative identity and Roadmap posture.
+13. Identify Domain, Architecture, and Delivery planning needs.
+14. Recommend documentation baseline and source-truth ownership.
+15. Create gap register and Brownfield migration map when needed.
+16. Recommend next Recon, Prompt, LHS, Validation, or Handoff work.
+17. Make a readiness-gate decision.
 
-Return the LEAP Charter output only.
-If more information is needed, ask the next small material question round instead of producing implementation plans.
+Return the LEAP Charter output only. Include Clarification Mode, Stop Conditions / Hard Blockers, and a Question Decision supporting "stop" in the Materiality Check.
+If the next safe gate decision requires a material answer that cannot safely be assumed, ask the next small material question round (including under No Gate when an assumption would be unsafe). Under No Gate, continue with explicit disclosed assumptions when safe instead of asking. If a hard blocker exists, stop and report the checkpoint needed; never generate implementation plans past STOP.
 ```
 
 ## Fallback when no repo or files are available
