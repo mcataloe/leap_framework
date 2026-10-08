@@ -2,6 +2,15 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Materiality Gate and Charter QA corrections
+
+### Fixed
+
+- Clarified independent, composable materiality, discoverability, assumability, and blocker classifications, including the STOP-before-INSPECT routing precedence.
+- Added the missing STOP decision and hard-blocker disclosure fields to Charter Materiality Check output.
+- Corrected the No Gate copy-ready Charter request so safely assumable material unknowns do not trigger unnecessary questions, while unsafe assumptions and hard blockers cannot bypass checkpoints.
+- Corrected duplicate workflow numbering in the Charter request template without changing lifecycle stages or existing paths.
+
 ## Unreleased - Capability- and cost-aware execution routing
 
 ### Added
