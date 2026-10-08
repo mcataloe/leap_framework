@@ -68,15 +68,22 @@ Do not ask the user for information that LEAP can directly verify from an approv
 
 ### CLASSIFY
 
-Classify each unresolved item as one of:
+Classify each unresolved item using **independent, composable dimensions**, not one mutually exclusive label:
 
 ```text
-Material - plausible answers would materially change the work, risk, or decision.
-Non-material - plausible answers would only refine style, naming, wording, formatting, ordering, or polish.
-Discoverable - the answer should be inspected from available sources before asking.
-Safe assumption - the answer can be reasonably assumed and disclosed without creating a hard blocker.
-Hard blocker - proceeding would require unsafe guessing, missing authorization, or violation of a LEAP stop condition.
+Consequence: Material / Non-material
+  - Material: plausible answers could change the work, risk, or decision.
+  - Non-material: plausible answers only refine wording, naming, formatting, or polish.
+Discoverability: Discoverable / Not currently discoverable
+  - Discoverable: inspect approved authoritative sources before asking.
+Assumability: Safely assumable / Not safely assumable
+  - Safely assumable: a reasonable, disclosed assumption does not violate a stop condition.
+Blocker status: Hard blocker / No hard blocker
+  - Hard blocker: proceeding requires unsafe guessing, missing authorization,
+    or violation of a mandatory stop condition.
 ```
+
+An item may be **material, discoverable, and safely assumable** at the same time. Evaluate blockers first; inspect discoverable evidence; then choose ASK, ASSUME, or DEFER based on materiality, assumption safety, and the active clarification mode. Discoverability and assumption safety do not negate materiality.
 
 ### ASK
 
@@ -132,11 +139,11 @@ Materiality Gate supports two clarification modes.
 This is the default.
 
 ```text
-Discoverable -> INSPECT
-Non-material -> ASSUME or DEFER
-Safe assumption -> ASSUME + DISCLOSE when consequential
-Material unresolved -> ASK
 Hard blocker -> STOP
+Discoverable -> INSPECT, then re-evaluate
+Non-material -> ASSUME or DEFER
+Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
+Material answer required for the next safe decision -> ASK
 ```
 
 ### No Gate
@@ -152,11 +159,11 @@ Run LEAP Recon on this design — No Gate.
 No Gate changes only the normal ASK path:
 
 ```text
-Discoverable -> INSPECT
-Non-material -> ASSUME or DEFER
-Safe assumption -> ASSUME + DISCLOSE when consequential
-Material unresolved that is safely assumable -> ASSUME + DISCLOSE
 Hard blocker -> STOP
+Discoverable -> INSPECT, then re-evaluate
+Non-material -> ASSUME or DEFER
+Material safely assumable -> ASSUME + DISCLOSE
+Material not safely assumable and needed now -> ASK or STOP, never guess
 ```
 
 In shorthand:
