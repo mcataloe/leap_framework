@@ -50,13 +50,13 @@ Charter uses the shared LEAP Materiality Gate:
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Classify unresolved context as Material, Non-material, Discoverable, Safe assumption, or Hard blocker.
+Assess unresolved context independently for materiality, discoverability, safe assumability, and hard-blocker status. These dimensions may overlap; a material item may also be discoverable or safely assumable. Follow the decision precedence in [Materiality Gate](materiality-gate.md): STOP for hard blockers, INSPECT discoverable evidence, then ASK / ASSUME / DEFER according to consequence and clarification mode.
 
 Default **Materiality-Gated** mode asks only unresolved material questions needed for the next safe Charter decision.
 
 An explicit **No Gate** modifier changes safely assumable ASK outcomes into explicit disclosed assumptions. It does not bypass readiness requirements, unsafe source truth, authorization, destructive-change safeguards, sensitive-area checkpoints, public-contract approval, or required human approval.
 
-After answers or newly discovered evidence, Charter re-evaluates only remaining or newly exposed material uncertainty. There is no minimum question count.
+After answers or newly discovered evidence, Charter re-evaluates only remaining or newly exposed material uncertainty. There is no minimum question count. Charter's Materiality Check must explicitly record hard blockers and support a **stop** Question Decision rather than implying that a blocked Charter can proceed.
 
 ## Charter modes
 
