@@ -1,6 +1,6 @@
 ---
 name: leap
-description: Select and run LEAP software-delivery workflows when the user explicitly asks for LEAP help, Discovery, Pressure Test, Charter, Recon, Prompt, LHS, Governance, Cleanup, or Validation; also use for a nontrivial project task that needs LEAP workflow selection. Do not trigger for routine unrelated questions or tiny obvious edits.
+description: Route explicit LEAP commands and help requests; in a LEAP-adopted project, select Discovery, Pressure Test, Recon or other LEAP workflow when the user wants that methodology. Do not trigger for generic programming questions or ordinary tiny edits.
 ---
 
 # LEAP workflow navigator
