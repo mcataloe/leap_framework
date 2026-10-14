@@ -9,6 +9,8 @@ Use **LEAP help** for the canonical command menu and [Semantic Workflow Routing]
 | Situation | Start with |
 |---|---|
 | Tiny, obvious, easy-to-verify task | Normal prompt |
+| Understand a domain, actors, vocabulary or workflow before selecting a solution | [LEAP Discovery](leap-discovery.md) |
+| Challenge the feasibility or assumptions of a proposed approach | [LEAP Pressure Test](leap-discovery.md) |
 | Small localized coding-agent task | [Quick LEAP Brief](quick-leap-brief.md) |
 | Mission, Strategic Outcomes, Initiative identity, Roadmap, or source truth is unclear | [LEAP Charter](../leap-charter.md) |
 | A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, contract, risk, or legacy Layer needs investigation | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
