@@ -111,6 +111,9 @@ The canonical, continuously maintained command/alias catalog is [LEAP Semantic W
 
 | Command | Expected behavior |
 |---|---|
+| `LEAP help` | Show canonical command and intent examples; no mutation. |
+| `Run LEAP Discovery` | Explore domain, actors, workflows and relationships before deciding implementation. |
+| `Run LEAP Pressure Test` | Challenge a hypothesis, surface alternatives and falsifying evidence. |
 | `Run LEAP Charter` | Establish or reconcile Mission, Strategic Outcomes, Initiative identity, Roadmap, Domains, Architecture, source truth, and implementation posture. |
 | `Run LEAP Recon` | Investigate a focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, risk, dependency, contract, or legacy Layer. |
 | `Generate LEAP Prompt` | Create an agent-ready Prompt only after traceability, source truth, repo reality, scope, validation, stop conditions, and execution configuration are clear. |
