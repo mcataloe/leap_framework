@@ -133,6 +133,9 @@ If those answers are unclear, LEAP inspects what it can, asks only the material 
 
 ## How to choose a workflow
 
+- Say **LEAP help** to see supported invocations, or describe a task and let the [semantic router](semantic-routing.md) select the smallest appropriate workflow.
+- Use [LEAP Discovery](user/leap-discovery.md) to understand the domain; use Pressure Test to challenge a hypothesis. Neither is another lifecycle stage.
+
 - Use the [workflow chooser](user/which-leap-workflow.md) to compare normal prompts, Quick Brief, Charter, Recon, Prompt, and LHS.
 - Use [When Not to Use LEAP](user/when-not-to-use-leap.md) when full LEAP is heavier than the task.
 - Use the [Quick LEAP Brief](user/quick-leap-brief.md) for the smallest useful coding-agent handoff.
