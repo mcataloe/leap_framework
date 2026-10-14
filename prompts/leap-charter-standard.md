@@ -44,6 +44,8 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 
 ## Required behavior
 
+When a user explicitly asks for LEAP Discovery or conceptual Pressure Test without a full Charter, follow [Discovery and Pressure Test](../docs/user/leap-discovery.md) and [Semantic Workflow Routing](../docs/semantic-routing.md). Neither implies Charter artifact creation or authorization to mutate repository files.
+
 You must:
 
 1. preserve the user's original wording
