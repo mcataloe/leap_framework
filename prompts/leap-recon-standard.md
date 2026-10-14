@@ -105,6 +105,8 @@ If source truth remains unsafe, use `Reconcile Docs First` or `Continue LEAP Cha
 
 ## Baseline Freshness Check
 
+Routing note: see [Semantic Workflow Routing](../docs/semantic-routing.md). Prefer conceptual Pressure Test when no repository evidence is needed, but keep Recon evidence-first when a proposal depends on actual code, branch or source truth. Discovery is not a mandatory prerequisite.
+
 Answer:
 
 ```text

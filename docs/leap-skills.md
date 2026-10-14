@@ -59,6 +59,10 @@ LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handof
 
 Skills are latent capabilities selected only when useful. A tiny obvious task may use no explicit Skill. A complex migration may compose several.
 
+## Native LEAP entry point
+
+The canonical optional routing Skill lives at [skills/leap/SKILL.md](../skills/leap/SKILL.md). It provides workflow help and intent classification without replacing the canonical procedures. See [Semantic Workflow Routing](semantic-routing.md) for explicit command precedence and safeguards. Project installations are distributed through the separately versioned LEAP Agent Pack; do not duplicate manually maintained Skill bodies.
+
 ## Portable Skill model
 
 A LEAP Skill is a semantic contract, not a Claude-specific or Codex-specific runtime feature.

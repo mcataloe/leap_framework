@@ -14,6 +14,10 @@ Status: current released baseline; current branch changes remain unreleased
 
 ## Unreleased framework additions
 
+- Optional semantic workflow router and LEAP help command catalog
+- Independent Discovery and Pressure Test entry points (no new lifecycle stage)
+- Canonical native LEAP Skill entry point with portable metadata alignment
+
 ```text
 - First-class LEAP Skill abstraction for reusable execution capabilities
 - Portable LEAP Skill Contract with Use / Do Not Use, inputs, outputs, preconditions, scope, tools, permission ceiling, Always / Ask First / Never, procedure, verification, references, and portability notes
