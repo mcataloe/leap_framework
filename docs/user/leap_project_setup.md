@@ -27,7 +27,8 @@ source when repository access is available.
 The project repository to inspect is:
 {{ INSERT REPOSITORY HANDLE OR ACCESSIBLE URL HERE }}
 
-When I invoke commands such as Run LEAP Charter, Run LEAP Recon,
+When I invoke LEAP help, LEAP Discovery, LEAP Pressure Test,
+Run LEAP Charter, Run LEAP Recon,
 Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS,
 Run LEAP LHS, Run LEAP Governance, Run LEAP Cleanup, Run LEAP Validation, or
 Run LEAP Handoff, use LEAP Framework behavior.
@@ -105,6 +106,8 @@ credits, quotas, available tools, or organizational policy changes.
 Canonical routing guidance: [LEAP Execution Routing](../execution-routing.md).
 
 ## Command behavior
+
+The canonical, continuously maintained command/alias catalog is [LEAP Semantic Workflow Routing](../semantic-routing.md). **LEAP help** works through project bootstrap instructions even when no native Skill is installed. Standard LEAP Skills are optional; install through the [Agent Pack](https://github.com/mcataloe/leap_agent_pack) after adopting the project's AGENTS.md instructions.
 
 | Command | Expected behavior |
 |---|---|
