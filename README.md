@@ -71,6 +71,7 @@ See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capabili
 - Deciding whether LEAP is too much: [When Not to Use LEAP](docs/user/when-not-to-use-leap.md)
 - Small agent-executed task: [Quick LEAP Brief](docs/user/quick-leap-brief.md)
 - Reusable execution capabilities: [LEAP Skills](docs/leap-skills.md)
+- Workflow help, semantic routing, and optional Discovery: [LEAP Semantic Routing](docs/semantic-routing.md)
 - Capability- and cost-aware execution routing: [LEAP Execution Routing](docs/execution-routing.md)
 - Setting up LEAP: [LEAP Project Setup](docs/user/leap_project_setup.md)
 - Documentation map: [LEAP Documentation Map](docs/README.md)
