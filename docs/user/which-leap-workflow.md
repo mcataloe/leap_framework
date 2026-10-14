@@ -4,6 +4,8 @@ Use the lightest workflow that controls the actual risk.
 
 ## Quick chooser
 
+Use **LEAP help** for the canonical command menu and [Semantic Workflow Routing](../semantic-routing.md) for intent/alias rules. [LEAP Discovery](leap-discovery.md) explores a domain without prescribing implementation; Pressure Test challenges a hypothesis; Recon investigates repository/source truth.
+
 | Situation | Start with |
 |---|---|
 | Tiny, obvious, easy-to-verify task | Normal prompt |
