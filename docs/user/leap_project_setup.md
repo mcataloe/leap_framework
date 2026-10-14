@@ -133,7 +133,7 @@ The modifier applies to the current LEAP operation unless the user explicitly sc
 Use the repository-level template from the LEAP Agent Pack:
 
 ```text
-https://github.com/mcataloe/leap_agent_pack/blob/main/repo/AGENTS.md
+https://github.com/mcataloe/leap_agent_pack/blob/main/templates/separated/repo/AGENTS.md
 ```
 
 Example:
@@ -155,7 +155,7 @@ It should include a small LEAP Baseline State summary. Larger or drift-prone pro
 Use:
 
 ```text
-https://github.com/mcataloe/leap_agent_pack/blob/main/repo/AGENTS_Population_Prompt.md
+https://github.com/mcataloe/leap_agent_pack/blob/main/templates/separated/repo/AGENTS_Population_Prompt.md
 ```
 
 The agent should inspect real repository evidence and mark unknowns as `TBD` instead of guessing.
