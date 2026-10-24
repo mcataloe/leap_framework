@@ -258,6 +258,12 @@ Last reconciled:
 
 The Roadmap should show current scheduling without becoming a competing source for Initiative identity.
 
+## Team and delivery-capacity discovery
+
+When staffing or delivery timing changes the next safe planning decision, Charter should identify the **project-designated operational source of record** (for example Jira) and inspect authorized evidence before asking. Determine whether human/role capabilities and allocations are confirmed, provisional, or unknown; distinguish human capacity from AI tool assistance. Do not maintain a separate roster or accepted-estimate store inside LEAP or `AGENTS.md`.
+
+For an unstaffed or greenfield project, use role placeholders and labeled conditional staffing scenarios rather than blocking Charter. Where evidence is available, separate implementation effort from elapsed duration, include research and validation, and disclose specialist/review bottlenecks and uncertainty. Without defensible availability information, avoid promising dates. Use [Team & Delivery Capacity Estimation](team-delivery-estimation.md) when estimates are material; otherwise keep discovery lightweight. External allocations and accepted estimates must not be changed without separate authorization.
+
 ## Delivery and Build planning
 
 Charter may identify candidate Delivery Units but should normally leave detailed Build Unit generation to focused Recon.
@@ -351,7 +357,7 @@ A Charter output should include:
 10. No-Build / Alternative-Solution Review
 11. MVP or Current Scope Boundary
 12. Strategic Outcomes
-13. Initiative and Roadmap Recommendations
+13. Initiative and Roadmap Recommendations (conditional capacity assumptions when material)
 14. Domain and Architecture Recommendations
 15. Concrete Non-Goals
 16. Risks and Constraints
