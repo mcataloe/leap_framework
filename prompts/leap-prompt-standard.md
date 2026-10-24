@@ -97,6 +97,10 @@ STOP remains STOP.
 
 Prompt generation may proceed with a materially consequential assumption only when it is safely assumable, explicitly disclosed, and does not violate a hard blocker or approval requirement.
 
+## Estimates and capacity (only when material)
+
+If a Prompt proposes effort or delivery dates, use [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md): identify the authoritative work tracker, distinguish evidenced effort from conditional elapsed duration, include research/review/validation and AI oversight, and disclose the source/assumptions. A proposed estimate must not silently update a Jira issue or other external source of truth. Commit activity is not a worked-hours record. Do not add this analysis to routine Prompts unless it changes execution decisions.
+
 ## Required preflight
 
 Confirm:
