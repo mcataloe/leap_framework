@@ -164,6 +164,10 @@ If no blockers remain, state:
 No blocking Charter questions remain based on the current repository and documentation scan.
 ```
 
+## Conditional estimation discovery
+
+Use [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md) only when capacity affects planning. Identify the external source of record, use role placeholders if staffing is unassigned, distinguish AI assistance from personnel capacity, and label all conditional timeline forecasts. Neither a LEAP staffing register nor a committed delivery date is mandatory for Charter.
+
 ## Copy-ready Charter request
 
 ```text
@@ -181,6 +185,7 @@ Charter settings:
 - Establish or reconcile Strategic Outcomes.
 - Establish or reconcile an Initiative registry before detailed Build Unit planning.
 - Treat Roadmap as a scheduling, priority, dependency, milestone, release, status, and parallelism view.
+- When effort or staffing materially changes the decision, consult the external work-management source of record; use evidence-backed effort and conditional capacity-adjusted timelines, and do not infer labor hours from commit timestamps.
 - Treat Domains as persistent responsibility boundaries with a many-to-many relationship to Initiatives.
 - Treat Architecture as technical structure, not the strategic hierarchy.
 - Identify Delivery Units only when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist.
