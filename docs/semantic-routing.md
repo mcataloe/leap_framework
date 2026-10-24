@@ -75,6 +75,21 @@ Native Skills are optional entry points. A canonical ready-to-use LEAP routing S
 
 Do not duplicate the entire methodology into Skills or introduce a mandatory registry/service. LEAP help must also work if no native Skill was installed and the AGENTS.md bootstrap was loaded.
 
+## Native Codex / Claude routing acceptance (outstanding)
+
+The semantic-router implementation merged through Framework [PR #19](https://github.com/mcataloe/leap_framework/pull/19) and Agent Pack [PR #4](https://github.com/mcataloe/leap_agent_pack/pull/4) after static contract review. **Native Codex and Claude Code Skill-loading, automatic workflow selection and explicit-command behavior have not been verified by those static checks.** The original pre-merge QA handoff is historical evidence, not a current merge gate.
+
+For each native assistant, independently:
+
+1. Follow the [Agent Pack native Skill installation and rollback instructions](https://github.com/mcataloe/leap_agent_pack/blob/main/docs/skills-installation.md). Pin and record the Framework and Agent Pack revisions being evaluated; preserve customized downstream `AGENTS.md` instructions.
+2. In checkouts of both repositories, run `python tests/validate_semantic_router.py --agent-pack ../leap_agent_pack`. This validates static contracts only; **passing does not establish live routing accuracy**.
+3. Start a fresh native Codex or Claude Code session in a disposable or mutation-restricted test repository. Confirm the Skill is discoverable, whether it is explicitly loaded and whether implicit selection actually occurs.
+4. Exercise all 46 scenarios in [`tests/semantic-routing-cases.json`](../tests/semantic-routing-cases.json) against that assistant, separately recording case ID, observed route, whether the Skill loaded, actual allowed/disallowed actions, and stop/approval behavior. The JSON contains **expected** outcomes, not observed pass results.
+5. Record observed accuracy against the targets: **100% explicit-command selection, at least 90% semantic selection, and zero unauthorized mutations or approval/STOP bypasses**. Include smoke coverage for LEAP help, Discovery versus Recon, Generate versus Run Prompt, Cleanup discovery-only, ordinary small tasks, and No Gate hard STOP.
+6. Keep Codex and Claude Code results separate, dated and revision-bound. Any case not exercised is **unverified**, not passed. Fix description/bootstrap misrouting only after evidence; do not add a custom routing service without a separate LEAP decision.
+
+The applicable source-of-truth contract remains this document. Preserve actual test evidence in an appropriately scoped evaluation record or review rather than converting a historical pre-merge handoff into current instructions. Do not assert native acceptance until real assistant sessions have produced recorded results.
+
 ## Related sources
 
 - [LEAP Framework](leap.md)
