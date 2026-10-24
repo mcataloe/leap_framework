@@ -185,6 +185,10 @@ Why is AI specifically justified, if proposed?
 What would make this not worth building?
 ```
 
+## Conditional team and delivery-capacity assessment
+
+If effort or timeline assumptions materially affect Charter readiness, inspect the project's designated staffing, allocation and work-item source of record before asking. Record source and evidence freshness, team capabilities or role placeholders, Initiative-level allocation and AI assistance separately. Distinguish effort from elapsed delivery time; label provisional staffing and AI speedups as scenarios unless supported by comparable evidence. Do not infer labor hours from commit timestamps or copy a shadow roster into LEAP docs / AGENTS.md. Do not write accepted estimates or allocations to an external system without explicit authorization. Follow [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md). If immaterial or unavailable, do not force a roster questionnaire.
+
 ## Required output
 
 ```text
