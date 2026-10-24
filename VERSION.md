@@ -4,12 +4,18 @@ LEAP release versions are managed by Git tags. Active release notes should stay 
 
 LEAP `AGENTS.md` templates are released separately from the LEAP Agent Pack repository because downstream repositories copy and customize those files.
 
-## Current framework baseline
+## Framework release provenance (checked 2026-10-24)
+
+The prior documentation recorded baseline `0.1.9` and tag `leap-v0.1.9`, but that tag is **not present in the inspected Git refs**. Do not describe `0.1.9` as a verified published release on this evidence alone.
+
+Verified published GitHub **prereleases** are `v0.1.10-alpha` and `v.0.1.11-alpha` (both dated 2026-05-29). The latter is the most recently published prerelease. No stable release tag was verified. Changes on `main` since those tags remain unreleased; a new release identity or tag requires a separate maintainer decision.
 
 ```text
-Version: 0.1.9
-Release tag: leap-v0.1.9
-Status: current released baseline; current branch changes remain unreleased
+Previously documented baseline: 0.1.9 (release identity unverified)
+Previously claimed tag: leap-v0.1.9 (absent from inspected refs)
+Latest verified published prerelease: v.0.1.11-alpha
+Current main: unreleased changes
+Next release version/tag: not established
 ```
 
 ## Unreleased framework additions
@@ -17,6 +23,7 @@ Status: current released baseline; current branch changes remain unreleased
 - Optional semantic workflow router and LEAP help command catalog
 - Independent Discovery and Pressure Test entry points (no new lifecycle stage)
 - Canonical native LEAP Skill entry point with portable metadata alignment
+- Advisory Team & Delivery Capacity Estimation with externally authoritative staffing and work-tracker inputs
 
 ```text
 - First-class LEAP Skill abstraction for reusable execution capabilities
@@ -59,6 +66,7 @@ docs/leap-charter.md
 docs/project-documentation-model.md
 docs/leap-skills.md
 docs/execution-routing.md
+docs/team-delivery-estimation.md
 docs/glossary.md
 docs/repository-cleanup.md
 ```
