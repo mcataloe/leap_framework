@@ -84,6 +84,7 @@ See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capabili
 - [LEAP Skills](docs/leap-skills.md)
 - [LEAP Semantic Routing and Discovery](docs/semantic-routing.md)
 - [LEAP Execution Routing](docs/execution-routing.md)
+- [Team & Delivery Capacity Estimation](docs/team-delivery-estimation.md) — advisory effort and capacity-adjusted delivery estimates; external work-management records remain authoritative.
 - [Glossary](docs/glossary.md)
 - [Materiality Gate](docs/materiality-gate.md)
 - [Dependency & Contract Recon](docs/dependency-contract-recon.md)
@@ -102,7 +103,7 @@ See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capabili
 - [LEAP Skill definition template](templates/leap-skill-template.md)
 - [Operational prompts](prompts/README.md)
 
-Compatibility stubs remain at `templates/leap-phase-0-template.md` and `prompts/leap-phase-0-standard.md`. Prefer Charter files for active work.
+Former Phase 0 paths (`templates/leap-phase-0-template.md` and `prompts/leap-phase-0-standard.md`) are **absent** from the current repository. Use the Charter template and operational prompt above. Restore compatibility paths only after validating an actual downstream dependency and approving a targeted compatibility plan.
 
 ## Repository Structure
 
