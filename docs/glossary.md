@@ -288,6 +288,18 @@ Higher implementation gravity increases the likelihood that LHS is appropriate.
 
 The system, product, platform, service, internal tool, data system, AI application, or infrastructure initiative being built or maintained.
 
+## LEAP Semantic Routing
+
+Selects the appropriate LEAP workflow from an explicit invocation or the user's natural-language intent; separate from LEAP execution-surface routing. See [Semantic Workflow Routing](semantic-routing.md).
+
+## LEAP Discovery
+
+Optional iterative domain/problem exploration that yields a Domain/Concept Brief without requiring an implementation recommendation. See [Discovery and Pressure Test](user/leap-discovery.md).
+
+## LEAP Pressure Test
+
+Optional challenge of a hypothesis/design through competing explanations, alternatives, falsifiers and evidence. Route to Recon when repository investigation is material.
+
 ## Ideation Loop
 
 The repeated clarification cycle that turns vague intent into buildable mechanisms:

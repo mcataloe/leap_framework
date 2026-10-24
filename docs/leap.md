@@ -12,6 +12,10 @@ LEAP LHS is the **Layered House Standard** Prompt format for staged implementati
 
 LEAP Skills are reusable execution capabilities that may be selected and composed inside that lifecycle. They are not a new lifecycle phase or a replacement for Build Units. Canonical Skill guidance lives in [`leap-skills.md`](leap-skills.md).
 
+## Semantic workflow entry points
+
+[LEAP Semantic Workflow Routing](semantic-routing.md) defines explicit command aliases, LEAP help, and safe natural-language selection. It is separate from capability- and cost-aware execution routing. [Discovery and Pressure Test](user/leap-discovery.md) are optional pre-planning or investigative entry points and do not change the lifecycle or authorization model.
+
 ## 1. Framework principles
 
 LEAP applies these operating rules:

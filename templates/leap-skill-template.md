@@ -7,9 +7,7 @@ Do not create a Skill for a one-off instruction that is clearer inside the gover
 ```markdown
 ---
 name: <stable-skill-name>
-purpose: <one-sentence capability>
-status: draft / active / deprecated
-portability: portable / harness-specific
+description: <plain-language purpose, positive triggers, and important exclusions>
 ---
 
 # <Skill Name>
@@ -17,6 +15,8 @@ portability: portable / harness-specific
 ## Purpose
 
 <What specialized capability this Skill provides.>
+
+Metadata rule: Only name and description are required in portable SKILL.md YAML frontmatter. Keep richer LEAP status, portability and permission contracts in the Skill body, not assumed-required vendor metadata.
 
 ## Use When
 
@@ -87,6 +87,9 @@ Load only when relevant:
 - `<reference path>` — <when to load>
 
 ## Portability Notes
+
+- Status: draft / active / deprecated
+- Portability: portable / harness-specific
 
 - Native agent implementation, if any:
 - Repo-local fallback:

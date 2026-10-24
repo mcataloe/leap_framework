@@ -28,6 +28,7 @@ This folder contains LEAP Framework documentation for users, reference readers, 
 | [`leap.md`](leap.md) | Lifecycle, doctrine, source truth, risk, Prompt behavior, and Skill composition | Canonical |
 | [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter behavior | Canonical |
 | [`project-documentation-model.md`](project-documentation-model.md) | Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture model | Canonical |
+| [`semantic-routing.md`](semantic-routing.md) | Command help, intent selection, Discovery / Pressure Test routing; distinct from execution routing | Canonical |
 | [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities, Skill Contract, selection, permissions, progressive disclosure, and verification | Canonical |
 | [`execution-routing.md`](execution-routing.md) | Capability- and cost-aware execution-surface routing, onboarding profile, escalation, and verification state | Canonical |
 | [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
@@ -64,6 +65,7 @@ Generic project-planning `Layer` is legacy-compatible and deprecated as the pref
 | [`00_start_here.md`](00_start_here.md) | Plain-English entry point |
 | [`user/leap_project_setup.md`](user/leap_project_setup.md) | Project and Agent Pack setup |
 | [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Workflow routing |
+| [`user/leap-discovery.md`](user/leap-discovery.md) | Domain exploration and hypothesis pressure testing |
 | [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md) | Lightweight alternatives |
 | [`user/leap-for-humans.md`](user/leap-for-humans.md) | Human-oriented overview |
 | [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Small bounded handoff |

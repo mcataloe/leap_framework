@@ -35,6 +35,8 @@ Canonical references:
 
 ## Prompt family routing
 
+Discover workflow commands, aliases, Discovery and Pressure Test through [Semantic Workflow Routing](../docs/semantic-routing.md). The table below describes implementation Prompt variants, not a competing command catalog.
+
 | Prompt Type | Use when | File / source |
 |---|---|---|
 | Charter Prompt | Mission, Strategic Outcomes, Initiative identity, Roadmap, source truth, or Brownfield docs need alignment | [leap-charter-standard.md](leap-charter-standard.md) |

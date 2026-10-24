@@ -4,6 +4,12 @@ Current and unreleased LEAP Framework changes are recorded here. Use Git history
 
 ## Unreleased - Materiality Gate and Charter QA corrections
 
+### Added (semantic routing, proposed)
+
+- Added optional semantic workflow routing, help, Discovery and Pressure Test contracts; canonical LEAP SKILL.md and native metadata alignment.
+- Added reproducible routing evaluation specifications and a dependency-free static contract validator.
+
+
 ### Fixed
 
 - Clarified independent, composable materiality, discoverability, assumability, and blocker classifications, including the STOP-before-INSPECT routing precedence.

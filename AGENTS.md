@@ -65,6 +65,8 @@ If instructions conflict, follow the more specific and more recent instruction u
 
 ## Documentation Starting Point
 
+For LEAP help and ordinary-language workflow selection, use [docs/semantic-routing.md](docs/semantic-routing.md) and [docs/user/leap-discovery.md](docs/user/leap-discovery.md). Semantic routing never authorizes mutation and is separate from execution routing.
+
 When present, start with `docs/00_start_here.md`.
 
 Treat canonical docs as source of truth. Treat archived docs as historical unless a current canonical document explicitly references them.
