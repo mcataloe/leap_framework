@@ -17,6 +17,8 @@ The canonical rule is:
 
 Provider-specific products, quotas, subscriptions, and credit systems are runtime configuration, not framework architecture.
 
+**Separate decision:** execution routing selects *how and where* an agent performs work and verifies it. [Team & Delivery Capacity Estimation](team-delivery-estimation.md) estimates *person-effort and delivery duration* from authorized staffing, task and historical evidence. Agent capabilities may inform both, but an AI tool is not automatically another FTE, and tool cost/commit counts are not measures of human working hours.
+
 ## 1. Why execution routing exists
 
 Reasoning difficulty, execution capability, environment access, and marginal cost are separate concerns.

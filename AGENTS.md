@@ -197,6 +197,7 @@ Primary canonical docs:
 - `docs/project-documentation-model.md`
 - `docs/leap-skills.md`
 - `docs/execution-routing.md`
+- `docs/team-delivery-estimation.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `prompts/leap-charter-standard.md`
@@ -349,6 +350,7 @@ Keep these aligned when framework behavior changes:
 - `docs/project-documentation-model.md`
 - `docs/leap-skills.md`
 - `docs/execution-routing.md`
+- `docs/team-delivery-estimation.md`
 - `docs/glossary.md`
 - `docs/repository-cleanup.md`
 - `docs/user/`
