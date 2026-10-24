@@ -221,12 +221,12 @@ Supporting maps and guidance:
 
 Examples are illustrative, not canonical source truth.
 
-Compatibility stubs remain at:
+Former Phase 0 compatibility paths are **not present** on the current `main` branch:
 
 - `prompts/leap-phase-0-standard.md`
 - `templates/leap-phase-0-template.md`
 
-Do not prefer compatibility stubs for active work.
+Do not route agents to these nonexistent files or represent them as available stubs. Use `prompts/leap-charter-standard.md` and `templates/leap-charter-template.md` for current work. If a downstream consumer actually requires a legacy path, propose an explicitly approved compatibility repair rather than silently restoring obsolete methodology.
 
 ## Repository layout
 
