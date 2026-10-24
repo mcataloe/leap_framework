@@ -2,6 +2,14 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Advisory team and delivery-capacity estimation
+
+### Added
+
+- Defined external work-management source-of-record boundaries and evidence-backed effort versus elapsed-delivery estimation doctrine.
+- Added Charter/Prompt references and synthetic acceptance scenarios, including AI assistance, privacy, stale estimates and commit-time caveats.
+- Left staffing, allocations, worklogs, accepted estimates and status authoritative in external systems; no LEAP-owned roster or mandatory connector.
+
 ## Unreleased - Materiality Gate and Charter QA corrections
 
 ### Added (semantic routing, proposed)
