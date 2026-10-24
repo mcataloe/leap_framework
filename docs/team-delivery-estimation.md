@@ -58,14 +58,14 @@ Do not use individual output/activity metrics as a productivity ranking, employe
 1. **Bound the work.** Use a clear outcome, acceptance criteria, research/discovery work, complexity, dependencies, testing, integration, review and release obligations. Record unknowns that affect the estimate.
 2. **Inspect authorized evidence.** Locate the configured source of record and available comparable completed work. Identify evidence gaps rather than fabricating availability, time or an individual's capability.
 3. **Estimate implementation effort.** Produce a person-effort range (or explicitly qualitative uncertainty if numeric evidence is too weak); separate research, design, build, verification, review and rework where useful. Calibrate against reliable measured effort only when comparable.
-4. **Estimate calendar delivery separately.** Condition the timeline on stated Initiative allocations, availability periods, specialist bottlenecks, parallelizability, dependencies, review queues, waiting time and critical path. Never use \`effort / total headcount\` as a universal schedule calculation.
+4. **Estimate calendar delivery separately.** Condition the timeline on stated Initiative allocations, availability periods, specialist bottlenecks, parallelizability, dependencies, review queues, waiting time and critical path. Never use `effort / total headcount` as a universal schedule calculation.
 5. **Handle AI assistance explicitly.** Credit measurable reductions only from comparable evidence that includes prompt/agent setup, human oversight, integration, failures and validation. Where evidence is absent, show an *illustrative AI-assisted scenario*, not an evidence-backed forecast or guaranteed multiplier.
 6. **Review and propose.** Present assumptions, cited evidence and source timestamps, comparability, exclusions, effort and duration ranges, uncertainty, confidence rationale, risks, required human approvals and re-estimation triggers. A project lead accepts/rejects the proposal in the external authoritative workflow; no silent write-back.
 7. **Calibrate after delivery.** Compare forecast effort with credible recorded effort when available, and forecast elapsed time with actual workflow dates separately. Record causes of deviation in the designated project system. Avoid persisting a shadow team ledger in LEAP.
 
 ### Required recommendation shape (when estimation is material)
 
-\`\`\`text
+```text
 Work item / scope:
 Authoritative tracker and evidence timestamp:
 Human / role capability and allocation assumptions:
@@ -78,7 +78,7 @@ Dependencies and review bottlenecks:
 Evidence strength, uncertainty and confidence rationale:
 What would change the estimate / refresh triggers:
 Approver and next action in the external system:
-\`\`\`
+```
 
 The recommendation is not the external system's accepted estimate. Do not manufacture timestamps, hours, precise probabilities, comparative performance scores or completion dates. Scope, staffing, availability, task ownership, Architecture, dependencies, or validation changes can invalidate the scenario; flag affected forecasts for reassessment rather than quietly repeating them.
 
