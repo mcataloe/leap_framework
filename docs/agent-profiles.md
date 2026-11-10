@@ -4,6 +4,8 @@ LEAP is tool-agnostic.
 
 Different coding agents have different strengths, context limits, autonomy, repository access, and failure modes. LEAP captures those differences in an **Agent Execution Profile**.
 
+An **execution profile** describes what a tool can do. An **execution role** describes who is responsible for planning, bounded implementation, independent review, and required human approval. See [Agent Execution Roles and Handoffs](agent-execution-roles.md). Roles are optional assignments within the existing LEAP lifecycle, not new agent types or required sessions.
+
 ## Why profiles matter
 
 A good handoff depends on the agent.
