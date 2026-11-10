@@ -156,6 +156,25 @@ Create only the final agent-ready Prompt.
 
 The Build Unit remains the delivery boundary. A Skill supplies reusable capability. Prompt constraints and permissions remain authoritative.
 
+## Optional execution role and handoff block
+
+For multi-agent work, separate independent review, or cross-session continuation **only when material**, append the following to the agent-ready Prompt. For an ordinary single-agent task, omit it. See [Agent Execution Roles and Handoffs](../docs/agent-execution-roles.md); do not confuse roles with execution surfaces or Skills.
+
+```text
+Coordinator / integration owner:
+Implementor assignment(s) and write boundaries:
+Reviewer / independence requirement (or not required):
+Human approver and protected actions:
+Context packet sources and inspected revisions:
+Relevant architectural invariants, contract versions, and assumptions:
+Dependency and shared-resource sequencing:
+Required evidence, review disposition, and handoff destination:
+Stale-baseline / stop triggers:
+Fallback when independent agents or reviews are unavailable:
+```
+
+This block grants no authority beyond the governing Prompt, repository guidance, and required approvals. A mandated independent review must remain outstanding when it cannot be performed; never label it completed by self-review.
+
 ## Strategic and delivery rules
 
 Use the preferred hierarchy:

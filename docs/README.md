@@ -31,6 +31,7 @@ This folder contains LEAP Framework documentation for users, reference readers, 
 | [`semantic-routing.md`](semantic-routing.md) | Command help, intent selection, Discovery / Pressure Test routing; distinct from execution routing | Canonical |
 | [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities, Skill Contract, selection, permissions, progressive disclosure, and verification | Canonical |
 | [`execution-routing.md`](execution-routing.md) | Capability- and cost-aware execution-surface routing, onboarding profile, escalation, and verification state | Canonical |
+| [`agent-execution-roles.md`](agent-execution-roles.md) | Optional architect, implementor, reviewer, and human-approver responsibilities, context packets, and evidence handoffs | Canonical |
 | [`team-delivery-estimation.md`](team-delivery-estimation.md) | Advisory effort and capacity-adjusted delivery estimates using external work-system evidence | Canonical |
 | [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
 | [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
