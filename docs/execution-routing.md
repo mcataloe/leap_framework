@@ -184,3 +184,8 @@ Verification State at Handoff:
 ```
 
 The selected Agent / Tool is therefore an execution decision derived from requirements, not an assumption made before requirements are known.
+
+
+## 11. Optional native multi-agent delegation
+
+For independently bounded work, see [Native Multi-Agent Delegation Policy](native-agent-delegation.md). It extends surface routing with dependency, ownership, model/effort selection, and integration rules; it does not alter the lifecycle, permissions, or Definition of Done.
