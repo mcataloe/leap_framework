@@ -57,9 +57,9 @@ Current code, tests, schemas, and migrations outrank docs. Canonical docs outran
 ## Scope
 
 - Stay inside the stated scope. Respect non-goals and do-not-touch paths.
-- Reuse existing patterns. No unrelated cleanup.
+- Extend the existing implementation; do not treat the task as greenfield unless none exists. Reuse existing patterns. No unrelated cleanup.
 - Do not invent product rules or decisions. Mark unknowns `TBD` with the exact question for the owner.
-- Never weaken or delete tests to make them pass.
+- Add or update tests for changed behavior. Never weaken or delete tests to make them pass.
 - Link the governing ticket, issue, or plan when one exists. Use the full LEAP planning model (Strategic Outcome, Initiative, Delivery Unit, Build Unit) only when the project already uses it.
 
 ## Hard stops
@@ -68,7 +68,8 @@ Stop and ask before:
 
 - destructive or irreversible data changes, including edits to applied migrations
 - auth, permission, security, privacy, billing, or identity changes
-- breaking public contracts, APIs, schemas, or paths
+- changing public contracts, APIs, schemas, or paths
+- acting on a business rule that is unclear and would change the result
 - new dependencies, paid services, or major Architecture replacement
 - treating archived docs as current truth
 - irreversible Git operations or discarding work you do not own

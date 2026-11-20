@@ -17,6 +17,7 @@ The execution role, delegation, and estimation work merged to `main` through `f6
 
 - `VERSION.md` and `docs/maintainer/release-history.md` no longer claim a `0.1.9` release: tag `leap-v0.1.9` does not exist. The verified published prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha`.
 - `tests/check_framework.py` runs on Python 3.9.
+- LEAP Core restores three rules from the previous global `AGENTS.md`: stop before changing (not only breaking) public contracts, APIs, schemas, or paths; stop before acting on an unclear business rule that would change the result; add or update tests for changed behavior and extend the existing implementation instead of treating the task as greenfield.
 - `tests/validate_semantic_router.py --agent-pack` always requires `manifests/latest.json` and validates `template-inventory.json` and `compatibility.json` when the pack ships them.
 
 ### Condensed
@@ -27,7 +28,7 @@ The execution role, delegation, and estimation work merged to `main` through `f6
 
 ### Pending
 
-- The LEAP Agent Pack (https://github.com/mcataloe/leap_agent_pack) does not yet embed LEAP Core. Until it does, the non-blocking CI step `check_framework.py --agent-pack` reports the global and combined templates as out of sync, and `AGENTS.md` and `VERSION.md` refer to Agent Pack `0.2.0-candidate.2`, which that change will publish.
+- The LEAP Agent Pack (https://github.com/mcataloe/leap_agent_pack) does not yet embed the current LEAP Core. Until it does, the non-blocking CI step `check_framework.py --agent-pack` reports the global and combined templates as out of sync, and `AGENTS.md` and `VERSION.md` refer to Agent Pack `0.2.0-candidate.2`, which that change will publish.
 
 ## Unreleased - LEAP Core and ceremony reduction
 
