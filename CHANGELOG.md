@@ -18,6 +18,9 @@ The execution role, delegation, and estimation work merged to `main` through `f6
 - `VERSION.md` and `docs/maintainer/release-history.md` no longer claim a `0.1.9` release: tag `leap-v0.1.9` does not exist. The verified published prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha`.
 - `tests/check_framework.py` runs on Python 3.9.
 - LEAP Core restores three rules from the previous global `AGENTS.md`: stop before changing (not only breaking) public contracts, APIs, schemas, or paths; stop before acting on an unclear business rule that would change the result; add or update tests for changed behavior and extend the existing implementation instead of treating the task as greenfield.
+- LEAP Core's `Failed` state uses the Validation standard's wording (unexplained out-of-scope change), and `accept-with-follow-up` requires Execution verified, or Partially verified with each pending check named and accepted.
+- Agent Execution Configuration fields are defined once in the Prompt standard, section 3; `docs/leap.md` and the glossary link to it instead of listing a conflicting set.
+- The copy-ready Quick LEAP Brief again stops on missing required files, an archived doc as the only source, impossible acceptance criteria, and billing or sensitive data, and preserves compatibility by default.
 - `tests/validate_semantic_router.py --agent-pack` always requires `manifests/latest.json` and validates `template-inventory.json` and `compatibility.json` when the pack ships them.
 
 ### Condensed
