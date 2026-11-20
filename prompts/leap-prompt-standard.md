@@ -90,6 +90,8 @@ Confirm:
 
 If a missing item maps to a hard blocker, stop. In Materiality-Gated mode, ask unresolved material questions before Prompt generation. In No Gate mode, only safely assumable material unknowns may become explicit disclosed assumptions; STOP conditions still block generation.
 
+If the Prompt proposes effort or delivery dates, follow [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md). An estimate in a Prompt never updates the external work tracker.
+
 ## Codex Plan Mode and Execution Mode
 
 | Execution Mode | Meaning | Codex Plan Mode (optional) |

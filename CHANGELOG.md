@@ -20,7 +20,7 @@ The execution role, delegation, and estimation work merged to `main` through `f6
 
 ### Condensed
 
-- Estimation paragraphs repeated across the Charter standard and template, the Prompt standard, `docs/project-documentation-model.md`, and `docs/execution-routing.md` are replaced by pointers to `docs/team-delivery-estimation.md`, which keeps the full doctrine.
+- Estimation paragraphs repeated across the Charter standard and template, the Prompt standard, `docs/project-documentation-model.md`, and `docs/execution-routing.md` are removed. `docs/team-delivery-estimation.md` keeps the full doctrine; it is reached from LEAP Core's load tiers, `docs/leap-charter.md`, and a one-line trigger in the Prompt standard's preflight.
 - The fill-in execution role block in the Prompt template is replaced by one paragraph pointing to `docs/agent-execution-roles.md`.
 - Routing pointers in entry-point docs and the Phase 0 wording are rewritten in LEAP Core's style.
 
