@@ -84,7 +84,7 @@ Run the most relevant checks the repository defines. Choose the cheapest tool or
 - **Execution verified**: every required check ran and passed.
 - **Partially verified**: named required checks are still pending.
 - **Implemented — execution unverified**: required checks did not run.
-- **Failed**: a required check failed, or the diff exceeds scope or crosses a hard stop.
+- **Failed**: a required check failed, or the diff has an unexplained out-of-scope change or crosses a hard stop.
 
 Never call work complete when required checks did not run.
 

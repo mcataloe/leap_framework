@@ -81,7 +81,7 @@ Non-goals respected: yes / no — <detail>
 End with one of:
 
 - `accept` — verification state is Execution verified and no findings remain
-- `accept-with-follow-up` — acceptable to merge; named follow-ups are recorded
+- `accept-with-follow-up` — acceptable to merge; named follow-ups are recorded. Requires Execution verified, or Partially verified with each pending check named as a follow-up and accepted by the approver. Never use it for Implemented — execution unverified or Failed.
 - `return-for-fix` — findings must be fixed before merge
 - `escalate` — a human decision is required (hard stop, unexplained scope, or ownership question)
 
