@@ -360,22 +360,7 @@ Notification automation, release blocking, ticket creation, and cross-repo mutat
 
 Agent / Tool selection should be derived from required capabilities and validation, not assumed before the work unit is understood.
 
-Every agent-ready Prompt should state:
-
-```text
-Agent / Tool:
-Model:
-Reasoning Level:
-Execution Mode:
-Repository:
-Branch / Worktree:
-Permissions:
-Required Confidence / Validation:
-Validation:
-Commit Guidance:
-```
-
-Optional — omit when not needed: tool-specific settings such as Codex Plan Mode, Scope Scale, Required Capability Class (E0–E4), Required Capabilities, Preferred and Escalation Surface, Verification State at Handoff, and Skill sources and loading method when Skills are used.
+Every agent-ready Prompt states its Agent Execution Configuration. The required and optional fields are defined once in the [Prompt standard, section 3](../prompts/leap-prompt-standard.md#3-agent-execution-configuration) and carried by the [Prompt template](../templates/leap-prompt-template.md).
 
 Use [LEAP Execution Routing](execution-routing.md) to select the least-cost eligible surface. Cost optimization may influence surface choice but may not lower acceptance criteria or the Definition of Done.
 

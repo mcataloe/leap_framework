@@ -300,7 +300,7 @@ Deciding whether the target is Initiative-, Delivery-Unit-, or Build-Unit-sized,
 
 ## Agent Execution Configuration
 
-The handoff block in an agent-ready Prompt: agent or tool, model, reasoning level, execution mode, repository, branch, permissions, and validation. Tool-specific and routing fields are optional. See [LEAP Framework](leap.md#13-agent-execution-configuration-and-routing).
+The handoff block in an agent-ready Prompt: agent or tool, model, reasoning level, execution mode, repository, branch, permissions, validation, expected verification state, and commit guidance. Tool-specific and routing fields are optional. Fields are defined in the [Prompt standard](../prompts/leap-prompt-standard.md#3-agent-execution-configuration); routing in [LEAP Framework](leap.md#13-agent-execution-configuration-and-routing).
 
 ## Execution Environment Profile
 
