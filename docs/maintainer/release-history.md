@@ -18,7 +18,7 @@ Published release notes, when present
 
 ## Current release provenance
 
-Read [`VERSION.md`](../../VERSION.md) for verified Git tags, published prereleases, and the unresolved `0.1.9` baseline claim. The previously documented `leap-v0.1.9` tag was not found in the inspected refs as of 2026-10-24; do not advertise that claim as a confirmed release. Current `main` has unreleased changes, and the next release identity is a maintainer decision.
+See [`VERSION.md`](../../VERSION.md) for the verified tags and published prereleases. The previously documented `leap-v0.1.9` tag does not exist, so do not advertise `0.1.9` as a release. Current changes are unreleased; the next release identity is a maintainer decision.
 
 ```text
 Canonical framework document: docs/leap.md

@@ -11,15 +11,7 @@ END_LEAP_DOC_METADATA
 
 LEAP Charter is the project-alignment front door for LEAP. It establishes or reconciles project direction, source truth, documentation, Roadmap posture, and implementation readiness before focused Recon or implementation Prompt generation.
 
-The current lifecycle is:
-
-```text
-LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
-```
-
-LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a mandatory lifecycle stage and it does not define the project's strategic documentation hierarchy.
-
-Not every task starts with Charter. A focused Recon may proceed when its Baseline Freshness Check finds the existing baseline fresh enough.
+Charter is the first step of the [LEAP lifecycle](leap.md#2-lifecycle). Not every task starts with Charter. A focused Recon may proceed when its Baseline Freshness Check finds the existing baseline fresh enough.
 
 ## Charter outcomes
 
@@ -38,25 +30,11 @@ Charter should establish or reconcile, at the level warranted by project size:
 - prompt backlog
 - human checkpoints and next LEAP work
 
-Canonical project-documentation model: [`project-documentation-model.md`](project-documentation-model.md).
-
-Legacy Layer migration guidance: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md).
+For traceability, use the [project documentation model](project-documentation-model.md) when the project already uses it.
 
 ## Materiality Gate
 
-Charter uses the shared LEAP Materiality Gate:
-
-```text
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
-```
-
-Assess unresolved context independently for materiality, discoverability, safe assumability, and hard-blocker status. These dimensions may overlap; a material item may also be discoverable or safely assumable. Follow the decision precedence in [Materiality Gate](materiality-gate.md): STOP for hard blockers, INSPECT discoverable evidence, then ASK / ASSUME / DEFER according to consequence and clarification mode.
-
-Default **Materiality-Gated** mode asks only unresolved material questions needed for the next safe Charter decision.
-
-An explicit **No Gate** modifier changes safely assumable ASK outcomes into explicit disclosed assumptions. It does not bypass readiness requirements, unsafe source truth, authorization, destructive-change safeguards, sensitive-area checkpoints, public-contract approval, or required human approval.
-
-After answers or newly discovered evidence, Charter re-evaluates only remaining or newly exposed material uncertainty. There is no minimum question count. Charter's Materiality Check must explicitly record hard blockers and support a **stop** Question Decision rather than implying that a blocked Charter can proceed.
+Charter uses the shared [Materiality Gate](materiality-gate.md): inspect what is discoverable, ask only unresolved material questions needed for the next safe Charter decision, and stop on hard blockers. The Materiality Check must record hard blockers explicitly rather than implying that a blocked Charter can proceed. **No Gate** never bypasses unsafe source truth, authorization, destructive-change safeguards, sensitive-area checkpoints, public-contract approval, or required human approval.
 
 ## Charter modes
 
@@ -84,7 +62,7 @@ It may create or organize:
 
 Greenfield Charter should not generate Build Units before Initiative boundaries and intended outcomes are clear.
 
-Small projects may combine Mission, Strategic Outcomes, one Initiative, a collapsed Delivery Unit, and one Build Unit into one or a few documents.
+Small projects may combine these concepts into one or a few documents.
 
 ### Brownfield Mode
 
@@ -148,29 +126,7 @@ Brownfield Charter reconciles documentation posture but does not by itself autho
 
 ## Legacy Layer reconciliation
 
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level.
-
-Brownfield Charter must determine whether each legacy Layer actually represents:
-
-- Initiative
-- Delivery Unit
-- Build Unit
-- Domain
-- Architecture Layer
-- Phase
-- mixed or unclear collection
-
-Do not change:
-
-- Layered Execution & Alignment Protocol
-- Layered House Standard
-- LEAP LHS
-- qualified Architecture Layers
-- historical and compatibility references
-
-Do not rename public paths solely for terminology consistency.
-
-Recommend migration when Layer ambiguity creates sequencing, ownership, Domain, Architecture, source-truth, or implementation-scope risk.
+Brownfield Charter classifies each legacy generic `Layer` by meaning before migrating it, using the [project-documentation migration guide](maintainer/project-documentation-migration.md). Do not rename public paths solely for terminology consistency. Recommend migration when Layer ambiguity creates sequencing, ownership, Domain, Architecture, source-truth, or implementation-scope risk.
 
 ## Recommended documentation pattern
 
@@ -220,19 +176,7 @@ Existing conventions may be retained. Semantic clarity matters more than folder 
 
 ## Strategic Outcomes and Initiatives
 
-Charter should distinguish:
-
-- **Strategic Outcome** — measurable or observable change sought
-- **Initiative** — temporary coordinated work advancing one or more Outcomes
-- **Roadmap** — timing, priority, milestones, dependencies, release targets, and parallelism
-- **Domain** — persistent responsibility boundary
-- **Architecture** — technical structure
-- **Delivery Unit** — releasable or adoptable increment
-- **Build Unit** — bounded implementation responsibility
-
-Initiatives may run in parallel and may span several Domains or repositories.
-
-A Roadmap references Initiatives but does not permanently own their identity.
+Charter should keep Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, Delivery Units, and Build Units distinct, as defined in the [project documentation model](project-documentation-model.md). A Roadmap references Initiatives but does not own their identity.
 
 ## Initiative and Roadmap outputs
 
@@ -258,19 +202,13 @@ Last reconciled:
 
 The Roadmap should show current scheduling without becoming a competing source for Initiative identity.
 
-## Team and delivery-capacity discovery
-
-When staffing or delivery timing changes the next safe planning decision, Charter should identify the **project-designated operational source of record** (for example Jira) and inspect authorized evidence before asking. Determine whether human/role capabilities and allocations are confirmed, provisional, or unknown; distinguish human capacity from AI tool assistance. Do not maintain a separate roster or accepted-estimate store inside LEAP or `AGENTS.md`.
-
-For an unstaffed or greenfield project, use role placeholders and labeled conditional staffing scenarios rather than blocking Charter. Where evidence is available, separate implementation effort from elapsed duration, include research and validation, and disclose specialist/review bottlenecks and uncertainty. Without defensible availability information, avoid promising dates. Use [Team & Delivery Capacity Estimation](team-delivery-estimation.md) when estimates are material; otherwise keep discovery lightweight. External allocations and accepted estimates must not be changed without separate authorization.
+When staffing or delivery timing changes the next safe planning decision, use [Team & Delivery Capacity Estimation](team-delivery-estimation.md). The project's work tracker (for example Jira) stays the source of record; Charter proposes estimates and does not keep its own roster or write estimates back without authorization.
 
 ## Delivery and Build planning
 
 Charter may identify candidate Delivery Units but should normally leave detailed Build Unit generation to focused Recon.
 
-Use a Delivery Unit when work has several Build Units, several release increments, cross-repository coordination, or a meaningful deployable or adoptable boundary.
-
-Collapse the Delivery Unit level when one small Build Unit directly delivers the full Initiative outcome.
+Use a Delivery Unit only when it adds a meaningful release or coordination boundary.
 
 ## Doc metadata convention
 
@@ -343,33 +281,7 @@ Normal Recon may recommend the file but must not silently create it.
 
 ## Charter output
 
-A Charter output should include:
-
-1. Mode and Intake Classification
-2. Original User Wording
-3. Current Understanding
-4. Ideation Loop Status
-5. Materiality Check
-6. Evidence Labels
-7. Discovery Questions, if needed
-8. Readiness Gate
-9. Greenfield or Brownfield Findings
-10. No-Build / Alternative-Solution Review
-11. MVP or Current Scope Boundary
-12. Strategic Outcomes
-13. Initiative and Roadmap Recommendations (conditional capacity assumptions when material)
-14. Domain and Architecture Recommendations
-15. Concrete Non-Goals
-16. Risks and Constraints
-17. Documentation Baseline Recommendation
-18. Source-of-Truth Recommendation
-19. Gap Register
-20. Migration Map, if Brownfield
-21. Baseline State Recommendation
-22. Prompt Backlog Recommendations
-23. Human Checkpoints
-24. Recommended Next Recon / Prompt / LHS
-25. Gate Decision
+Use the output format in the [Charter standard](../prompts/leap-charter-standard.md). Omit sections with nothing material. Do not pad with N/A.
 
 ## Gate behavior
 

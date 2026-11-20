@@ -233,7 +233,7 @@ Confidence levels:
 
 ## Output Format
 
-Add a `Dependency & Contract Recon` subsection inside the Recon `Dependency and Destructive-Change Review` section when dependencies or contract risks are relevant.
+Add a `Dependency & Contract Recon` subsection inside the Recon `Dependency and Destructive-Change Review` section when dependencies or contract risks are relevant. Omit sections with nothing material. Do not pad with N/A.
 
 ```markdown
 # Dependency & Contract Recon

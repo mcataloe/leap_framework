@@ -9,139 +9,34 @@ END_LEAP_DOC_METADATA
 
 # Start Here: LEAP in Plain English
 
-**LEAP - Layered Execution & Alignment Protocol** helps you avoid asking a coding agent to build from confusion.
+**LEAP (Layered Execution & Alignment Protocol)** keeps coding agents and teams on track: grounded in what is actually true, bounded in scope, and honest about what was verified. It aims for enough guardrails and no ceremony beyond that.
 
-Coding agents can move quickly. That is useful only when the idea is clear, source documents are current, repository state is understood, strategic ownership is explicit, and the task is small enough to verify.
-
-LEAP helps with the messy middle between:
-
-```text
-"I have an idea"
-```
-
-and:
-
-```text
-"Here is a bounded implementation task a coding agent can safely run."
-```
+Coding agents move fast. That only helps when the task is clear, the docs they read are current, and someone can check the result.
 
 ## LEAP in 60 seconds
 
-LEAP helps you:
+1. **Inspect before asking.** Look at the code, tests, and docs first. Ask only questions whose answer would change the work. Zero questions is normal.
+2. **Trust code over docs, and current docs over old plans.** Call out conflicts.
+3. **Bound the work.** State the scope, the non-goals, and what not to touch.
+4. **Stop at hard stops.** Destructive data changes, auth or security, breaking contracts, new dependencies, and irreversible Git operations need a human.
+5. **Be honest about verification.** Say which checks ran and which did not. "Implemented, not verified" is a valid answer; "done" without the checks is not.
 
-1. Clarify the Mission and intended outcome.
-2. Inspect what is already true.
-3. Separate facts from assumptions.
-4. Identify Strategic Outcomes and Initiatives.
-5. Separate Roadmap timing from persistent Domains and Architecture.
-6. Break Delivery Units into bounded Build Units.
-7. Identify reusable Skills only when specialized procedure materially improves execution.
-8. Tell the agent what to do, what not to touch, what capabilities to load, and when to stop.
-9. Validate the result.
+These five ideas are [LEAP Core](leap-core.md), the short rule set that loads into every agent session. Everything below is optional depth.
 
-Use the lightest LEAP workflow that controls the actual risk. Tiny, obvious work may use a normal prompt. Small bounded coding work may use a [Quick LEAP Brief](user/quick-leap-brief.md).
+## Use the lightest workflow that controls the risk
 
-## The project-documentation model
+| Situation | Use |
+|---|---|
+| Tiny, obvious change | A normal prompt |
+| Small, clear task | [Quick LEAP Brief](user/quick-leap-brief.md) |
+| Exploring a domain or challenging an idea | [Discovery or Pressure Test](user/leap-discovery.md) |
+| Repo reality, risk, or design is unclear | [Recon](../prompts/leap-recon-standard.md) (or [Recon Lite](../templates/leap-recon-lite-template.md)) |
+| Direction, source truth, or doc structure is unclear | [Charter](leap-charter.md) |
+| Bounded instructions for an agent | [LEAP Prompt](../prompts/leap-prompt-standard.md); [LHS](leap-lhs.md) only when staging reduces risk |
+| Obsolete artifacts competing with current truth | [Cleanup](repository-cleanup.md) |
+| Finished work | [Validation/Handoff](../prompts/leap-validation-standard.md) |
 
-The preferred traceability hierarchy is:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Supporting views remain separate:
-
-```text
-Roadmap      = timing, priority, dependencies, milestones, status, parallelism
-Domain Map   = persistent responsibility boundaries
-Architecture = technical structure
-```
-
-This means:
-
-- several Initiatives may run in parallel
-- a Roadmap schedules Initiatives but does not permanently own them
-- one Initiative may touch several Domains
-- one Domain may support several Initiatives
-- a Delivery Unit is a releasable, enabled, adoptable, or demonstrable increment
-- a Build Unit is bounded implementation and is not necessarily independently deployable
-- small work may collapse the Delivery Unit level
-
-Read [Project Documentation Model](project-documentation-model.md) for the full doctrine.
-
-## Skills are execution capabilities, not planning levels
-
-A LEAP Skill is reusable procedure for a class of work.
-
-```text
-Build Unit = WHAT bounded implementation responsibility is delivered
-LEAP Skill = HOW specialized work is performed repeatably
-```
-
-Skills are selected only when useful. They do not become a mandatory lifecycle phase and they do not belong in the Mission-to-Build-Unit hierarchy.
-
-A Skill can be native to an agent platform, repository-local, prompt-embedded, or backed by scripts and references. The governing Prompt still controls scope and permissions.
-
-Read [LEAP Skills](leap-skills.md) for the Skill Contract and composition rules.
-
-## What happened to Layer?
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level because it was used for phases, capabilities, Domains, Architecture, and implementation scope at the same time.
-
-LEAP still preserves:
-
-- Layered Execution & Alignment Protocol
-- Layered House Standard
-- LEAP LHS
-- qualified Architecture Layers
-- historical and compatibility references
-- existing downstream Layer docs until they are reconciled
-
-See [Project Documentation Migration](maintainer/project-documentation-migration.md) for legacy Layer classification.
-
-## The questions LEAP asks
-
-```text
-Why does this solution exist?
-What measurable change are we trying to create?
-Which Initiative owns the coordinated work?
-Can several Initiatives run in parallel?
-What belongs on the Roadmap now?
-Which Domains and Architecture areas are affected?
-What can be released, enabled, adopted, or demonstrated?
-What Build Units can be implemented and verified safely?
-Does any Build Unit need reusable specialized capability, or is ordinary reasoning sufficient?
-If a Skill is required, where does it come from and what authority does it actually have?
-What already exists?
-Which docs are canonical, stale, or archived?
-Which dependencies or contracts affect the work?
-What should not be built?
-What could go wrong?
-When must the agent stop?
-How do we prove completion?
-```
-
-If those answers are unclear, LEAP inspects what it can, asks only the material questions needed for the next safe decision in the default mode, and stops questioning once the remaining uncertainty can be safely assumed, deferred, or routed to a hard blocker. With No Gate, safely assumable ASK outcomes become disclosed assumptions instead.
-
-## How to choose a workflow
-
-- Say **LEAP help** to see supported invocations, or describe a task and let the [semantic router](semantic-routing.md) select the smallest appropriate workflow.
-- Use [LEAP Discovery](user/leap-discovery.md) to understand the domain; use Pressure Test to challenge a hypothesis. Neither is another lifecycle stage.
-
-- Use the [workflow chooser](user/which-leap-workflow.md) to compare normal prompts, Quick Brief, Charter, Recon, Prompt, and LHS.
-- Use [When Not to Use LEAP](user/when-not-to-use-leap.md) when full LEAP is heavier than the task.
-- Use the [Quick LEAP Brief](user/quick-leap-brief.md) for the smallest useful coding-agent handoff.
-- Use [Repository Cleanup](repository-cleanup.md) when obsolete artifacts may compete with current truth or remain wired into the repository.
-- Use [LEAP Skills](leap-skills.md) when defining or composing reusable execution capability.
-- Use the [canonical framework reference](leap.md) for formal doctrine.
+Say **LEAP help** to an agent for the command list, or see [semantic routing](semantic-routing.md). Not sure? Use the [workflow chooser](user/which-leap-workflow.md).
 
 ## Lifecycle
 
@@ -149,67 +44,36 @@ If those answers are unclear, LEAP inspects what it can, asks only the material 
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
-Charter establishes or reconciles the baseline when Mission, source truth, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, or documentation posture is unclear.
+Most work enters partway through. A small task goes straight to a brief and then Validation. Charter and Recon run only when direction or repository reality is unclear. See the [framework reference](leap.md).
 
-Recon begins with Baseline Freshness Check and investigates a focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, risk, question, or legacy Layer. After Build Unit boundaries are clear enough, Recon may perform Capability / Skill Review.
+## Guardrails for teams
 
-LEAP Prompt is the agent-ready instruction family. When Skills are used, the Prompt identifies their sources, loading methods, permission fit, and verification without letting them widen scope.
+Written rules are requests to the agent; enforced checks are what actually hold. Pair LEAP with:
 
-LEAP LHS is one Prompt format for staged implementation. It is not a lifecycle phase and it does not define the strategic hierarchy.
+- the [LEAP pull request template](../templates/leap-pull-request-template.md): scope, non-goals, verification state, checks not run, stop conditions hit
+- [Validation/Handoff](../prompts/leap-validation-standard.md) on every non-trivial change, including a check of the actual diff against the stated scope
+- CODEOWNERS or branch protection on paths your stop conditions name
+- CI checks and agent permission rules for anything that can be enforced mechanically
 
-## Materiality Gate
+## Planning traceability (optional)
 
-Materiality Gate filters clarification across LEAP.
+If your team already tracks work in Jira, Azure DevOps, or GitHub, link the work item and say what the change delivers. That is enough for most projects.
 
-```text
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
-```
+For teams that run portfolio planning, LEAP offers a [project documentation model](project-documentation-model.md) (Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, with Roadmap, Domain, and Architecture as separate views). Small projects do not need one file per concept.
 
-- inspect discoverable sources first
-- ask only when an unresolved answer could materially change direction, scope, Architecture, risk, source truth, validation, acceptance, compatibility, implementation, or the next gate decision
-- proceed on stated assumptions for non-material or safely assumable unknowns
-- stop for hard blockers such as unsafe source truth, destructive changes, missing authorization, privacy, security, money, identity, legal exposure, data durability, or user-trust risk
-- after answers or new evidence, re-evaluate only the remaining or newly exposed material uncertainty
+The older generic planning term `Layer` is deprecated; existing Layer docs are classified before migration. See [Project Documentation Migration](maintainer/project-documentation-migration.md).
 
-The expected result is often zero questions.
+## Going deeper
 
-If you explicitly add **No Gate** to a LEAP request, LEAP should avoid ordinary clarification interruptions and use the strongest reasonable assumptions when safe. Consequential assumptions must be disclosed. No Gate never bypasses hard blockers or required human approval.
-
-See [Materiality Gate](materiality-gate.md).
-
-## Shortest useful checklist
-
-Before handing work to a coding agent, answer:
-
-```text
-1. What Mission or outcome does this serve?
-2. What Strategic Outcome and Initiative own it?
-3. Is a Delivery Unit needed, or can it be collapsed?
-4. What is the bounded Build Unit or task?
-5. What is the current repository state?
-6. Which docs are canonical?
-7. Which docs are stale, archived, or do-not-use?
-8. Which Domains and Architecture areas are affected?
-9. Is ordinary reasoning sufficient, or is a reusable Skill materially useful?
-10. If a Skill is required, what is its source, loading method, permission ceiling, and verification?
-11. What is in scope and out of scope?
-12. What should the agent not touch?
-13. What tests or checks prove success?
-14. When should the agent stop?
-15. What execution profile should be used?
-```
-
-If you cannot answer these, run Charter or Recon first.
+- [Materiality Gate](materiality-gate.md): how LEAP decides to ask, assume, or stop (including **No Gate**)
+- [Execution routing](execution-routing.md): choosing the cheapest tool that can run the required checks, and the verification states
+- [LEAP Skills](leap-skills.md): reusable procedures. A Skill never widens what the Prompt allows.
+- [Dependency & Contract Recon](dependency-contract-recon.md), [Risk taxonomy](risk-taxonomy.md), [Glossary](glossary.md)
+- [Documentation map](README.md)
 
 ## AGENTS.md adoption
 
-LEAP `AGENTS.md` templates are distributed from:
-
-```text
-https://github.com/mcataloe/leap_agent_pack
-```
-
-Use [LEAP Project Setup](user/leap_project_setup.md) for ChatGPT Project Instructions, repository-level `AGENTS.md`, coding-agent population, and the first LEAP workflow.
+The [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) distributes `AGENTS.md` templates containing LEAP Core plus a short project section. [LEAP Project Setup](user/leap_project_setup.md) walks through it.
 
 ## Rule of thumb
 
@@ -218,6 +82,5 @@ Inspect what is discoverable.
 Ask only what changes the next safe decision.
 Assume or defer the rest.
 Stop when a hard blocker applies.
+Report what was verified, and what was not.
 ```
-
-LEAP should reduce chaos, not create ceremony.

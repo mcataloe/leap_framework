@@ -36,7 +36,7 @@ def validate_framework() -> int:
         assert marker.lower() in doc.lower(), f"Missing role contract marker: {marker}"
 
     linked = {
-        ROOT / "docs/agent-profiles.md": "agent-execution-roles.md",
+        ROOT / "docs/execution-routing.md": "agent-execution-roles.md",
         ROOT / "docs/README.md": "agent-execution-roles.md",
         ROOT / "templates/leap-prompt-template.md": "../docs/agent-execution-roles.md",
     }

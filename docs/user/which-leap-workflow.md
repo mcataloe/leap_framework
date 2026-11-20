@@ -1,105 +1,46 @@
 # Which LEAP Workflow Should I Use?
 
-Use the lightest workflow that controls the actual risk.
+Use the lightest workflow that controls the actual risk. LEAP is risk control, not a ceremony requirement; a coding agent being involved is not by itself a reason to use it.
 
 ## Quick chooser
 
-Use **LEAP help** for the canonical command menu and [Semantic Workflow Routing](../semantic-routing.md) for intent/alias rules. [LEAP Discovery](leap-discovery.md) explores a domain without prescribing implementation; Pressure Test challenges a hypothesis; Recon investigates repository/source truth.
-
 | Situation | Start with |
 |---|---|
-| Tiny, obvious, easy-to-verify task | Normal prompt |
-| Understand a domain, actors, vocabulary or workflow before selecting a solution | [LEAP Discovery](leap-discovery.md) |
-| Challenge the feasibility or assumptions of a proposed approach | [LEAP Pressure Test](leap-discovery.md) |
-| Small localized coding-agent task | [Quick LEAP Brief](quick-leap-brief.md) |
-| Mission, Strategic Outcomes, Initiative identity, Roadmap, or source truth is unclear | [LEAP Charter](../leap-charter.md) |
-| A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, dependency, contract, risk, or legacy Layer needs investigation | [LEAP Recon](../../templates/leap-recon-lite-template.md) |
+| Typo, copy edit, obvious one-file fix, pure brainstorming | A normal prompt. No LEAP. |
+| Small, localized task an agent will run | [Quick LEAP Brief](quick-leap-brief.md) |
+| Understand a domain, its actors, and workflows before choosing a solution | [LEAP Discovery](leap-discovery.md) |
+| Challenge a proposed approach | [LEAP Pressure Test](leap-discovery.md#leap-pressure-test-non-mutating-by-default) |
+| One focused question about repo reality, a risk, a dependency, or a design | [LEAP Recon Lite](../../templates/leap-recon-lite-template.md) |
+| A larger target needs evidence, scope, and Build Units before implementation | [LEAP Recon](../../prompts/leap-recon-standard.md) |
+| Direction, source truth, or documentation structure is unclear or conflicting | [LEAP Charter](../leap-charter.md) |
 | Obsolete artifacts need an exact, dependency-aware decommission proposal | [LEAP Cleanup](../repository-cleanup.md) |
-| A bounded Build Unit or task is implementation-ready | [LEAP Prompt](../../templates/leap-prompt-template.md) |
-| A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [LEAP LHS](../leap.md) |
+| Bounded, implementation-ready work for an agent | [LEAP Prompt](../../templates/leap-prompt-template.md) |
+| Several Build Units with dependency order, phased commits, or rollback risk | [LEAP LHS](../leap-lhs.md) |
+| Work is finished or being handed off | [LEAP Validation](../../prompts/leap-validation-standard.md) |
 
-## Project-documentation model
-
-```text
-Mission / Project Charter
-  -> Strategic Outcome
-    -> Initiative
-      -> Delivery Unit
-        -> Build Unit
-```
-
-Roadmap schedules and prioritizes. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
-
-Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. See [Project Documentation Model](../project-documentation-model.md) and [Project Documentation Migration](../maintainer/project-documentation-migration.md).
-
-## Materiality Gate
-
-Materiality Gate is shared across LEAP workflows:
-
-```text
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
-```
-
-- inspect discoverable evidence first
-- ask only unresolved material questions that could change the next safe decision
-- proceed on stated assumptions for non-material or safely assumable unknowns
-- stop for hard blockers such as unsafe source truth, destructive changes, missing authorization, privacy, security, money, identity, legal exposure, data durability, user trust, or unapproved Architecture
-- re-evaluate only remaining or newly exposed material uncertainty after answers or new evidence
-
-**No Gate** is an optional per-operation modifier, not another workflow. It turns safely assumable ASK outcomes into explicit disclosed assumptions. It never turns STOP into proceed.
-
-## Codex Plan Mode and LEAP Execution Mode
-
-- Plan Mode Off: `implement-directly` or `repo-preflight-then-implement`
-- Plan Mode On: `plan-first`
-- User decision required: approval posture is the deciding factor
+Say **LEAP help** for the command list. [Semantic routing](../semantic-routing.md) covers aliases and intent rules.
 
 ## Same-thread commands
 
 ```text
+Run LEAP Recon on the feature above.
 Run LEAP Charter on the project above.
-Run LEAP Recon on the Initiative or feature above.
 Run LEAP Cleanup on the obsolete artifacts above.
 Generate a LEAP Prompt from the approved Recon.
-Turn the Delivery Unit and Build Unit sequence into an LHS Prompt.
-Run LEAP Validation/Handoff on the completed changes.
+Turn the approved Build Units into an LHS Prompt.
+Run LEAP Validation on the completed changes.
 ```
 
-## When to use Charter
+Add **No Gate** to any request to have LEAP proceed on disclosed safe assumptions instead of asking. It never overrides a hard stop. See [Materiality Gate](../materiality-gate.md).
 
-Use Charter when Mission, users, problem, workflow, MVP, Strategic Outcomes, Initiative identity, Roadmap, Domains, Architecture, non-goals, risks, or source truth are unsettled.
+## Notes per workflow
 
-Use Brownfield Charter when current, stale, archived, duplicate, or conflicting docs need reconciliation.
-
-Brownfield Charter classifies a legacy Layer as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or Needs Reconciliation before migration.
-
-## When to use Recon
-
-Use Recon when the baseline is good enough but one focused target needs source-truth, repo-reality, risk, dependency, planning-boundary, or implementation-safety analysis.
-
-Recon begins with Baseline Freshness Check. Charter is not required before every Recon.
-
-## When to use Cleanup
-
-Use Cleanup when source truth is sufficiently clear and the remaining problem is deciding exactly which obsolete artifacts can be retained as historical, migrated, refactored, or deleted.
-
-An unqualified Cleanup run is discovery-only. It recommends `archive-only`, `controlled-migration`, or `destructive-cutover`, returns the exact proposed decommission set, and stops for approval before generating a Refactor Prompt.
-
-## When to use LEAP Prompt
-
-Use Prompt when source truth, Initiative ownership, Delivery Unit or collapse rationale, Build Unit scope, constraints, validation, stop conditions, and execution profile are clear.
-
-## When to use Quick LEAP Brief
-
-Use Quick Brief for a small, localized, low-risk task. Reduced strategic traceability is acceptable when broader context is not material.
-
-## When to use LHS
-
-Use LHS for staged work with several Build Units, dependency order, tests and docs, phased commits, rollback or compatibility risk, cross-area changes, or cross-repository coordination.
-
-LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
+- **Charter:** use it when the mission, users, MVP, non-goals, source truth, or (for teams that use them) Strategic Outcomes, Initiatives, Roadmap, and Domains are unsettled. Brownfield Charter reconciles current, stale, and conflicting docs. It is not required before every Recon.
+- **Recon:** use it when the baseline is good enough but one target needs evidence. It starts with a Baseline Freshness Check and stops investigating once the next safe decision is clear.
+- **Cleanup:** an unqualified run is discovery-only. It returns an exact proposed decommission set and stops for approval.
+- **LEAP Prompt:** use it when source truth, scope, constraints, validation, and stop conditions are clear. Traceability to a work item is enough unless the project uses the full [planning model](../project-documentation-model.md).
+- **Quick Brief:** reduced traceability is fine when broader context does not change the work.
+- **LHS:** stages execution. It does not define the project's strategic hierarchy.
 
 ## Final rule
 

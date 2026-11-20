@@ -18,31 +18,7 @@ The user should not have to complete a large intake form before the agent inspec
 
 ## Canonical project-documentation model
 
-LEAP Charter should use this preferred traceability hierarchy:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Treat these as separate supporting views:
-
-```text
-Roadmap      = timing, priority, milestones, dependencies, release targets, status, parallelism
-Domain Map   = persistent responsibility boundaries
-Architecture = technical structure
-```
-
-Roadmap does not permanently own Initiative identity. Initiatives may run in parallel and may span Domains or repositories. Delivery Unit is conditionally collapsible. Build Unit is not necessarily independently deployable.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning term. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
+Charter establishes or reconciles the records in the [project documentation model](../docs/project-documentation-model.md) when the project uses them, or links an external work tracker instead. The governing behavior is the [LEAP Charter standard](../prompts/leap-charter-standard.md).
 
 ## Scan-first operating model
 
@@ -50,12 +26,7 @@ When repository or project files are available, inspect before asking:
 
 - global and repository `AGENTS.md`
 - `docs/00_start_here.md`
-- Project Charter and product strategy
-- Strategic Outcomes
-- Initiative registry
-- Roadmap
-- Domain and Architecture docs
-- Delivery Unit and Build Unit plans
+- Project Charter, product strategy, and planning records the project uses (Strategic Outcomes, Initiatives, Roadmap, Domain and Architecture docs, Delivery and Build Unit plans)
 - existing legacy Layer docs
 - source code, config, schemas, tests, and scripts
 - package, build, and CI/CD files
@@ -66,34 +37,7 @@ Do not treat missing user-supplied context as a blocker until discoverable evide
 
 ## Materiality Gate
 
-Use the shared flow:
-
-```text
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
-```
-
-Evaluate missing context on independent dimensions: Material / Non-material consequence, discoverability, safe assumability, and hard-blocker status. These can overlap. Check blockers first; inspect discoverable evidence before choosing ASK, ASSUME, or DEFER for the active clarification mode.
-
-Default clarification mode is **Materiality-Gated**:
-
-```text
-Hard blocker -> STOP
-Discoverable -> INSPECT, then re-evaluate
-Non-material -> ASSUME or DEFER
-Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
-Material answer required for the next safe decision -> ASK
-```
-
-When the user explicitly invokes **No Gate**:
-
-```text
-ASK -> ASSUME + DISCLOSE, when safe.
-STOP remains STOP.
-```
-
-No Gate does not bypass readiness requirements, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
-
-After answers or new evidence, re-evaluate only remaining or newly exposed material uncertainty. Ask the smallest useful set, preferably no more than three questions at a time unless exhaustive discovery is requested. There is no minimum question count.
+Apply the [Materiality Gate](../docs/materiality-gate.md) (`INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE`). Check hard blockers first and inspect discoverable evidence before asking. Default mode is **Materiality-Gated**: ask only for answers the next safe decision needs. Under explicit **No Gate**, ASK becomes ASSUME + DISCLOSE when safe; STOP remains STOP, and No Gate never bypasses source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, public-contract approval, or required human approval. Ask the smallest useful set, preferably no more than three questions at a time.
 
 ## Charter discovery flow
 
@@ -164,10 +108,6 @@ If no blockers remain, state:
 No blocking Charter questions remain based on the current repository and documentation scan.
 ```
 
-## Conditional estimation discovery
-
-Use [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md) only when capacity affects planning. Identify the external source of record, use role placeholders if staffing is unassigned, distinguish AI assistance from personnel capacity, and label all conditional timeline forecasts. Neither a LEAP staffing register nor a committed delivery date is mandatory for Charter.
-
 ## Copy-ready Charter request
 
 ```text
@@ -179,21 +119,12 @@ Charter settings:
 - Infer Charter mode, starting signal, and known context from repo/docs evidence.
 - Preserve the raw invocation or starting signal.
 - Separate Known, Assumed, Unknown, Contested, Needs Decision, and Deprecated items.
-- Use readiness gates C0-C5.
 - Pressure-test whether custom software is needed where relevant.
 - Establish or reconcile Mission / Project Charter and MVP or current scope boundary.
-- Establish or reconcile Strategic Outcomes.
-- Establish or reconcile an Initiative registry before detailed Build Unit planning.
-- Treat Roadmap as a scheduling, priority, dependency, milestone, release, status, and parallelism view.
-- When effort or staffing materially changes the decision, consult the external work-management source of record; use evidence-backed effort and conditional capacity-adjusted timelines, and do not infer labor hours from commit timestamps.
-- Treat Domains as persistent responsibility boundaries with a many-to-many relationship to Initiatives.
-- Treat Architecture as technical structure, not the strategic hierarchy.
-- Identify Delivery Units only when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist.
-- Allow the Delivery Unit level to collapse for small work.
-- Do not define Build Units as necessarily independently deployable.
+- Establish or reconcile Strategic Outcomes and Initiatives before detailed Build Unit planning, when the project uses them.
+- Keep Roadmap, Domains, and Architecture as separate views; identify Delivery Units only when a meaningful boundary exists.
 - If Brownfield, inventory and classify existing docs before relying on them.
-- If legacy Layer docs exist, classify each as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or Needs Reconciliation.
-- Do not globally replace Layer or rename public paths solely for terminology consistency.
+- If legacy Layer docs exist, classify each with the migration guide before renaming or moving it. Do not globally replace Layer.
 - Apply this Brownfield policy:
   Canonicalize forward. Archive backward. Preserve traceability. Never let stale docs compete with source-of-truth docs.
 - Update AGENTS.md Baseline State only when this Charter performs an authorized full reconciliation or baseline update.
@@ -219,7 +150,7 @@ Required workflow:
 14. Recommend documentation baseline and source-truth ownership.
 15. Create gap register and Brownfield migration map when needed.
 16. Recommend next Recon, Prompt, LHS, Validation, or Handoff work.
-17. Make a readiness-gate decision.
+17. Make a gate decision.
 
 Return the LEAP Charter output only. Include Clarification Mode, Stop Conditions / Hard Blockers, and a Question Decision supporting "stop" in the Materiality Check.
 If the next safe gate decision requires a material answer that cannot safely be assumed, ask the next small material question round (including under No Gate when an assumption would be unsafe). Under No Gate, continue with explicit disclosed assumptions when safe instead of asking. If a hard blocker exists, stop and report the checkpoint needed; never generate implementation plans past STOP.
@@ -283,6 +214,8 @@ Apply Materiality Gate before follow-up questions. In Materiality-Gated mode, as
 ## 25. Gate Decision / Next Step
 ```
 
+Omit sections with nothing material. Do not pad with N/A. Keep the remaining section numbers unchanged. Section 7 states whether direction is ready for Recon or Prompt generation and names any blockers; section 25 records the final gate decision.
+
 ## LHS note
 
-LEAP LHS stages implementation work. It does not define the project's strategic hierarchy. Greenfield Charter should usually avoid LHS during early shaping. Brownfield Charter may recommend or use LHS only after the reconciliation plan is clear and repository-changing documentation work needs staged execution.
+LEAP LHS stages implementation work; see [LEAP LHS](../docs/leap-lhs.md). Greenfield Charter should usually avoid LHS during early shaping. Brownfield Charter may recommend or use LHS only after the reconciliation plan is clear and repository-changing documentation work needs staged execution.

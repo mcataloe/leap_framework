@@ -8,29 +8,7 @@ A LEAP Prompt is a bounded coding-agent handoff contract. It must not ask the ag
 
 ## Canonical traceability model
 
-Use this preferred hierarchy:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Roadmap schedules and prioritizes. Domains organize persistent responsibility. Architecture organizes technical structure.
-
-Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
-
-LEAP Skill is orthogonal to this hierarchy. Build Unit defines what bounded responsibility is delivered; Skill defines reusable how for specialized execution.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred scope term. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
-
-Canonical Skill guidance: `docs/leap-skills.md`.
+For traceability, use the [project documentation model](../docs/project-documentation-model.md) when the project already uses it; otherwise link the external work item. Skills are reusable execution capabilities, not planning levels; see [LEAP Skills](../docs/leap-skills.md).
 
 ## Prompt family taxonomy
 
@@ -43,10 +21,10 @@ Canonical Skill guidance: `docs/leap-skills.md`.
 | Refactor Prompt | Structural change | Often yes |
 | Governance Prompt | Source-truth, process, or documentation reconciliation | Sometimes |
 | Cleanup Prompt | Artifact decommission review and approval gate | Usually no |
-| Validation Prompt | Verify acceptance and handoff | Usually no |
+| Validation Prompt | Verify acceptance and handoff; use [`leap-validation-standard.md`](leap-validation-standard.md) | Usually no |
 | LHS Prompt | Staged multi-Build-Unit execution | Yes |
 
-The generated Prompt must state its type.
+The generated Prompt must state its type. LHS Prompts use the stage format in [LEAP LHS](../docs/leap-lhs.md).
 
 ## LHS decision gate
 
@@ -64,42 +42,20 @@ Use LHS when two or more are true:
 - follow-up work is likely
 - explicit acceptance criteria and integration checkpoints are needed
 
-Do not use LHS when it adds ceremony without reducing risk.
-
-LEAP LHS stages execution. It does not define the project's strategic documentation hierarchy.
+Do not use LHS when it adds ceremony without reducing risk. LHS stages execution; it does not define the planning hierarchy.
 
 ## Materiality Gate
 
-Before generating a Prompt, confirm Recon used the shared Materiality Gate flow:
+Confirm Recon applied the [Materiality Gate](../docs/materiality-gate.md) (`INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE`):
 
-```text
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
-```
-
-Confirm that Recon:
-
-- inspected discoverable repo, docs, contracts, tests, decisions, and tooling evidence before asking
-- evaluated unresolved context on independent dimensions (consequence, discoverability, assumability, blocker status), including overlapping classifications
-- used **Materiality-Gated** mode by default unless the user explicitly invoked **No Gate**
-- asked only unresolved material questions needed for the next safe decision in default mode
-- converted non-material and safe unknowns into assumptions or deferred details
+- inspected discoverable evidence before asking
+- asked only unresolved material questions needed for the next safe decision (default **Materiality-Gated** mode)
+- under explicit **No Gate**, turned only safe ASK outcomes into disclosed assumptions; STOP remains STOP
 - surfaced materially consequential assumptions
-- preserved hard blockers, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, and required human approvals
-- re-evaluated only newly exposed or remaining material uncertainty after answers or new evidence
-
-With **No Gate**:
-
-```text
-ASK -> ASSUME + DISCLOSE, when safe.
-STOP remains STOP.
-```
-- completed Capability / Skill Review or explicitly found it unnecessary
+- preserved hard blockers, authorization, destructive-change safeguards, sensitive-area checkpoints, and required human approvals
+- completed Capability / Skill Review or found it unnecessary
 
 Prompt generation may proceed with a materially consequential assumption only when it is safely assumable, explicitly disclosed, and does not violate a hard blocker or approval requirement.
-
-## Estimates and capacity (only when material)
-
-If a Prompt proposes effort or delivery dates, use [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md): identify the authoritative work tracker, distinguish evidenced effort from conditional elapsed duration, include research/review/validation and AI oversight, and disclose the source/assumptions. A proposed estimate must not silently update a Jira issue or other external source of truth. Commit activity is not a worked-hours record. Do not add this analysis to routine Prompts unless it changes execution decisions.
 
 ## Required preflight
 
@@ -112,14 +68,8 @@ Confirm:
 - LHS decision completed
 - Materiality Gate completed
 - source-of-truth manifest complete
-- Mission / Project Charter identified
-- Strategic Outcome identified for strategically material work
-- Initiative identified
-- Delivery Unit identified or explicitly collapsed
-- Build Unit or bounded task identified
-- Roadmap placement recorded when relevant
-- affected Domains identified
-- affected Architecture areas identified
+- work item and scope boundary identified
+- Initiative / Delivery Unit / Build Unit identified, when the project uses them
 - repo reality checked
 - branch / worktree / PR drift reviewed
 - Capability / Skill Review completed or not applicable
@@ -128,24 +78,21 @@ Confirm:
 - scope and non-goals defined
 - files / areas to inspect and avoid defined
 - acceptance criteria defined
-- required confidence and validation defined
-- required execution capabilities and permission needs derived
-- preferred and escalation execution surfaces selected from eligible options
+- required validation defined
 - verification path defined, including Skill-specific verification when material
 - expected verification state at handoff defined
 - stop conditions defined
 - destructive-change permission stated
-- agent / tool selected
-- Codex Plan Mode selected when Codex-targeted
-- execution mode selected
-- model and reasoning level selected
+- agent / tool, model, reasoning level, and execution mode selected
+- optional, when the tool or project uses them: Codex Plan Mode,
+  capability class, and preferred / escalation execution surfaces
 ```
 
 If a missing item maps to a hard blocker, stop. In Materiality-Gated mode, ask unresolved material questions before Prompt generation. In No Gate mode, only safely assumable material unknowns may become explicit disclosed assumptions; STOP conditions still block generation.
 
 ## Codex Plan Mode and Execution Mode
 
-| Execution Mode | Meaning | Codex Plan Mode |
+| Execution Mode | Meaning | Codex Plan Mode (optional) |
 |---|---|---|
 | `implement-directly` | Make a tiny obvious change and report | Off |
 | `repo-preflight-then-implement` | Verify repo reality and proceed when clear | Off |
@@ -153,9 +100,11 @@ If a missing item maps to a hard blocker, stop. In Materiality-Gated mode, ask u
 | `recon-only` | Investigate and report only | User decision required |
 | `validation-only` | Validate existing work | Off unless fixes may be requested |
 
+The Codex Plan Mode column is optional; use it only for Codex-targeted Prompts.
+
 Prefer `repo-preflight-then-implement` for bounded approved Build Units when the selected surface has the needed repository and validation capabilities. Use `plan-first` for Architecture-sensitive, multi-system, destructive, security, privacy, data-model, contract, or repo-wide work.
 
-Do not select a shell-capable coding agent merely because code will change. Repository mutation may remain on an E1 surface when required validation does not need E2 capabilities. Conversely, do not keep work on a cheaper surface when the Definition of Done requires build, test, migration, browser, deployment, or other execution-grounded evidence that surface cannot provide.
+Choose the execution surface from required validation, not from whether code changes. See [execution routing](../docs/execution-routing.md#6-routing-policy).
 
 ## Required Prompt sections
 
@@ -180,6 +129,8 @@ Do not select a shell-capable coding agent merely because code will change. Repo
 ## 16. Completion Report Format
 ```
 
+Keep the section numbers. Omit sections and optional fields with nothing material. Do not pad with N/A.
+
 ## 1. Prompt Type and LHS Decision
 
 ```text
@@ -192,7 +143,7 @@ Do not select a shell-capable coding agent merely because code will change. Repo
 
 ## 2. User Action Before Agent Submission
 
-For Codex-targeted Prompts:
+Optional — omit when not needed. Use it only when the user must change a tool setting before submitting, such as Codex Plan Mode:
 
 ```text
 USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
@@ -205,12 +156,11 @@ USER ACTION REQUIRED BEFORE SUBMITTING TO CODEX
 
 ## 3. Agent Execution Configuration
 
-Select Agent / Tool only after required confidence, validation, capabilities, and permissions are known. Use the least-cost eligible surface and name the escalation surface when additional capability may be required.
+Select Agent / Tool only after required validation and permissions are known. Use the least-cost eligible surface; never weaken the Definition of Done to save cost.
 
 | Field | Value |
 |---|---|
 | Agent / Tool | Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other |
-| Codex Plan Mode | On / Off / User decision required / not applicable |
 | Model | Exact model or approved project default |
 | Reasoning Level | Low / Medium / High / Extended |
 | Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only |
@@ -218,35 +168,32 @@ Select Agent / Tool only after required confidence, validation, capabilities, an
 | Repository | Repository or repositories |
 | Branch / Worktree | Target context |
 | Permissions | Allowed modifications |
+| Validation | Tests and checks |
+| Verification State at Handoff | Expected state from [LEAP Validation](leap-validation-standard.md#verification-state) |
+| Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none |
+| Commit Guidance | Commit posture |
+
+Optional routing fields — omit when not needed. Add them when the project uses an [Execution Environment Profile](../docs/execution-routing.md) or the surface choice is not obvious:
+
+| Field | Value |
+|---|---|
+| Codex Plan Mode | On / Off / User decision required |
 | Required Capability Class | E0 / E1 / E2 / E3 / E4 or combination |
 | Required Capabilities | Concrete environment capabilities needed |
 | Required Confidence / Validation | Evidence required to claim completion |
 | Preferred Surface | Lowest-cost eligible surface |
-| Escalation Surface | Surface used when preferred surface cannot satisfy capability or validation requirements |
-| Verification State at Handoff | Implemented — execution unverified / Partially verified / Execution verified / not applicable |
-| Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none |
-| Validation | Tests and checks |
-| Commit Guidance | Commit posture |
+| Escalation Surface | Surface used when the preferred surface cannot satisfy capability or validation requirements |
 
 ## 4. Strategic and Delivery Traceability
 
 ```text
-- Mission / Project Charter:
-- Strategic Outcome:
-- Initiative:
-- Delivery Unit, if used:
-- Delivery Unit collapse rationale, if omitted:
-- Build Unit / bounded task:
-- Roadmap placement, if relevant:
-- Affected Domains:
-- Affected Architecture Areas:
-- Cross-Initiative dependencies:
-- Cross-repository dependencies:
+- Work item: <link to issue, ticket, or planning doc>
+- Scope boundary:
+- Initiative / Delivery Unit / Build Unit, when the project uses them:
+- Cross-repository or cross-Domain dependencies, when material:
 ```
 
-Do not require full hierarchy for a tiny task when it would add no clarity. Strategic materiality determines the minimum traceability required.
-
-Skills do not belong in this traceability hierarchy.
+Add Strategic Outcome, Roadmap, Domain, or Architecture fields only when they change the work.
 
 ## 5. Objective
 
@@ -328,17 +275,7 @@ Include this subsection when one or more Skills are selected:
 |---|---|---|---|---|---|---|
 ```
 
-Rules:
-
-- Build Unit scope remains authoritative
-- Prompt constraints and permission ceiling remain authoritative
-- Skill authority cannot exceed Prompt authority
-- required Skill sources must be resolvable before execution
-- optional Skills may be omitted when ordinary execution remains safe
-- use progressive disclosure and load only relevant Skill references
-- do not duplicate the full Skill body when the agent can load the named source
-- do not let a Skill reorder unrelated Build Units, invent product behavior, or create new delivery scope
-- if the target harness cannot load the selected Skill source, provide the smallest safe prompt-embedded fallback or stop when no bounded fallback exists
+Build Unit scope and the Prompt permission ceiling stay authoritative. Required Skill sources must be resolvable before execution; if the harness cannot load one, give the smallest safe prompt-embedded fallback or stop. Follow the composition rules in [LEAP Skills](../docs/leap-skills.md#prompt-composition).
 
 ## 11. Implementation Sequence
 
@@ -352,10 +289,6 @@ Rules:
 - Error handling:
 - Backward compatibility:
 ```
-
-A Build Unit should be implementable, testable, reviewable, and usually committable independently. It is not required to be independently deployable.
-
-Skills may govern local procedure inside a Build Unit but do not own the Build Unit sequence or widen its delivery boundary.
 
 ## 12. Verification
 
@@ -382,9 +315,7 @@ Stop and report instead of guessing if:
 - destructive changes are required without authorization
 - public contracts or paths must break without approval
 - branch or worktree drift creates ownership ambiguity
-- a required Skill source or loading method is unavailable and no bounded safe fallback is defined
-- a Skill requires tools or permissions not granted by the Prompt
-- a Skill attempts to widen Build Unit scope, product behavior, Architecture, or source-truth ownership
+- a required Skill source is unavailable without a bounded safe fallback, or a Skill needs tools, permissions, or scope beyond the Prompt
 - verification is unavailable or undefined
 - acceptance criteria are impossible
 - agent, model, or reasoning level is unavailable without an approved fallback
@@ -403,18 +334,7 @@ Stop and report instead of guessing if:
 
 ## 15. Source-of-Truth Update Policy
 
-State whether implementation must update:
-
-- Initiative registry
-- Roadmap
-- Delivery Unit status
-- Build Unit status
-- Domain docs
-- Architecture docs
-- decisions / ADRs
-- execution log or drift ledger
-- cross-Initiative / cross-Domain impact map
-- dependency register
+State which project records implementation must update, when the project keeps them: Roadmap; Initiative, Delivery Unit, or Build Unit status; Domain or Architecture docs; decisions / ADRs; execution log or drift ledger; impact map; dependency register.
 
 Do not create a project Skill registry merely because Skills were used. Add or modify durable Skill definitions only when the Prompt explicitly scopes that work.
 
@@ -422,26 +342,18 @@ Do not update generic LEAP methodology unless the Prompt targets the LEAP Framew
 
 ## 16. Completion Report Format
 
-Return:
+Return the handoff report defined in [LEAP Validation](leap-validation-standard.md#required-output), including its verification state and scope check. Also include:
 
-- Summary of changes
-- Strategic and delivery traceability confirmed
-- Files changed
+- summary of changes
+- work item and Build Unit traceability, when used
 - Skills used and their sources, when material
-- Tests and checks run
-- Checks not run and why
-- Deviations
-- Assumptions
-- Stop conditions
-- Docs updated or still needed
-- Initiative, Delivery Unit, and Build Unit status impact
-- Follow-up LEAP work
+- deviations and assumptions
+- docs updated or still needed
+- Initiative, Delivery Unit, and Build Unit status impact, when used
 
 ## Legacy Layer compatibility
 
-When a legacy Layer is referenced, classify it as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or mixed / unclear.
-
-Do not globally replace `Layer` and do not rename public paths solely for terminology consistency.
+When a legacy Layer is referenced, classify it with the [migration guide](../docs/maintainer/project-documentation-migration.md) before acting. Do not globally replace `Layer` or rename public paths.
 
 ## Reasoning-level guidance
 

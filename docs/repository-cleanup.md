@@ -69,21 +69,7 @@ Each candidate must record:
 - proposed action and cleanup mode
 - risk, unknowns, and required approval
 
-Use the existing documentation classifications:
-
-- Canonical
-- Supporting
-- Current but poorly organized
-- Partially useful
-- Stale
-- Conflicting
-- Duplicate
-- Misleading
-- Completed implementation plan
-- Archived
-- Unknown
-
-Classification alone never authorizes removal.
+Use the existing [document classifications](leap-charter.md#legacy-document-classification). Classification alone never authorizes removal.
 
 ## Replacement and dependency evidence
 
@@ -138,7 +124,7 @@ The Refactor Prompt may use Delivery Units and Build Units when sequencing, cons
 
 ## Validation and effective status
 
-Validation/Handoff must report:
+Validation/Handoff follows the [LEAP Validation standard](../prompts/leap-validation-standard.md) and must also report:
 
 - branch or revision validated
 - artifacts moved, retained, rewritten, or deleted

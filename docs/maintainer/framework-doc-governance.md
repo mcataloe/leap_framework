@@ -13,8 +13,8 @@ This guide defines how LEAP Framework documentation should be organized.
 
 ## Domains
 
+- `docs/` (top level) - canonical framework references, indexed from `docs/00_start_here.md`.
 - `docs/user/` - how to adopt and use LEAP in downstream projects.
-- `docs/reference/` - index for canonical framework references.
 - `docs/maintainer/` - how to maintain, version, and release the LEAP Framework repository.
 - `docs/examples/` - examples only.
 
@@ -33,6 +33,7 @@ This guide defines how LEAP Framework documentation should be organized.
 - Release notes should focus on current/unreleased changes and the current baseline.
 - Older version detail should live in Git history and release tags instead of active docs.
 - Example-only docs are not source truth.
+- Each concept has one canonical home. Other docs link to it in one sentence instead of restating it.
 
 ## Maintenance Rules
 

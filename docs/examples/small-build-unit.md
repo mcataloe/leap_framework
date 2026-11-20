@@ -1,8 +1,6 @@
 # Example: Small Build Unit
 
-This example shows how LEAP stays lightweight for a small implementation task.
-
-The project-documentation hierarchy may collapse when separate records would add ceremony without improving clarity.
+Illustrative only. This example shows how LEAP stays lightweight for a small implementation task. Traceability is a single Build Unit or work-item link; the Delivery Unit level is collapsed.
 
 ---
 
@@ -11,36 +9,6 @@ The project-documentation hierarchy may collapse when separate records would add
 A product has an existing settings page. The user wants all dismissible notifications to use the same close behavior and visual pattern.
 
 This is small enough for a Quick LEAP Brief if the existing notification component is clear and no shared state, API, schema, or product decision is required.
-
----
-
-## Strategic and delivery traceability
-
-```text
-Mission / Project Charter:
-- Existing product baseline; no Mission change.
-
-Strategic Outcome:
-- Settings interactions remain consistent and understandable.
-
-Initiative:
-- Existing Settings Experience initiative.
-
-Delivery Unit:
-- Collapsed. One Build Unit directly delivers the complete bounded outcome.
-
-Build Unit:
-- Normalize dismissible settings notifications.
-
-Affected Domains:
-- Settings Experience
-- Notification Presentation
-
-Affected Architecture Areas:
-- Frontend presentation and local component state
-```
-
-The Delivery Unit level is intentionally omitted because there is no separate release or adoption boundary beyond the Build Unit itself.
 
 ---
 
@@ -59,12 +27,9 @@ The Delivery Unit level is intentionally omitted because there is no separate re
 - Source truth is the target-branch implementation and current notification components.
 
 ## 3. Traceability
-- Strategic Outcome: consistent and understandable settings interactions.
-- Initiative: existing Settings Experience initiative.
-- Delivery Unit: collapsed because this Build Unit delivers the full outcome.
-- Build Unit: normalize dismissible settings notifications.
-- Affected Domains: Settings Experience; Notification Presentation.
-- Affected Architecture Areas: frontend presentation and local component state.
+- Build Unit: normalize dismissible settings notifications
+  (or link the tracking issue, for example a Jira or GitHub issue).
+- Affected area: frontend presentation and local component state.
 
 ## 4. Scope
 In scope:
@@ -119,11 +84,9 @@ Stop and report if:
 
 ## 8. Agent Execution Configuration
 - Agent / Tool: project-approved coding agent
-- Codex Plan Mode: Off, if using Codex
 - Model: project-approved implementation model
 - Reasoning Level: Medium
 - Execution Mode: repo-preflight-then-implement
-- Scope Scale: Build Unit
 - Repository: <repo>
 - Branch / Worktree: <target branch>
 - Permissions: settings-page notification UI only
@@ -136,9 +99,6 @@ Stop and report if:
 ## Why this can stay small
 
 ```text
-- existing Mission and Strategic Outcome remain unchanged
-- Initiative ownership is known
-- Delivery Unit is safely collapsed
 - one bounded Build Unit delivers the outcome
 - source truth is obvious
 - no schema, API, auth, or Architecture change is expected

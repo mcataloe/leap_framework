@@ -4,43 +4,13 @@ Run LEAP Charter using the current LEAP Framework.
 
 LEAP Charter is the project-alignment front door. It establishes or reconciles Mission, project direction, Strategic Outcomes, Initiative identity, Roadmap posture, Domains, Architecture direction, source truth, documentation, and implementation readiness before focused Recon or implementation Prompt generation.
 
-Current lifecycle:
-
-```text
-LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
-```
-
-LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a mandatory lifecycle stage and it does not define the project's strategic documentation hierarchy.
+Charter is the first stage of the [LEAP lifecycle](../docs/leap.md). LEAP LHS is a Prompt format for staged implementation, not a lifecycle stage; see [LEAP LHS](../docs/leap-lhs.md).
 
 Not every task starts at Charter. Focused Recon may proceed when Baseline Freshness Check finds the existing baseline fresh enough.
 
 ## Canonical project-documentation model
 
-Use this preferred traceability hierarchy:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Treat these as supporting views:
-
-```text
-Roadmap      = timing, priority, dependencies, milestones, release targets, status, parallelism
-Domain Map   = persistent business, responsibility, ownership, or technical boundaries
-Architecture = structural technical organization
-```
-
-Roadmap does not permanently own Initiative identity. Initiatives and Domains have a many-to-many relationship. Delivery Unit is conditionally collapsible for small work. Build Unit is not required to be independently deployable.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and historical compatibility references.
+Charter establishes or reconciles the records in the [project documentation model](../docs/project-documentation-model.md) when the project uses them, or links an external work tracker instead.
 
 ## Required behavior
 
@@ -57,27 +27,21 @@ You must:
 7. identify Mission, target users, problem, current workflow, success event, MVP or current scope, non-goals, risks, and constraints when relevant
 8. identify or reconcile Strategic Outcomes
 9. identify or reconcile Initiative boundaries before detailed Build Unit planning
-10. treat Roadmap as a scheduling and dependency view
-11. identify persistent Domains separately from temporary Initiatives
-12. identify Architecture direction separately from strategic hierarchy
-13. identify Delivery Units when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist
-14. avoid forcing Delivery Units or separate files for trivial work
-15. pressure-test whether custom implementation is needed
-16. use readiness gates C0-C5
-17. block implementation planning when hard blockers remain
-18. classify legacy Layer docs semantically before renaming or moving them
-19. identify downstream Recon, Prompt, or LHS recommendations
-20. end with a gate decision
+10. keep Roadmap, Domains, and Architecture as separate views from the planning hierarchy
+11. identify Delivery Units only when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist; do not force them or separate files for trivial work
+12. pressure-test whether custom implementation is needed
+13. block implementation planning when hard blockers remain
+14. classify legacy Layer docs semantically before renaming or moving them
+15. identify downstream Recon, Prompt, or LHS recommendations
+16. end with a gate decision from the list below
 
 ## Materiality Gate
 
-Use the shared Materiality Gate flow:
+Apply the [Materiality Gate](../docs/materiality-gate.md):
 
 ```text
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
-
-Assess each unresolved item on independent dimensions: consequence (Material / Non-material), discoverability, safe assumability, and hard-blocker status. Dimensions can overlap; classify blockers before choosing a route, inspect discoverable evidence, and then decide ASK / ASSUME / DEFER according to the clarification mode.
 
 Default **Materiality-Gated** behavior:
 
@@ -89,16 +53,9 @@ Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
 Material answer required for the next safe decision -> ASK
 ```
 
-If the user explicitly invokes **No Gate**:
+Explicit **No Gate**: ASK becomes ASSUME + DISCLOSE when safe. STOP remains STOP. No Gate does not bypass readiness requirements, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
 
-```text
-ASK -> ASSUME + DISCLOSE, when safe.
-STOP remains STOP.
-```
-
-No Gate does not bypass readiness requirements, source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
-
-After an answer or new evidence, re-evaluate only remaining or newly exposed material uncertainty. Ask no more than the smallest useful batch, preferably no more than three questions at a time unless exhaustive discovery is explicitly requested. There is no minimum question count.
+Re-evaluate only remaining or newly exposed uncertainty. Ask the smallest useful batch, preferably no more than three questions at a time unless exhaustive discovery is explicitly requested. There is no minimum question count.
 
 ## Greenfield Mode
 
@@ -135,7 +92,7 @@ Brownfield Mode should:
 3. inspect the current solution and relevant repo reality
 4. compare Mission, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, Delivery plans, and implementation
 5. identify stale, conflicting, duplicate, misleading, and archived material
-6. classify each legacy Layer as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or Needs Reconciliation
+6. classify each legacy Layer (see Legacy Layer handling)
 7. fix safe documentation and planning gaps
 8. create or update supplemental Markdown docs
 9. produce a gap register
@@ -157,17 +114,7 @@ Do not mechanically rename or delete legacy docs. Preserve public paths unless a
 
 ## Legacy Layer handling
 
-Do not globally replace `Layer`.
-
-Preserve:
-
-- Layered Execution & Alignment Protocol
-- Layered House Standard
-- LEAP LHS
-- qualified Architecture Layers
-- compatibility and historical references
-
-Use `docs/maintainer/project-documentation-migration.md` when available.
+Classify legacy Layer docs with the [migration guide](../docs/maintainer/project-documentation-migration.md) before renaming or moving them. Do not globally replace `Layer`.
 
 ## No-build review
 
@@ -184,10 +131,6 @@ Why is custom software justified?
 Why is AI specifically justified, if proposed?
 What would make this not worth building?
 ```
-
-## Conditional team and delivery-capacity assessment
-
-If effort or timeline assumptions materially affect Charter readiness, inspect the project's designated staffing, allocation and work-item source of record before asking. Record source and evidence freshness, team capabilities or role placeholders, Initiative-level allocation and AI assistance separately. Distinguish effort from elapsed delivery time; label provisional staffing and AI speedups as scenarios unless supported by comparable evidence. Do not infer labor hours from commit timestamps or copy a shadow roster into LEAP docs / AGENTS.md. Do not write accepted estimates or allocations to an external system without explicit authorization. Follow [Team & Delivery Capacity Estimation](../docs/team-delivery-estimation.md). If immaterial or unavailable, do not force a roster questionnaire.
 
 ## Required output
 
@@ -231,6 +174,10 @@ If effort or timeline assumptions materially affect Charter readiness, inspect t
 ## 29. Gate Decision / Next Step
 ```
 
+Omit sections with nothing material. Do not pad with N/A. Keep the remaining section numbers unchanged.
+
+Section 8 states whether direction is ready for Recon or Prompt generation and names any blockers. Section 29 records the final decision from the gate decision list.
+
 ## Materiality Check format
 
 ```text
@@ -238,23 +185,15 @@ If effort or timeline assumptions materially affect Charter readiness, inspect t
 Materiality-Gated / No Gate
 
 ### Material Unknowns
-Questions or missing facts that would change direction, readiness,
-source-truth hierarchy, scope, risk, Architecture, implementation path,
-validation, acceptance criteria, or compatibility.
-
 ### Assumptions Proceeding Under
-Reasonable assumptions used so Charter can continue.
-
 ### Deferred Non-Material Details
-Naming, wording, formatting, or preference details that do not block the gate.
-
 ### Stop Conditions / Hard Blockers
-List each hard blocker, its required approval, source reconciliation, or other
-checkpoint to clear it. State "None" when no hard blockers remain.
-
+State "None" when no hard blockers remain.
 ### Question Decision
-Proceed with assumptions / inspect sources first / ask targeted questions / stop.
+Proceed with assumptions / inspect sources first / ask targeted questions / stop
 ```
+
+See [Materiality Check output](../docs/materiality-gate.md#materiality-check-output) for field meanings.
 
 ## Gate decisions
 

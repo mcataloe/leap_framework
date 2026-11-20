@@ -4,7 +4,7 @@ LEAP uses risk categories to decide how much clarification, Recon, approval, and
 
 The taxonomy should stay lightweight. Its job is to make risk visible, not to create bureaucracy.
 
-Implementation Gravity is the amount of coordination, risk, dependency ordering, testing, documentation, and rollback concern attached to a task. Higher implementation gravity increases the chance that the implementation prompt should use LEAP LHS.
+Higher [Implementation Gravity](glossary.md#implementation-gravity) increases the chance that the implementation Prompt should use [LEAP LHS](leap-lhs.md).
 
 ---
 
@@ -134,9 +134,9 @@ A LEAP Recon or Prompt should summarize risk like this:
 - Product risk: low / medium / high
 - Source-truth risk: low / medium / high
 - Architecture risk: low / medium / high
-- Dependency contract risk: low / medium / high / not applicable
+- Dependency contract risk: low / medium / high
 - Data/security/privacy risk: low / medium / high
-- AI behavior risk: low / medium / high / not applicable
+- AI behavior risk: low / medium / high
 - Collaboration risk: low / medium / high
 - Verification risk: low / medium / high
 
@@ -148,6 +148,8 @@ Human checkpoints:
 - <checkpoint 1>
 - <checkpoint 2>
 ```
+
+Omit categories that do not apply. Do not pad with N/A.
 
 ---
 

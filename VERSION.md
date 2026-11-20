@@ -1,111 +1,29 @@
 # LEAP Version
 
-LEAP release versions are managed by Git tags. Active release notes should stay focused on current and unreleased changes; use Git history and release tags for older detail.
+LEAP releases are Git tags. [CHANGELOG.md](CHANGELOG.md) records current and unreleased changes; use Git history and tags for older detail. Active files do not use versioned filenames.
 
-LEAP `AGENTS.md` templates are released separately from the LEAP Agent Pack repository because downstream repositories copy and customize those files.
+## Framework release provenance (checked 2026-11-19)
 
-## Framework release provenance (checked 2026-10-24)
+Earlier docs recorded baseline `0.1.9` with tag `leap-v0.1.9`. No such tag exists in either repository, so do not describe `0.1.9` as a published release.
 
-The prior documentation recorded baseline `0.1.9` and tag `leap-v0.1.9`, but that tag is **not present in the inspected Git refs**. Do not describe `0.1.9` as a verified published release on this evidence alone.
-
-Verified published GitHub **prereleases** are `v0.1.10-alpha` and `v.0.1.11-alpha` (both dated 2026-05-29). The latter is the most recently published prerelease. No stable release tag was verified. Changes on `main` since those tags remain unreleased; a new release identity or tag requires a separate maintainer decision.
+The verified published GitHub prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha` (both 2026-05-29), in https://github.com/mcataloe/leap_framework. No stable release tag exists. Everything since then is unreleased; choosing the next release identity is a maintainer decision.
 
 ```text
-Previously documented baseline: 0.1.9 (release identity unverified)
-Previously claimed tag: leap-v0.1.9 (absent from inspected refs)
+Previously documented baseline: 0.1.9 (no matching tag)
 Latest verified published prerelease: v.0.1.11-alpha
-Current main: unreleased changes
+Current branch: unreleased changes
 Next release version/tag: not established
 ```
 
-## Unreleased framework additions
-
-- Optional semantic workflow router and LEAP help command catalog
-- Independent Discovery and Pressure Test entry points (no new lifecycle stage)
-- Canonical native LEAP Skill entry point with portable metadata alignment
-- Advisory Team & Delivery Capacity Estimation with externally authoritative staffing and work-tracker inputs
-
-```text
-- First-class LEAP Skill abstraction for reusable execution capabilities
-- Portable LEAP Skill Contract with Use / Do Not Use, inputs, outputs, preconditions, scope, tools, permission ceiling, Always / Ask First / Never, procedure, verification, references, and portability notes
-- Capability / Skill Review inside Recon after Build Unit boundaries are clear enough
-- Build Unit / Skill boundary: Build Unit defines WHAT is delivered; Skill defines reusable HOW
-- Skill source and loading-method identification for agent-ready Prompts
-- Skill permission ceiling subordinate to governing Prompt authority
-- Progressive disclosure for Skill references
-- Skill-specific verification and Validation/Handoff evidence
-- Parallel-capable project documentation model
-- Mission / Project Charter -> Strategic Outcome -> Initiative -> Delivery Unit -> Build Unit traceability
-- Roadmap as scheduling, priority, dependency, milestone, release, status, and parallelism view
-- Domains as persistent responsibility boundaries with many-to-many Initiative relationships
-- Architecture separated from the strategic hierarchy
-- Delivery Unit collapse rule for small work
-- Build Unit clarified as bounded implementation, not necessarily independently deployable
-- Legacy-compatible generic Layer deprecation and semantic migration guidance
-- Planning Boundary Review and cross-Initiative / cross-Domain impact review
-- Materiality Gate for consequence-based clarification, including Materiality-Gated / No Gate modes and bounded re-evaluation
-- Materiality Gate and Charter QA clarification: composable classifications, explicit Charter STOP output, and No Gate assumption/ask precedence
-- Dependency & Contract Recon subprocess
-- Baseline Freshness Check preflight
-- Optional baseline and dependency register guidance
-- Repository Cleanup Governance workflow and `Run LEAP Cleanup` command
-- `archive-only`, `controlled-migration`, and `destructive-cutover` cleanup modes
-- Dependency-aware decommission sets, approval gates, and effective-status validation
-- Capability- and cost-aware execution routing
-- Execution Environment Profile for project-local surface capabilities, context, costs, quotas, permissions, and escalation
-- E0-E4 execution capability classes
-- Least-cost eligible surface selection constrained by required confidence and validation
-- Explicit implementation versus execution-verification state
-```
-
-## Canonical framework documents
-
-```text
-docs/leap.md
-docs/leap-charter.md
-docs/project-documentation-model.md
-docs/leap-skills.md
-docs/execution-routing.md
-docs/team-delivery-estimation.md
-docs/glossary.md
-docs/repository-cleanup.md
-```
-
-## Supporting references
-
-```text
-docs/materiality-gate.md
-docs/dependency-contract-recon.md
-prompts/leap-cleanup-standard.md
-templates/leap-cleanup-template.md
-docs/maintainer/project-documentation-migration.md
-templates/leap-skill-template.md
-examples/leap.baseline.yaml
-schemas/leap.baseline.schema.json
-examples/leap.dependencies.yaml
-schemas/leap.dependencies.schema.json
-```
+Unreleased additions are listed in [CHANGELOG.md](CHANGELOG.md). The documentation map is [docs/README.md](docs/README.md).
 
 ## Current Agent Pack
 
 ```text
-Version: 0.2.0 candidate
-Release tag: none verified
+Version: 0.2.0-candidate.2 (unreleased; no tag)
 Repository: https://github.com/mcataloe/leap_agent_pack
 Manifest: manifests/latest.json
-Update policy: notify
+Update policy: manual review
 ```
 
-The first Agent Pack release tag should be created only after its manifest and template metadata are committed and validated.
-
-Release context is preserved through:
-
-```text
-CHANGELOG.md
-Git tags
-Git commit history
-```
-
-Active framework and Prompt files should not use versioned filenames.
-
-Agent Pack template files live in the Agent Pack repository. Version identity belongs in Agent Pack metadata and manifests, not LEAP Framework filenames.
+Agent Pack templates embed [LEAP Core](docs/leap-core.md) verbatim. Version identity for templates belongs in Agent Pack metadata and its manifest, not in framework filenames. Tag the Agent Pack only after `scripts/check_pack.py --framework` passes.

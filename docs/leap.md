@@ -104,113 +104,21 @@ A LEAP Prompt is a bounded agent-ready contract containing:
 
 ### Implementation
 
-The approved Prompt is executed on the least-cost available surface that can satisfy the work unit's capability, confidence, validation, and permission requirements. Repository mutation alone does not require a shell-capable coding agent.
-
-Implementation may move across execution surfaces when capability or confidence requirements change. Complete the largest coherent tranche practical before crossing surfaces to avoid needless handoff overhead.
-
-When a surface can implement artifacts but cannot run required execution-grounded checks, report the state as **Implemented — execution unverified** and escalate the bounded validation-and-repair work to an adequate surface.
-
-When a Prompt requires a Skill, implementation must use the named source and loading method rather than assuming the harness already has that Skill. Skill tool requirements cannot widen Prompt permissions.
+The approved Prompt is executed on the least-cost available surface that can satisfy its capability, confidence, validation, and permission requirements. Complete the largest coherent tranche practical before crossing surfaces. When a surface cannot run required checks, report **Implemented — execution unverified** and hand bounded validation to an adequate surface. Required Skills are loaded from their named source; they cannot widen Prompt permissions.
 
 Canonical execution-routing doctrine: [LEAP Execution Routing](execution-routing.md).
 
 ### Validation/Handoff
 
-Validation/Handoff reports:
-
-- changes made
-- files changed
-- tests and checks run
-- checks not run and why
-- verification state: Implemented — execution unverified / Partially verified / Execution verified
-- execution-surface handoffs, when material
-- deviations
-- assumptions
-- Skills used, when material to completion confidence
-- stop conditions
-- documentation updates
-- risks and follow-up LEAP work
+Validation/Handoff confirms what changed, what was checked, and the honest verification state. It reports checks not run and why, deviations, assumptions, and follow-up work. Use the [LEAP Validation standard](../prompts/leap-validation-standard.md) for the checks and output; verification states are defined in [LEAP Execution Routing](execution-routing.md#5-implementation-state-versus-verification-state).
 
 ## 3. Canonical project-documentation model
 
-The preferred traceability hierarchy is:
+When a project wants traceability, LEAP uses one optional hierarchy: Mission / Project Charter, Strategic Outcome, Initiative, Delivery Unit, and Build Unit. Roadmap, Domain Map, and Architecture are separate supporting views. Small projects may collapse levels, and a link to an external work item (Jira, Azure DevOps, GitHub issue) is an acceptable substitute.
 
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
+The full definitions, collapse rules, and generic `Layer` compatibility rules live in the [project documentation model](project-documentation-model.md). Migration guidance lives in [project-documentation migration](maintainer/project-documentation-migration.md).
 
-Supporting views are separate:
-
-```text
-Roadmap      = timing, priority, dependencies, milestones, status, and parallelism
-Domain Map   = persistent business, responsibility, ownership, or technical boundaries
-Architecture = structural implementation boundaries and technical organization
-```
-
-Canonical reference: [`project-documentation-model.md`](project-documentation-model.md).
-
-Migration guidance: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md).
-
-### Mission / Project Charter
-
-Defines why the solution exists, who it serves, boundaries, non-goals, governing intent, and what the current version should prove.
-
-### Strategic Outcome
-
-Defines a measurable or observable change that advances the Mission.
-
-### Initiative
-
-A temporary, outcome-oriented body of coordinated work. Initiatives may run in parallel, span Domains and repositories, and contain one or more Delivery Units.
-
-### Delivery Unit
-
-A releasable, deployable, enabled, adoptable, or demonstrable functional increment. It may contain several Build Units.
-
-The level is optional when one small Build Unit directly delivers the full Initiative outcome.
-
-### Build Unit
-
-A bounded implementation responsibility that can be implemented, tested, reviewed, and usually committed independently.
-
-A Build Unit is not required to be independently deployable or independently useful to an end user.
-
-A LEAP Skill is orthogonal to this hierarchy. A Build Unit defines **what** bounded responsibility is delivered; a Skill defines reusable **how** for specialized execution. Skills must not be inserted into the Mission-to-Build-Unit traceability chain.
-
-### Roadmap
-
-A planning projection over Initiatives and Delivery Units. It does not permanently own Initiative identity.
-
-### Domain
-
-A persistent responsibility boundary. Initiatives and Domains have a many-to-many relationship.
-
-### Architecture
-
-The technical structure showing where implementation resides. Qualified terms such as Presentation Layer and Persistence Layer remain valid.
-
-### Layer compatibility
-
-Generic unqualified project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level.
-
-Preserve:
-
-- Layered Execution & Alignment Protocol
-- Layered House Standard
-- LEAP LHS
-- qualified Architecture Layers
-- historical and compatibility references
-- existing downstream Layer docs until reconciled
-
-Do not globally replace `Layer`. Classify its meaning before migration.
+A LEAP Skill is orthogonal to this hierarchy. A Build Unit defines **what** bounded responsibility is delivered; a Skill defines reusable **how**. See [LEAP Skills](leap-skills.md).
 
 ## 4. Greenfield and Brownfield Charter
 
@@ -266,76 +174,25 @@ Use [LEAP Repository Cleanup](repository-cleanup.md) when obsolete artifacts mus
 
 Repository Cleanup is a specialized Governance workflow, not a lifecycle phase. An unqualified `Run LEAP Cleanup` command is discovery-only: it produces an exact proposed decommission set and stops for approval. Approved cleanup is executed through a LEAP Refactor Prompt and completed through Validation/Handoff.
 
-Cleanup modes are:
-
-- `archive-only`
-- `controlled-migration`
-- `destructive-cutover`
-
-The modes describe retention and compatibility posture. `archive-only` is cleanup-specific; `controlled-migration` and `destructive-cutover` apply their corresponding compatibility and supersession postures to cleanup work. They do not replace Agent Execution Mode. Git history is the default archive for destructive cutovers, and effective decommissioning requires both absence and replacement evidence.
+Cleanup modes (`archive-only`, `controlled-migration`, `destructive-cutover`) describe retention and compatibility posture; they do not replace Agent Execution Mode. Details are in [LEAP Repository Cleanup](repository-cleanup.md).
 
 ## 5. Materiality Gate
 
-Materiality Gate is a shared LEAP execution primitive, not a lifecycle phase.
-
-For materially consequential work, use:
+Materiality Gate is a shared LEAP execution primitive, not a lifecycle phase:
 
 ```text
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Classify unresolved context as:
-
-- **Material** — plausible answers change Architecture, scope, risk, source truth, validation, acceptance criteria, compatibility, implementation, recommendation, or the next gate decision
-- **Non-material** — plausible answers only change naming, wording, formatting, ordering, or minor preference
-- **Discoverable** — inspect repo, docs, contracts, tests, decisions, or approved tooling before asking
-- **Safe assumption** — can be assumed and disclosed without violating a stop condition
-- **Hard blocker** — requires human approval, reconciliation, or another mandatory checkpoint
-
-Default clarification mode is **Materiality-Gated**:
-
-```text
-Discoverable -> INSPECT
-Non-material / safe assumption -> ASSUME or DEFER
-Unresolved material -> ASK
-Hard blocker -> STOP
-```
-
-An explicit **No Gate** modifier changes only safely assumable ASK outcomes:
-
-```text
-No Gate: ASK -> ASSUME + DISCLOSE, when safe.
-No Gate never changes STOP -> PROCEED.
-```
-
-After an answer or new evidence, re-evaluate only newly exposed or remaining material uncertainty. Ask no more than the smallest useful batch, with no required minimum question count. Stop the clarification loop when the remaining uncertainty is discoverable, non-material, safely assumable, or a hard blocker requiring a different checkpoint.
-
-Hard blockers, source-truth integrity, destructive-change safeguards, authorization, sensitive-area rules, and public-contract approval remain in force in every clarification mode.
+Inspect discoverable facts first, assume and disclose safe non-material ones, ask only about unresolved material uncertainty, and stop on hard blockers. An explicit **No Gate** modifier turns safe ASK outcomes into ASSUME + DISCLOSE; it never turns STOP into PROCEED.
 
 Canonical details: [Materiality Gate](materiality-gate.md).
 
 ## 6. Readiness gates
 
-- C0: Blocked
-- C1: Discovery Ready
-- C2: Concept Ready
-- C3: Pressure-Test Ready
-- C4: Planning Ready
-- C5: Coding-Prompt Ready
+Each workflow ends with its own gate decision, such as `Proceed to Recon`, `Generate LEAP Prompt`, `Needs Human Decision`, `Reconcile Docs First`, or `Do Not Build Yet`. The decision lists live in the [Charter](../prompts/leap-charter-standard.md) and [Recon](../prompts/leap-recon-standard.md) standards.
 
-C5 requires:
-
-- source truth
-- repo reality
-- bounded scope
-- accepted assumptions
-- validation path
-- stop conditions
-- agent/tool
-- model
-- reasoning level
-- execution mode
-- resolvable required Skill sources and loading methods, when Skills are used
+Work is ready for an agent-ready Prompt when it has source truth, repo reality, bounded scope, accepted assumptions, a validation path, stop conditions, and resolvable Skill sources when Skills are used.
 
 ## 7. Source-of-truth protocol
 
@@ -463,16 +320,7 @@ Split work before this happens.
 
 After Build Unit boundaries are clear enough, Recon may identify reusable Skills that materially reduce ambiguity, repetition, risk, or specialized-domain error.
 
-Rules:
-
-- ordinary agent reasoning and repository guidance remain valid when no explicit Skill is needed
-- Skills do not become a planning level
-- Skills do not own Initiative, Delivery Unit, or Build Unit identity
-- Skills may shape local execution procedure but may not expand Build Unit scope
-- required Skills must identify a resolvable source and loading method
-- Skill tool requirements may not widen Prompt permissions
-- Skill-specific verification should be carried into the Prompt and Validation/Handoff
-- do not create a new Skill when a one-off instruction is clearer and cheaper
+Skills do not become a planning level, do not own Build Unit identity, and may not expand scope or widen Prompt permissions. Required Skills must name a resolvable source and loading method. Do not create a Skill when a one-off instruction is clearer.
 
 Canonical reference: [`leap-skills.md`](leap-skills.md).
 
@@ -516,36 +364,32 @@ Every agent-ready Prompt should state:
 
 ```text
 Agent / Tool:
-Codex Plan Mode, when Codex-targeted:
 Model:
 Reasoning Level:
 Execution Mode:
-Scope Scale:
 Repository:
 Branch / Worktree:
 Permissions:
-Required Capability Class:
-Required Capabilities:
 Required Confidence / Validation:
-Preferred Surface:
-Escalation Surface:
-Verification State at Handoff:
-Skill Sources / Loading Method, when used:
 Validation:
 Commit Guidance:
 ```
+
+Optional — omit when not needed: tool-specific settings such as Codex Plan Mode, Scope Scale, Required Capability Class (E0–E4), Required Capabilities, Preferred and Escalation Surface, Verification State at Handoff, and Skill sources and loading method when Skills are used.
 
 Use [LEAP Execution Routing](execution-routing.md) to select the least-cost eligible surface. Cost optimization may influence surface choice but may not lower acceptance criteria or the Definition of Done.
 
 Execution modes:
 
-| Mode | Meaning | Typical Codex Plan Mode |
-|---|---|---|
-| `implement-directly` | Make a tiny obvious change | Off |
-| `repo-preflight-then-implement` | Verify repo reality and proceed when clear | Off |
-| `plan-first` | Return a plan for approval before editing | On |
-| `recon-only` | Investigate and report | User decision required |
-| `validation-only` | Validate existing work | Off unless fixes are requested |
+| Mode | Meaning |
+|---|---|
+| `implement-directly` | Make a tiny obvious change |
+| `repo-preflight-then-implement` | Verify repo reality and proceed when clear |
+| `plan-first` | Return a plan for approval before editing |
+| `recon-only` | Investigate and report |
+| `validation-only` | Validate existing work |
+
+Tool-specific mappings, such as Codex Plan Mode, are in [current-provider profiles](execution-routing.md#8-current-provider-profiles).
 
 ## 14. LHS decision
 
@@ -561,7 +405,7 @@ Use LHS when implementation gravity warrants staged execution, such as when seve
 - a named Initiative or Delivery Unit contains several Build Units
 - follow-up work is likely
 
-LEAP LHS stages execution. It does not define the project's strategic hierarchy.
+LEAP LHS stages execution. It does not define the project's strategic hierarchy. The stage format is in [LEAP LHS](leap-lhs.md).
 
 ## 15. Risk taxonomy
 
@@ -577,6 +421,8 @@ LEAP LHS stages execution. It does not define the project's strategic hierarchy.
 | UX | Acceptance criteria and manual checks |
 | Collaboration | ownership map, branch review, merge order |
 | Verification | concrete tests and evidence |
+
+Details: [LEAP Risk Taxonomy](risk-taxonomy.md).
 
 Sensitive-area rule:
 
@@ -628,6 +474,8 @@ LEAP should guard against:
 
 ## 18. Operational outputs
 
+Omit sections with nothing material. Do not pad with N/A.
+
 ### Charter output
 
 A Charter output should include:
@@ -636,7 +484,6 @@ A Charter output should include:
 - original wording and current understanding
 - Ideation Loop and Materiality status
 - evidence labels
-- readiness gate
 - Greenfield or Brownfield findings
 - no-build review
 - MVP or current scope boundary
@@ -651,7 +498,6 @@ A Charter output should include:
 
 A Recon output should include:
 
-- Framework interpretation
 - source-of-truth and baseline checks
 - Charter gate check
 - Materiality check
@@ -663,11 +509,9 @@ A Recon output should include:
 - Delivery Unit and Build Unit inventory
 - Capability / Skill Review when applicable
 - recommended sequence
-- dependency, destructive-change, and risk review
+- dependency, destructive-change, and risk review, including coding-agent risks
 - Architecture right-sizing
 - human checkpoints
-- execution-log expectations
-- coding-agent risk forecast
 - Agent Execution Configuration
 - clarification questions, if material
 - gate decision
@@ -694,7 +538,7 @@ A Cleanup output should include:
 A generated Prompt should include:
 
 - Prompt type and LHS decision
-- user action before submission
+- user action before submission (optional)
 - Agent Execution Configuration
 - objective and traceability
 - current repo reality
@@ -711,16 +555,4 @@ A generated Prompt should include:
 
 ## 19. Compatibility and migration
 
-Existing downstream Layer docs remain valid source inputs until reconciled.
-
-When encountered, classify whether the Layer represents:
-
-- Initiative
-- Delivery Unit
-- Build Unit
-- Domain
-- Architecture Layer
-- Phase
-- mixed or unclear collection
-
-Do not rename public paths merely for terminology consistency. Preserve compatibility and migrate only when semantic clarity, source-truth safety, or implementation coordination materially improves.
+Existing downstream Layer docs remain valid source inputs until reconciled. Classify each generic `Layer` before migrating it, using the [project-documentation migration guide](maintainer/project-documentation-migration.md). Do not globally replace `Layer`, and do not rename public paths merely for terminology consistency.

@@ -1,8 +1,6 @@
 # Example: Full-Layer Recon Path — Legacy-Compatible Initiative Recon
 
-This file keeps its historical public path for compatibility. The example now shows how LEAP classifies a legacy `Layer` as an Initiative with Delivery Units and Build Units.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Qualified Architecture Layers and LEAP LHS remain valid.
+Illustrative only. This file keeps its historical path for compatibility. It shows how Recon classifies a legacy `Layer` as an Initiative with Delivery Units and Build Units, following the [project-documentation migration guide](../maintainer/project-documentation-migration.md).
 
 ---
 
@@ -41,23 +39,7 @@ User Experience
 Audit and Traceability
 ```
 
-The Initiative crosses several persistent Domains. Those Domains are not temporary Roadmap lanes.
-
----
-
-## Parallel Roadmap context
-
-The Initiative may run alongside other work:
-
-```text
-                    Q1          Q2          Q3
-Artifact Lifecycle  INIT-006 ─────────────
-Search Platform          INIT-007 ─────────────
-Operations          INIT-008 ─────
-Public Experience               INIT-009 ───────
-```
-
-The Roadmap shows timing and parallelism. It does not permanently own the Initiative records.
+The Initiative crosses several persistent Domains and may run in parallel with other Initiatives on the Roadmap.
 
 ---
 
@@ -189,7 +171,7 @@ BU-006-3C — Source-Truth and Handoff Updates
   Architecture, and execution records as implementation changes reality.
 ```
 
-Each Delivery Unit represents a meaningful functional increment. Individual Build Units are implementation boundaries and are not assumed to be independently deployable.
+Each Delivery Unit is a functional increment; Build Units are implementation boundaries.
 
 ---
 
@@ -207,7 +189,7 @@ Required decisions:
 
 Recommended Agent Execution Configuration:
 - Agent / Tool: Codex or project-approved coding agent
-- Codex Plan Mode: On for Initiative planning; Off for approved Build Units
+- Codex Plan Mode (optional, Codex only): On for Initiative planning; Off for approved Build Units
 - Model: project-approved reasoning-capable implementation model
 - Reasoning Level: Extended for Initiative / High for Build Units
 - Execution Mode: plan-first for the Initiative; repo-preflight-then-implement for Build Units

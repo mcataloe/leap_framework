@@ -12,18 +12,11 @@ Use the approved Recon findings and these decisions/defaults:
 - <decision/default 1>
 - <decision/default 2>
 
-Strategic and delivery traceability:
-- Mission / Project Charter:
-- Strategic Outcome:
-- Initiative:
-- Delivery Unit, if used:
-- Delivery Unit collapse rationale, if omitted:
-- Build Unit / bounded task:
-- Roadmap placement, if relevant:
-- Affected Domains:
-- Affected Architecture Areas:
-- Cross-Initiative dependencies:
-- Cross-repository dependencies:
+Traceability:
+- Work item: <link to issue, ticket, or planning doc>
+- Scope boundary:
+- Initiative / Delivery Unit / Build Unit, when the project uses them:
+- Cross-repository or cross-Domain dependencies, when material:
 
 Capability / Skill composition, if used:
 - Selected Skills:
@@ -45,11 +38,7 @@ Preflight status:
 - Branch / worktree / PR drift reviewed:
 - Capability / Skill Review completed or not applicable:
 - Human approvals granted:
-- Agent / tool selected or recommended:
-- Codex Plan Mode selected or recommended:
-- Model selected or recommended:
-- Reasoning level selected or recommended:
-- Execution mode selected or recommended:
+- Agent / tool, model, reasoning level, and execution mode selected or recommended:
 
 Source-of-truth instructions:
 Use these sources:
@@ -65,7 +54,6 @@ Agent execution configuration:
 - Prompt Type: Standard LEAP Prompt / LHS Prompt / Fix Prompt / Refactor Prompt / Governance Prompt / Cleanup Prompt / Validation Prompt / other clear type
 - LHS Decision: Use LHS / Do not use LHS
 - Agent / Tool: Chat / repository-connected chat / Codex / Claude Code / Cursor / Work / other
-- Codex Plan Mode: On / Off / User decision required / not applicable
 - Model: exact model or approved default
 - Reasoning Level: Low / Medium / High / Extended
 - Execution Mode: implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only
@@ -73,15 +61,18 @@ Agent execution configuration:
 - Repository or repositories:
 - Branch / Worktree:
 - Permissions:
+- Validation:
+- Verification State at Handoff: expected state from leap-validation-standard.md
+- Skill Sources / Loading Method: named source + native / repo-local / prompt-embedded / none
+- Commit Guidance:
+
+Optional routing fields (omit when not needed):
+- Codex Plan Mode: On / Off / User decision required
 - Required Capability Class: E0 / E1 / E2 / E3 / E4 or combination
 - Required Capabilities:
 - Required Confidence / Validation:
 - Preferred Surface:
 - Escalation Surface:
-- Verification State at Handoff: Implemented — execution unverified / Partially verified / Execution verified / not applicable
-- Skill Sources / Loading Method: named source + native / repo-local / prompt-embedded / none
-- Validation:
-- Commit Guidance:
 
 Implementation target:
 - Objective:
@@ -97,28 +88,13 @@ Implementation target:
 - Compatibility requirements:
 
 Required gate:
-- Confirm Mission / Project Charter traceability when strategically material.
-- Confirm Strategic Outcome and Initiative ownership.
-- Confirm Delivery Unit or explicit collapse rationale.
-- Confirm Build Unit or bounded task.
-- Treat Roadmap as scheduling and dependency view, not Initiative identity.
-- Treat Domains as persistent responsibility boundaries.
-- Treat Architecture as technical structure.
-- Do not define Build Units as necessarily independently deployable.
-- Treat Skills as reusable execution capabilities, not planning levels.
-- Prefer ordinary reasoning when an explicit Skill adds no material value.
-- For required Skills, confirm source, loading method, permission fit, and verification.
-- Do not let a Skill widen Build Unit scope or Prompt authority.
+- Confirm work item, scope boundary, and Build Unit or bounded task.
 - Confirm repo reality, branch drift, scope, non-goals, validation, stop conditions, and execution profile.
-- Derive required capabilities from required confidence and validation before choosing the execution surface.
-- Prefer the least-cost eligible execution surface; cost optimization must not weaken Definition of Done.
-- Name an escalation surface when the preferred surface cannot satisfy a required capability or verification check.
-- Distinguish implementation from execution verification.
 - Confirm whether implementation gravity warrants LHS.
-- Apply Materiality Gate using INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
-- In Materiality-Gated mode, unresolved material questions must be answered before Prompt generation.
-- In No Gate mode, only safely assumable material unknowns may become explicit disclosed assumptions.
-- No Gate never converts STOP into proceed and never bypasses hard blockers or required approval.
+- For required Skills, confirm source, loading method, permission fit, and verification. A Skill must not widen Build Unit scope or Prompt authority.
+- Derive required validation before choosing the execution surface. Cost optimization must not weaken the Definition of Done.
+- Distinguish implementation from execution verification.
+- Apply the Materiality Gate. No Gate never converts STOP into proceed and never bypasses hard blockers or required approval.
 
 Create only the final agent-ready Prompt.
 ```
@@ -147,6 +123,8 @@ Create only the final agent-ready Prompt.
 ## 16. Completion Report Format
 ```
 
+Keep the section numbers. Section 2 and the optional routing fields in section 3 are tool-specific; omit them when not needed. Section 16 returns the handoff report from [LEAP Validation](../prompts/leap-validation-standard.md#required-output). Omit sections with nothing material. Do not pad with N/A.
+
 ## Capability / Skill Composition format
 
 ```text
@@ -154,70 +132,22 @@ Create only the final agent-ready Prompt.
 |---|---|---|---|---|---|---|
 ```
 
-The Build Unit remains the delivery boundary. A Skill supplies reusable capability. Prompt constraints and permissions remain authoritative.
+The Build Unit remains the delivery boundary. Prompt constraints and permissions remain authoritative. See [LEAP Skills](../docs/leap-skills.md#prompt-composition).
 
-## Optional execution role and handoff block
+## Execution roles, when relevant
 
-For multi-agent work, separate independent review, or cross-session continuation **only when material**, append the following to the agent-ready Prompt. For an ordinary single-agent task, omit it. See [Agent Execution Roles and Handoffs](../docs/agent-execution-roles.md); do not confuse roles with execution surfaces or Skills.
-
-```text
-Coordinator / integration owner:
-Implementor assignment(s) and write boundaries:
-Reviewer / independence requirement (or not required):
-Human approver and protected actions:
-Context packet sources and inspected revisions:
-Relevant architectural invariants, contract versions, and assumptions:
-Dependency and shared-resource sequencing:
-Required evidence, review disposition, and handoff destination:
-Stale-baseline / stop triggers:
-Fallback when independent agents or reviews are unavailable:
-```
-
-This block grants no authority beyond the governing Prompt, repository guidance, and required approvals. A mandated independent review must remain outstanding when it cannot be performed; never label it completed by self-review.
+Only for multi-agent work, a required independent review, or a cross-session continuation: name the coordinator, implementor write boundaries, reviewer, and human approver in section 3, and use the context packet and handoff from [Agent Execution Roles and Handoffs](../docs/agent-execution-roles.md). Omit for single-agent work. Roles grant no authority beyond this Prompt, and an independent review that cannot be performed stays outstanding.
 
 ## Strategic and delivery rules
 
-Use the preferred hierarchy:
-
-```text
-Mission / Project Charter
-  -> Strategic Outcome
-    -> Initiative
-      -> Delivery Unit
-        -> Build Unit
-```
-
-Roadmap schedules. Domains organize persistent responsibility. Architecture organizes technical structure.
-
-Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
-
-Skills are orthogonal to this hierarchy and must not be inserted into it.
+For traceability, use the [project documentation model](../docs/project-documentation-model.md) when the project already uses it; otherwise link the external work item.
 
 ## Legacy Layer compatibility
 
-If a legacy Layer is referenced, classify it as Initiative, Delivery Unit, Build Unit, Domain, Architecture Layer, Phase, or mixed / unclear.
-
-Do not globally replace `Layer`. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
+Classify any legacy Layer with the [migration guide](../docs/maintainer/project-documentation-migration.md) before acting. Do not globally replace `Layer`.
 
 ## Required stop conditions
 
-Stop and report if:
+Use the stop conditions in [section 13 of the Prompt standard](../prompts/leap-prompt-standard.md#13-stop-conditions).
 
-- required files or sources are missing
-- docs conflict with repo reality
-- Initiative, Delivery Unit, Build Unit, Domain, or Architecture ownership is materially unclear
-- implementation violates non-goals
-- unapproved Architecture is required
-- forbidden files must be touched
-- a new dependency, migration, auth, billing, AI behavior, or sensitive-data change is needed without approval
-- destructive changes are required without authorization
-- branch or worktree drift creates unclear ownership
-- a required Skill source/loading method is unavailable without a bounded safe fallback
-- a Skill requires tools or permissions not granted by the Prompt
-- a Skill attempts to widen Build Unit scope or source-truth ownership
-- verification is unavailable or undefined
-- acceptance criteria are impossible
-- archived docs are being treated as source truth
-- a legacy Layer cannot be classified safely
-
-Use LHS only when staged execution, commit boundaries, tests, docs, compatibility checks, rollback awareness, or multi-area coordination materially reduce risk.
+Use LHS only when staged execution materially reduces risk. Stage format: [LEAP LHS](../docs/leap-lhs.md).

@@ -4,7 +4,9 @@ Use this for a focused Recon when the full template would add unnecessary ceremo
 
 For broad, high-risk, dependency-heavy, multi-repository, or Brownfield reconciliation work, use the full [`LEAP Recon Request Template`](leap-recon-template.md).
 
-LEAP Charter is not required before every Recon. Recon starts with Baseline Freshness Check.
+LEAP Charter is not required before every Recon. Recon starts with Baseline Freshness Check. Stop investigating when the next safe decision is clear.
+
+References: [project documentation model](../docs/project-documentation-model.md), [Materiality Gate](../docs/materiality-gate.md), [LEAP Recon standard](../prompts/leap-recon-standard.md).
 
 ```text
 Run LEAP Recon using the current LEAP Framework.
@@ -16,14 +18,9 @@ Target area:
 
 Current baseline:
 - Charter complete? yes / no / not needed / unknown
-- Mission / Project Charter:
-- Strategic Outcome:
-- Initiative:
-- Roadmap:
-- Domain map:
-- Architecture docs:
-- Delivery Unit, if used:
-- Build Unit / bounded task:
+- Work item: <link to issue, ticket, or planning doc>
+- Initiative / Delivery Unit / Build Unit, when the project uses them:
+- Planning or Architecture docs, when relevant:
 - Source-truth docs:
 - LEAP Baseline State source: AGENTS.md / leap.baseline.yaml / other / none
 - Repository and branch:
@@ -45,11 +42,7 @@ Planning-boundary checks:
 - Determine whether the target is Initiative-sized, Delivery-Unit-sized,
   Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase,
   or an ambiguous legacy Layer.
-- Treat Roadmap as scheduling and dependency view, not Initiative ownership.
-- Treat Domains as persistent and many-to-many with Initiatives.
-- Use Delivery Units only when a meaningful release, enablement, adoption,
-  demonstration, or cross-repository boundary exists.
-- Do not define Build Units as necessarily independently deployable.
+- Use the LEAP project documentation model when the project already uses it.
 - Classify legacy Layer meaning before migration.
 
 Risk areas:
@@ -63,12 +56,8 @@ Risk areas:
 
 Materiality Gate:
 - Clarification mode: Materiality-Gated / No Gate.
-- Use INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
-- Inspect discoverable sources first.
-- In Materiality-Gated mode, ask only unresolved material questions needed for the next safe decision.
-- In No Gate mode, convert only safely assumable ASK outcomes into explicit disclosed assumptions.
-- No Gate never converts STOP into proceed.
-- Re-evaluate only remaining or newly exposed material uncertainty.
+- Apply the Materiality Gate. Inspect discoverable sources first.
+- Ask only material questions needed for the next safe decision. No Gate never converts STOP into proceed.
 - Stop for destructive-change, privacy, security, money, identity, legal exposure,
   user-trust, unsafe source-truth, missing authorization, or unapproved Architecture risk.
 

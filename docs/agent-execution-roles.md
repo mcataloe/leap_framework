@@ -13,7 +13,7 @@ Status: optional execution contract; no new LEAP lifecycle stage or required run
 
 ## Purpose and relationship to existing LEAP contracts
 
-LEAP defines the approved **work** through Charter, Recon, and an agent-ready Prompt. [Execution routing](execution-routing.md) selects the eligible surface and required validation. [Agent profiles](agent-profiles.md) describe an agent/tool's capabilities and failure modes. This document defines **responsibilities and handoff evidence** when one or more agents execute that approved work.
+LEAP defines the approved **work** through Charter, Recon, and an agent-ready Prompt. [Execution routing](execution-routing.md) selects the eligible surface and required validation. [Per-tool profiles](execution-routing.md#8-current-provider-profiles) describe an agent/tool's capabilities and failure modes. This document defines **responsibilities and handoff evidence** when one or more agents execute that approved work.
 
 The LEAP lifecycle, Materiality Gate, Build Unit boundaries, Definition of Done, permission hierarchy, and human approval requirements remain unchanged. A role is a responsibility, not a mandated agent process, model, Skill, new planning level, or persistent service.
 

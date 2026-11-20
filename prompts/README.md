@@ -1,142 +1,26 @@
 # LEAP Prompt Library
 
-This directory contains reusable operational Prompts for running LEAP workflows.
+Operational standards for running LEAP workflows. The compact request templates live in [`../templates/`](../templates/). Commands, aliases, and choosing a workflow are covered in [semantic routing](../docs/semantic-routing.md) and the [workflow chooser](../docs/user/which-leap-workflow.md).
 
-The `templates/` directory contains compact request templates. The `prompts/` directory contains fuller operational standards.
+Every Prompt inherits [LEAP Core](../docs/leap-core.md): inspect first, order of truth, scope, hard stops, and honest verification. Prompts do not restate it.
 
-## Project-documentation model
+## Prompt family
 
-LEAP Prompts use this preferred traceability hierarchy:
+| Prompt type | Use when | Standard | Template |
+|---|---|---|---|
+| Charter | Direction, source truth, or documentation structure needs to be established or reconciled | [leap-charter-standard.md](leap-charter-standard.md) | [Charter](../templates/leap-charter-template.md) |
+| Recon | A focused target needs evidence, risk, dependency, and readiness analysis | [leap-recon-standard.md](leap-recon-standard.md) | [Recon](../templates/leap-recon-template.md), [Recon Lite](../templates/leap-recon-lite-template.md) |
+| Standard Implementation, Fix, Refactor | Bounded work is ready for agent instructions | [leap-prompt-standard.md](leap-prompt-standard.md) | [Prompt](../templates/leap-prompt-template.md) |
+| LHS | Several Build Units with dependency order, checkpoints, or rollback risk | [leap-prompt-standard.md](leap-prompt-standard.md) + [LHS stage format](../docs/leap-lhs.md) | [Prompt](../templates/leap-prompt-template.md) |
+| Governance | Source-truth, process, or documentation drift needs reconciliation | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) | |
+| Cleanup | Obsolete artifacts need a dependency-aware decommission proposal | [leap-cleanup-standard.md](leap-cleanup-standard.md) | [Cleanup](../templates/leap-cleanup-template.md) |
+| Validation | Finished work needs a scope check, verification state, and handoff | [leap-validation-standard.md](leap-validation-standard.md) | [Pull request](../templates/leap-pull-request-template.md) |
 
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
+For low-gravity work, use a [Quick LEAP Brief](../docs/user/quick-leap-brief.md) instead of a full Prompt.
 
-Roadmaps schedule and prioritize. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
+## Notes
 
-Delivery Unit may be collapsed for small work. Build Unit is not necessarily independently deployable.
-
-LEAP Skills are reusable execution capabilities composed against Build Units. Skills are not planning levels and do not grant authority beyond the governing Prompt.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
-
-Canonical references:
-
-- [`../docs/project-documentation-model.md`](../docs/project-documentation-model.md)
-- [`../docs/leap-skills.md`](../docs/leap-skills.md)
-
-## Prompt family routing
-
-Discover workflow commands, aliases, Discovery and Pressure Test through [Semantic Workflow Routing](../docs/semantic-routing.md). The table below describes implementation Prompt variants, not a competing command catalog.
-
-| Prompt Type | Use when | File / source |
-|---|---|---|
-| Charter Prompt | Mission, Strategic Outcomes, Initiative identity, Roadmap, source truth, or Brownfield docs need alignment | [leap-charter-standard.md](leap-charter-standard.md) |
-| Recon Prompt | A focused Initiative, Delivery Unit, Build Unit, Domain, Architecture, dependency, contract, risk, or legacy Layer needs investigation | [leap-recon-standard.md](leap-recon-standard.md) |
-| Standard Implementation Prompt | A bounded Build Unit or small Delivery Unit is ready for agent instructions | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| Fix Prompt | A specific bug or remediation needs bounded implementation guidance | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| Refactor Prompt | Structural change needs sequencing, compatibility, verification, and stop conditions | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| Governance Prompt | Source-truth, process, or documentation drift needs reconciliation | [leap-governance-pass-standard.md](leap-governance-pass-standard.md) |
-| Cleanup Prompt | Obsolete artifacts need a dependency-aware decommission proposal and approval gate | [leap-cleanup-standard.md](leap-cleanup-standard.md) |
-| Validation Prompt | Completed work needs verification and handoff | [leap-prompt-standard.md](leap-prompt-standard.md) |
-| LHS Prompt | A named Initiative or Delivery Unit needs staged multi-Build-Unit execution | [../docs/leap.md](../docs/leap.md) |
-
-Use a [Quick LEAP Brief](../docs/user/quick-leap-brief.md) or Standard Implementation Prompt for low-gravity work.
-
-Use LHS when staged execution, commit boundaries, tests and docs, multi-area coordination, compatibility checks, rollback awareness, or explicit integration checkpoints materially reduce risk.
-
-LEAP LHS stages implementation. It does not define the project's strategic hierarchy.
-
-## Skill composition
-
-Recon performs Capability / Skill Review only after Build Unit boundaries are clear enough.
-
-When Skills are selected, implementation Prompts identify:
-
-```text
-| Build Unit | Skill | Source | Loading method | Required? | Tools / permissions | Verification |
-```
-
-Use ordinary reasoning and repository guidance when an explicit Skill adds no material value. Use progressive disclosure instead of loading entire skill libraries into every Prompt.
-
-Define reusable Skill contracts with [`../templates/leap-skill-template.md`](../templates/leap-skill-template.md).
-
-## Current public workflow
-
-Current request templates:
-
-```text
-templates/leap-charter-template.md
-templates/leap-recon-lite-template.md
-templates/leap-recon-template.md
-templates/leap-cleanup-template.md
-templates/leap-prompt-template.md
-templates/leap-skill-template.md
-```
-
-Start with:
-
-- [Start Here](../docs/00_start_here.md)
-- [Project Documentation Model](../docs/project-documentation-model.md)
-- [LEAP Skills](../docs/leap-skills.md)
-- [Which LEAP Workflow Should I Use?](../docs/user/which-leap-workflow.md)
-- [When Not to Use LEAP](../docs/user/when-not-to-use-leap.md)
-- [Quick LEAP Brief](../docs/user/quick-leap-brief.md)
-- [LEAP Framework](../docs/leap.md)
-- [LEAP Charter](../docs/leap-charter.md)
-- [Materiality Gate](../docs/materiality-gate.md)
-- [Dependency & Contract Recon](../docs/dependency-contract-recon.md)
-- [Repository Cleanup](../docs/repository-cleanup.md)
-- [Legacy Project Documentation Migration](../docs/maintainer/project-documentation-migration.md)
-
-## Operational Prompt files
-
-```text
-prompts/leap-charter-standard.md
-prompts/leap-recon-standard.md
-prompts/leap-prompt-standard.md
-prompts/leap-governance-pass-standard.md
-prompts/leap-cleanup-standard.md
-```
-
-Fix, Refactor, and Validation Prompts are variants of `leap-prompt-standard.md`.
-
-LHS is a Prompt format documented in `docs/leap.md`, not a separate lifecycle phase.
-
-## Usage notes
-
-- Charter establishes or reconciles Mission, Strategic Outcomes, Initiatives, Roadmap, Domains, Architecture, and source truth.
-- Recon begins with Baseline Freshness Check and investigates focused uncertainty.
-- Recon performs Planning Boundary Review before Delivery Unit or Build Unit generation.
-- Recon performs Capability / Skill Review after Build Unit boundaries are clear enough and only when useful.
-- Implementation Prompts include strategic and delivery traceability when material.
-- Implementation Prompts identify selected Skill sources, loading methods, permission fit, and verification without letting Skills widen scope.
-- Roadmap placement must not be treated as permanent Initiative identity.
-- Domains and Initiatives are many-to-many.
-- Build Units are bounded implementation responsibilities and are not necessarily independently deployable.
-- Skills are reusable execution capabilities and are not planning levels.
-- Legacy Layer docs must be classified before migration.
-- Governance Prompts handle source-truth ownership and documentation drift.
-- Cleanup Prompts inventory obsolete artifacts, recommend a cleanup mode, and stop for approval before a Refactor Prompt is generated.
-- Validation Prompts verify completed work and record handoff evidence.
-
-## Public rule
-
-```text
-Inspect discoverable sources first.
-Classify unresolved context by material consequence.
-Ask only what changes the next safe decision.
-Assume or defer what can safely proceed without clarification.
-Stop when a hard blocker applies.
-Re-evaluate only remaining or newly exposed material uncertainty.
-```
-
-An explicit `No Gate` modifier converts only safely assumable ASK outcomes into disclosed assumptions. It never converts STOP into proceed.
+- Traceability: link the work item. Use the [project documentation model](../docs/project-documentation-model.md) only when the project already uses it.
+- Skills: Recon may run a Capability / Skill Review once Build Unit boundaries are clear. Prompts that use Skills name the source, loading method, permission fit, and verification. A Skill never widens Prompt scope. See [LEAP Skills](../docs/leap-skills.md) and the [Skill template](../templates/leap-skill-template.md).
+- Cleanup runs are discovery-only until the exact decommission set is approved. Approved work runs as a Refactor Prompt.
+- Legacy `Layer` docs are classified before migration: [Project Documentation Migration](../docs/maintainer/project-documentation-migration.md).

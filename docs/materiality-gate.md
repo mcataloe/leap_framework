@@ -13,7 +13,7 @@ Materiality Gate is LEAP's shared clarification discipline for deciding whether 
 
 Materiality Gate is not a lifecycle phase. It is a framework-level execution primitive used by Charter, Recon, Prompt generation, implementation handoff, governance, destructive-change work, and other materially consequential LEAP workflows.
 
-It refines LEAP's confidence and readiness behavior. It does not weaken source-of-truth, readiness-gate, hard-blocker, destructive-change, authorization, or sensitive-area rules.
+It does not weaken source-of-truth, hard-blocker, destructive-change, authorization, or sensitive-area rules.
 
 ## Core invariant
 
@@ -35,14 +35,6 @@ A question is material only when the answer could change one or more of the foll
 - authorization or ownership boundaries
 
 If the missing information would only affect naming, wording, formatting, ordering, tone, minor preference, or polish, do not ask. Make a reasonable assumption when needed and proceed.
-
-Plain-English rule:
-
-- If the answer changes the work, classify it as material.
-- If the answer is discoverable, inspect first.
-- If the answer only changes polish, assume or defer and proceed.
-- If the missing answer creates a hard blocker, stop.
-- Ask only when an unresolved material question is the safe route for the current clarification mode.
 
 The expected result of Materiality Gate is often zero questions.
 
@@ -233,6 +225,8 @@ checkpoint before proceeding.
 ### Question Decision
 Proceed with assumptions / inspect sources first / ask targeted questions / stop.
 ```
+
+Omit sections with nothing material. Do not pad with N/A.
 
 ## Examples
 

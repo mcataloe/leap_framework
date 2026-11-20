@@ -9,207 +9,57 @@ END_LEAP_DOC_METADATA
 
 # LEAP Project Setup
 
-LEAP helps ChatGPT and coding agents understand your project before they suggest or make changes.
-
-Follow these four steps.
+Four steps put LEAP in front of your chat assistant and coding agents.
 
 ## Step 1: Add LEAP to ChatGPT Project Instructions
 
-Paste this into the Project Instructions area:
+Optional; skip it if you only use coding agents. Paste this into the Project Instructions area, followed by the text of [LEAP Core](../leap-core.md) (everything after the `LEAP_CORE_TEXT_BEGIN` marker):
 
 ```text
-This project uses the LEAP Framework.
+This project uses the LEAP Framework (https://github.com/mcataloe/leap_framework).
+Repository to inspect: {{ REPOSITORY HANDLE OR URL }}
 
-Use the current LEAP Framework documentation at
-https://github.com/mcataloe/leap_framework as the governing framework
-source when repository access is available.
+When I invoke a LEAP command (LEAP help, Discovery, Pressure Test, Charter,
+Recon, Generate/Run Prompt, Generate/Run LHS, Governance, Cleanup,
+Validation, Handoff), follow the current framework docs for that workflow.
+Do not claim repository inspection happened unless it did.
+Preserve my wording unless I ask for rewriting.
+End LEAP outputs with a clear decision or recommended next step.
 
-The project repository to inspect is:
-{{ INSERT REPOSITORY HANDLE OR ACCESSIBLE URL HERE }}
-
-When I invoke LEAP help, LEAP Discovery, LEAP Pressure Test,
-Run LEAP Charter, Run LEAP Recon,
-Generate LEAP Prompt, Run LEAP Prompt, Generate LEAP LHS,
-Run LEAP LHS, Run LEAP Governance, Run LEAP Cleanup, Run LEAP Validation, or
-Run LEAP Handoff, use LEAP Framework behavior.
-
-Treat the lifecycle as:
-LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
-
-Use this project-documentation hierarchy when strategically material:
-Mission / Project Charter -> Strategic Outcome -> Initiative -> Delivery Unit -> Build Unit
-
-Treat Roadmap as timing, priority, milestones, dependencies, release targets,
-status, and parallelism. Do not treat Roadmap placement as permanent Initiative identity.
-
-Treat Domains as persistent responsibility boundaries with a many-to-many
-relationship to Initiatives. Treat Architecture as technical structure.
-
-Route work to the least-cost available execution surface capable of satisfying
-the work unit's required confidence and validation criteria. Treat product names,
-credits, quotas, subscription limits, and pricing as environment configuration,
-not permanent LEAP architecture. Do not weaken Definition of Done to save usage.
-
-Allow Delivery Unit to collapse for small work. Do not define Build Units as
-necessarily independently deployable.
-
-Generic project-planning Layer is legacy-compatible and deprecated as the
-preferred planning level. Preserve the LEAP name, Layered House Standard,
-LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
-Classify legacy Layer meaning before migration.
-
-Preserve my wording unless I ask for rewriting. Use the required LEAP headings.
-Inspect source-truth docs, repo reality, branches, worktrees, pull requests,
-existing functionality, dependencies, and contracts when available.
-
-Do not claim repository inspection happened unless it actually happened.
-Distinguish "Implemented — execution unverified" from "Execution verified" when
-runtime, build, integration, migration, browser, or deployment checks are required.
-Do not generate implementation Prompts prematurely.
-
-Apply Materiality Gate using:
-INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE.
-
-Inspect discoverable sources first. In the default Materiality-Gated mode, ask
-only unresolved material questions needed for the next safe decision. If I add
-"No Gate" to a LEAP request, avoid ordinary clarification interruptions by
-converting only safely assumable ASK outcomes into explicit disclosed
-assumptions. No Gate never converts STOP into proceed and never bypasses unsafe
-source truth, destructive-change safeguards, authorization, privacy, security,
-money, identity, legal exposure, user trust, unapproved Architecture, public
-contract approval, or required human approval.
-
-Always end LEAP outputs with a clear gate decision or recommended next step.
+LEAP Core:
+<paste docs/leap-core.md text here>
 ```
 
-### Optional Execution Environment Profile
+The command catalog lives in [semantic routing](../semantic-routing.md). If several assistants or agents are available, you can record an [Execution Environment Profile](../execution-routing.md#2-execution-environment-profile) so LEAP routes each task to the cheapest tool that can run its required checks.
 
-Record this during onboarding when several agent/tool surfaces are available or their
-cost/capability tradeoffs are material:
+## Step 2: Add AGENTS.md
 
-```text
-Surface:
-Capabilities:
-Context reach:
-Relative marginal cost:
-Usage constraints:
-Permission ceiling:
-Preferred use:
-Escalation trigger:
-```
-
-Examples of surfaces may include conversational AI, repository-connected chat,
-shell-capable coding agents, browser/computer-use agents, IDE agents, or human gates.
-Use current product names only as local configuration. Update the profile when pricing,
-credits, quotas, available tools, or organizational policy changes.
-
-Canonical routing guidance: [LEAP Execution Routing](../execution-routing.md).
-
-## Command behavior
-
-The canonical, continuously maintained command/alias catalog is [LEAP Semantic Workflow Routing](../semantic-routing.md). **LEAP help** works through project bootstrap instructions even when no native Skill is installed. Standard LEAP Skills are optional; install through the [Agent Pack](https://github.com/mcataloe/leap_agent_pack) after adopting the project's AGENTS.md instructions.
-
-| Command | Expected behavior |
-|---|---|
-| `LEAP help` | Show canonical command and intent examples; no mutation. |
-| `Run LEAP Discovery` | Explore domain, actors, workflows and relationships before deciding implementation. |
-| `Run LEAP Pressure Test` | Challenge a hypothesis, surface alternatives and falsifying evidence. |
-| `Run LEAP Charter` | Establish or reconcile Mission, Strategic Outcomes, Initiative identity, Roadmap, Domains, Architecture, source truth, and implementation posture. |
-| `Run LEAP Recon` | Investigate a focused Initiative, Delivery Unit, Build Unit, Domain, Architecture area, feature, risk, dependency, contract, or legacy Layer. |
-| `Generate LEAP Prompt` | Create an agent-ready Prompt only after traceability, source truth, repo reality, scope, validation, stop conditions, and execution configuration are clear. |
-| `Run LEAP Prompt` | Execute an approved Prompt according to its scope, constraints, validation, and stop conditions. |
-| `Generate LEAP LHS` | Create a staged Layered House Standard Prompt when implementation gravity warrants several Build Units or integration checkpoints. |
-| `Run LEAP LHS` | Execute an approved LHS Prompt according to its Delivery Unit and Build Unit sequence. |
-| `Run LEAP Governance` | Reconcile framework, repository, docs, terminology, source truth, or adoption drift. |
-| `Run LEAP Cleanup` | Inventory and classify obsolete artifacts, inspect references and replacements, and return an exact proposed decommission set for approval. |
-| `Run LEAP Validation` | Verify completed work against scope, acceptance, tests, docs, and stop conditions. |
-| `Run LEAP Handoff` | Summarize work, unresolved risks, validation, deviations, and follow-up. |
-
-**No Gate is a modifier, not a separate workflow.** Examples:
-
-```text
-Run LEAP Recon on this feature — No Gate.
-Generate the LEAP Prompt — No Gate.
-```
-
-The modifier applies to the current LEAP operation unless the user explicitly scopes it more broadly.
-
-## Step 2: Add AGENTS.md to the project root
-
-Use the repository-level template from the LEAP Agent Pack:
-
-```text
-https://github.com/mcataloe/leap_agent_pack/blob/main/templates/separated/repo/AGENTS.md
-```
-
-Example:
+Install the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) templates. The pack README has the per-tool locations (Codex, Claude Code) and macOS, Linux, and Windows commands. The result is LEAP Core in every session plus a short project section at the repository root:
 
 ```text
 my-project/
   AGENTS.md
   README.md
   src/
-  package.json
 ```
 
-`AGENTS.md` teaches the coding agent how to work in the specific repository.
+## Step 3: Populate the project section
 
-It should include a small LEAP Baseline State summary. Larger or drift-prone projects may use optional `leap.baseline.yaml` metadata created through an authorized Charter, Governance, or baseline setup pass.
+Run the population prompt that sits next to the template (`AGENTS_Population_Prompt.md`). The agent fills the project section from repository evidence (commands, source-truth docs, project rules, stop conditions with approvers) and marks unknowns `TBD` instead of guessing.
 
-## Step 3: Run the AGENTS.md population Prompt
-
-Use:
-
-```text
-https://github.com/mcataloe/leap_agent_pack/blob/main/templates/separated/repo/AGENTS_Population_Prompt.md
-```
-
-The agent should inspect real repository evidence and mark unknowns as `TBD` instead of guessing.
-
-When a LEAP Prompt includes a User Action Before Codex Submission section, set Codex Plan Mode to the requested value before submission. Codex Plan Mode is separate from LEAP Execution Mode.
+Add the [LEAP pull request template](../../templates/leap-pull-request-template.md) as `.github/pull_request_template.md` so every PR reports scope, verification state, and checks not run.
 
 ## Step 4: Run the first LEAP workflow
 
-Use Charter when the project direction or documentation baseline is unclear:
+Most work needs no ceremony: use a normal prompt or a [Quick LEAP Brief](quick-leap-brief.md). When something is unclear:
 
 ```text
-Run LEAP Charter for this repo.
+Run LEAP Recon on <feature, risk, dependency, contract, or design question>.
+Run LEAP Charter for this repo.          # only if direction or source truth is unclear
+Run LEAP Cleanup on <stale docs or artifacts>.
+Run LEAP Validation on <branch or PR>.
 ```
 
-Use Recon when the baseline is already sufficient:
+Add **No Gate** to a request to proceed on disclosed safe assumptions instead of questions. It never overrides a hard stop.
 
-```text
-Run LEAP Recon on <Initiative, Delivery Unit, Build Unit, Domain,
-Architecture area, feature, risk, dependency, contract, or legacy Layer>.
-```
-
-Examples:
-
-```text
-Run LEAP Recon on the password-reset Initiative.
-Run LEAP Recon on the account-recovery Delivery Unit.
-Run LEAP Recon on whether the API contract matches the frontend.
-Run LEAP Recon on the legacy Layer 3 plan and classify what it represents.
-Run LEAP Recon on cleaning up stale documentation.
-Run LEAP Cleanup on the stale documentation identified above.
-```
-
-Recon should report:
-
-- Baseline Freshness Check
-- source truth and repo reality
-- Strategic Outcome and Initiative alignment
-- Roadmap, Domain, and Architecture impacts
-- Planning Boundary Review
-- Delivery Unit and Build Unit recommendations
-- risks and material questions
-- recommended next step
-
-For tiny work, use a normal prompt or [Quick LEAP Brief](quick-leap-brief.md).
-
-## Simple version
-
-1. Add LEAP to Project Instructions.
-2. Put Agent Pack `AGENTS.md` in the project root.
-3. Run the population Prompt.
-4. Run Charter or a focused Recon.
+See the [workflow chooser](which-leap-workflow.md) for which to use.

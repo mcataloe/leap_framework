@@ -49,15 +49,7 @@ The controlling invariant is:
 
 ## Skills are not a new lifecycle phase
 
-Do not add a mandatory Skills phase to the LEAP lifecycle.
-
-The lifecycle remains:
-
-```text
-LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
-```
-
-Skills are latent capabilities selected only when useful. A tiny obvious task may use no explicit Skill. A complex migration may compose several.
+Do not add a mandatory Skills phase to the [LEAP lifecycle](leap.md#2-lifecycle). Skills are latent capabilities selected only when useful. A tiny obvious task may use no explicit Skill. A complex migration may compose several.
 
 ## Native LEAP entry point
 

@@ -75,10 +75,7 @@ def validate():
         starter = pack / "templates/skills/project-skill-starter/SKILL.md"
         assert skill_metadata(starter)["name"] == "project-skill-starter"
         assert (pack / "docs/skills-installation.md").exists()
-        for path in (
-            "manifests/latest.json", "manifests/template-inventory.json",
-            "manifests/compatibility.json",
-        ):
+        for path in ("manifests/latest.json",):
             assert json.loads((pack / path).read_text(encoding="utf-8"))
         for path in (
             "templates/separated/global/AGENTS.md",

@@ -1,6 +1,6 @@
 # LEAP Code Assistant Recon-Only Request Template
 
-Use this template inside a code assistant that already has access to the target repository.
+Illustrative only. Use this template inside a code assistant that already has access to the target repository.
 
 This template is for **Recon only**. It should inspect repo reality, identify source truth and risk, classify the planning boundary, refine Delivery Units and Build Units, and decide whether implementation is safe to plan.
 
@@ -41,15 +41,10 @@ Target:
 Architecture area, feature, risk, dependency, contract, question,
 or legacy Layer>
 
-Strategic context, if known:
-- Mission / Project Charter:
-- Strategic Outcome:
-- Initiative:
-- Roadmap placement:
-- Affected Domains:
-- Affected Architecture Areas:
-- Delivery Unit, if used:
-- Build Unit / bounded task:
+Traceability, when the project uses it (or link a Jira, Azure DevOps,
+or GitHub work item):
+- Initiative / Delivery Unit / Build Unit or bounded task:
+- Affected Domains or Architecture areas:
 
 You already have access to the target codebase.
 
@@ -62,7 +57,7 @@ privacy, billing, data, or AI-behavior decisions.
 Inspect the repo and return a Recon report identifying:
 - Baseline Freshness Check result
 - source-of-truth docs and stale, archived, missing, or conflicting docs
-- Mission, Strategic Outcome, Initiative, Roadmap, Domain, and Architecture alignment
+- alignment with strategy, planning records, and Architecture, when present
 - current repo reality
 - existing functionality related to the target
 - affected files, routes, models, schemas, components, services, tests,
@@ -82,10 +77,6 @@ Inspect the repo and return a Recon report identifying:
 - material questions before Prompt generation
 - recommended Agent Execution Configuration
 
-Treat Roadmap as scheduling and dependency view, not Initiative identity.
-Treat Domains as persistent and many-to-many with Initiatives.
-Allow Delivery Unit collapse for small work.
-Do not define Build Units as necessarily independently deployable.
 Do not globally replace Layer terminology.
 
 If required sources or implementation evidence are unavailable, stop and report what is missing.
@@ -93,67 +84,25 @@ If required sources or implementation evidence are unavailable, stop and report 
 Return only the Recon report.
 ```
 
-## Expected Recon output
+## Expected Recon output and gate decisions
 
-```text
-# LEAP Recon - <Target>
-
-## 1. Framework Interpretation
-## 2. Source-of-Truth Manifest Check
-## 3. Baseline Freshness Check
-## 4. Charter / Baseline Gate Check
-## 5. Ideation Loop Residual Questions
-## 6. Materiality Check
-## 7. Repo Reality Reconciliation
-## 8. Branch / Worktree / PR Drift Review
-## 9. Documentation Lifecycle Review
-## 10. Strategic Plan Reconciliation
-## 11. Existing Functionality Collision Check
-## 12. Stale Assumption Scan
-## 13. Cross-Initiative / Cross-Domain Impact Scan
-## 14. Planning Boundary Review
-## 15. Legacy Layer Classification, when relevant
-## 16. Generated / Refined Delivery Unit Inventory, when relevant
-## 17. Generated / Refined Build Unit Inventory
-## 18. Recommended Build Sequence
-## 19. Dependency and Destructive-Change Review
-## 20. Risk Taxonomy Review
-## 21. Architecture Right-Sizing Review
-## 22. Human Checkpoints Required
-## 23. Coding-Agent Risk Forecast
-## 24. Recommended Agent Execution Configuration
-## 25. Clarification Questions Before Prompt Generation
-## 26. Gate Decision / Next Step
-```
-
-## Gate decisions
-
-```text
-Generate LEAP Prompt
-Continue LEAP Charter
-Pressure Test Further
-Narrow Scope First
-Needs Human Decision
-Reconcile Docs First
-Resolve Branch Drift First
-Do Not Build Yet
-```
+Use the output format and gate decisions in the [Recon standard](../prompts/leap-recon-standard.md). Omit sections with nothing material. Do not pad with N/A.
 
 ## Agent Execution Configuration
 
 | Field | Recommendation | Rationale |
 |---|---|---|
 | Agent / Tool | Codex / Cursor / Claude Code / other | Why |
-| Codex Plan Mode | On / Off / User decision required | Why |
 | Model | Exact model or approved default | Why |
 | Reasoning Level | Low / Medium / High / Extended | Why |
 | Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only | Why |
-| Scope Scale | small task / Build Unit / Delivery Unit / Initiative / multi-repo Initiative / repo-wide maintenance | Why |
 | Repository | Repo or repositories | Why |
 | Branch / Worktree | Target context | Why |
 | Permissions | Allowed changes | Why |
 | Validation | Tests and checks | Why |
 | Commit Guidance | Commit posture | Why |
+
+Tool-specific fields such as Codex Plan Mode and Scope Scale are optional — omit when not needed. See [current-provider profiles](../docs/execution-routing.md#8-current-provider-profiles).
 
 ## Stop conditions
 
@@ -162,7 +111,7 @@ Stop instead of guessing if:
 - required files or source docs are missing
 - docs conflict with repo reality
 - archived docs are treated as current source truth
-- Initiative, Delivery Unit, Build Unit, Domain, or Architecture ownership is materially unclear
+- ownership of the target is materially unclear
 - existing implementation contradicts the target
 - work violates non-goals
 - unapproved product or Architecture decisions are required
@@ -173,4 +122,4 @@ Stop instead of guessing if:
 - tests or validation are missing or unclear
 - a legacy Layer cannot be classified safely
 
-This template is intentionally lightweight. Escalate to Charter when Mission, Strategic Outcomes, Initiative identity, scope, risk, or source truth is unclear.
+This template is intentionally lightweight. Escalate to Charter when direction, scope, risk, or source truth is unclear.

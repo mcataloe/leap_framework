@@ -17,8 +17,6 @@ The canonical rule is:
 
 Provider-specific products, quotas, subscriptions, and credit systems are runtime configuration, not framework architecture.
 
-**Separate decision:** execution routing selects *how and where* an agent performs work and verifies it. [Team & Delivery Capacity Estimation](team-delivery-estimation.md) estimates *person-effort and delivery duration* from authorized staffing, task and historical evidence. Agent capabilities may inform both, but an AI tool is not automatically another FTE, and tool cost/commit counts are not measures of human working hours.
-
 ## 1. Why execution routing exists
 
 Reasoning difficulty, execution capability, environment access, and marginal cost are separate concerns.
@@ -76,6 +74,8 @@ LEAP may describe execution needs using the following classes.
 
 These are capability classes, not intelligence rankings.
 
+Recording a capability class is optional. Record it only when work crosses surfaces or the routing choice is not obvious.
+
 A work unit may use more than one class across its lifecycle. Prefer the lowest adequate class for each coherent tranche of work rather than bouncing between surfaces after every file.
 
 ## 4. Build Unit and Delivery Unit routing metadata
@@ -105,6 +105,9 @@ Recommended state language:
 - **Implemented — execution unverified**: the intended artifacts were changed, but required runtime/build/integration checks have not been executed.
 - **Execution verified**: the required execution-grounded checks were run successfully in an adequate environment.
 - **Partially verified**: some required checks passed, while named checks remain unavailable, blocked, or pending.
+- **Failed**: a required check ran and failed, or validation found an unexplained out-of-scope change or hard-stop violation.
+
+[LEAP Validation](../prompts/leap-validation-standard.md) is the standard for reporting these states at handoff.
 
 Never report "complete" when the Definition of Done requires checks that were not executed.
 
@@ -151,9 +154,51 @@ When moving from E0/E1 to E2, prefer a bounded validation-and-repair handoff ove
 
 ## 8. Current-provider profiles
 
-Provider-specific guidance belongs in the Execution Environment Profile, not this canonical doctrine.
+Provider-specific guidance belongs in the Execution Environment Profile, not in this doctrine. One environment may treat conversational repository mutation as cheap and shell-capable agents as constrained; another may price both the same. Route differently without changing this document.
 
-For example, one environment may treat conversational repository mutation as low marginal cost and shell-capable coding agents as constrained. Another provider may price both identically. LEAP should route differently in those environments without changing this document.
+A profile describes what a tool can do. An **execution role** (architect, implementor, reviewer, human approver) describes who is responsible for planning, bounded implementation, independent review, and required approval; see [Agent Execution Roles and Handoffs](agent-execution-roles.md). Roles are optional assignments within the existing lifecycle, not new agent types or required sessions.
+
+A per-tool profile is optional. Write one only when a team uses a tool often enough that its quirks change how Prompts should be written. Useful fields: strengths, known failure modes, required constraints, validation commands, and commit behavior.
+
+Adjust handoffs to the tool's behavior:
+
+| Agent behavior | LEAP adjustment |
+|---|---|
+| Weak repo awareness | Strong source list, file list, and inspect-first instructions |
+| Strong autonomous editing | Tight non-goals and forbidden-file list |
+| Shell access | Explicit validation commands and permission limits |
+| Chat-only | Generate a plan or Prompt only |
+| Fast but shallow | Smaller Build Units and explicit acceptance criteria |
+| Strong refactoring tendency | Block broad cleanup unless scoped and testable |
+| Weak test discipline | Require exact verification and evidence |
+| Multi-repository access | Explicit ownership, contract, merge-order, and rollback boundaries |
+
+Example profiles (optional — omit when not needed):
+
+```text
+Codex
+- Plan Mode: a user-controlled setting. Off for implement-directly,
+  repo-preflight-then-implement, and validation-only; On for plan-first;
+  user decision for recon-only. LEAP Execution Mode is an instruction
+  inside the Prompt; Plan Mode is a tool setting.
+- Strengths: bounded multi-file Build Units when source truth is clear;
+  test-driven edits when verification is explicit.
+- Known failure modes: over-completing broad Prompts; touching adjacent
+  files when boundaries are vague; treating missing decisions as
+  implementation choices.
+- Constraints: name files not to touch, validation commands, and stop
+  conditions for conflicts, missing files, and unapproved Architecture changes.
+- Commit behavior: one Build Unit or task per commit where feasible.
+
+Claude Code
+- Plan Mode: a user-controlled setting that plans before editing; use it
+  for plan-first work.
+- Repository guidance: reads AGENTS.md when the repository has no
+  CLAUDE.md; otherwise add an @AGENTS.md import to CLAUDE.md. Use
+  permission rules or PreToolUse hooks to enforce do-not-touch paths.
+- Constraints and commit behavior: same as above; state permissions and
+  validation commands explicitly.
+```
 
 ## 9. Failure modes to avoid
 
@@ -172,7 +217,7 @@ LEAP should guard against:
 
 Agent Execution Configuration remains the explicit handoff block in an agent-ready Prompt.
 
-When routing is material, it should additionally capture:
+When routing is material, for example when work crosses surfaces, it may also capture these optional fields (omit when not needed):
 
 ```text
 Required Capability Class:
@@ -183,9 +228,8 @@ Escalation Surface:
 Verification State at Handoff:
 ```
 
-The selected Agent / Tool is therefore an execution decision derived from requirements, not an assumption made before requirements are known.
-
+The selected Agent / Tool is an execution decision derived from requirements, not an assumption made before requirements are known.
 
 ## 11. Optional native multi-agent delegation
 
-For independently bounded work, see [Native Multi-Agent Delegation Policy](native-agent-delegation.md). It extends surface routing with dependency, ownership, model/effort selection, and integration rules; it does not alter the lifecycle, permissions, or Definition of Done.
+For independently bounded work, see [Native Multi-Agent Delegation Policy](native-agent-delegation.md). It adds dependency, ownership, model and effort selection, and integration rules to surface routing; it does not change the lifecycle, permissions, or Definition of Done.

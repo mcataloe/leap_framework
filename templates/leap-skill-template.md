@@ -104,4 +104,4 @@ When a LEAP Prompt uses this Skill, record:
 | Build Unit | Skill | Source | Loading method | Required? | Tools / permissions | Verification |
 ```
 
-The Build Unit remains the delivery boundary. The Skill remains a reusable capability. The Skill must not silently widen scope or authority.
+The Build Unit remains the delivery boundary, and the Skill must not widen scope or authority. See [LEAP Skills](../docs/leap-skills.md).

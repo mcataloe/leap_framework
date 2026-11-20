@@ -31,6 +31,8 @@ Build Unit
 
 The hierarchy describes traceability. It does not require one Markdown file for every level and it does not imply that every relationship in a real system is a strict tree.
 
+The hierarchy is optional. Use it when it improves clarity. A link to an external work item (Jira, Azure DevOps, GitHub issue) is an acceptable substitute.
+
 ## Core principle
 
 ```text
@@ -216,8 +218,6 @@ A Roadmap is a planning projection over Initiatives and Delivery Units. It shows
 
 A Roadmap does not permanently own Initiative identity. An Initiative may appear on zero or more Roadmap views over time.
 
-When estimates or team capacity materially affect the Roadmap, follow [Team & Delivery Capacity Estimation](team-delivery-estimation.md). LEAP's effort ranges and capacity-adjusted duration scenarios are advisory. Confirmed assignments, allocation, worklogs, accepted estimates and status remain owned by the project's designated external delivery/resource system (such as Jira); a Roadmap may reference them without copying a competing operational roster.
-
 Example:
 
 ```text
@@ -355,9 +355,6 @@ A practical ownership model is:
 | Desired measurable changes | Strategic Outcomes |
 | Outcome-oriented coordinated work | Initiative registry or Initiative docs |
 | Timing, priority, milestones, parallelism | Roadmap |
-| Assignments, team allocations, accepted work-item estimates, worklogs, operational status | Designated external delivery/resource system (for example Jira) |
-| Repository change and review events | Git, pull requests, and CI (not a timekeeping source) |
-| Advisory effort and delivery estimate methodology | LEAP [Team & Delivery Capacity Estimation](team-delivery-estimation.md) |
 | Persistent responsibility boundaries | Domain map and Domain docs |
 | Technical structure | Architecture docs and ADRs |
 | Releasable or adoptable increments | Delivery Unit docs |

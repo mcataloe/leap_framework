@@ -1,0 +1,29 @@
+name: check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 tests/check_framework.py
+      - run: python3 tests/validate_semantic_router.py
+      # Framework-only: the Agent Pack does not yet ship templates/execution/.
+      - run: python3 tests/validate_execution_roles.py
+      # The framework merges first; the Agent Pack CI enforces LEAP Core sync.
+      # This step reports drift against the pack's main branch without blocking.
+      - uses: actions/checkout@v4
+        with:
+          repository: mcataloe/leap_agent_pack
+          path: _agent_pack
+      - run: python3 tests/check_framework.py --agent-pack _agent_pack
+        continue-on-error: true

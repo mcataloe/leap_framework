@@ -1,146 +1,56 @@
 # LEAP Framework
 
-**LEAP - Layered Execution & Alignment Protocol** is a software delivery framework for turning rough intent into pressure-tested direction, source-grounded plans, and safe, bounded, implementation-ready coding-agent handoffs.
+**LEAP (Layered Execution & Alignment Protocol)** keeps coding agents and teams on track: grounded in repository evidence, bounded in scope, and honest about what was verified. It aims for enough guardrails and no ceremony beyond that.
 
-The active repository presents current canonical framework documentation and operational prompts without versioned filenames. Use Git history, release notes, and release tags for older context.
+New to LEAP? Read [Start Here](docs/00_start_here.md).
 
-LEAP `AGENTS.md` templates are distributed from the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) repository.
+## Basic setup
 
-## Basic Setup
+1. Install the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) `AGENTS.md` templates. They put [LEAP Core](docs/leap-core.md) in every agent session, plus a short section for your project's own rules.
+2. Run the Agent Pack population prompt in your coding agent to fill the project section from repository evidence.
+3. Add the [LEAP pull request template](templates/leap-pull-request-template.md) to `.github/pull_request_template.md`.
+4. Optional: add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/leap_project_setup.md#step-1-add-leap-to-chatgpt-project-instructions).
 
-1. Add LEAP to ChatGPT Project Instructions using [LEAP Project Setup](docs/user/leap_project_setup.md#step-1-add-leap-to-chatgpt-project-instructions).
-2. Add the Agent Pack repo-level `AGENTS.md` template to the project root.
-3. Run the Agent Pack repo population prompt in the coding agent.
+## How LEAP is organized
 
-## Lifecycle
+| Tier | Loaded | Contents |
+|---|---|---|
+| 0 | Always | [LEAP Core](docs/leap-core.md) and the repository's `AGENTS.md` project section |
+| 1 | On demand | [Quick LEAP Brief](docs/user/quick-leap-brief.md), [Recon Lite](templates/leap-recon-lite-template.md), [Validation/Handoff](prompts/leap-validation-standard.md) |
+| 2 | When the work needs it | [Charter](docs/leap-charter.md), [Recon](prompts/leap-recon-standard.md), [LEAP Prompt](prompts/leap-prompt-standard.md), [LHS](docs/leap-lhs.md), [Cleanup](docs/repository-cleanup.md), [Skills](docs/leap-skills.md), [Execution routing](docs/execution-routing.md), [Project documentation model](docs/project-documentation-model.md) |
+
+Lifecycle, when the full path is warranted:
 
 ```text
 LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
 ```
 
-LEAP LHS is the Layered House Standard Prompt format for staged implementation. It is not a mandatory lifecycle stage.
+Most work enters partway through. Use the lightest workflow that controls the risk; see the [workflow chooser](docs/user/which-leap-workflow.md). Say **LEAP help** to an agent for the [command catalog](docs/semantic-routing.md).
 
-LEAP Skills are reusable execution capabilities selected and composed inside the lifecycle when specialized procedure materially improves the work. Skills are not another lifecycle phase.
+## References
 
-LEAP also routes work across available execution surfaces by required capability and confidence. Product-specific credits, quotas, subscriptions, and pricing are environment configuration rather than framework architecture.
-
-## Project Documentation Model
-
-The preferred traceability hierarchy is:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Roadmaps schedule and prioritize work. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
-
-Several Initiatives may run in parallel. A Roadmap does not permanently own Initiative identity. Delivery Units may be collapsed for small work, and Build Units are not necessarily independently deployable.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. The LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references remain valid.
-
-See:
-
-- [Project Documentation Model](docs/project-documentation-model.md)
-- [Legacy Project Documentation Migration](docs/maintainer/project-documentation-migration.md)
-
-## Skills and Build Units
-
-LEAP keeps delivery decomposition separate from reusable capability:
-
-```text
-Build Unit = WHAT bounded implementation responsibility is delivered
-LEAP Skill = HOW specialized work is performed repeatably
-```
-
-A Skill may be implemented through a native agent skill, repository-local instructions, a prompt fragment, a script plus instructions, or another runtime mechanism. Skill capability never grants more authority than the governing Prompt.
-
-See [LEAP Skills](docs/leap-skills.md) for the portable Skill Contract, capability-selection rules, progressive disclosure, and verification requirements.
-
-## Start Here
-
-- New to LEAP: [Start Here: LEAP in Plain English](docs/00_start_here.md)
-- Choosing a workflow: [Which LEAP Workflow Should I Use?](docs/user/which-leap-workflow.md)
-- Deciding whether LEAP is too much: [When Not to Use LEAP](docs/user/when-not-to-use-leap.md)
-- Small agent-executed task: [Quick LEAP Brief](docs/user/quick-leap-brief.md)
-- Reusable execution capabilities: [LEAP Skills](docs/leap-skills.md)
-- Workflow help, semantic routing, and optional Discovery: [LEAP Semantic Routing](docs/semantic-routing.md)
-- Capability- and cost-aware execution routing: [LEAP Execution Routing](docs/execution-routing.md)
-- Setting up LEAP: [LEAP Project Setup](docs/user/leap_project_setup.md)
-- Documentation map: [LEAP Documentation Map](docs/README.md)
-
-## Canonical References
-
-- [LEAP Framework](docs/leap.md)
-- [LEAP Charter](docs/leap-charter.md)
-- [Project Documentation Model](docs/project-documentation-model.md)
-- [LEAP Skills](docs/leap-skills.md)
-- [LEAP Semantic Routing and Discovery](docs/semantic-routing.md)
-- [LEAP Execution Routing](docs/execution-routing.md)
-- [Team & Delivery Capacity Estimation](docs/team-delivery-estimation.md) — advisory effort and capacity-adjusted delivery estimates; external work-management records remain authoritative.
-- [Glossary](docs/glossary.md)
-- [Materiality Gate](docs/materiality-gate.md)
-- [Dependency & Contract Recon](docs/dependency-contract-recon.md)
-- [Repository Cleanup](docs/repository-cleanup.md)
-- [Prompt Library](prompts/README.md)
-- [Legacy Project Documentation Migration](docs/maintainer/project-documentation-migration.md)
+- [Framework reference](docs/leap.md) and [Glossary](docs/glossary.md)
+- [Documentation map](docs/README.md) and [Prompt library](prompts/README.md)
+- Templates: [Charter](templates/leap-charter-template.md), [Recon](templates/leap-recon-template.md), [Recon Lite](templates/leap-recon-lite-template.md), [Prompt](templates/leap-prompt-template.md), [Cleanup](templates/leap-cleanup-template.md), [Skill](templates/leap-skill-template.md), [Pull request](templates/leap-pull-request-template.md)
 - Optional baseline metadata: [example](examples/leap.baseline.yaml) and [schema](schemas/leap.baseline.schema.json)
 
-## Prompt and Template Entry Points
+The former Phase 0 entry points (`prompts/leap-phase-0-standard.md`, `templates/leap-phase-0-template.md`) were removed; use the Charter files above.
 
-- [LEAP Charter template](templates/leap-charter-template.md)
-- [LEAP Recon Lite template](templates/leap-recon-lite-template.md)
-- [LEAP Recon template](templates/leap-recon-template.md)
-- [LEAP Cleanup template](templates/leap-cleanup-template.md)
-- [LEAP Prompt template](templates/leap-prompt-template.md)
-- [LEAP Skill definition template](templates/leap-skill-template.md)
-- [Operational prompts](prompts/README.md)
-
-Former Phase 0 paths (`templates/leap-phase-0-template.md` and `prompts/leap-phase-0-standard.md`) are **absent** from the current repository. Use the Charter template and operational prompt above. Restore compatibility paths only after validating an actual downstream dependency and approving a targeted compatibility plan.
-
-## Repository Structure
+## Repository structure
 
 ```text
-README.md
-CHANGELOG.md
-CONTRIBUTING.md
-VERSION.md
-AGENTS.md
-docs/
-  00_start_here.md
-  README.md
-  leap.md
-  leap-charter.md
-  project-documentation-model.md
-  leap-skills.md
-  execution-routing.md
-  materiality-gate.md
-  dependency-contract-recon.md
-  repository-cleanup.md
-  glossary.md
-  user/
-  reference/
-  maintainer/
-  examples/
-examples/
-schemas/
-templates/
-prompts/
+AGENTS.md            maintainer guidance (LEAP Core + framework rules)
+docs/                doctrine, user and maintainer guides, examples
+prompts/             operational Prompt standards
+templates/           request, Skill, and pull request templates
+skills/leap/         optional native LEAP navigator Skill
+examples/, schemas/  example artifacts and permissive metadata schemas
+tests/               dependency-free checks and routing evaluation cases
 ```
 
-## Maintainer Notes
+## Maintainer notes
 
-- Keep active framework docs on canonical current paths.
-- Keep operational prompts as flattened files under `prompts/`.
-- Preserve the Build Unit / Skill boundary: delivery responsibility is not reusable capability.
-- Preserve public paths unless migration is explicitly approved.
-- Keep release notes focused on current and unreleased changes.
+- Define each concept once and link to it. `docs/leap-core.md` stays under 650 words.
+- Run `python3 tests/check_framework.py --agent-pack ../leap_agent_pack` before opening a PR; CI runs the same checks.
+- Distributable `AGENTS.md` templates, install, and upgrade guidance live in the [Agent Pack](https://github.com/mcataloe/leap_agent_pack). Merge framework changes first.
 - Use Git history, release notes, and tags for older context.
-- Use the separate Agent Pack repository for distributable `AGENTS.md` templates, manifests, install docs, and upgrade guidance.

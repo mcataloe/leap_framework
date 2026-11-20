@@ -13,21 +13,7 @@ END_LEAP_DOC_METADATA
 
 This guide explains how to reconcile legacy LEAP project documents that use generic numbered `Layer` terminology.
 
-The preferred current model is defined in [`../project-documentation-model.md`](../project-documentation-model.md):
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Roadmaps schedule work. Domains organize persistent responsibility. Architecture organizes technical structure.
+The preferred current model (Mission / Project Charter, Strategic Outcome, Initiative, Delivery Unit, Build Unit, with Roadmap, Domain, and Architecture as separate views) is defined in the [project documentation model](../project-documentation-model.md).
 
 Migration is semantic reconciliation, not a global rename.
 
@@ -182,17 +168,7 @@ When a migrated artifact may be archived or deleted, use [LEAP Repository Cleanu
 
 ## Small-project rule
 
-Do not require a small project to split one clear document into several files.
-
-A single document may contain:
-
-- Mission or Project Charter
-- Strategic Outcome
-- one Initiative
-- a collapsed Delivery Unit
-- one Build Unit
-
-The migration succeeds when meaning and traceability are clear, not when folder depth increases.
+Do not require a small project to split one clear document into several files; see the [small-project collapse rules](../project-documentation-model.md#12-small-project-collapse-rules). The migration succeeds when meaning and traceability are clear, not when folder depth increases.
 
 ## Validation checklist
 

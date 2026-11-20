@@ -2,13 +2,58 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
-## Unreleased - Advisory team and delivery-capacity estimation
+## Unreleased - Execution roles, delegation, and estimation (ported from mcataloe)
+
+Ported from https://github.com/mcataloe/leap_framework `main` at `f61cf30` (2026-11-10), adapted to LEAP Core's load tiers and define-once rule.
 
 ### Added
 
-- Defined external work-management source-of-record boundaries and evidence-backed effort versus elapsed-delivery estimation doctrine.
-- Added Charter/Prompt references and synthetic acceptance scenarios, including AI assistance, privacy, stale estimates and commit-time caveats.
-- Left staffing, allocations, worklogs, accepted estimates and status authoritative in external systems; no LEAP-owned roster or mandatory connector.
+- `docs/agent-execution-roles.md`: optional architect, implementor, reviewer, and human-approver responsibilities, context packet, and minimum durable handoff. Expected scenarios in `tests/execution-role-cases.json` (all `not_tested`), evaluation guide `tests/EXECUTION_ROLE_EVALUATION.md`, and static validator `tests/validate_execution_roles.py` (run in CI).
+- `docs/native-agent-delegation.md`: optional native multi-agent delegation policy, linked from `docs/execution-routing.md` section 11.
+- `docs/team-delivery-estimation.md`: advisory effort and delivery estimates with the work tracker as source of record, plus synthetic cases in `tests/team-delivery-estimation-cases.md`. Load tier 2, with one pointer in the Charter doc.
+- "Native Codex / Claude routing acceptance (outstanding)" section in `docs/semantic-routing.md`.
+
+### Changed
+
+- `VERSION.md` and `docs/maintainer/release-history.md` no longer claim a `0.1.9` release: tag `leap-v0.1.9` does not exist. The verified published prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha`.
+- `tests/check_framework.py` runs on Python 3.9.
+
+### Not ported
+
+- Estimation paragraphs repeated across the Charter and Prompt standards and templates (replaced by one pointer).
+- mcataloe's routing pointers in entry-point docs, its Phase 0 wording, and its Agent Pack manifest checks in `validate_semantic_router.py` (this branch already covers the first two; the third expects `template-inventory.json` and `compatibility.json`, which the Agent Pack's `feature/leap-core-slimdown` branch does not have).
+
+## Unreleased - LEAP Core and ceremony reduction
+
+Goal: keep developers and teams on track with sufficient guardrails and without ceremony. Most guardrail value comes from a short always-loaded rule set plus enforced checks, not from long output formats.
+
+### Added
+
+- `docs/leap-core.md`: the always-loaded rule set (under 650 words). It covers inspect first, the Materiality Gate with No Gate, order of truth, the lightest-workflow ladder with command routing, scope, hard stops with approvers, the four verification states, and handoff. Agent Pack templates embed it verbatim.
+- `prompts/leap-validation-standard.md`: a Validation/Handoff standard with a diff-against-scope check, non-goal and acceptance checks, checks run and not run, stop conditions, one verification state, and a decision. It backs the existing `Run LEAP Validation` command.
+- `docs/leap-lhs.md`: a one-page LHS stage format (goal, Build Units, paths, dependencies, checkpoint, commit, rollback point).
+- `templates/leap-pull-request-template.md` (also installed as this repository's `.github/pull_request_template.md`): a team-facing PR template for scope, verification state, checks not run, and stop conditions.
+- `Failed` verification state in `docs/execution-routing.md`.
+- `tests/check_framework.py` and a CI workflow: links, anchors, LEAP Core budget and sync with `AGENTS.md` and the Agent Pack, and a define-once guard for the planning hierarchy block.
+
+### Changed
+
+- The planning hierarchy (Mission to Build Unit; Roadmap, Domain, Architecture) is optional. Prompts and briefs link the team's work item and use the full model only when the project already does. The hierarchy is defined in `docs/project-documentation-model.md`; other files link to it instead of restating it.
+- Repeated lifecycle, hierarchy, and `Layer` deprecation boilerplate is replaced with links across docs, Prompts, and templates.
+- Tool-specific Prompt fields (Codex Plan Mode, User Action Before Agent Submission, E0–E4 capability classes) are optional.
+- Long Recon and Charter outputs omit empty sections instead of padding them. Low-value Recon sections are folded into findings and risks, and Recon has an explicit depth limit ("stop when the next safe decision is clear").
+- Readiness levels C0–C5 removed; workflows use their own decision lists.
+- `README.md`, `docs/00_start_here.md`, `docs/README.md`, `prompts/README.md`, `VERSION.md`, the Quick LEAP Brief, the workflow chooser, and project setup are rewritten around load tiers and the lightest workflow.
+- `AGENTS.md` uses LEAP Core in its managed section and the unified `LEAP_MANAGED_SECTION_*` / `LEAP_PROJECT_SECTION_*` markers.
+- Corrected stale references claiming the Phase 0 compatibility stubs still exist.
+- Reconciled draft PR #19 (semantic routing, Discovery, Pressure Test, native `leap` Skill) and dropped its one-time QA handoff record.
+
+### Removed
+
+- `docs/user/leap-for-humans.md` and `docs/reference/README.md` (merged into `docs/00_start_here.md` and `docs/README.md`).
+- `docs/user/when-not-to-use-leap.md` (merged into `docs/user/which-leap-workflow.md`).
+- `docs/agent-profiles.md` (merged into `docs/execution-routing.md#8-current-provider-profiles`).
+- `docs/maintainer/semantic-routing-qa-handoff.md` (from draft PR #19).
 
 ## Unreleased - Materiality Gate and Charter QA corrections
 

@@ -6,100 +6,46 @@ Recon investigates a focused Strategic Outcome, Initiative, Delivery Unit, Build
 
 Recon is normally investigative and non-mutating unless explicitly authorized.
 
-Current lifecycle:
-
-```text
-LEAP Charter -> LEAP Recon -> LEAP Prompt -> Implementation -> Validation/Handoff
-```
-
-LEAP Charter is not required before every Recon. Every Recon begins with a lightweight Baseline Freshness Check.
+LEAP Charter is not required before every Recon; see the [LEAP lifecycle](../docs/leap.md). Every Recon begins with a lightweight Baseline Freshness Check.
 
 ## Canonical project-documentation model
 
-Use this preferred traceability hierarchy:
+For traceability, use the [project documentation model](../docs/project-documentation-model.md) when the project already uses it; otherwise link the external work item. Skills are reusable execution capabilities, not planning levels; see [LEAP Skills](../docs/leap-skills.md).
 
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
+## Investigation depth
 
-Treat Roadmap, Domain Map, and Architecture as separate supporting views.
-
-- Roadmap schedules and prioritizes Initiatives and Delivery Units.
-- Domain Map describes persistent responsibility boundaries.
-- Architecture describes technical structure.
-- Delivery Unit may be collapsed for small work.
-- Build Unit is not necessarily independently deployable.
-- LEAP Skill is an orthogonal reusable execution-capability primitive, not a planning level.
-- Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level.
-
-Canonical Skill guidance: `docs/leap-skills.md`.
+Stop investigating when the next safe decision is clear. Inspect only what can change the gate decision, scope, risk, or Prompt content.
 
 ## Required behavior
 
 You must:
 
 1. perform Baseline Freshness Check
-2. identify residual Ideation Loop questions
-3. apply Materiality Gate before asking questions, including any explicit `No Gate` modifier
-4. require or construct a source-of-truth manifest
-5. treat Brownfield Charter outputs as valid inputs
-6. classify docs and legacy planning artifacts
-7. inspect repo reality before implementation planning
-8. treat repo reality as operational truth when docs conflict unless a human decides otherwise
-9. inspect branch, worktree, and PR drift when available
-10. search for already-existing functionality
-11. detect stale assumptions, stale docs, stale Prompts, stale Roadmap claims, and stale legacy Layer claims
-12. inspect `AGENTS.md` and baseline metadata when present
-13. run Dependency & Contract Recon when relevant
-14. identify cross-Initiative and cross-Domain impacts
-15. identify cross-repository, contract, release, and merge-order impacts
-16. evaluate risk and destructive-change implications
-17. perform Planning Boundary Review before generating Build Units
-18. determine whether the target is Initiative-sized, Delivery-Unit-sized, Build-Unit-sized, Domain-oriented, Architecture-oriented, a Phase, or an ambiguous legacy Layer
-19. refine Delivery Units when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist
-20. generate or refine Build Units only after Initiative and Delivery Unit boundaries are clear enough
-21. perform Capability / Skill Review after Build Unit boundaries are clear enough
-22. prefer ordinary agent reasoning and repository guidance when no explicit Skill materially improves execution
-23. for each selected Skill, identify its source, loading method, required or optional status, tool and permission fit, and Skill-specific verification
-24. keep Skill capability separate from Build Unit scope and execution authority
-25. identify human checkpoints
-26. distinguish LEAP process tier from Agent Execution Configuration
-27. derive required confidence, validation, capabilities, and permission needs before selecting an agent/tool
-28. recommend the least-cost eligible execution surface, plus escalation surface when a capability or verification requirement cannot be satisfied
-29. identify the verification state expected at each material handoff and distinguish implementation from execution verification
-30. recommend agent/tool, Codex Plan Mode, model, reasoning, execution mode, validation, Skill loading posture when used, and commit posture when Prompt generation is allowed
-31. recommend LHS only when implementation gravity warrants it
-32. end with a gate decision
+2. apply Materiality Gate before asking questions, including any explicit `No Gate` modifier, and carry residual Ideation Loop questions into it
+3. require or construct a source-of-truth manifest; treat Brownfield Charter outputs as valid inputs
+4. classify docs and legacy planning artifacts
+5. inspect repo reality before implementation planning; treat it as operational truth when docs conflict unless a human decides otherwise
+6. inspect branch, worktree, and PR drift when available
+7. search for already-existing functionality
+8. detect stale assumptions, docs, Prompts, Roadmap claims, and legacy Layer claims
+9. inspect `AGENTS.md` and baseline metadata when present
+10. run Dependency & Contract Recon when relevant
+11. identify cross-Initiative, cross-Domain, cross-repository, contract, release, and merge-order impacts
+12. evaluate risk and destructive-change implications
+13. perform Planning Boundary Review before generating Build Units
+14. refine Delivery Units only when meaningful release, enablement, adoption, demonstration, or cross-repository boundaries exist; generate Build Units only after Initiative and Delivery Unit boundaries are clear enough
+15. perform Capability / Skill Review after Build Unit boundaries are clear enough; prefer ordinary reasoning when no explicit Skill materially improves execution
+16. identify human checkpoints
+17. distinguish LEAP process tier from Agent Execution Configuration
+18. derive required validation, capabilities, and permissions before recommending an agent/tool; recommend the least-cost eligible surface, plus an escalation surface when needed
+19. state the expected verification state at each material handoff
+20. recommend Agent Execution Configuration, Skill loading posture, and commit posture when Prompt generation is allowed
+21. recommend LHS only when implementation gravity warrants it
+22. end with a gate decision
 
 ## Brownfield Charter inputs
 
-Use these when present:
-
-```text
-- document inventory
-- canonical and supporting docs lists
-- stale / archived / do-not-use list
-- Strategic Outcomes
-- Initiative registry
-- Roadmap
-- Domain map
-- Architecture docs
-- Delivery and Build Unit plans
-- reusable Skill / capability sources already adopted by the project
-- gap register
-- reconciliation notes
-- migration map
-- prompt backlog
-- recommended next LEAP sequence
-```
+When present, use Charter outputs as inputs: document inventory, canonical / supporting / do-not-use lists, planning records (Strategic Outcomes, Initiative registry, Roadmap, Domain map, Architecture, Delivery and Build Unit plans), adopted Skill sources, gap register, reconciliation notes, migration map, prompt backlog, and recommended next LEAP sequence.
 
 If source truth remains unsafe, use `Reconcile Docs First` or `Continue LEAP Charter`.
 
@@ -118,16 +64,10 @@ Inspect, when available:
 1. repository `AGENTS.md`
 2. LEAP Baseline State or `leap.baseline.yaml`
 3. source-truth entry point
-4. Project Charter and Strategic Outcomes
-5. Initiative registry and Roadmap
-6. Domain and Architecture docs
-7. Delivery Unit and Build Unit plans
-8. APIs, schemas, decisions, dependencies, and contracts relevant to the target
-9. archive and stale-doc guidance
-10. gap register, migration map, and prompt backlog
-11. relevant repo reality
-12. doc-code conflicts and broken references
-13. evidence of stale planning claims
+4. planning records the project uses (Project Charter, Strategic Outcomes, Initiative registry, Roadmap, Domain and Architecture docs, Delivery and Build Unit plans)
+5. APIs, schemas, decisions, dependencies, and contracts relevant to the target
+6. archive and stale-doc guidance, gap register, migration map, and prompt backlog
+7. relevant repo reality, doc-code conflicts, broken references, and stale planning claims
 
 Use one outcome:
 
@@ -147,27 +87,15 @@ Normal Recon may recommend baseline metadata but must not silently create it.
 
 - Project:
 - Date:
-- Target branch:
-- Base branch:
-- Mission / Project Charter path:
-- Strategic Outcomes path:
-- Initiative registry path:
-- Current Initiative:
-- Active Roadmap path:
-- Domain map path:
+- Target branch / base branch:
+- Work item: <link to issue, ticket, or planning doc>
+- Initiative / Delivery Unit / Build Unit, when the project uses them:
+- Planning records used, with paths:
 - Canonical Architecture docs:
-- Current Delivery Unit, if used:
-- Current Build Unit / bounded task:
 - Active decisions / ADRs:
-- Prompt backlog path:
-- Execution log / drift ledger path:
-- Cross-Initiative / Cross-Domain impact map path:
 - Dependency register path:
 - Reusable Skill / capability sources, if any:
-- Baseline record path:
-- Brownfield document inventory path:
-- Gap register path:
-- Migration map path:
+- Baseline record, inventory, gap register, migration map, when present:
 - Legacy Layer docs requiring classification:
 - Stale / archived / do-not-use docs:
 - AGENTS.md path and Agent Pack status:
@@ -182,33 +110,13 @@ Skill definitions are capability instruction sources, not automatically project 
 
 ## Materiality Gate
 
-Use the shared Materiality Gate flow:
+Apply the [Materiality Gate](../docs/materiality-gate.md):
 
 ```text
 INSPECT -> CLASSIFY -> ASK / ASSUME / STOP -> RE-EVALUATE
 ```
 
-Assess unresolved context along independent, composable dimensions (an item may satisfy more than one):
-
-```text
-Consequence: Material / Non-material - does the answer change Architecture,
-scope, risk, source truth, validation, acceptance, compatibility,
-implementation, recommendation, or the next gate decision, rather than polish?
-
-Discoverability: Discoverable / Not currently discoverable - can approved
-repository, docs, contracts, tests, decisions, or tooling establish the answer?
-
-Assumability: Safely assumable / Not safely assumable - can an assumption
-be stated without violating a stop condition?
-
-Blocker status: Hard blocker / No hard blocker - is human approval,
-reconciliation, or another mandatory checkpoint required?
-```
-
-Precedence: STOP for hard blockers; INSPECT discoverable evidence; then decide
-ASK / ASSUME / DEFER using consequence, assumption safety, and clarification mode.
-
-Default clarification mode is **Materiality-Gated**:
+Classify each unresolved item by consequence, discoverability, safe assumability, and hard-blocker status. Default **Materiality-Gated** mode:
 
 ```text
 Hard blocker -> STOP
@@ -218,16 +126,9 @@ Material safely assumable and not requiring a decision now -> ASSUME + DISCLOSE
 Material answer required for the next safe decision -> ASK
 ```
 
-If the user explicitly invokes **No Gate**, avoid ordinary clarification interruptions:
+Explicit **No Gate**: ASK becomes ASSUME + DISCLOSE when safe. STOP remains STOP. No Gate does not bypass source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
 
-```text
-No Gate: ASK -> ASSUME + DISCLOSE, when safe.
-No Gate never changes STOP -> PROCEED.
-```
-
-No Gate does not bypass source-truth integrity, authorization, destructive-change safeguards, sensitive-area checkpoints, security/privacy requirements, public-contract approval, or required human approval.
-
-After answers or newly discovered evidence, re-run Materiality Gate only for remaining or newly exposed uncertainty. Continue asking only while another answer could materially change the next safe decision. There is no minimum question count; ask no more than three targeted questions at a time unless exhaustive discovery is explicitly requested.
+Re-evaluate only remaining or newly exposed uncertainty. There is no minimum question count; ask no more than three targeted questions at a time unless exhaustive discovery is explicitly requested.
 
 Record the active clarification mode and materially consequential assumptions in the Recon output.
 
@@ -244,30 +145,16 @@ Inspect, when available:
 - package and dependency files
 - IaC and CI/CD
 - canonical docs and planning records
-- Initiative, Delivery Unit, and Build Unit status
+- work item, Initiative, Delivery Unit, and Build Unit status, when used
 - execution logs and impact maps
 
 ## Legacy Layer classification
 
-Do not globally replace `Layer`.
-
-When a legacy Layer appears, classify it as:
-
-- Initiative
-- Delivery Unit
-- Build Unit
-- Domain
-- Architecture Layer
-- Phase
-- mixed or unclear collection
-
-Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and historical references.
-
-Use migration guidance when available.
+When a legacy Layer appears, classify it with the [migration guide](../docs/maintainer/project-documentation-migration.md). Do not globally replace `Layer`.
 
 ## Planning Boundary Review
 
-Determine whether the target is:
+Start by stating how the target maps to LEAP. Then determine whether the target is:
 
 - one or more parallel Initiatives
 - one Delivery Unit
@@ -277,11 +164,7 @@ Determine whether the target is:
 - a chronological Phase
 - an ambiguous legacy Layer
 
-A Delivery Unit is warranted when several Build Units, several repositories, several release increments, or a meaningful deployable/adoptable boundary exists.
-
-A Build Unit must be bounded enough to implement, test, review, and usually commit independently without inventing product or Architecture decisions.
-
-A Skill is not another planning boundary. It is a reusable capability that may be composed only after the delivery boundary is clear enough.
+A Build Unit must be bounded enough to implement, test, review, and usually commit independently without inventing product or Architecture decisions. Skills are not planning boundaries.
 
 ## Capability / Skill Review
 
@@ -305,15 +188,7 @@ Use this output shape when Skills are relevant:
 |---|---|---|---|---|---|---|
 ```
 
-Rules:
-
-- do not create or select a Skill merely because one exists
-- do not place Skills in the strategic traceability hierarchy
-- do not let a Skill widen Build Unit scope, product behavior, Architecture, or source-truth ownership
-- do not let Skill tool requirements widen Prompt permissions
-- do not assume a harness-native Skill exists without a resolvable source
-- use progressive disclosure; load only Skill references relevant to the current Build Unit
-- a one-off instruction should stay in the Prompt when creating a reusable Skill would add more ceremony than value
+Do not select a Skill merely because one exists, and do not let a Skill widen Build Unit scope, permissions, or source-truth ownership. See [Recon capability review](../docs/leap-skills.md#recon-capability-review).
 
 ## Cross-Initiative / Cross-Domain Impact Scan
 
@@ -332,7 +207,7 @@ Legacy projects may retain `Cross-Layer Impact` as a compatibility term while mi
 
 ## Dependency & Contract Recon
 
-When relevant:
+When relevant, follow [Dependency & Contract Recon](../docs/dependency-contract-recon.md):
 
 1. detect `leap.dependencies.yaml` or equivalent
 2. identify dependency candidates from code, config, contracts, IaC, tests, and docs
@@ -357,6 +232,7 @@ Include:
 - AI behavior risk: low / medium / high / not applicable
 - Collaboration risk: low / medium / high
 - Verification risk: low / medium / high
+- Coding-agent risks: likely agent mistakes to guard against in the Prompt
 ```
 
 Sensitive-area rule:
@@ -368,22 +244,7 @@ legal exposure, or user trust, stop and ask.
 
 ## Recommended Agent Execution Configuration
 
-When the gate is `Generate LEAP Prompt`, include:
-
-| Field | Recommendation | Rationale |
-|---|---|---|
-| Agent / Tool | Codex / Claude Code / Cursor / other | Why |
-| Codex Plan Mode | On / Off / User decision required | Why |
-| Model | Exact model or approved project default | Why |
-| Reasoning Level | Low / Medium / High / Extended | Why |
-| Execution Mode | implement-directly / repo-preflight-then-implement / plan-first / recon-only / validation-only | Why |
-| Scope Scale | small task / Build Unit / Delivery Unit / Initiative / multi-repo Initiative / repo-wide maintenance | Why |
-| Repository | Repo or repositories | Why |
-| Branch / Worktree | Target context | Why |
-| Permissions | Allowed changes | Why |
-| Skill Sources / Loading Method | Named source + native / repo-local / prompt-embedded / none | Why |
-| Validation | Tests and checks | Why |
-| Commit Guidance | Commit posture | Why |
+When the gate is `Generate LEAP Prompt`, recommend the fields in [Prompt standard section 3](leap-prompt-standard.md#3-agent-execution-configuration), with a rationale for each. Codex Plan Mode and the capability-class and surface routing fields are optional; omit them when not needed.
 
 ## Gate decisions
 
@@ -407,37 +268,42 @@ A missing Skill does not automatically block Prompt generation. Block only when 
 ```text
 # LEAP Recon - <Target>
 
-## 1. Framework Interpretation
-## 2. Source-of-Truth Manifest Check
-## 3. Baseline Freshness Check
-## 4. LEAP Charter / Baseline Gate Check
-## 5. Ideation Loop Residual Questions
-## 6. Materiality Check
-## 7. Repo Reality Reconciliation
-## 8. Branch / Worktree / PR Drift Review
-## 9. Documentation Lifecycle Review
-## 10. Strategic Plan Reconciliation
-## 11. Existing Functionality Collision Check
-## 12. Stale Assumption Scan
-## 13. Cross-Initiative / Cross-Domain Impact Scan
-## 14. Planning Boundary Review
-## 15. Legacy Layer Classification, when relevant
-## 16. Generated / Refined Delivery Unit Inventory, when relevant
-## 17. Generated / Refined Build Unit Inventory
+## 1. Source-of-Truth Manifest Check
+## 2. Baseline Freshness Check
+## 3. LEAP Charter / Baseline Gate Check
+## 4. Materiality Check
+## 5. Repo Reality Reconciliation
+## 6. Branch / Worktree / PR Drift Review
+## 7. Documentation Lifecycle Review
+## 8. Strategic Plan Reconciliation
+## 9. Existing Functionality Collision Check
+## 10. Stale Assumption Scan
+## 11. Cross-Initiative / Cross-Domain Impact Scan
+## 12. Planning Boundary Review
+## 13. Legacy Layer Classification, when relevant
+## 14. Generated / Refined Delivery Unit Inventory, when relevant
+## 15. Generated / Refined Build Unit Inventory
 ### Capability / Skill Composition, when relevant
-## 18. Recommended Build Sequence
-## 19. Dependency and Destructive-Change Review
+## 16. Recommended Build Sequence
+## 17. Dependency and Destructive-Change Review
 ### Dependency & Contract Recon, when relevant
-## 20. Risk Taxonomy Review
-## 21. Architecture Right-Sizing Review
-## 22. Human Checkpoints Required
-## 23. Execution Log / Drift Ledger Expectations
-## 24. Coding-Agent Risk Forecast
-## 25. Execution Routing Review
-## 26. Recommended Agent Execution Configuration
-## 27. Clarification Questions Before Prompt Generation
-## 28. Gate Decision / Next Step
+## 18. Risk Taxonomy Review
+## 19. Architecture Right-Sizing Review
+## 20. Human Checkpoints Required
+## 21. Execution Routing Review
+## 22. Recommended Agent Execution Configuration
+## 23. Clarification Questions Before Prompt Generation
+## 24. Gate Decision / Next Step
 ```
+
+Omit sections with nothing material. Do not pad with N/A. Keep the remaining section numbers unchanged.
+
+Folded content:
+
+- Section 4 includes residual Ideation Loop questions.
+- Section 12 opens with how the target maps to LEAP.
+- Section 16 includes expected execution log or drift ledger updates.
+- Section 18 includes the coding-agent risk forecast.
 
 ## Baseline output format
 

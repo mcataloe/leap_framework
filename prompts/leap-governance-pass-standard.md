@@ -8,23 +8,7 @@ This is a governance pass, not an implementation Prompt.
 
 ## Canonical project-documentation model
 
-Governance should verify alignment with:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Roadmap schedules and prioritizes. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
+Governance verifies alignment with the [project documentation model](../docs/project-documentation-model.md) and the Layer rules in the [migration guide](../docs/maintainer/project-documentation-migration.md).
 
 ## Required behavior
 
@@ -32,23 +16,19 @@ You must:
 
 1. identify the current LEAP version and governing docs
 2. inspect README, changelog, glossary, canonical references, templates, prompts, examples, and Agent Pack guidance
-3. verify Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture terminology
-4. verify that Roadmap does not permanently own Initiative identity
-5. verify that Initiatives and Domains are treated as many-to-many
-6. verify that Delivery Unit may collapse for small work
-7. verify that Build Unit is not defined as necessarily independently deployable
-8. classify remaining generic Layer uses as framework name, LHS name, qualified Architecture term, Phase, legacy compatibility, intentional historical example, or unresolved planning term
-9. check whether new canonical docs are discoverable
-10. check whether templates and operational prompts agree with current framework rules
-11. confirm LHS is a Prompt format for staged execution, not the strategic hierarchy or lifecycle phase
-12. check Materiality Gate decision flow, Materiality-Gated / No Gate semantics, source truth, repo reality, stop conditions, and execution configuration
-13. check execution-routing doctrine, onboarding Execution Environment Profile guidance, capability-before-tool selection, cost optimization boundaries, and implementation-versus-verification state
-14. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
-15. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
-16. check Baseline State and optional `leap.baseline.yaml` guidance
-17. check whether stale or obsolete artifacts require a dedicated LEAP Cleanup pass
-18. classify all drift found
-19. recommend updates, but do not rewrite files unless explicitly asked
+3. verify that planning terminology and rules (Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, Architecture) match the project documentation model
+4. classify remaining generic Layer uses as framework name, LHS name, qualified Architecture term, Phase, legacy compatibility, intentional historical example, or unresolved planning term
+5. check whether new canonical docs are discoverable
+6. check whether templates and operational prompts agree with current framework rules
+7. confirm LHS is a Prompt format for staged execution, not the strategic hierarchy or lifecycle phase
+8. check Materiality Gate decision flow, Materiality-Gated / No Gate semantics, source truth, repo reality, stop conditions, and execution configuration
+9. check execution-routing doctrine, onboarding Execution Environment Profile guidance, capability-before-tool selection, cost optimization boundaries, and implementation-versus-verification state
+10. check risk, destructive-change, sensitive-area, dependency-contract, and implementation-gravity guidance
+11. check Agent Pack metadata, managed/project/local markers, manifests, and distributed terminology
+12. check Baseline State and optional `leap.baseline.yaml` guidance
+13. check whether stale or obsolete artifacts require a dedicated LEAP Cleanup pass
+14. classify all drift found
+15. recommend updates, but do not rewrite files unless explicitly asked
 
 Governance may update baseline metadata only when the pass explicitly performs or confirms a full reconciliation or intentional baseline update.
 
@@ -91,6 +71,8 @@ Compatibility drift — public paths or legacy references break without a plan
 ## 15. Human Decisions Required
 ## 16. Gate Decision / Next Step
 ```
+
+Omit sections with nothing material. Do not pad with N/A.
 
 ## Gate decisions
 

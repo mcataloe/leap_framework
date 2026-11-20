@@ -9,102 +9,59 @@ END_LEAP_DOC_METADATA
 
 # LEAP Documentation Map
 
-This folder contains LEAP Framework documentation for users, reference readers, maintainers, and agents.
+New to LEAP? Read [`00_start_here.md`](00_start_here.md) first.
 
-## Documentation domains
+## Load tiers
 
-| Domain | Audience | Authority | Start here |
-|---|---|---|---|
-| Root entry point | Users and agents | Entry point | [`00_start_here.md`](00_start_here.md) |
-| User docs | Downstream adopters | Supporting guidance | [`user/leap-for-humans.md`](user/leap-for-humans.md) |
-| Reference docs | Users, maintainers, agents | Canonical or supporting reference | [`reference/README.md`](reference/README.md) |
-| Maintainer docs | Framework maintainers | Repository governance and migration guidance | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) |
-| Examples | Users and agents | Example-only | [`examples/`](examples/) |
-
-## Canonical framework references
-
-| Document | Purpose | Authority |
+| Tier | Load when | Documents |
 |---|---|---|
-| [`leap.md`](leap.md) | Lifecycle, doctrine, source truth, risk, Prompt behavior, and Skill composition | Canonical |
-| [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter behavior | Canonical |
-| [`project-documentation-model.md`](project-documentation-model.md) | Mission, Strategic Outcome, Initiative, Delivery Unit, Build Unit, Roadmap, Domain, and Architecture model | Canonical |
-| [`semantic-routing.md`](semantic-routing.md) | Command help, intent selection, Discovery / Pressure Test routing; distinct from execution routing | Canonical |
-| [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities, Skill Contract, selection, permissions, progressive disclosure, and verification | Canonical |
-| [`execution-routing.md`](execution-routing.md) | Capability- and cost-aware execution-surface routing, onboarding profile, escalation, and verification state | Canonical |
-| [`agent-execution-roles.md`](agent-execution-roles.md) | Optional architect, implementor, reviewer, and human-approver responsibilities, context packets, and evidence handoffs | Canonical |
-| [`team-delivery-estimation.md`](team-delivery-estimation.md) | Advisory effort and capacity-adjusted delivery estimates using external work-system evidence | Canonical |
-| [`glossary.md`](glossary.md) | Canonical terminology | Canonical |
-| [`materiality-gate.md`](materiality-gate.md) | Question and assumption discipline | Supporting framework rule |
-| [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon behavior | Supporting Recon reference |
-| [`repository-cleanup.md`](repository-cleanup.md) | Governed artifact decommissioning and cleanup modes | Supporting Governance rule |
+| 0 | Always (via `AGENTS.md`) | [`leap-core.md`](leap-core.md) |
+| 1 | Most non-trivial tasks | [`user/quick-leap-brief.md`](user/quick-leap-brief.md), [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md), [`../prompts/leap-validation-standard.md`](../prompts/leap-validation-standard.md), [`../templates/leap-pull-request-template.md`](../templates/leap-pull-request-template.md) |
+| 2 | When the work calls for it | Everything below |
 
-## Project documentation model
-
-Preferred traceability:
-
-```text
-Mission / Project Charter
-        ↓
-Strategic Outcome
-        ↓
-Initiative
-        ↓
-Delivery Unit
-        ↓
-Build Unit
-```
-
-Roadmaps schedule and prioritize work. Domains describe persistent responsibility boundaries. Architecture describes technical structure.
-
-LEAP Skills are orthogonal execution capabilities: Build Units define what bounded responsibility is delivered; Skills define reusable how. Do not insert Skills into the strategic hierarchy.
-
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) to classify legacy Layer documents before migration.
-
-## Important user docs
+## Canonical references
 
 | Document | Purpose |
 |---|---|
-| [`00_start_here.md`](00_start_here.md) | Plain-English entry point |
+| [`leap-core.md`](leap-core.md) | The always-loaded rule set (under 650 words) |
+| [`leap.md`](leap.md) | Framework reference: lifecycle, source truth, risk, Prompt behavior |
+| [`leap-charter.md`](leap-charter.md) | Greenfield and Brownfield Charter |
+| [`leap-lhs.md`](leap-lhs.md) | LHS stage format for staged implementation |
+| [`semantic-routing.md`](semantic-routing.md) | `LEAP help`, command catalog, and choosing the workflow |
+| [`execution-routing.md`](execution-routing.md) | Choosing the tool or surface; verification states; per-tool profiles |
+| [`agent-execution-roles.md`](agent-execution-roles.md) | Optional architect, implementor, reviewer, and human-approver roles; context packets and handoffs |
+| [`team-delivery-estimation.md`](team-delivery-estimation.md) | Advisory effort and delivery estimates; the work tracker stays the source of record |
+| [`project-documentation-model.md`](project-documentation-model.md) | Optional planning model (Mission to Build Unit; Roadmap, Domain, Architecture) |
+| [`leap-skills.md`](leap-skills.md) | Reusable execution capabilities and the Skill Contract |
+| [`glossary.md`](glossary.md) | Terminology |
+| [`materiality-gate.md`](materiality-gate.md) | Ask, assume, or stop; No Gate |
+| [`dependency-contract-recon.md`](dependency-contract-recon.md) | Dependency and contract Recon |
+| [`repository-cleanup.md`](repository-cleanup.md) | Governed artifact decommissioning |
+| [`risk-taxonomy.md`](risk-taxonomy.md) | Risk categories and destructive-change controls |
+
+Operational Prompts are indexed in [`../prompts/README.md`](../prompts/README.md).
+
+## User guides
+
+| Document | Purpose |
+|---|---|
 | [`user/leap_project_setup.md`](user/leap_project_setup.md) | Project and Agent Pack setup |
-| [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Workflow routing |
-| [`user/leap-discovery.md`](user/leap-discovery.md) | Domain exploration and hypothesis pressure testing |
-| [`user/when-not-to-use-leap.md`](user/when-not-to-use-leap.md) | Lightweight alternatives |
-| [`user/leap-for-humans.md`](user/leap-for-humans.md) | Human-oriented overview |
+| [`user/which-leap-workflow.md`](user/which-leap-workflow.md) | Workflow chooser |
 | [`user/quick-leap-brief.md`](user/quick-leap-brief.md) | Small bounded handoff |
+| [`user/leap-discovery.md`](user/leap-discovery.md) | Discovery and Pressure Test |
 
 ## Maintainer references
 
 | Document | Purpose |
 |---|---|
 | [`maintainer/framework-doc-governance.md`](maintainer/framework-doc-governance.md) | Framework documentation governance |
-| [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) | Legacy Layer semantic migration |
+| [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) | Classifying and migrating legacy `Layer` docs |
 | [`maintainer/release-history.md`](maintainer/release-history.md) | Release-notes policy |
 
-## Common starting points
-
-- New to LEAP: [`00_start_here.md`](00_start_here.md)
-- Project hierarchy: [`project-documentation-model.md`](project-documentation-model.md)
-- Reusable execution capability: [`leap-skills.md`](leap-skills.md)
-- Execution surface routing: [`execution-routing.md`](execution-routing.md)
-- Define a Skill: [`../templates/leap-skill-template.md`](../templates/leap-skill-template.md)
-- Existing Layer-based project: [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md)
-- Project setup: [`user/leap_project_setup.md`](user/leap_project_setup.md)
-- Workflow choice: [`user/which-leap-workflow.md`](user/which-leap-workflow.md)
-- Small task: [`user/quick-leap-brief.md`](user/quick-leap-brief.md)
-- Stale or obsolete artifacts: [`repository-cleanup.md`](repository-cleanup.md)
-- Short Recon request: [`../templates/leap-recon-lite-template.md`](../templates/leap-recon-lite-template.md)
-- Full Recon request: [`../templates/leap-recon-template.md`](../templates/leap-recon-template.md)
-- Optional baseline metadata: [`../examples/leap.baseline.yaml`](../examples/leap.baseline.yaml) and [`../schemas/leap.baseline.schema.json`](../schemas/leap.baseline.schema.json)
+Examples in [`examples/`](examples/) and [`../examples/`](../examples/) are illustrative, not source truth.
 
 ## Agent reading rules
 
-- Start with [`00_start_here.md`](00_start_here.md).
-- Use [`leap.md`](leap.md), [`leap-charter.md`](leap-charter.md), [`project-documentation-model.md`](project-documentation-model.md), [`leap-skills.md`](leap-skills.md), [`execution-routing.md`](execution-routing.md), and [`glossary.md`](glossary.md) as canonical doctrine.
-- Use [`leap-skills.md`](leap-skills.md) only when reusable execution capability is relevant; do not force Skill ceremony into tiny work.
-- Use [`repository-cleanup.md`](repository-cleanup.md) for the specialized Governance cleanup contract.
-- Use [`maintainer/project-documentation-migration.md`](maintainer/project-documentation-migration.md) only for legacy project-documentation reconciliation.
-- Treat user docs as downstream adoption guidance.
-- Treat maintainer docs as LEAP Framework repository guidance unless a downstream project explicitly adopts them.
-- Treat examples as illustrative, not canonical source truth.
-- Use the dedicated [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack) for distributable `AGENTS.md` templates, install guidance, manifests, and upgrade guidance.
-- Keep active docs focused on the current framework baseline. Use Git history and release tags for older detail.
+- Load only what the current workflow needs. LEAP Core is already loaded.
+- Treat canonical references as doctrine, user guides as adoption guidance, maintainer docs as framework-repository guidance, and examples as illustrative.
+- Distributable `AGENTS.md` templates live in the [LEAP Agent Pack](https://github.com/mcataloe/leap_agent_pack).

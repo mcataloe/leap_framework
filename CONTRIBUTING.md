@@ -34,13 +34,12 @@ LEAP is software-delivery-first and focuses on:
 - AI-assisted software delivery
 - source-of-truth discipline
 - repo reality reconciliation
-- ideation and readiness gates
-- Mission, Strategic Outcome, and Initiative traceability
-- Roadmap, Domain, and Architecture separation
-- Delivery Units and bounded Build Units
+- ideation and gate decisions
+- optional traceability through the [project documentation model](docs/project-documentation-model.md)
+- bounded Build Units
 - coding-agent handoffs and stop conditions
 
-Generic project-planning `Layer` is legacy-compatible and deprecated as the preferred planning level. Preserve the LEAP name, Layered House Standard, LEAP LHS, qualified Architecture Layers, public paths, and compatibility references.
+Do not globally replace the word `Layer`; see the [project documentation model](docs/project-documentation-model.md) for its legacy status.
 
 ## Before proposing a change
 
@@ -51,7 +50,7 @@ Ask:
 - Does this reduce ambiguity?
 - Does this help agents stop instead of guessing?
 - Does this preserve source truth, assumptions, and repo reality?
-- Does it keep Initiative, Roadmap, Domain, Architecture, Delivery Unit, and Build Unit meanings distinct?
+- Does it avoid adding ceremony that does not prevent a real failure?
 
 ## Contribution formats
 
