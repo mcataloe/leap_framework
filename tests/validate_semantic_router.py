@@ -75,8 +75,11 @@ def validate():
         starter = pack / "templates/skills/project-skill-starter/SKILL.md"
         assert skill_metadata(starter)["name"] == "project-skill-starter"
         assert (pack / "docs/skills-installation.md").exists()
-        for path in ("manifests/latest.json",):
-            assert json.loads((pack / path).read_text(encoding="utf-8"))
+        assert json.loads((pack / "manifests/latest.json").read_text(encoding="utf-8"))
+        # Optional manifests: validate when the pack ships them.
+        for path in ("manifests/template-inventory.json", "manifests/compatibility.json"):
+            if (pack / path).exists():
+                assert json.loads((pack / path).read_text(encoding="utf-8")), f"Empty manifest: {path}"
         for path in (
             "templates/separated/global/AGENTS.md",
             "templates/separated/repo/AGENTS.md",

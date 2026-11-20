@@ -17,6 +17,7 @@ The execution role, delegation, and estimation work merged to `main` through `f6
 
 - `VERSION.md` and `docs/maintainer/release-history.md` no longer claim a `0.1.9` release: tag `leap-v0.1.9` does not exist. The verified published prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha`.
 - `tests/check_framework.py` runs on Python 3.9.
+- `tests/validate_semantic_router.py --agent-pack` always requires `manifests/latest.json` and validates `template-inventory.json` and `compatibility.json` when the pack ships them.
 
 ### Condensed
 
