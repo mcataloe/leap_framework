@@ -30,15 +30,18 @@ Delete any line that does not apply.
 ## 4. Constraints
 - Follow existing patterns. No new dependencies without approval.
 - Do not change API, schema, auth, billing, data, or AI behavior without approval.
+- Preserve compatibility unless told otherwise. Archived docs are history, not current truth.
 
 ## 5. Verification
 - Run: <tests, lint, typecheck, build, manual checks>
 - Done means: <observable acceptance criteria>
 
 ## 6. Stop Conditions
-Stop and report if existing code or docs contradict this brief, forbidden
-files must change, a hard stop is reached (dependency, migration, auth,
-security, data, public contract), or verification cannot run.
+Stop and report if required files are missing, existing code or docs
+contradict this brief, a stale or archived doc is the only source for
+required behavior, forbidden files must change, a hard stop is reached
+(dependency, migration, auth, security, billing, sensitive data, public
+contract), acceptance criteria are impossible, or verification cannot run.
 
 ## 7. Handoff
 Return files changed, checks run with results, checks not run, the
