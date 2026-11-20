@@ -20,7 +20,7 @@ Unreleased additions are listed in [CHANGELOG.md](CHANGELOG.md). The documentati
 ## Current Agent Pack
 
 ```text
-Version: 0.2.0-candidate.2 (unreleased; no tag)
+Version: 0.2.0-candidate.2 (unreleased; no tag; LEAP Core templates pending in the Agent Pack repository)
 Repository: https://github.com/mcataloe/leap_agent_pack
 Manifest: manifests/latest.json
 Update policy: manual review

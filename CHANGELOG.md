@@ -2,9 +2,9 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
-## Unreleased - Execution roles, delegation, and estimation (ported from mcataloe)
+## Unreleased - LEAP Core reconciliation with execution roles, delegation, and estimation
 
-Ported from https://github.com/mcataloe/leap_framework `main` at `f61cf30` (2026-11-10), adapted to LEAP Core's load tiers and define-once rule.
+The execution role, delegation, and estimation work merged to `main` through `f61cf30` (2026-11-10, #20–#26) is reconciled with LEAP Core below: it keeps its content and is adapted to LEAP Core's load tiers and define-once rule.
 
 ### Added
 
@@ -18,10 +18,15 @@ Ported from https://github.com/mcataloe/leap_framework `main` at `f61cf30` (2026
 - `VERSION.md` and `docs/maintainer/release-history.md` no longer claim a `0.1.9` release: tag `leap-v0.1.9` does not exist. The verified published prereleases are `v0.1.10-alpha` and `v.0.1.11-alpha`.
 - `tests/check_framework.py` runs on Python 3.9.
 
-### Not ported
+### Condensed
 
-- Estimation paragraphs repeated across the Charter and Prompt standards and templates (replaced by one pointer).
-- mcataloe's routing pointers in entry-point docs, its Phase 0 wording, and its Agent Pack manifest checks in `validate_semantic_router.py` (this branch already covers the first two; the third expects `template-inventory.json` and `compatibility.json`, which the Agent Pack's `feature/leap-core-slimdown` branch does not have).
+- Estimation paragraphs repeated across the Charter standard and template, the Prompt standard, `docs/project-documentation-model.md`, and `docs/execution-routing.md` are replaced by pointers to `docs/team-delivery-estimation.md`, which keeps the full doctrine.
+- The fill-in execution role block in the Prompt template is replaced by one paragraph pointing to `docs/agent-execution-roles.md`.
+- Routing pointers in entry-point docs and the Phase 0 wording are rewritten in LEAP Core's style.
+
+### Pending
+
+- The LEAP Agent Pack (https://github.com/mcataloe/leap_agent_pack) does not yet embed LEAP Core. Until it does, the non-blocking CI step `check_framework.py --agent-pack` reports the global and combined templates as out of sync, and `AGENTS.md` and `VERSION.md` refer to Agent Pack `0.2.0-candidate.2`, which that change will publish.
 
 ## Unreleased - LEAP Core and ceremony reduction
 

@@ -17,7 +17,7 @@ jobs:
           python-version: "3.12"
       - run: python3 tests/check_framework.py
       - run: python3 tests/validate_semantic_router.py
-      # Framework-only: the Agent Pack does not yet ship templates/execution/.
+      # Framework contract only; pass --agent-pack locally to check the pack's templates/execution/.
       - run: python3 tests/validate_execution_roles.py
       # The framework merges first; the Agent Pack CI enforces LEAP Core sync.
       # This step reports drift against the pack's main branch without blocking.
