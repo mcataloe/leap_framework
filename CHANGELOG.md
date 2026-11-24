@@ -2,6 +2,19 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Discovery choice format and pre-return QA pass
+
+### Added
+
+- `docs/user/leap-discovery.md`: "Presenting choices". Discovery questions list neutral lettered options, then a `Recommended:` line after that question's options, limited to that question's domain, with the consideration that would reverse it. This keeps the agent's view from anchoring the user's decision.
+- `docs/user/leap-discovery.md`: "Pre-return QA pass". Every question round and the final brief are checked for evidence, materiality, choice format, Known/Assumed/Unknown separation and boundaries before they are returned. It does not replace a required independent review.
+- `tests/validate_semantic_router.py` checks that the Discovery doc keeps the Materiality Gate link, the choice format and the QA pass.
+
+### Changed
+
+- `docs/user/leap-discovery.md` step 4 applies the Materiality Gate to every question and links it; the brief is now step 7.
+- `docs/semantic-routing.md` points to the Discovery doc for the choice format and QA pass.
+
 ## Unreleased - LEAP Core reconciliation with execution roles, delegation, and estimation
 
 The execution role, delegation, and estimation work merged to `main` through `f61cf30` (2026-11-10, #20–#26) is reconciled with LEAP Core below: it keeps its content and is adapted to LEAP Core's load tiers and define-once rule.
