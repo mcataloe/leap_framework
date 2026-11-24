@@ -65,6 +65,12 @@ def validate():
     ):
         assert term in router, f"Missing router catalog entry: {term}"
     assert (ROOT / "docs/user/leap-discovery.md").is_file()
+    discovery = (ROOT / "docs/user/leap-discovery.md").read_text(encoding="utf-8")
+    for term in (
+        "materiality-gate.md", "### Presenting choices", "Recommended:",
+        "### Pre-return QA pass"
+    ):
+        assert term in discovery, f"Missing Discovery rule: {term}"
     assert "No Gate never" in router, "Missing No Gate STOP guard"
 
     parser = argparse.ArgumentParser()
