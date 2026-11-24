@@ -28,17 +28,34 @@ When a Discovery question offers choices, let the user weigh the options before 
 - Directly after that question's options, add one `Recommended:` line naming a lettered option, with its rationale and the consideration most likely to reverse it. Stay within that question's domain: compare only its own options, and do not anticipate other questions. When the evidence supports no option, write `Recommended: none` and say what would settle it.
 - Never place a recommendation before or among the options.
 
-```text
-1. Where should session state live?
-   a. In-process memory, because it is fastest and needs no new infrastructure.
-   b. A managed cache, because it survives restarts and scales across instances.
-   c. A database table, because it reuses existing storage and backups.
-   d. Start with the database table, then move to a managed cache if latency targets are missed.
-   Recommended: d, because it needs no new infrastructure now and leaves a staged path if load grows.
-   Would reverse it: a latency target the database cannot meet at launch.
+Layout, where the output renders Markdown:
 
-2. Who owns session expiry rules?
-   a. ...
+- Put the question in bold. Indent each option as a list item that starts with its bold letter, and leave a blank line between options.
+- After the last option, put the recommendation in a quote block, in italics with a bold label: one paragraph for `Recommended:` and one for `Would reverse it:`.
+- Separate questions with a horizontal rule.
+
+Where Markdown does not render, keep the same order: indented lettered options, then the `Recommended:` and `Would reverse it:` lines.
+
+```markdown
+**1. Where should session state live?**
+
+  - **a.** In-process memory, because it is fastest and needs no new infrastructure.
+
+  - **b.** A managed cache, because it survives restarts and scales across instances.
+
+  - **c.** A database table, because it reuses existing storage and backups.
+
+  - **d.** Start with the database table, then move to a managed cache if latency targets are missed.
+
+> _**Recommended: d.** It needs no new infrastructure now and leaves a staged path if load grows._
+>
+> _**Would reverse it:** a latency target the database cannot meet at launch._
+
+---
+
+**2. Who owns session expiry rules?**
+
+  - **a.** ...
 ```
 
 ### Pre-return QA pass

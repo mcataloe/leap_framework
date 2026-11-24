@@ -2,6 +2,13 @@
 
 Current and unreleased LEAP Framework changes are recorded here. Use Git history, release notes, and tags for older detail.
 
+## Unreleased - Discovery choice layout
+
+### Changed
+
+- `docs/user/leap-discovery.md` "Presenting choices" adds a layout for Markdown output: bold question, indented lettered options with a blank line between them, the `Recommended:` and `Would reverse it:` paragraphs in an italic quote block after the options, and a horizontal rule between questions. Plain-text output keeps the same order. The example now uses this layout.
+- `tests/validate_semantic_router.py` also checks for the `Would reverse it:` line.
+
 ## Unreleased - Discovery choice format and pre-return QA pass
 
 ### Added
