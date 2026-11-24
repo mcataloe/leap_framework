@@ -68,7 +68,7 @@ def validate():
     discovery = (ROOT / "docs/user/leap-discovery.md").read_text(encoding="utf-8")
     for term in (
         "materiality-gate.md", "### Presenting choices", "Recommended:",
-        "### Pre-return QA pass"
+        "### Pre-return QA pass", "Would reverse it:"
     ):
         assert term in discovery, f"Missing Discovery rule: {term}"
     assert "No Gate never" in router, "Missing No Gate STOP guard"
